@@ -1,0 +1,40 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96eda1e"
+      },
+      "name": "ServiceTest",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "11111111",
+      "managerActivationCode": "22222222",
+      "moduleConfigs": [],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ]
+}

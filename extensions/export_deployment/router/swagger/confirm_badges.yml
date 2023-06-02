@@ -1,0 +1,38 @@
+Confirm badges were seen
+
+---
+tags:
+  - export
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/ConfirmExportBadgesRequestObject'
+responses:
+  200:
+    description: number of successfully marked badges
+    schema:
+      $ref: '#/definitions/ConfirmExportBadgesResponseObject'
+definitions:
+  ConfirmExportBadgesRequestObject:
+    type: object
+    required:
+      - exportProcessIds
+    properties:
+      exportProcessIds:
+        type: array
+        items:
+          type: string
+  ConfirmExportBadgesResponseObject:
+    type: object
+    properties:
+      updated:
+        type: integer

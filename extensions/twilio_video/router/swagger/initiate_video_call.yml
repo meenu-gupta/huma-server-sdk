@@ -1,0 +1,41 @@
+Initiate Video Call
+---
+tags:
+  - video call
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/InitiateVideoCallRequestObject'
+  - in: path
+    name: manager_id
+    required: true
+    type: string
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  201:
+    description: OK
+    schema:
+      $ref: '#/definitions/InitiateVideoCallResponse'
+definitions:
+  InitiateVideoCallRequestObject:
+    type: object
+    properties:
+      appointmentId:
+        type: string
+  InitiateVideoCallResponse:
+    type: object
+    properties:
+      videoCallId:
+        type: string
+      roomSid:
+        type: string
+      authToken:
+        type: string

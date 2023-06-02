@@ -1,0 +1,19 @@
+Retrieve user export processes
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+
+responses:
+  200:
+    description: List of existing processes
+    schema:
+      $ref: '#/definitions/RetrieveExportProcessesResponse'

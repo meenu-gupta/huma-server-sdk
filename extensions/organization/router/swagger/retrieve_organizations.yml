@@ -1,0 +1,87 @@
+Get list of organizations
+---
+tags:
+  - organization
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/RetrieveOrganizationsRequest'
+
+responses:
+  200:
+    description: List of organizations based on skip and limit
+    schema:
+      $ref: '#/definitions/RetrieveOrganizationsResponse'
+
+definitions:
+  RetrieveOrganizationsRequest:
+    type: object
+    required:
+      - skip
+      - limit
+    properties:
+      skip:
+        type: integer
+        minimum: 0
+        example: 0
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+      sort:
+        type: array
+        items:
+          $ref: "#/definitions/SortField"
+      nameContains:
+        type: string
+        example: abc
+      searchCriteria:
+        type: string
+        example: b2c
+      status:
+        type: array
+        items:
+          type: string
+          enum: ["DRAFT", "DEPLOYED", "ARCHIVED"]
+  Organization:
+    allOf:
+      - $ref: "#/definitions/CreateOrganizationRequest"
+      - properties:
+          id:
+            type: string
+          createDateTime:
+            type: string
+            format: date-time
+          updateDateTime:
+            type: string
+            format: date-time
+          roles:
+              $ref: "#/definitions/roles"
+          deploymentIds:
+            type: array
+            items:
+              type: string
+              example: "5fde855f12db509a2785d899"
+
+  RetrieveOrganizationsResponse:
+    type: object
+    properties:
+      items:
+        type: array
+        items:
+          $ref: "#/definitions/Organization"
+      skip:
+        type: integer
+        example: 0
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+      total:
+        type: integer
+        example: 1000

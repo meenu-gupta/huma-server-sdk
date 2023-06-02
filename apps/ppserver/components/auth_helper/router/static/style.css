@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'VictorSerifSmooth-Regular';
+    src: url("./fonts/font-victorSerif/VictorSerifSmooth-Regular.otf");
+}
+@font-face {
+    font-family: "NotoSans";
+    src: url("./fonts/font-noto/NotoSans-Regular.ttf");
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "NotoSans", sans-serif;
+    font-feature-settings: "tnum";
+}
+
+html, body, p {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: block;
+    height: 100vh;
+    position: relative;
+    background: radial-gradient(68.82% 136.09% at 100% 100%,hsla(0,0%,100%,.5) 0,hsla(0,0%,100%,0) 100%),
+                linear-gradient(237.7deg,rgba(251,204,215,.4) -12.76%,rgba(255,218,159,.4) 110.79%),
+                #fff;
+}
+
+.row {
+    height: calc(100% - 34px);
+}
+
+.login-container {
+    width: 350px;
+    padding: 0;
+}
+
+.title {
+    margin-top: 24px;
+    margin-bottom: 16px;
+    text-align: center;
+    font-family: "VictorSerifSmooth-Regular", sans-serif;
+    font-size: 30px;
+    line-height: 40px;
+    font-weight: 400;
+}
+
+.form {
+    display: block;
+    font-size: 16px;
+}
+
+.form .form-control:hover, .form .form-control:focus, .form .form-select:focus {
+    border-color: #424347;
+}
+
+.form-select, .form-control {
+    border: 1px solid #ebebeb !important;
+}
+
+.form input, .form select {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    padding: 6px 11px;
+    color: #424347;
+    font-size: 16px;
+    line-height: 1.6;
+    border: 1px solid transparent;
+    border-radius: 14px;
+    transition: all .3s;
+    outline: none;
+}
+
+.form-footer {
+    margin-top: 38px;
+    width: 100%;
+}
+
+.btn-primary {
+    background: #424347;
+    border-color: #424347;
+    text-transform: none;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.btn-primary:hover {
+    background-color: #5b5b5f;
+}
+
+.messages {
+    color: green;
+}
+.logo-img {
+    width: 67px;
+}
+
+.footer p {
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    color: #6a6c72;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.flashMsg {
+    text-align: center;
+    color: red;
+}

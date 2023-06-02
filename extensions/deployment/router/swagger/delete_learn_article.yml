@@ -1,0 +1,27 @@
+Delete Learn Article
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment that section belongs to.
+  - in: path
+    name: section_id
+    type: string
+    required: true
+    description: ID of the section that article belongs to.
+  - in: path
+    name: article_id
+    type: string
+    required: true
+    description: ID of the article that section belongs to.
+
+responses:
+  204:
+    description: Article deleted
+

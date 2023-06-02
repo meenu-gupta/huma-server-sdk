@@ -1,0 +1,43 @@
+Send a message to a list of users
+Sending a message to a list of patients/participants
+---
+tags:
+  - Inbox
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: If allUsers is set to true, userIds will be ignored and message will be sent to all of the users
+    required: true
+    schema:
+      $ref: "#/definitions/SendBulkMessageRequestObject"
+responses:
+  201:
+    description: "Number of messages sent to recipient list."
+    schema:
+      $ref: "#/definitions/SendBulkMessageResponse"
+definitions:
+  SendBulkMessageRequestObject:
+    type: object
+    required:
+      - text
+    properties:
+      text:
+        type: string
+      custom:
+        type: boolean
+      userIds:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      allUsers:
+        type: boolean
+        example: false
+  SendBulkMessageResponse:
+    type: object
+    properties:
+      SentMessages:
+        type: integer
+        example: 10

@@ -1,0 +1,590 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "X",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "sections": [
+          {
+            "id": {
+              "$oid": "5e946c69e8002eac4a107f56"
+            },
+            "title": "Test section",
+            "order": 10,
+            "articles": [
+              {
+                "id": {
+                  "$oid": "5e8c58176207e5f78023e655"
+                },
+                "title": "article_ss three",
+                "order": 10,
+                "type": "SMALL",
+                "thumbnailUrl": {
+                  "region": "us-west-1",
+                  "key": "my.png",
+                  "bucket": "admin_bucket"
+                },
+                "content": {
+                  "type": "VIDEO",
+                  "timeToRead": "20m",
+                  "textDetails": "Here what you read",
+                  "videoUrl": {
+                    "bucket": "integrationtests",
+                    "key": "shared/5ded7cfa844317000162d5e7/logo/Screenshot_1572653613.png",
+                    "region": "cn"
+                  }
+                }
+              }
+            ],
+            "updateDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            },
+            "createDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            }
+          }
+        ],
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "moduleConfigs": [
+        {
+          "about": "here we are",
+          "configBody": {
+            "id": "e932907c-e2c6-4fc7-88a9-72e2bba65431",
+            "isForManager": true,
+            "name": "Observation Notes",
+            "pages": [
+              {
+                "items": [
+                  {
+                    "description": "",
+                    "format": "TEXT",
+                    "id": "574f462e-31d5-42ac-8987-83d4dad0ce3f",
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "order": 1,
+                    "required": false,
+                    "text": "Observation Notes"
+                  }
+                ],
+                "order": 1,
+                "type": "QUESTION"
+              }
+            ],
+            "publisherName": "NX"
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "id": "5f15aaea6530a4c3c6db4506",
+          "learnArticleIds": [],
+          "moduleId": "Questionnaire",
+          "moduleName": "Observation Notes",
+          "order": 10,
+          "schedule": {
+            "friendlyText": "friendlyText",
+            "timesOfDay": [],
+            "timesPerDuration": 0
+          },
+          "status": "ENABLED",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebeca"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Weight",
+          "moduleName": "Weight",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebecb"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Height",
+          "moduleName": "Height",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebe4a"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "order": {
+            "$numberInt": "7"
+          },
+          "about": "string",
+          "configBody": {},
+          "moduleId": "Journal",
+          "moduleName": "string",
+          "schedule": {
+            "friendlyText": "string",
+            "isoDuration": "P1W",
+            "timesOfDay": [
+              "BEFORE_BREAKFAST"
+            ],
+            "timesPerDuration": 0
+          },
+          "status": "ENABLED"
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed8ae76cf99540b259a7315"
+      },
+      "name": "Y",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test1@test.com",
+      "phoneNumber": "+3809999999994",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "id": "5e8f0c74b50aa9656c34789d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999555",
+      "displayName": "manager",
+      "userAttributes": {
+        "familyName": "manager",
+        "givenName": "manager",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "superadmin@manager.com",
+      "phoneNumber": "+380999999544",
+      "displayName": "SuperAdmin",
+      "userAttributes": {
+        "familyName": "SuperAdmin",
+        "givenName": "SuperAdmin",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "user@user.com",
+      "phoneNumber": "+380999999955",
+      "displayName": "user",
+      "userAttributes": {
+        "familyName": "user",
+        "givenName": "user",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "id": "5e8f0c74b50aa9656c34789d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "manager",
+      "userAttributes": {
+        "familyName": "manager",
+        "givenName": "manager",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "manager@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999999555",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34788d"
+      },
+      "id": "5e8f0c74b50aa9656c34788d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "manager2",
+      "userAttributes": {
+        "familyName": "manager2",
+        "givenName": "manager2",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "manager2@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999995555",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "tes1t@test.com",
+      "phoneNumber": "+3809999999994",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "recentModuleResults": {
+        "5f1824ba504787d8d89ebeca": [
+          {
+            "Weight": {
+              "id": "5ff4b14e0b3791bf7278d9c6",
+              "userId": {
+                "$oid": "5e8f0c74b50aa9656c34789b"
+              },
+              "moduleId": "Weight",
+              "moduleConfigId": "5f1824ba504787d8d89ebeca",
+              "deploymentId": {
+                "$oid": "5d386cc6ff885918d96edb2c"
+              },
+              "version": 0,
+              "deviceName": "iOS",
+              "isAggregated": false,
+              "startDateTime": {
+                "$date": "2021-01-05T18:34:54.000Z"
+              },
+              "createDateTime": {
+                "$date": "2021-01-05T18:34:54.658Z"
+              },
+              "submitterId": {
+                "$oid": "5f914cb28ee0158d37d2cf9c"
+              },
+              "value": 1000
+            }
+          }
+        ]
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "user",
+      "familyName": "user",
+      "email": "user@user.com",
+      "phoneNumber": "+380999999955",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "tagsAuthorId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "givenName": "manager",
+      "familyName": "manager",
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999555",
+      "roles": [
+        {
+          "roleId": "Manager",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "SuperAdmin",
+      "familyName": "SuperAdmin",
+      "email": "SuperAdmin@manager.com",
+      "phoneNumber": "+380999999544",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34788d"
+      },
+      "givenName": "manager2",
+      "familyName": "manager2",
+      "email": "manager2@manager.com",
+      "phoneNumber": "+380999995555",
+      "roles": [
+        {
+          "roleId": "Manager",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ],
+  "weight": [
+    {
+      "_id": {
+        "$oid": "5f50ffbeaad3c395ab806b99"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "moduleId": "Weight",
+      "moduleConfigId": "5f1824ba504787d8d89ebeca",
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": {
+        "$numberInt": "0"
+      },
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-01-07T15:33:04.000Z"
+      },
+      "createDateTime": {
+        "$date": "2021-01-07T15:33:05.042Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "value": {
+        "$numberDouble": "10000"
+      }
+    }
+  ]
+}

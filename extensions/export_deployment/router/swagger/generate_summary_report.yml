@@ -1,0 +1,45 @@
+Generate Summary Report
+---
+tags:
+  - report
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: user_id
+    in: path
+    description: "User ID to export data for"
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: "Json body with options"
+    schema:
+      $ref: "#/definitions/GenerateSummaryReportRequest"
+
+produces:
+  - application/pdf
+
+responses:
+  201:
+    description: A Summary Report File
+  404:
+    description: Feature is not enabled in deployment
+    schema:
+      type: string
+      example: "<h1>Feature is not enabled</h1>"
+
+definitions:
+  GenerateSummaryReportRequest:
+    type: object
+    properties:
+      format:
+        type: string
+        enum: ["PDF"]
+      startDateTime:
+        type: string
+        format: date-time
+      endDateTime:
+        type: string
+        format: date-time

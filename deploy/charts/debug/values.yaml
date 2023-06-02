@@ -1,0 +1,30 @@
+# Default values for ..
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+# Without any username and password
+mongoProxy:
+  enabled: true
+  target: mongodb.db.svc.cluster.local:27017
+
+redisProxy:
+  enabled: true
+  target: mongodb.db.svc.cluster.local:27017
+
+debugDeployment:
+  enabled: true
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+
+
+

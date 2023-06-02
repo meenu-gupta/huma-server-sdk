@@ -1,0 +1,20 @@
+Export Revere test result
+---
+tags:
+  - revere
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - in: path
+    name: test_id
+    required: true
+    type: string
+responses:
+  200:
+    description: csv file with test results
+produces:
+  - text/csv

@@ -1,0 +1,13 @@
+Retrieve User Profiles Assigned to Manager
+---
+tags:
+  - user
+security:
+  - Bearer: []
+responses:
+  200:
+    description: List of user profiles
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/UserProfile'

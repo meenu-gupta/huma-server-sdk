@@ -1,0 +1,289 @@
+{
+  "notificationData": {
+    "title": "hu_eq5d5l_notification_title",
+    "body": "hu_eq5d5l_notification_body"
+  },
+  "about": "hu_eq5d5l_about",
+  "configBody": {
+    "pages": [
+      {
+        "type": "INFO",
+        "id": "hu_eq5d5l_info1",
+        "order": 1,
+        "displayInCP": false,
+        "text": "hu_eq5d5l_info_text1",
+        "description": "hu_eq5d5l_info_desc1"
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_eq5d5l_mobility",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_eq5d5l_mob_text",
+            "shortText": "hu_eq5d5l_mob_shorttext",
+            "options": [
+              {
+                "label": "hu_eq5d5l_mob_label1",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_eq5d5l_mob_label2",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_eq5d5l_mob_label3",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_eq5d5l_mob_label4",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_eq5d5l_mob_label5",
+                "value": "5",
+                "weight": 5
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 2
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_eq5d5l_selfcare",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_eq5d5l_selfcare_text",
+            "shortText": "hu_eq5d5l_selfcare_shorttext",
+            "options": [
+              {
+                "label": "hu_eq5d5l_selfcare_label1",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_eq5d5l_selfcare_label2",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_eq5d5l_selfcare_label3",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_eq5d5l_selfcare_label4",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_eq5d5l_selfcare_label5",
+                "value": "5",
+                "weight": 5
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 2
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "hu_eq5d5l_usualactivity_desc",
+            "id": "hu_eq5d5l_usualactivity",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_eq5d5l_usualactivity_text",
+            "shortText": "hu_eq5d5l_usualactivity_shorttext",
+            "options": [
+              {
+                "label": "hu_eq5d5l_usualactivity_label1",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_eq5d5l_usualactivity_label2",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_eq5d5l_usualactivity_label3",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_eq5d5l_usualactivity_label4",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_eq5d5l_usualactivity_label5",
+                "value": "5",
+                "weight": 5
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 2
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_eq5d5l_paindiscomfort",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_eq5d5l_paindis_text",
+            "shortText": "hu_eq5d5l_paindis_shorttext",
+            "options": [
+              {
+                "label": "hu_eq5d5l_paindis_label1",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_eq5d5l_paindis_label2",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_eq5d5l_paindis_label3",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_eq5d5l_paindis_label4",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_eq5d5l_paindis_label5",
+                "value": "5",
+                "weight": 5
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 2
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_eq5d5l_anxiety",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_eq5d5l_anxiety_text",
+            "shortText": "hu_eq5d5l_anxiety_shorttext",
+            "options": [
+              {
+                "label": "hu_eq5d5l_anxiety_label1",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_eq5d5l_anxiety_label2",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_eq5d5l_anxiety_label3",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_eq5d5l_anxiety_label4",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_eq5d5l_anxiety_label5",
+                "value": "5",
+                "weight": 5
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 2
+      },
+      {
+        "type": "INFO",
+        "id": "hu_eq5d5l_info2",
+        "text": "hu_eq5d5l_info_text2",
+        "description": "hu_eq5d5l_info_desc2",
+        "order": 7
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_eq5d5l_scale",
+            "required": true,
+            "format": "SCALE",
+            "order": 1,
+            "text": "hu_eq5d5l_scale_text",
+            "shortText": "hu_eq5d5l_scale_shorttext",
+            "lowerBound": "0",
+            "upperBound": "100",
+            "lowerBoundLabel": "hu_eq5d5l_scale_lbtext",
+            "upperBoundLabel": "hu_eq5d5l_scale_ubtext",
+            "isVisualAnalogueScale": true,
+            "vasLabel": "hu_eq5d5l_scale_vaslabel",
+            "stepLength": "1"
+          }
+        ],
+        "order": 8
+      }
+    ],
+    "submissionPage": {
+      "type": "SUBMISSION",
+      "id": "eq5d5l_submission",
+      "order": 51,
+      "text": "eq5d5l_submission_text",
+      "buttonText": "hu_eq5d5l_submission_button",
+      "description": "eq5d5l_submission_description"
+    }
+  }
+}

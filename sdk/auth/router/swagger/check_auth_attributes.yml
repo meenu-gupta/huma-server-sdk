@@ -1,0 +1,51 @@
+Check auth attributes
+---
+tags:
+  - auth
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CheckAuthAttributesRequest'
+responses:
+  200:
+    description: ok
+    schema:
+      $ref: '#/definitions/CheckAuthAttributesResponse'
+definitions:
+  CheckAuthAttributesResponse:
+    type: object
+    properties:
+      phoneNumber:
+        type: string
+      email:
+        type: string
+      passwordSet:
+        type: boolean
+      emailVerified:
+        type: boolean
+      phoneNumberVerified:
+        type: boolean
+      eligibleForMFA:
+        type: boolean
+      mfaEnabled:
+        type: boolean
+
+  CheckAuthAttributesRequest:
+    type: object
+    properties:
+      authToken:
+        type: string
+      tokenType:
+        type: integer
+        enum: [0, 1]
+      phoneNumber:
+        type: string
+      email:
+        type: string
+      clientId:
+        type: string
+      projectId:
+        type: string

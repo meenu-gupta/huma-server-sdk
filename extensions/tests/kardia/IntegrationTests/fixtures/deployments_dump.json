@@ -1,0 +1,269 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "5e94b2007773091c9a592650"
+          },
+          "about": "string",
+          "configBody": {
+            "id": "749e6294-034e-4366-a9c9-83027d5c0fe3",
+            "isForManager": true
+          },
+          "moduleId": "ECGAliveCor",
+          "moduleName": "ECGAliveCor",
+          "status": "ENABLED"
+        }
+      ],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "calendar": [
+    {
+      "_id": {
+        "$oid": "5eee34de4acf740d885767a8"
+      },
+      "_cls": "MongoCalendarEvent",
+      "model": "Appointment",
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180537"
+      },
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1595027760000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1595027770000"
+        }
+      },
+      "isRecurring": false,
+      "extraFields": {
+        "managerId": {
+          "$oid": "5e8f0c74b50aa9656c34789c"
+        },
+        "status": "SCHEDULED"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1592669406609"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1592669406609"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eee34de4acf740d885767b8"
+      },
+      "_cls": "MongoCalendarEvent",
+      "model": "Appointment",
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1595027760000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1595027770000"
+        }
+      },
+      "isRecurring": false,
+      "extraFields": {
+        "managerId": {
+          "$oid": "5e8f0c74b50aa9656c34789a"
+        },
+        "status": "SCHEDULED"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1592669406609"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1592669406609"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "id": "5e8f0c74b50aa9656c34789a",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999977",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "id": "5e84b0dab8dfa268b1180536",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "displayName": "testUser",
+      "userAttributes": {
+        "familyName": "testUser",
+        "givenName": "testUser",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999977",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "givenName": "testUser",
+      "familyName": "testUser",
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

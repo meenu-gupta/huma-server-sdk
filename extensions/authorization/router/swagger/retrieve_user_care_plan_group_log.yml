@@ -1,0 +1,48 @@
+Get CarePlanGroup Log
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user.
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment.
+responses:
+  200:
+    description: CarePlanGroup Log requested by Deployment ID
+    schema:
+      $ref: '#/definitions/CarePlanGroupLogs'
+definitions:
+  CarePlanGroupLogs:
+    type: array
+    items:
+      $ref: '#/definitions/CarePlanGroup'
+  CarePlanGroup:
+    type: object
+    properties:
+      userId:
+        type: string
+      fromCarePlanGroupId:
+        type: string
+      toCarePlanGroupId:
+        type: string
+      submitterId:
+        type: string
+      submitterName:
+        type: string
+      note:
+        type: string
+      createDateTime:
+        type: string
+        format: date-time
+      updateDateTime:
+        type: string
+        format: date-time

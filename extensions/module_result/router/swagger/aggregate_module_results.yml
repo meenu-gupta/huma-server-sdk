@@ -1,0 +1,83 @@
+Retrieve Modules Aggregated
+---
+tags:
+  - modules
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    schema:
+      $ref: "#/definitions/AggregateModuleResultsRequest"
+  - name: user_id
+    in: path
+    required: true
+    type: string
+responses:
+  200:
+    description: Modules with array of records
+    schema:
+      $ref: '#/definitions/AggregateModuleResultsResponse'
+definitions:
+  AggregateModuleResultsRequest:
+    type: object
+    properties:
+      function:
+        type: string
+      primitiveName:
+        type: string
+        example: "BloodPressure"
+      mode:
+        type: string
+        enum: [NONE, DAILY, WEEKLY, MONTHLY]
+      fromDateTime:
+        type: string
+        format: date-time
+      toDateTime:
+        type: string
+        format: date-time
+      skip:
+        type: integer
+        minimum: 0
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+      userId:
+        type: string
+      timezone:
+        type: string
+        example: "Europe/London"
+      moduleConfigId:
+        type: string
+  AggregateModuleResultsResponse:
+    type: array
+    items:
+      $ref: "#/definitions/AggregatedModuleResultItem"
+  AggregatedModuleResultItem:
+    type: object
+    properties:
+      timePeriod:
+        type: object
+        required:
+          - year
+          - month
+        properties:
+          year:
+            type: integer
+            example: 2020
+          month:
+            type: integer
+            example: 4
+          week:
+            type: integer
+            example: 18
+          day:
+            type: integer
+            example: 18
+          hour:
+            type: integer
+            example: 10

@@ -1,0 +1,50 @@
+Send Verification Token
+Send verification token to the specified email or phone number
+---
+tags:
+  - auth
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/SendVerificationTokenRequest'
+responses:
+  200:
+    description: Send Verification Token Valid Response
+    schema:
+      $ref: '#/definitions/SendVerificationTokenResponse'
+definitions:
+  SendVerificationTokenRequest:
+    type: object
+    required:
+      - method
+      - clientId
+      - language
+      - projectId
+    properties:
+      method:
+        type: integer
+        enum: [0, 1, 2, 3, 4]
+      email:
+        type: string
+      phoneNumber:
+        type: string
+      clientId:
+        type: string
+        example: c1
+      language:
+        type: string
+      projectId:
+        type: string
+        example: p1
+      refreshToken:
+        type: string
+  SendVerificationTokenResponse:
+    type: object
+    properties:
+      ok:
+        type: boolean
+      to:
+        type: string

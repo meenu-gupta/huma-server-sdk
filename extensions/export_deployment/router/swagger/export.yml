@@ -1,0 +1,46 @@
+Export
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: "Json body with options"
+    required: true
+    schema:
+      $ref: "#/definitions/ExportRequest"
+
+responses:
+  200:
+    description: Export data based on request. Optionally zip archive if binaries included.
+    schema:
+      $ref: '#/definitions/ExportDeploymentResponse'
+
+definitions:
+  ExportRequest:
+    allOf:
+      - $ref: "#/definitions/ExportParams"
+      - properties:
+          baseProfile:
+            type: string
+          useExportProfile:
+            type: boolean
+            default: true
+          deploymentId:
+            type: string
+          organizationId:
+            type: string
+          deploymentIds:
+            type: array
+            items:
+              type: string
+              example: "5e84b0dab8dfa268b1180536"
+          doTranslate:
+            type: boolean
+            default: true
+          managerIds:
+            type: string

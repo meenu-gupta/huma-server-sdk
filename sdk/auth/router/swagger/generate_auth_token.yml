@@ -1,0 +1,29 @@
+Generate auth token for user
+---
+tags:
+  - auth
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID for which the auth token will be generated for
+responses:
+  201:
+    description: 201 when auth token generated successfully
+    schema:
+      $ref: '#/definitions/GenerateAuthTokensResponse'
+
+definitions:
+  GenerateAuthTokensResponse:
+    type: object
+    required:
+      - authId
+      - authKey
+    properties:
+      authId:
+        type: string
+      authKey:
+        type: string

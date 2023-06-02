@@ -1,0 +1,165 @@
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:v="urn:schemas-microsoft-com:vml"
+>
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Source+Serif+Pro:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta content="width=device-width" name="viewport" />
+    <meta content="IE=edge" http-equiv="X-UA-Compatible" />
+    <title>Huma</title>
+    <style type="text/css">
+      @font-face {
+        font-family: 'VictorSerifSmooth-Regular';
+        src: url('https://huma-static-assets.netlify.app/VictorSerifSmooth-Regular.otf');
+      }
+      body {
+        background-image: url('https://huma-static-assets.netlify.app/gradient.png');
+      }
+
+      .huma-logo {
+        padding-left: 20px;
+        padding-top: 20px;
+      }
+
+      .boy-image {
+        height: 320px;
+      }
+
+      .main-section {
+        margin: 10% 25%;
+        display: flex;
+        max-width: 795px;
+        min-width: 325px;
+      }
+
+      .title-text {
+        width: 565px;
+        font-size: 50px;
+        line-height: 62px;
+        color: #272727;
+        padding-bottom: 32px;
+        font-family: 'VictorSerifSmooth-Regular';
+      }
+
+      .body-text {
+        font-family: 'Noto Sans';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 36px;
+        color: #272727;
+        width: 486px;
+      }
+      .text-items {
+        padding-left: 60px;
+      }
+
+      .app-buttons {
+        padding-top: 36px;
+        display: flex;
+      }
+
+      .ios-app-button {
+        padding-right: 16px;
+      }
+    </style>
+    <style>
+      @media (max-width: 705px) {
+        .main-section {
+          flex-direction: column;
+          margin: auto;
+          max-width: 600px;
+          padding-top: 100px;
+          padding-bottom: 25px;
+        }
+        .boy-image-section {
+          margin: auto;
+          padding-bottom: 30px;
+        }
+        .text-items {
+          margin: auto;
+          padding-left: 0;
+        }
+        .title-text {
+          text-align: center;
+          font-size: 28px;
+          line-height: 40px;
+          width: 327px;
+          padding-bottom: 25px;
+        }
+        .body-text {
+          width: 320px;
+          text-align: center;
+          font-size: 16px;
+          line-height: 26px;
+        }
+        .app-buttons {
+          justify-content: center;
+          padding-top: 33px;
+        }
+        .boy-image {
+          height: 240px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <div class="huma-logo">
+        <img
+          align="center"
+          class="icon"
+          height="40"
+          src="https://huma-static-assets.netlify.app/Fill_8.png"
+          style="border: 0"
+        />
+      </div>
+      <div class="main-section">
+        <div class="boy-image-section">
+          <img
+            class="boy-image"
+            src="https://huma-static-assets.netlify.app/boy.png"
+          />
+        </div>
+        <div class="text-items">
+          <div class="title-text">{{ title }}</div>
+          <div class="body-text">{{ description }}</div>
+          <div class="app-buttons">
+            <div class="ios-app-button">
+              <a
+                href="{{ appStoreLink }}"
+                style="display: inline-block"
+                target="_blank"
+              >
+                <img
+                  style="height: 45px; width: 150px"
+                  src="https://huma-static-assets.netlify.app/appstore.png"
+                  alt=""
+                />
+              </a>
+            </div>
+            <div class="android-app-button">
+              <a
+                href="{{ googlePlayLink }}"
+                style="display: inline-block"
+                target="_blank"
+              >
+                <img
+                  style="height: 45px; width: 165px"
+                  src="https://huma-static-assets.netlify.app/googleplay.png"
+                  alt=""
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

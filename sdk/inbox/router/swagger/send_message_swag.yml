@@ -1,0 +1,54 @@
+Send a message
+Sending a message to patient/participant
+---
+tags:
+  - Inbox
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/SendMessageRequestObject'
+responses:
+  201:
+    description: "Returns ID of created message"
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  Message:
+    allOf:
+      - $ref: "#/definitions/SendMessageRequestObject"
+      - properties:
+          id:
+            type: string
+          createDateTime:
+            type: string
+            format: date-time
+          updateDateTime:
+            type: string
+            format: date-time
+          userId:
+            type: string
+          submitterId:
+            type: string
+          submitterName:
+            type: string
+          status:
+            type: string
+            enum: ["DELIVERED", "READ"]
+  SendMessageRequestObject:
+    type: object
+    required:
+      - text
+    properties:
+      text:
+        type: string
+      custom:
+        type: boolean

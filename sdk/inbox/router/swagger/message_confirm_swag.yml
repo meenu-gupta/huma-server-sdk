@@ -1,0 +1,34 @@
+Confirm receiving messages
+Confirmation that the patient received messages
+---
+tags:
+  - Inbox
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/ConfirmMessageRequestObject'
+responses:
+  201:
+    description: number of confirmed messages
+    schema:
+      $ref: '#/definitions/ConfirmMessageResponseObject'
+definitions:
+  ConfirmMessageRequestObject:
+    type: object
+    required:
+      - messageIds
+    properties:
+      messageIds:
+        type: array
+        items:
+          type: string
+  ConfirmMessageResponseObject:
+    type: object
+    properties:
+      updated:
+        type: integer

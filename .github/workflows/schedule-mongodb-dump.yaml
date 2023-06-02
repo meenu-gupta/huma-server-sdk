@@ -1,0 +1,46 @@
+name: Make a nightly MongoDB snapshot
+on:
+  schedule:
+    # every weekday morning at 5:00 am
+    - cron: "0 5 * * 1-5"
+
+jobs:
+  pp_dev:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: huma-engineering/huma-github-actions/dump-mongodb-db-to-bucket@v0.3.0
+        with:
+          project_id: hu-global-sandbox
+          bucket_name: hu-europe2-github-action-pr-preview-bucket
+          archive_name: dump_hs_sandbox_pp_dev.gz
+          db_uri: ${{ format('mongodb+srv://{0}:{1}@{2}/{3}',
+            secrets.MONGO_PRE_PROD_USER_NAME,
+            secrets.MONGO_PRE_PROD_USER_PWD,
+            secrets.MONGO_PRE_PROD_HOST,
+            'pp_dev'
+            ) }}
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+          vpn_username: ${{ secrets.VPN_USERNAME }}
+          vpn_password: ${{ secrets.VPN_PASSWORD }}
+          vpn_config_url: https://api.perimeter81.com/api/networks/XkBbhFGBtm/tunnels/B0XEq9DgZn/openvpn-config/download
+          vpn_check_internal_domain: hu-pre-prod-london.wjabo.gcp.mongodb.net
+
+  pp_qa:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: huma-engineering/huma-github-actions/dump-mongodb-db-to-bucket@v0.3.0
+        with:
+          project_id: hu-global-sandbox
+          bucket_name: hu-europe2-github-action-pr-preview-bucket
+          archive_name: dump_hs_sandbox_pp_qa.gz
+          db_uri: ${{ format('mongodb+srv://{0}:{1}@{2}/{3}',
+            secrets.MONGO_PRE_PROD_USER_NAME,
+            secrets.MONGO_PRE_PROD_USER_PWD,
+            secrets.MONGO_PRE_PROD_HOST,
+            'pp_qa'
+            ) }}
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+          vpn_username: ${{ secrets.VPN_USERNAME }}
+          vpn_password: ${{ secrets.VPN_PASSWORD }}
+          vpn_config_url: https://api.perimeter81.com/api/networks/XkBbhFGBtm/tunnels/B0XEq9DgZn/openvpn-config/download
+          vpn_check_internal_domain: hu-pre-prod-london.wjabo.gcp.mongodb.net

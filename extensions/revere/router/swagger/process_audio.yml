@@ -1,0 +1,39 @@
+Process Revere Audio Result
+---
+tags:
+  - revere
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - in: path
+    name: test_id
+    required: true
+    type: string
+  - in: path
+    name: word_list_id
+    required: true
+    type: string
+  - in: body
+    name: body
+    description: request body
+    required: true
+    schema:
+      $ref: '#/definitions/ProcessRevereAudioRequest'
+responses:
+  200:
+    description: audio processed successfully
+definitions:
+  ProcessRevereAudioRequest:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          audioResult:
+            $ref: "#/definitions/S3Object"
+          initialWords:
+            type: array
+            items:
+              type: string

@@ -1,0 +1,54 @@
+name: Trigger Sync an existing snapshot S3 bucket to a composed bucket
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: GCP project ID
+        required: true
+        default: hu-global-sandbox
+      cluster_name:
+        description: GKE cluster name
+        required: true
+        default: hu-uk-sandbox-pr-preview-gke
+      location:
+        description: GKE zone
+        required: true
+        default: europe-west2
+      secret_name:
+        description: name of bucket secret
+        required: true
+        default: ppserver-77-bucket-secret
+      app_namespace:
+        description: Namespace
+        required: true
+        default: pr-preview-77
+      source_bucket:
+        description: Source S3 bucket name
+        required: true
+        default: hu-uk-sandbox-github-pr-preview-pp-dev-bucket
+      aws_region:
+        description: AWS region
+        required: true
+        default: eu-west-2
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Sync an existing S3 bucket to a composed bucket
+        id: sync
+        uses: huma-engineering/huma-github-actions/sync-s3-bucket-snapshot-to-composed-bucket@v0.6.0
+        with:
+          project_id: ${{ github.event.inputs.project_id }}
+          cluster_name: ${{ github.event.inputs.cluster_name }}
+          location: ${{ github.event.inputs.location }}
+          app_namespace: ${{ github.event.inputs.app_namespace }}
+          secret_name: ${{ github.event.inputs.secret_name }}
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+          source_bucket: ${{ github.event.inputs.source_bucket }}
+          aws_access_key_id: ${{ secrets.PR_PREVIEW_AWS_HUMA_SANDBOX_IAM_USER_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.PR_PREVIEW_AWS_HUMA_SANDBOX_IAM_USER_SECRET_KEY }}
+          aws_region: ${{ github.event.inputs.aws_region }}
+
+      - name: print
+        run: echo "error=${{ steps.sync.outputs.error }}"

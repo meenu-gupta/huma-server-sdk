@@ -1,0 +1,36 @@
+Summary messages
+Message summary for a user
+---
+tags:
+  - Inbox
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  201:
+    description: found summary
+    schema:
+      $ref: "#/definitions/MessageSummaryResponseObject"
+definitions:
+  MessageSummaryResponseObject:
+    type: object
+    properties:
+      messages:
+        type: array
+        items:
+          $ref: "#/definitions/SummaryItem"
+      unreadMessages:
+        type: integer
+      custom:
+        type: boolean
+  SummaryItem:
+    type: object
+    properties:
+      latestMessage:
+        $ref: "#/definitions/Message"
+      unreadMessageCount:
+        type: integer

@@ -1,0 +1,40 @@
+Offboard users
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: "Json body with userIds and Offboarding details"
+    required: true
+    schema:
+      $ref: "#/definitions/OffBoardUsersRequest"
+responses:
+  200:
+    description: When the users are offboarded successfully
+    schema:
+      $ref: "#/definitions/OffboardUsersResponse"
+
+definitions:
+  OffBoardUsersRequest:
+    type: object
+    required:
+      - userIds
+      - detailsOffBoarded
+    properties:
+      userIds:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      detailsOffBoarded:
+        type: string
+        example: "Completed treatment"
+  OffboardUsersResponse:
+    type: object
+    properties:
+      offboardedUsers:
+        type: integer
+        example: 10

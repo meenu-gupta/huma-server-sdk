@@ -1,0 +1,33 @@
+summary: Clone Deployment
+tags:
+  - deployment
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CloneDeploymentRequest"
+
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: "#/definitions/ObjIdResponse"
+
+definitions:
+  CloneDeploymentRequest:
+    type: object
+    required:
+      - referenceId
+      - name
+    properties:
+      referenceId:
+        type: string
+        example: 5e84b0dab8dfa268b1180536
+      name:
+        type: string

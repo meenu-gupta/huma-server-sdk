@@ -1,0 +1,107 @@
+summary: Get deployment by user ID
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID to retrieve deployment for.
+responses:
+  200:
+    description: Deployment requested by User ID
+    schema:
+      $ref: '#/definitions/ConfigurationResponse'
+
+definitions:
+  ConfigurationResponse:
+    type: object
+    required:
+      - deploymentId
+      - consentNeeded
+      - econsentNeeded
+      - isOffBoarded
+      - userActivationCode
+      - managerActivationCode
+      - updateDateTime
+      - createDateTime
+      - learn
+      - name
+      - status
+    properties:
+      deploymentId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      name:
+        type: string
+      status:
+        $ref: "#/definitions/DeploymentStatus"
+      color:
+        type: string
+        example: "0x007AFF"
+      icon:
+        $ref: "#/definitions/S3Object"
+      updateDateTime:
+        type: string
+        format: date-time
+      createDateTime:
+        type: string
+        format: date-time
+      userActivationCode:
+        type: string
+        example: 12345678
+      proxyActivationCode:
+        type: string
+        example: 12345678
+      moduleConfigs:
+        type: array
+        items:
+          $ref: "#/definitions/ModuleConfig"
+      onboardingConfigs:
+        type: array
+        items:
+          $ref: "#/definitions/OnboardingConfig"
+      consent:
+        $ref: "#/definitions/Consent"
+      learn:
+        $ref: "#/definitions/Learn"
+      consentNeeded:
+        type: boolean
+      profile:
+        $ref: "#/definitions/DeploymentProfileConfig"
+      features:
+        $ref: "#/definitions/DeploymentFeatureConfig"
+      integration:
+        $ref: "#/definitions/DeploymentIntegrationConfig"
+      keyActionsEnabled:
+        type: boolean
+      keyActions:
+        type: array
+        items:
+          $ref: "#/definitions/KeyActionConfig"
+      privacyPolicyUrl:
+        type: string
+      eulaUrl:
+        type: string
+      contactUsURL:
+        type: string
+      termAndConditionUrl:
+        type: string
+      carePlanGroup:
+        $ref: "#/definitions/CarePlanGroupCreateRequest"
+      econsent:
+        $ref: "#/definitions/EConsent"
+      econsentNeeded:
+        type: boolean
+      code:
+        type: string
+      mfaRequired:
+        type: boolean
+      staticEventConfig:
+        $ref: "#/definitions/StaticEventConfig"
+      country:
+        type: string
+      isOffBoarded:
+        type: boolean

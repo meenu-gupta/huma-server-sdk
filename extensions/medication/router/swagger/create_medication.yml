@@ -1,0 +1,124 @@
+Create Medication
+---
+tags:
+  - medication
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateMedication"
+  - in: path
+    name: user_id
+    description: user id to create medication for
+    required: true
+    type: string
+responses:
+  201:
+    description: Id of created medication
+    schema:
+      $ref: "#/definitions/ObjIdResponse"
+definitions:
+  Medication:
+    allOf:
+      - $ref: "#/definitions/CreateMedication"
+      - type: object
+        properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+  CreateMedication:
+    type: object
+    properties:
+      name:
+        type: string
+        example: "SomeMedicine"
+        maxLength: 45
+        minLength: 1
+      doseQuantity:
+        type: number
+        format: float
+        example: 250.2
+        minimum: 0.0
+      doseUnits:
+        type: string
+        example: "mg"
+        maxLength: 40
+        minLength: 1
+      prn:
+        type: boolean
+        example: true
+      schedule:
+        $ref: "#/definitions/MedicationSchedule"
+      extraProperties:
+        type: object
+        properties:
+          note:
+            type: string
+            example: "any note"
+      changeHistory:
+        type: array
+        items:
+          $ref: "#/definitions/MedicationHistory"
+      enabled:
+        type: boolean
+        example: true
+    required:
+      - name
+      - doseQuantity
+      - doseUnits
+  MedicationSchedule:
+    type: object
+    properties:
+      frequency:
+        type: integer
+        example: 3
+      period:
+        type: integer
+        example: 1
+      periodUnit:
+        type: string
+        enum: [DAILY, WEEKLY, MONTHLY, ANNUAL]
+    required:
+      - frequency
+      - periodUnit
+  MedicationHistory:
+    type: object
+    properties:
+      changeType:
+        type: string
+        enum: [MEDICATION_CREATE, MEDICATION_UPDATE, MEDICATION_DELETE]
+      name:
+        type: string
+        example: "SomeMedicine"
+        maxLength: 40
+        minLength: 1
+      doseQuantity:
+        type: number
+        format: float
+        example: 250.2
+        minimum: 0.0
+      doseUnits:
+        type: string
+        example: "mg"
+        maxLength: 40
+        minLength: 1
+      prn:
+        type: boolean
+        example: true
+      schedule:
+        $ref: "#/definitions/MedicationSchedule"
+      extraProperties:
+        type: object
+        properties:
+          note:
+            type: string
+            example: "any note"
+      enabled:
+        type: boolean
+        example: true

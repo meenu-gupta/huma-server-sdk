@@ -1,0 +1,24 @@
+Update organization
+---
+tags:
+  - organization
+
+security:
+  - Bearer: [ ]
+
+parameters:
+  - in: path
+    name: organization_id
+    type: string
+    required: true
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateOrganizationRequest"
+responses:
+  200:
+    description: Updated organization ID.
+    schema:
+      $ref: "#/definitions/ObjIdResponse"

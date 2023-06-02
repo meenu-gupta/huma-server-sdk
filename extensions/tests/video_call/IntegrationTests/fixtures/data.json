@@ -1,0 +1,307 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "moduleConfigs": [],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2d"
+      },
+      "name": "Test",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "53924416",
+      "managerActivationCode": "17781958",
+      "moduleConfigs": [],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "id": "5e8f0c74b50aa9656c34789a",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testmanager@test.com",
+      "displayName": "test",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602d031c68b787d552c55fb6"
+      },
+      "id": "602d031c68b787d552c55fb6",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "SuperAdmin@test.com",
+      "phoneNumber": "+380999999988",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "SuperAdmin",
+        "givenName": "SuperAdmin",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "displayName": "testUser",
+      "userAttributes": {
+        "familyName": "testUser",
+        "givenName": "testUser",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "testmanager@test.com",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2d"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "602d031c68b787d552c55fb6"
+      },
+      "givenName": "SuperAdmin",
+      "familyName": "SuperAdmin",
+      "email": "SuperAdmin@test.com",
+      "phoneNumber": "+380999999988",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "testUser",
+      "familyName": "testUser",
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ],
+  "video_call": [
+    {
+      "_id": {
+        "$oid": "5f0496ab82a630a9725336c1"
+      },
+      "_cls": "MongoVideoCall",
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "managerId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "roomStatus": "in-progress",
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1594136235125"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1594136235124"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1594136235124"
+        }
+      },
+      "duration": {
+        "$numberInt": "0"
+      }
+    }
+  ],
+  "appointment": [
+    {
+      "_id": {
+        "$oid": "62b06da6c7f5ae7050c5a86d"
+      },
+      "_cls": "MongoAppointment",
+      "userId": {
+        "$oid": "61bad6355e9d46fb1e5a1d8c"
+      },
+      "title": "New appointment request",
+      "description": "Please respond to the appointment request from your care team",
+      "managerId": {
+        "$oid": "61bad4e05e9d46fb1e5a1d85"
+      },
+      "status": "REJECTED",
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1656181370000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1656181370000"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1655729574418"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1655729575406"
+        }
+      }
+    }
+  ]
+}

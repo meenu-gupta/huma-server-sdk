@@ -1,0 +1,203 @@
+{
+  "id": "5ded7cfa844317000162d5e7",
+  "name": "Deployment 1",
+  "status": "DEPLOYED",
+  "color": "0x007AFF",
+  "userActivationCode": "16556079",
+  "managerActivationCode": "68871562wqwe",
+  "updateDateTime": "2019-12-20T11:53:12.498Z",
+  "learn": {
+    "id": "5ded7cfa844317000162d5e7",
+    "updateDateTime": "2019-12-20T11:53:12.498Z",
+    "sections": [
+      {
+        "id": "5ded7cfa844317000162d5e7",
+        "title": "section_one",
+        "order": 1,
+        "articles": [
+          {
+            "id": "5ded7cfa844317000162d5e7",
+            "title": "article_one",
+            "order": 1,
+            "type": "SMALL",
+            "thumbnailUrl": {
+              "region": "us-west-1",
+              "key": "my.png",
+              "bucket": "admin_bucket"
+            },
+            "content": {
+              "type": "READING_WITHOUT_VIDEO",
+              "timeToRead": "10m",
+              "textDetails": "Here what you read"
+            }
+          },
+          {
+            "id": "5ded7cfa844317000162d5e7",
+            "title": "article_three",
+            "order": 3,
+            "type": "VIDEO",
+            "thumbnailUrl": {
+              "region": "us-west-1",
+              "key": "m2.png",
+              "bucket": "admin_bucket"
+            },
+            "content": {
+              "type": "VIDEO",
+              "videoUrl": {
+                "region": "us-west-1",
+                "key": "m2.png",
+                "bucket": "admin_bucket"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "moduleConfigs": [
+    {
+      "id": "5ded7cfa844317000162d5e7",
+      "updateDateTime": "2019-12-20T11:53:12.498Z",
+      "moduleId": "BloodPressure",
+      "moduleName": "Blood Pressure",
+      "status": "ENABLED",
+      "configBody": {
+        "some": "dictionary"
+      },
+      "about": "some about",
+      "schedule": {
+        "isoDuration": "P1W",
+        "timesPerDuration": 1,
+        "timesOfDay": [
+          "BEFORE_DINNER"
+        ]
+      }
+    },
+    {
+      "id": "5ded7cfa844317000162d5e7",
+      "updateDateTime": "2019-12-20T11:53:12.498Z",
+      "moduleId": "SymptomTracker",
+      "moduleName": "Symptom Tracker",
+      "status": "DISABLED",
+      "configBody": {
+        "some": "dictionary"
+      },
+      "about": "some about",
+      "schedule": {
+        "isoDuration": "P1W",
+        "timesPerDuration": 1,
+        "timesOfDay": [
+          "BEFORE_DINNER"
+        ]
+      }
+    }
+  ],
+  "consent": [
+    {
+      "id": "5ded7cfa844317000162d5e7",
+      "title": "test",
+      "instituteName": "t",
+      "instituteFullName": "t",
+      "instituteTextDetails": "t",
+      "enabled": false,
+      "reviewTitle": "t",
+      "reviewConfirmationMessage": "t",
+      "pdfTitle": "t",
+      "pdfSignatureTitle": "t",
+      "pdfSignatureDetails": "t",
+      "investigatorName": "t",
+      "investigatorSignature": {
+        "bucket": "integrationtests",
+        "key": "shared/5ded7cfa844317000162d5e7/logo/Screenshot_1572653613.png",
+        "region": "cn"
+      },
+      "sections": [
+        {
+          "type": "OVERVIEW",
+          "summary": "test",
+          "textDetails": "te"
+        },
+        {
+          "type": "DATA_GATHERING",
+          "summary": "t",
+          "textDetails": "t"
+        },
+        {
+          "type": "PRIVACY",
+          "summary": "t",
+          "textDetails": "t"
+        },
+        {
+          "type": "DATA_USE",
+          "summary": "t",
+          "textDetails": "t"
+        },
+        {
+          "type": "WITHDRAWING",
+          "summary": "t",
+          "textDetails": "t"
+        },
+        {
+          "type": "SHARING",
+          "summary": "t",
+          "textDetails": "t"
+        }
+      ],
+      "updateDateTime": "2019-12-20T11:53:12.498Z"
+    },
+    {
+      "id": "5ded7cfa844317000162d5e7",
+      "title": "test",
+      "instituteName": "t",
+      "instituteFullName": "t",
+      "instituteTextDetails": "t",
+      "enabled": false,
+      "reviewTitle": "t",
+      "reviewConfirmationMessage": "t",
+      "pdfTitle": "t",
+      "pdfSignatureTitle": "t",
+      "pdfSignatureDetails": "t",
+      "investigatorName": "t",
+      "investigatorSignature": {
+        "bucket": "integrationtests",
+        "key": "shared/5ded7cfa844317000162d5e7/logo/Screenshot_1572653613.png",
+        "region": "cn"
+      },
+      "sections": [
+        {
+          "type": "OVERVIEW",
+          "summary": "test",
+          "textDetails": "te"
+        },
+        {
+          "type": "DATA_GATHERING",
+          "summary": "t",
+          "textDetails": "t"
+        },
+        {
+          "type": "PRIVACY",
+          "summary": "t",
+          "textDetails": "t"
+        },
+        {
+          "type": "DATA_USE",
+          "summary": "t",
+          "textDetails": "t"
+        },
+        {
+          "type": "WITHDRAWING",
+          "summary": "t",
+          "textDetails": "t"
+        },
+        {
+          "type": "SHARING",
+          "summary": "t",
+          "textDetails": "t"
+        }
+      ],
+      "updateDateTime": "2019-12-20T11:53:12.498Z",
+    }
+  ]
+}
+
+

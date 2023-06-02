@@ -1,0 +1,64 @@
+summary: Update Role
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment role belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/RoleUpdateRequest'
+responses:
+  200:
+    description: Created ObjectID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  RoleUpdateRequest:
+    type: object
+    properties:
+      roles:
+        $ref: "#/definitions/roles"
+  roles:
+    type: array
+    items:
+      type: object
+      required:
+        - name
+        - permissions
+      properties:
+        id:
+          type: string
+          example: "5fe4bf81f856a54b824cf04f"
+        name:
+          type: string
+          example: "Nurse"
+        permissions:
+          type: array
+          items:
+            type: string
+            $ref: '#/definitions/PermissionType'
+        userType:
+          type: string
+          enum:
+            - SUPER_ADMIN
+            - MANAGER
+            - USER
+            - ORGANIZATION_STAFF
+  PermissionType:
+    type: string
+    enum: [
+      "MANAGE_PATIENT_DATA",
+      "CONTACT_PATIENT",
+      "EXPORT_PATIENT_DATA",
+      "VIEW_PATIENT_DATA",
+      "ADD_STAFF_MEMBERS",
+      "VIEW_PATIENT_IDENTIFIER"
+    ]

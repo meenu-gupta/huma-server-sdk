@@ -1,0 +1,140 @@
+{{- $name := include "ppserver.fullname" $ -}}
+apiVersion: operator.huma.com/v1alpha1
+kind: ApplicationComposition
+metadata:
+  labels: {{ include "ppserver.labels" $ | nindent 4 }}
+  name: ppserver
+  namespace: {{ .Release.Namespace }}
+spec:
+  commonSpec:
+    mongoDBUsersRef:
+      - name: {{ $name }}-db
+        envVarName: MP_MONGODB_URL
+    redis:
+      redisClaimRef:
+        name: ppserver-rc
+      customEnvVarNames:
+        key: redis_url
+        name: MP_REDIS_URL
+    storage:
+      provider: aws
+      claimRef:
+        name: {{ $name }}-bucket
+      customEnvVarNames:
+        - key: aws_access_key_id
+          name: MP_MINIO_ACCESS_KEY
+        - key: aws_secret_access_key
+          name: MP_MINIO_SECRET_KEY
+        - key: bucket_name
+          name: MP_BUCKET_NAME
+        - key: region
+          name: MINIO_REGION
+    env:
+      - name: MP_HOST_URL
+        value: {{ $name }}.sbx.huma.com
+      - name: MP_WEB_APP_URL
+        value: {{ $name }}.sbx.huma.com
+      - name: MP_DEEPLINK_MOBILE_BASE_URL
+        value: https://{{ $name }}.sbx.huma.com
+      - name: MP_MANAGER_WEB_BASE_URL
+        value: https://{{ $name }}.sbx.huma.com
+      - name: MP_MINIO_URL
+        value: s3-eu-west-2.amazonaws.com
+      - name: MP_DB_NAME
+        value: {{ $name }}-db
+      - name: JSON_LOGGING_ENABLED
+        value: "1"
+      # injecting an external-secrets environment
+      {{- range $i, $secret := $.Values.injectSecretKeys }}
+      {{- range $secret.envNames }}
+      - name: {{ upper . }}
+        secretValue: {{ . }}@{{ $secret.name }}
+      {{- end }}
+      {{- end }}
+    files:
+      - path: /app/apps/ppserver/config.yaml
+        content: |
+          {{- .Values.config | nindent 10 }}
+    image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+  apps:
+    - name: ppserver
+      command:
+        - python
+      args:
+        - /app/apps/ppserver/ppserver.py
+        - --config
+        - /app/apps/ppserver/config.yaml
+        - --prod
+        - "false"
+        - --run
+        - server
+      domain:
+        name: {{ $name }}.sbx.huma.com
+        tlsSecretName: pp-star-sbx-huma-com-secret
+      http:
+        paths:
+          - path: /api/
+            service: ppserver
+          - path: /apidocs/
+            service: ppserver
+          - path: /flasgger_static/
+            service: ppserver
+          - path: /health/
+            service: ppserver
+          - path: /helper/
+            service: ppserver
+          - path: /version
+            pathType: Exact
+            service: ppserver
+          - path: /apispec_all.json
+            pathType: Exact
+            service: ppserver
+          - path: /
+            pathType: Prefix
+            service: cp
+          - path: {{ $.Values.mongoExpress.baseUrl }}
+            pathType: Prefix
+            service: mongo-express
+        enablePermissiveCORS: true
+        corsAllowHeaders: "x-hu-locale,x-org-id,x-deployment-id,x-hu-user-agent,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Request-ID,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization,x-amz-user-agent"
+      ports:
+        - 80:80
+        - 27017:27017
+      livenessProbe:
+        httpGet:
+          path: /health/live
+          port: 80
+        initialDelaySeconds: 3
+        periodSeconds: 60
+      readinessProbe:
+        httpGet:
+          path: /health/ready
+          port: 80
+        initialDelaySeconds: 3
+        periodSeconds: 60
+    - name: ppserver-worker
+      command:
+        - python
+      args:
+        - /app/apps/ppserver/ppserver.py
+        - --config
+        - /app/apps/ppserver/config.yaml
+        - --prod
+        - "false"
+        - --run
+        - worker
+      ports:
+        - 80
+    - name: ppserver-beat
+      command:
+        - python
+      args:
+        - /app/apps/ppserver/ppserver.py
+        - --config
+        - /app/apps/ppserver/config.yaml
+        - --prod
+        - "false"
+        - --run
+        - beat
+      ports:
+        - 80

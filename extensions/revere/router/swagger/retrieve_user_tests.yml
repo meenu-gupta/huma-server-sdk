@@ -1,0 +1,58 @@
+Retrieve all user's Revere tests
+---
+tags:
+  - revere
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  200:
+    description: list of revere tests, that belongs to user
+    schema:
+      $ref: '#/definitions/UserRevereTestsResponse'
+definitions:
+  UserRevereTestsResponse:
+    type: array
+    items:
+      $ref: "#/definitions/UserRevereTestResult"
+  UserRevereTestResult:
+    properties:
+      id:
+        type: string
+      results:
+        type: array
+        items:
+          $ref: "#/definitions/RevereTestResult"
+      userId:
+        type: string
+      startDateTime:
+        type: string
+        format: date-time
+      endDateTime:
+        type: string
+        format: date-time
+      status:
+        type: string
+        enum: [STARTED, FINISHED]
+
+  RevereTestResult:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          audioResult:
+            $ref: "#/definitions/S3Object"
+          wordsResult:
+            type: array
+            items:
+              type: string
+          initialWords:
+            type: array
+            items:
+              type: string
+          type:
+            type: string
+            example: "RevereTestResult"

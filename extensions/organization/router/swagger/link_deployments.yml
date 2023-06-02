@@ -1,0 +1,35 @@
+Link multiple deployments to organization
+---
+tags:
+  - organization
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: organization_id
+    type: string
+    required: true
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/LinkDeploymentsRequest'
+responses:
+  200:
+    description: updated organization
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  LinkDeploymentsRequest:
+    type: object
+    required:
+      - deploymentIds
+    properties:
+      deploymentIds:
+        type: array
+        items:
+          type: string
+          example: "602f641b90517902d644eff2"

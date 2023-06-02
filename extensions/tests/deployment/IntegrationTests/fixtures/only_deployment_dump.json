@@ -1,0 +1,87 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "627b65f6670a244cc036b6b8"
+      },
+      "roles": [
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4203"
+          },
+          "name": "Custom Role",
+          "permissions": [
+            "MANAGE_PATIENT_DATA",
+            "VIEW_PATIENT_IDENTIFIER",
+            "VIEW_PATIENT_DATA",
+            "CONTACT_PATIENT"
+          ]
+        },
+        {
+          "id": {
+            "$oid": "6009d18864a6786c2a2be181"
+          },
+          "name": "ReadOnly",
+          "permissions": ["VIEW_PATIENT_DATA"]
+        }
+      ],
+      "name": "hu_deployment_name",
+      "description": "deployment description",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "country": "United Kingdom",
+      "onboardingConfigs": [],
+      "features": {
+        "messaging": {
+          "enabled": true,
+          "messages": []
+        },
+        "description": "A test deployment 1",
+        "labels": {
+          "enabled": true,
+          "labels": [
+            {
+              "id": { "$oid": "5e8eeae1b707216625ca4202" },
+              "text": "RECOVERED",
+              "authorId": { "$oid": "5e8f0c74b50aa9656c34789b" },
+              "createDateTime": "2022-04-12T11:35:21.435000Z"
+            },
+            {
+              "id": { "$oid": "5d386cc6ff885918d96edb2c" },
+              "text": "IN TREATMENT",
+              "authorId": { "$oid": "5e8f0c74b50aa9656c34789b" },
+              "createDateTime": "2022-04-12T11:35:21.435000Z"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ff4a07b0318f65610aa0dec"
+      },
+      "name": "Affected Messaging Enabled Deployment",
+      "features": {
+        "messaging": {
+          "enabled": true
+        },
+        "labels": {
+          "enabled": true,
+          "labels": [
+            {
+              "labelId": { "$oid": "5d386cc6ff885918d96edb2c" },
+              "assignedBy": { "$oid": "5e8f0c74b50aa9656c34788d" },
+              "assignDateTime": "2022-05-24T08:17:27.116055Z"
+            },
+            {
+              "labelId": { "$oid": "5e8eeae1b707216625ca4202" },
+              "assignedBy": { "$oid": "5e8f0c74b50aa9656c34788d" },
+              "assignDateTime": "2022-05-24T08:17:27.116055Z"
+            }
+          ]
+        }
+      },
+      "description": "A test deployment 2"
+    }
+  ]
+}

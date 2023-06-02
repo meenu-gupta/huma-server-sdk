@@ -1,0 +1,922 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "60d9b623b07e15e833eae4a5"
+      },
+      "name": "KV H. Füßmann",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "updateDateTime": {
+        "$date": "2021-07-02T15:10:11.183Z"
+      },
+      "createDateTime": {
+        "$date": "2021-06-28T11:44:35.252Z"
+      },
+      "userActivationCode": "27853453",
+      "managerActivationCode": "4voERv5lyl9b",
+      "proxyActivationCode": "90096008",
+      "moduleConfigs": [
+        {
+          "updateDateTime": {
+            "$date": "2021-07-02T15:10:11.175Z"
+          },
+          "moduleId": "Symptom",
+          "moduleName": "",
+          "status": "ENABLED",
+          "order": 1,
+          "configBody": {
+            "complexSymptoms": [
+              {
+                "name": "hu_symptom_answer1",
+                "scale": [
+                  {
+                    "severity": 1,
+                    "value": "Mild"
+                  },
+                  {
+                    "severity": 2,
+                    "value": "Moderate"
+                  },
+                  {
+                    "severity": 3,
+                    "value": "Severe"
+                  },
+                  {
+                    "severity": 4,
+                    "value": "Very severe"
+                  }
+                ]
+              },
+              {
+                "name": "Daytime wheezing",
+                "scale": [
+                  {
+                    "severity": 1,
+                    "value": "Mild"
+                  },
+                  {
+                    "severity": 2,
+                    "value": "Moderate"
+                  },
+                  {
+                    "severity": 3,
+                    "value": "Severe"
+                  },
+                  {
+                    "severity": 4,
+                    "value": "Very severe"
+                  }
+                ]
+              }
+            ]
+          },
+          "about": " It is very helpful for your care team to be able to monitor your symptoms. Please report your symptoms and their severity according to the frequency set by your care team, to allow them to keep an eye on the progress of your condition. For pain, or for any other symptom, use the numerical rating pain scale (0-10) to let us know the severity of pain you are experiencing today: 0: None; 1-3: Mild; 4-6: Moderate; 7-10: Severe. <i>If you are continuously drowsy, unable to stand due to dizziness or have developed new chest pain please seek medical attention.</i>",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [
+            {
+              "type": "VALUE",
+              "severity": 3,
+              "thresholdRange": [
+                {
+                  "minValue": 3,
+                  "maxValue": 4
+                }
+              ],
+              "color": "#FBCCD7",
+              "fieldName": "hu_symptom_answer1",
+              "enabled": true
+            },
+            {
+              "type": "VALUE",
+              "severity": 2,
+              "thresholdRange": [
+                {
+                  "minValue": 2,
+                  "maxValue": 2
+                }
+              ],
+              "color": "#FFDA9F",
+              "fieldName": "hu_symptom_answer1",
+              "enabled": true
+            },
+            {
+              "type": "VALUE",
+              "severity": 1,
+              "thresholdRange": [
+                {
+                  "minValue": 1,
+                  "maxValue": 1
+                }
+              ],
+              "color": "#CBEBF0",
+              "fieldName": "hu_symptom_answer1",
+              "enabled": true
+            },
+            {
+              "type": "VALUE",
+              "severity": 3,
+              "thresholdRange": [
+                {
+                  "minValue": 3,
+                  "maxValue": 4
+                }
+              ],
+              "color": "#FBCCD7",
+              "fieldName": "Daytime wheezing",
+              "enabled": true
+            },
+            {
+              "type": "VALUE",
+              "severity": 2,
+              "thresholdRange": [
+                {
+                  "minValue": 2,
+                  "maxValue": 2
+                }
+              ],
+              "color": "#FFDA9F",
+              "fieldName": "Daytime wheezing",
+              "enabled": true
+            },
+            {
+              "type": "VALUE",
+              "severity": 1,
+              "thresholdRange": [
+                {
+                  "minValue": 1,
+                  "maxValue": 1
+                }
+              ],
+              "color": "#CBEBF0",
+              "fieldName": "Daytime wheezing",
+              "enabled": true
+            }
+          ],
+          "version": 1,
+          "id": {
+            "$oid": "60def70b9e8a91c79ea079d7"
+          }
+        }
+      ],
+      "onboardingConfigs": [],
+      "extraCustomFields": {
+        "mediclinicNumber1": {
+          "clinicianUpdate": true,
+          "errorMessage": "Mediclinic Number is incorrect",
+          "onboardingCollectionText": "Please enter mediclinic number",
+          "order": 2,
+          "profileCollectionText": "Patient Unique ID",
+          "required": true,
+          "showClinicianHeader": true,
+          "type": "TEXT",
+          "validation": "^\\d{7}$",
+          "isPrimary": true
+        }
+      },
+      "privacyPolicyUrl": "https://storage.googleapis.com/hu-deployment-static-content/discovernow/Huma%20App%20Privacy%20Notice%20-%20Discover%20Now.pdf",
+      "eulaUrl": "https://medopad.com/medopad_Ltd/EULA.pdf",
+      "termAndConditionUrl": "https://medopad.com/medopad_Ltd/EULA.pdf",
+      "version": 6,
+      "language": "en",
+      "onfidoRequiredReports": [
+        "DOCUMENT",
+        "FACIAL_SIMILARITY_PHOTO"
+      ],
+      "icon": {
+        "bucket": "ppdeveufrankfurt",
+        "key": "deployment/60d9b623b07e15e833eae4a5/128x128.png",
+        "region": "eu"
+      },
+      "enrollmentCounter": 2,
+      "stats": {
+        "completedCount": {
+          "value": 0,
+          "unit": ""
+        },
+        "completedTask": {
+          "value": 0,
+          "unit": "%"
+        },
+        "enrolledCount": {
+          "value": 1,
+          "unit": ""
+        },
+        "updateDateTime": {
+          "$date": "2021-06-29T11:00:00.033Z"
+        }
+      },
+      "localizations": {
+        "en": {
+          "hu_symptom_answer1": "english answer one"
+        },
+        "es": {
+          "hu_symptom_answer1": "espanole answer uno"
+        },
+        "ar": {
+          "hu_symptom_answer1": "arabic answer aval"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "60d9b5b9b07e15e833eae4a2"
+      },
+      "id": "60d9b5b9b07e15e833eae4a2",
+      "status": 1,
+      "emailVerified": true,
+      "email": "user.surname+a@huma.com",
+      "mfaEnabled": false,
+      "displayName": "user admin",
+      "userAttributes": {
+        "familyName": "admin",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": "2021-06-28T11:43:35.954Z"
+      },
+      "createDateTime": {
+        "$date": "2021-06-28T11:42:49.634Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60d9b676b07e15e833eae4b5"
+      },
+      "id": "60d9b676b07e15e833eae4b5",
+      "status": 1,
+      "emailVerified": true,
+      "email": "user.surname+u@huma.com",
+      "mfaEnabled": false,
+      "userAttributes": {},
+      "updateDateTime": {
+        "$date": "2021-07-02T13:44:39.682Z"
+      },
+      "createDateTime": {
+        "$date": "2021-06-28T11:45:58.536Z"
+      },
+      "hashedPassword": "$2b$12$EdpqrYCj5oXmF/aCdzOSY.tLkjToaKVqWkbLCcZt3xnURX8HjV6sC",
+      "passwordUpdateDateTime": {
+        "$date": "2021-07-04T18:32:12.942Z"
+      },
+      "passwordCreateDateTime": {
+        "$date": "2021-07-04T18:32:12.942Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60df12c29e8a91c79ea079f8"
+      },
+      "id": "60df12c29e8a91c79ea079f8",
+      "status": 1,
+      "emailVerified": true,
+      "email": "user.surname+m@huma.com",
+      "mfaEnabled": false,
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "usero",
+        "givenName": "dr",
+        "dob": "1988-02-20",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": "2021-07-04T18:01:01.373Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-02T13:21:06.444Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60e1fe8a3d632b2d0e3694d8"
+      },
+      "id": "60e1fe8a3d632b2d0e3694d8",
+      "status": 1,
+      "emailVerified": true,
+      "email": "user.surname+u2@huma.com",
+      "mfaEnabled": false,
+      "userAttributes": {},
+      "updateDateTime": {
+        "$date": "2021-07-04T18:32:12.942Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-04T18:31:38.724Z"
+      },
+      "hashedPassword": "$2b$12$EdpqrYCj5oXmF/aCdzOSY.tLkjToaKVqWkbLCcZt3xnURX8HjV6sC",
+      "passwordUpdateDateTime": {
+        "$date": "2021-07-04T18:32:12.942Z"
+      },
+      "passwordCreateDateTime": {
+        "$date": "2021-07-04T18:32:12.942Z"
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "60d9b5b9b07e15e833eae4a2"
+      },
+      "updateDateTime": {
+        "$date": "2021-06-28T11:42:49.694Z"
+      },
+      "createDateTime": {
+        "$date": "2021-06-28T11:42:49.694Z"
+      },
+      "givenName": "test",
+      "familyName": "admin",
+      "gender": "MALE",
+      "email": "user.surname+a@huma.com",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC",
+      "language": "en"
+    },
+    {
+      "_id": {
+        "$oid": "60d9b676b07e15e833eae4b5"
+      },
+      "updateDateTime": {
+        "$date": "2021-07-03T07:38:55.280Z"
+      },
+      "createDateTime": {
+        "$date": "2021-06-28T11:45:58.555Z"
+      },
+      "email": "user.surname+u@huma.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/60d9b623b07e15e833eae4a5",
+          "userType": "User"
+        }
+      ],
+      "timezone": "Europe/London",
+      "enrollmentId": 1,
+      "language": "es",
+      "finishedOnboarding": true,
+      "familyName": "rez",
+      "givenName": "am",
+      "dateOfBirth": {
+        "$date": "1996-06-28T00:00:00Z"
+      },
+      "ethnicity": "WHITE",
+      "extraCustomFields": {
+        "mediclinicNumber1": "1234567"
+      },
+      "height": 180,
+      "recentModuleResults": {
+        "60def70b9e8a91c79ea079d7": [
+          {
+            "Symptom": {
+              "id": "60df2d8964f132b22b662668",
+              "userId": {
+                "$oid": "60d9b676b07e15e833eae4b5"
+              },
+              "moduleId": "Symptom",
+              "moduleConfigId": {
+                "$oid": "60def70b9e8a91c79ea079d7"
+              },
+              "deploymentId": {
+                "$oid": "60d9b623b07e15e833eae4a5"
+              },
+              "version": 1,
+              "deviceName": "Android",
+              "isAggregated": false,
+              "startDateTime": {
+                "$date": "2021-07-02T15:15:20.416Z"
+              },
+              "createDateTime": {
+                "$date": "2021-07-02T15:15:21.684Z"
+              },
+              "submitterId": {
+                "$oid": "60d9b676b07e15e833eae4b5"
+              },
+              "client": {
+                "product": "Huma-QA",
+                "version": "1.10.0",
+                "software_name": "Android",
+                "software_version": "24 (7.0)",
+                "bundle_id": "com.huma.humaapp.qa",
+                "build": "1",
+                "hardware": "samsung SM-N920C"
+              },
+              "server": {
+                "hostUrl": "vb-ppserver.ngrok.io",
+                "server": "1.10.0",
+                "api": "V1"
+              },
+              "complexValues": [
+                {
+                  "name": "hu_symptom_answer1",
+                  "severity": 3
+                },
+                {
+                  "name": "Chest pain",
+                  "severity": 3
+                },
+                {
+                  "name": "Slow healing of sores",
+                  "severity": 1
+                }
+              ]
+            }
+          },
+          {
+            "Symptom": {
+              "id": "60df2d1364f132b22b66265f",
+              "userId": {
+                "$oid": "60d9b676b07e15e833eae4b5"
+              },
+              "moduleId": "Symptom",
+              "moduleConfigId": {
+                "$oid": "60def70b9e8a91c79ea079d7"
+              },
+              "deploymentId": {
+                "$oid": "60d9b623b07e15e833eae4a5"
+              },
+              "version": 1,
+              "deviceName": "Android",
+              "isAggregated": false,
+              "startDateTime": {
+                "$date": "2021-07-02T15:13:22.473Z"
+              },
+              "createDateTime": {
+                "$date": "2021-07-02T15:13:23.980Z"
+              },
+              "submitterId": {
+                "$oid": "60d9b676b07e15e833eae4b5"
+              },
+              "client": {
+                "product": "Huma-QA",
+                "version": "1.10.0",
+                "software_name": "Android",
+                "software_version": "24 (7.0)",
+                "bundle_id": "com.huma.humaapp.qa",
+                "build": "1",
+                "hardware": "samsung SM-N920C"
+              },
+              "server": {
+                "hostUrl": "vb-ppserver.ngrok.io",
+                "server": "1.10.0",
+                "api": "V1"
+              },
+              "complexValues": [
+                {
+                  "name": "hu_symptom_answer1",
+                  "severity": 4
+                },
+                {
+                  "name": "Dizziness",
+                  "severity": 1
+                },
+                {
+                  "name": "Swelling in ankles, feet, or legs",
+                  "severity": 1
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60df12c29e8a91c79ea079f8"
+      },
+      "updateDateTime": {
+        "$date": "2021-07-02T13:21:06.475Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-02T13:21:06.475Z"
+      },
+      "givenName": "dr",
+      "familyName": "usero",
+      "gender": "MALE",
+      "email": "user.surname+m@huma.com",
+      "roles": [
+        {
+          "roleId": "Contributor",
+          "resource": "deployment/60d9b623b07e15e833eae4a5",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC",
+      "language": "en"
+    },
+    {
+      "_id": {
+        "$oid": "60e1fe8a3d632b2d0e3694d8"
+      },
+      "updateDateTime": {
+        "$date": "2021-07-06T13:53:50.923Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-04T18:31:38.783Z"
+      },
+      "email": "user.surname+u2@huma.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/60d9b623b07e15e833eae4a5",
+          "userType": "User"
+        }
+      ],
+      "timezone": "Europe/London",
+      "enrollmentId": 2,
+      "language": "ar",
+      "finishedOnboarding": true,
+      "familyName": "rz",
+      "givenName": "am",
+      "dateOfBirth": {
+        "$date": "1997-07-04T00:00:00Z"
+      },
+      "ethnicity": "OTHER_ETHNIC_GROUPS",
+      "extraCustomFields": {
+        "mediclinicNumber1": "1234567"
+      },
+      "height": 180,
+      "recentModuleResults": {
+        "60def70b9e8a91c79ea079d7": [
+          {
+            "Symptom": {
+              "id": "60e4524485319e3ebbdabd78",
+              "userId": {
+                "$oid": "60e1fe8a3d632b2d0e3694d8"
+              },
+              "moduleId": "Symptom",
+              "moduleConfigId": {
+                "$oid": "60def70b9e8a91c79ea079d7"
+              },
+              "deploymentId": {
+                "$oid": "60d9b623b07e15e833eae4a5"
+              },
+              "version": 1,
+              "deviceName": "Android",
+              "isAggregated": false,
+              "startDateTime": {
+                "$date": "2021-07-06T12:52:48.280Z"
+              },
+              "createDateTime": {
+                "$date": "2021-07-06T12:53:24.503Z"
+              },
+              "submitterId": {
+                "$oid": "60e1fe8a3d632b2d0e3694d8"
+              },
+              "client": {
+                "product": "Huma-QA",
+                "version": "1.10.0",
+                "software_name": "Android",
+                "software_version": "24 (7.0)",
+                "bundle_id": "com.huma.humaapp.qa",
+                "build": "1",
+                "hardware": "samsung SM-N920C"
+              },
+              "server": {
+                "hostUrl": "vb-ppserver.ngrok.io",
+                "server": "1.10.0",
+                "api": "V1"
+              },
+              "complexValues": [
+                {
+                  "name": "hu_symptom_answer1",
+                  "severity": 4
+                },
+                {
+                  "name": "Daytime wheezing",
+                  "severity": 3
+                }
+              ]
+            }
+          },
+          {
+            "Symptom": {
+              "id": "60e440fdd1fd83c5e1e456fe",
+              "userId": {
+                "$oid": "60e1fe8a3d632b2d0e3694d8"
+              },
+              "moduleId": "Symptom",
+              "moduleConfigId": {
+                "$oid": "60def70b9e8a91c79ea079d7"
+              },
+              "deploymentId": {
+                "$oid": "60d9b623b07e15e833eae4a5"
+              },
+              "version": 1,
+              "deviceName": "Android",
+              "isAggregated": false,
+              "startDateTime": {
+                "$date": "2021-07-06T11:39:07.727Z"
+              },
+              "createDateTime": {
+                "$date": "2021-07-06T11:39:41.756Z"
+              },
+              "submitterId": {
+                "$oid": "60e1fe8a3d632b2d0e3694d8"
+              },
+              "client": {
+                "product": "Huma-QA",
+                "version": "1.10.0",
+                "software_name": "Android",
+                "software_version": "24 (7.0)",
+                "bundle_id": "com.huma.humaapp.qa",
+                "build": "1",
+                "hardware": "samsung SM-N920C"
+              },
+              "server": {
+                "hostUrl": "vb-ppserver.ngrok.io",
+                "server": "1.10.0",
+                "api": "V1"
+              },
+              "complexValues": [
+                {
+                  "name": "hu_symptom_answer1",
+                  "severity": 3
+                },
+                {
+                  "name": "Daytime wheezing",
+                  "severity": 3
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "symptom": [
+    {
+      "_id": {
+        "$oid": "60deff5f9e8a91c79ea079e1"
+      },
+      "userId": {
+        "$oid": "60d9b676b07e15e833eae4b5"
+      },
+      "moduleId": "Symptom",
+      "moduleConfigId": {
+        "$oid": "60def70b9e8a91c79ea079d7"
+      },
+      "deploymentId": {
+        "$oid": "60d9b623b07e15e833eae4a5"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-07-02T11:58:26.703Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-02T11:58:23.992Z"
+      },
+      "submitterId": {
+        "$oid": "60d9b676b07e15e833eae4b5"
+      },
+      "client": {
+        "product": "Huma-QA",
+        "version": "1.10.0",
+        "software_name": "Android",
+        "software_version": "24 (7.0)",
+        "bundle_id": "com.huma.humaapp.qa",
+        "build": "1",
+        "hardware": "samsung SM-N920C"
+      },
+      "server": {
+        "hostUrl": "vb-ppserver.ngrok.io",
+        "server": "1.10.0",
+        "api": "V1"
+      },
+      "complexValues": [
+        {
+          "name": "hu_symptom_answer1",
+          "severity": 4
+        },
+        {
+          "name": "Chest pain",
+          "severity": 3
+        },
+        {
+          "name": "Weight loss",
+          "severity": 3
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "60df11bf9e8a91c79ea079f6"
+      },
+      "userId": {
+        "$oid": "60d9b676b07e15e833eae4b5"
+      },
+      "moduleId": "Symptom",
+      "moduleConfigId": {
+        "$oid": "60def70b9e8a91c79ea079d7"
+      },
+      "deploymentId": {
+        "$oid": "60d9b623b07e15e833eae4a5"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-07-02T13:16:46.305Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-02T13:16:47.930Z"
+      },
+      "submitterId": {
+        "$oid": "60d9b676b07e15e833eae4b5"
+      },
+      "client": {
+        "product": "Huma-QA",
+        "version": "1.10.0",
+        "software_name": "Android",
+        "software_version": "24 (7.0)",
+        "bundle_id": "com.huma.humaapp.qa",
+        "build": "1",
+        "hardware": "samsung SM-N920C"
+      },
+      "server": {
+        "hostUrl": "vb-ppserver.ngrok.io",
+        "server": "1.10.0",
+        "api": "V1"
+      },
+      "complexValues": [
+        {
+          "name": "Difficulty sleeping",
+          "severity": 2
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "60e200903ea45bb5325a1eaa"
+      },
+      "userId": {
+        "$oid": "60e1fe8a3d632b2d0e3694d8"
+      },
+      "moduleId": "Symptom",
+      "moduleConfigId": {
+        "$oid": "60def70b9e8a91c79ea079d7"
+      },
+      "deploymentId": {
+        "$oid": "60d9b623b07e15e833eae4a5"
+      },
+      "version": 1,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-07-04T18:40:15.654Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-04T18:40:16.802Z"
+      },
+      "submitterId": {
+        "$oid": "60e1fe8a3d632b2d0e3694d8"
+      },
+      "client": {
+        "product": "Huma-QA",
+        "version": "1.10.0",
+        "software_name": "Android",
+        "software_version": "24 (7.0)",
+        "bundle_id": "com.huma.humaapp.qa",
+        "build": "1",
+        "hardware": "samsung SM-N920C"
+      },
+      "server": {
+        "hostUrl": "vb-ppserver.ngrok.io",
+        "server": "1.10.0",
+        "api": "V1"
+      },
+      "complexValues": [
+        {
+          "name": "hu_symptom_answer1",
+          "severity": 4
+        },
+        {
+          "name": "Daytime wheezing",
+          "severity": 2
+        },
+        {
+          "name": "Exercise intolerance",
+          "severity": 4
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "60e335db96cb1be3e6e956f5"
+      },
+      "userId": {
+        "$oid": "60e1fe8a3d632b2d0e3694d8"
+      },
+      "moduleId": "Symptom",
+      "moduleConfigId": {
+        "$oid": "60def70b9e8a91c79ea079d7"
+      },
+      "deploymentId": {
+        "$oid": "60d9b623b07e15e833eae4a5"
+      },
+      "version": 1,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-07-05T16:34:11.394Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-05T16:39:55.966Z"
+      },
+      "language": "en",
+      "submitterId": {
+        "$oid": "60e1fe8a3d632b2d0e3694d8"
+      },
+      "client": {
+        "product": "Huma-QA",
+        "version": "1.10.0",
+        "software_name": "Android",
+        "software_version": "24 (7.0)",
+        "bundle_id": "com.huma.humaapp.qa",
+        "build": "1",
+        "hardware": "samsung SM-N920C"
+      },
+      "server": {
+        "hostUrl": "vb-ppserver.ngrok.io",
+        "server": "1.10.0",
+        "api": "V1"
+      },
+      "complexValues": [
+        {
+          "name": "hu_symptom_answer1",
+          "severity": 3
+        },
+        {
+          "name": "Daytime wheezing",
+          "severity": 3
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "60e3363396cb1be3e6e956f6"
+      },
+      "userId": {
+        "$oid": "60e1fe8a3d632b2d0e3694d8"
+      },
+      "moduleId": "Symptom",
+      "moduleConfigId": {
+        "$oid": "60def70b9e8a91c79ea079d7"
+      },
+      "deploymentId": {
+        "$oid": "60d9b623b07e15e833eae4a5"
+      },
+      "version": 1,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-07-05T16:41:03.908Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-05T16:41:23.210Z"
+      },
+      "language": "en",
+      "submitterId": {
+        "$oid": "60e1fe8a3d632b2d0e3694d8"
+      },
+      "client": {
+        "product": "Huma-QA",
+        "version": "1.10.0",
+        "software_name": "Android",
+        "software_version": "24 (7.0)",
+        "bundle_id": "com.huma.humaapp.qa",
+        "build": "1",
+        "hardware": "samsung SM-N920C"
+      },
+      "server": {
+        "hostUrl": "vb-ppserver.ngrok.io",
+        "server": "1.10.0",
+        "api": "V1"
+      },
+      "complexValues": [
+        {
+          "name": "hu_symptom_answer1",
+          "severity": 3
+        },
+        {
+          "name": "Daytime wheezing",
+          "severity": 3
+        }
+      ]
+    }
+  ]
+}

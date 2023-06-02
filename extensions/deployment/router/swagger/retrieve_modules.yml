@@ -1,0 +1,27 @@
+Get list of all available modules
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+responses:
+  200:
+    description: List of deployments based on skip and limit
+    schema:
+      $ref: '#/definitions/RetrieveModulesResponse'
+definitions:
+  RetrieveModulesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/Module'
+  Module:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "Weight"
+      primitiveIds:
+        type: array
+        items:
+          type: string
+          example: "Weight"

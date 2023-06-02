@@ -1,0 +1,173 @@
+Create Module Config
+The Schedule and ragThresholds fields are atomic which means wouldn't get update field by fields.
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment module config belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateModuleConfigRequest"
+responses:
+  200:
+    description: Created object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+
+definitions:
+  CreateModuleConfigRequest:
+    type: object
+    required:
+      - moduleId
+    properties:
+      moduleId:
+        type: string
+        example: BloodPressure
+      moduleName:
+        type: string
+        example: New Blood Pressure Module Config
+      shortModuleName:
+        type: string
+        example: OKS
+      status:
+        $ref: "#/definitions/EnableStatus"
+      configBody:
+        type: object
+        description: could be any dictionary
+      about:
+        type: string
+      footnote:
+        $ref: '#/definitions/Footnote'
+      order:
+        type: integer
+      schedule:
+        $ref: '#/definitions/ModuleSchedule'
+      staticEvent:
+        $ref: '#/definitions/StaticEvent'
+      ragThresholds:
+        type: array
+        items:
+          $ref: '#/definitions/RagThreshold'
+      learnArticleIds:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      customUnit:
+        type: string
+        description: field to represent the module's custom unit
+        example: "mg/dL"
+      notificationData:
+        $ref: '#/definitions/NotificationData'
+      localizationPrefix:
+        type: string
+        example: "hu_symptoms_"
+  NotificationData:
+    type: object
+    properties:
+      title:
+        type: string
+        example: Reminder.Questionnaire.title
+      body:
+        type: string
+        example: Reminder.Questionnaire.body
+  StaticEvent:
+    type: object
+    properties:
+      isoDuration:
+        type: string
+        format: iso8601
+        description: Duration of the static event in ISO 8601 format.
+        example: PT10H20M
+      enabled:
+        type: boolean
+      title:
+        type: string
+      description:
+        type: string
+  ModuleSchedule:
+    type: object
+    properties:
+      isoDuration:
+        type: string
+        format: iso8601
+        description: Time to launch the reminder in ISO 8601 format.
+        example: PT10H20M
+      timesPerDuration:
+        type: integer
+      friendlyText:
+        type: string
+      timesOfDay:
+        type: array
+        items:
+          type: string
+          enum: [UPON_WAKING, BEFORE_BREAKFAST, AFTER_BREAKFAST, BEFORE_LUNCH, AFTER_LUNCH,
+                 BEFORE_DINNER, AFTER_DINNER, BEFORE_BED]
+  Footnote:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+      text:
+        type: string
+  RagThreshold:
+    type: object
+    properties:
+      color:
+        type: string
+        example: "#ffbf00"
+      type:
+        type: string
+        enum: [VALUE, CHANGE_NUMBER, CHANGE_PERCENT]
+      severity:
+        type: integer
+      fieldName:
+        type: string
+        example: "diastolicValue"
+      thresholdRange:
+        type: array
+        items:
+          $ref: "#/definitions/ThresholdRange"
+      enabled:
+        type: boolean
+
+  ThresholdRange:
+    type: object
+    properties:
+      minValue:
+        type: number
+      maxValue:
+        type: number
+      exactValueStr:
+        type: string
+        example: "Headache"
+
+  ModuleConfig:
+    allOf:
+      - $ref: "#/definitions/CreateModuleConfigRequest"
+      - properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          updateDateTime:
+            type: string
+            format: date-time
+          createDateTime:
+            type: string
+            format: date-time
+  UpdateModuleConfigRequest:
+    allOf:
+      - $ref: "#/definitions/CreateModuleConfigRequest"
+      - properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"

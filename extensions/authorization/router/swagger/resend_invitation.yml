@@ -1,0 +1,38 @@
+Resend Invitation
+---
+tags:
+  - invitation
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/ResendInvitationRequest"
+
+responses:
+  200:
+    description: Ok
+definitions:
+  ResendInvitationRequest:
+    type: object
+    required:
+      - invitationCode
+      - email
+      - clientId
+      - projectId
+    properties:
+      email:
+        type: string
+        example: "test@huma.com"
+      invitationCode:
+        type: string
+      clientId:
+        type: string
+        example: c1
+      language:
+        type: string
+      projectId:
+        type: string
+        example: p1

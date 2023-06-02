@@ -1,0 +1,291 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "moduleConfigs": [
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:09.940Z"
+          },
+          "notificationData": {
+            "title": "hu_blood_pressure_reminder_title",
+            "body": "hu_blood_pressure_reminder_body"
+          },
+          "moduleId": "BloodPressure",
+          "moduleName": "BloodPressure",
+          "moduleConfigId": "608089adc97ce231cb445eb4",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089adc97ce231cb445eb4"
+          }
+        }
+      ],
+      "localizations": {
+        "en": {
+          "hu_blood_pressure_reminder_title":  "Test Blood Pressure",
+          "hu_blood_pressure_reminder_body":  "Test BP body"
+        },
+        "nl": {
+          "hu_blood_pressure_reminder_title":  "Bloeddruk testen",
+          "hu_blood_pressure_reminder_body":  "Test bloeddruk lichaam"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "calendar": [
+    {
+      "_id": {
+        "$oid": "5e8cc88d0e8f49bbe59d11bd"
+      },
+      "updateDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "createDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "startDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "enabled": true,
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "model": "UserModuleReminder",
+      "_cls": "MongoCalendarEvent",
+      "recurrencePattern": "DTSTART:20200407T212417\nRRULE:FREQ=DAILY;BYHOUR=10;BYMINUTE=20",
+      "extraFields": {
+        "moduleName": "BloodPressure",
+        "moduleId": "BloodPressure",
+        "moduleConfigId": "BloodPressure",
+        "durationIso": "PT10H20M",
+        "specificWeekDays": ["MON","TUE","WED","THU","FRI","SAT","SUN"]
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8cc56eac80d64b9f06a801"
+      },
+      "updateDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "createDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "startDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "enabled": false,
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "model": "UserModuleReminder",
+      "_cls": "MongoCalendarEvent",
+      "recurrencePattern": "DTSTART:20200407T212417\nRRULE:FREQ=WEEKLY;BYDAY=TU;BYHOUR=20;BYMINUTE=30",
+      "extraFields": {
+        "moduleName": "BloodPressure",
+        "durationIso": "PT20H30M",
+        "specificWeekDays": ["TUE"],
+        "moduleId": "BloodPressure",
+        "moduleConfigId": "BloodPressure"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8cc88d0e8f49bbe59d11be"
+      },
+      "updateDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "createDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "startDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "enabled": true,
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180537"
+      },
+      "model": "UserModuleReminder",
+      "_cls": "MongoCalendarEvent",
+      "recurrencePattern": "DTSTART:20200407T212417\nRRULE:FREQ=DAILY;BYHOUR=10;BYMINUTE=20",
+      "extraFields": {
+        "moduleName": "BloodPressure",
+        "moduleId": "",
+        "moduleConfigId": "BloodPressure",
+        "durationIso": "PT10H20M",
+        "specificWeekDays": ["MON","TUE","WED","THU","FRI","SAT","SUN"]
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "updateDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "createDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "startDateTime": {
+        "$date": "2020-04-07T21:24:17.218Z"
+      },
+      "enabled": true,
+      "userId": {
+        "$oid": "5e8cc88d0e8f49bbe59d11bd"
+      },
+      "model": "UserModuleReminder",
+      "_cls": "MongoCalendarEvent",
+      "recurrencePattern": "DTSTART:20200407T212417\nRRULE:FREQ=MONTHLY;BYMONTHDAY=1,3;BYHOUR=10;BYMINUTE=20",
+      "extraFields": {
+        "moduleName": "BloodPressure",
+        "durationIso": "PT10H20M",
+        "moduleId": "BloodPressure",
+        "moduleConfigId": "BloodPressure",
+        "specificMonthDays": [
+          1,
+          3
+        ]
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "id": "5e84b0dab8dfa268b1180536",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "displayName": "testUser",
+      "userAttributes": {
+        "familyName": "testUser",
+        "givenName": "testUser",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "givenName": "testUser",
+      "familyName": "testUser",
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180537"
+      },
+      "givenName": "testUser1",
+      "familyName": "testUser1",
+      "email": "testUser1@test.com",
+      "phoneNumber": "+380999999997",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

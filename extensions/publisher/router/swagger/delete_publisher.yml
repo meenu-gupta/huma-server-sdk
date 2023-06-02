@@ -1,0 +1,17 @@
+Delete publisher
+---
+tags:
+  - publisher
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: publisher_id
+    required: true
+    type: string
+
+responses:
+  204:
+    description: Publisher deleted

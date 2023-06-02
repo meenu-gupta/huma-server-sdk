@@ -1,0 +1,31 @@
+summary: Add multiple files to a file-library
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: body
+    name: body
+    schema:
+      $ref: "#/definitions/AddFilesToLibraryRequest"
+responses:
+  200:
+    description: Ok
+
+definitions:
+  AddFilesToLibraryRequest:
+    type: object
+    properties:
+      libraryId:
+        type: string
+        example: "huma_image_library"
+      fileIds:
+        type: array
+        description: List of files
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      deploymentId:
+        type: string
+        description: deployment ID
+        example: "deployment ID (optional)"

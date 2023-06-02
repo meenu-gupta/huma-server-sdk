@@ -1,0 +1,33 @@
+summary: Create User Verification Log
+tags:
+  - identity
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreateVerificationLogRequest'
+responses:
+  200:
+    description: ID verification in progress
+definitions:
+  CreateVerificationLogRequest:
+    type: object
+    properties:
+      applicantId:
+        type: string
+        example: "8a94ba54-161b-49ab-8c76-f0b56de3a414"
+      checkId:
+        type: string
+      legalFirstName:
+        type: string
+      legalLastName:
+        type: string
+      documents:
+        type: array
+        items:
+          type: string
+          example: "603df5fc65e41764f9fe5345"

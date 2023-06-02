@@ -1,0 +1,22 @@
+summary: Retrieve custom module configs of user
+tags:
+  - user
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: user_id
+    in: path
+    required: true
+    type: string
+responses:
+  200:
+    description: List of custom module configs of user
+    schema:
+      $ref: "#/definitions/CustomModuleConfigsResponse"
+definitions:
+  CustomModuleConfigsResponse:
+    type: array
+    items:
+      $ref: "#/definitions/CustomModuleConfigRequest"

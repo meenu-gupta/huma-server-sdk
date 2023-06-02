@@ -1,0 +1,2 @@
+class SendAlibabaSmsException(RuntimeError):
+    pass

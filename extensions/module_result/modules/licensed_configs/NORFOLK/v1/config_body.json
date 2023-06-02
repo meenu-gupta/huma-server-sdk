@@ -1,0 +1,1993 @@
+{
+  "configBody": {
+    "pages": [
+      {
+        "type": "INFO",
+        "id": "norfolk_info_screen_1",
+        "order": 1,
+        "text": "hu_norfolk_info_text",
+        "description": "hu_norfolk_info_description",
+        "displayInCP": false
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q1",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q1text"
+          }
+        ],
+        "order": 2
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q2",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q2text"
+          }
+        ],
+        "order": 3
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": true,
+              "rules": [
+                {
+                  "allOf": [
+                    {
+                      "eq": "true",
+                      "questionId": "hu_norfolk_generic_q3"
+                    }
+                  ],
+                  "jumpToId": "hu_norfolk_generic_q4"
+                },
+                {
+                  "allOf": [
+                    {
+                      "eq": "false",
+                      "questionId": "hu_norfolk_generic_q3"
+                    }
+                  ],
+                  "jumpToId": "hu_norfolk_generic_q5"
+                }
+              ]
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q3",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q3text"
+          }
+        ],
+        "order": 4
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q4",
+            "required": true,
+            "format": "TEXT",
+            "order": 1,
+            "text": "hu_norfolk_q4text",
+            "placeholder": "hu_norfolk_q4placeholder",
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 5
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q5",
+            "required": true,
+            "format": "DURATION",
+            "type": "YEAR_AND_MONTH",
+            "limitedByAgeOffset": "P0Y",
+            "order": 1,
+            "text": "hu_norfolk_q5text",
+            "placeholder": "hu_norfolk_q5placeholder"
+          }
+        ],
+        "order": 6
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": true,
+              "rules": [
+                {
+                  "allOf": [
+                    {
+                      "eq": "true",
+                      "questionId": "hu_norfolk_generic_q6"
+                    }
+                  ],
+                  "jumpToId": "hu_norfolk_generic_q9"
+                },
+                {
+                  "allOf": [
+                    {
+                      "eq": "false",
+                      "questionId": "hu_norfolk_generic_q6"
+                    }
+                  ],
+                  "jumpToId": "hu_norfolk_generic_q7"
+                }
+              ]
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q6",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q6text"
+          }
+        ],
+        "order": 7
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q7",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_q7text",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_left",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_right",
+                "value": "1",
+                "weight": 1
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 8
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q8",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_q8text",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_left",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_right",
+                "value": "1",
+                "weight": 1
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 9
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q9",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q9text"
+          }
+        ],
+        "order": 10
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q10",
+            "required": true,
+            "format": "NUMERIC",
+            "allowsIntegersOnly": true,
+            "lowerBound": 0,
+            "upperBound": 100,
+            "order": 1,
+            "text": "hu_norfolk_q10text",
+            "placeholder": "hu_norfolk_q10placeholder"
+          }
+        ],
+        "order": 11
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q11",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q11text"
+          }
+        ],
+        "order": 12
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q12",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q12text"
+          }
+        ],
+        "order": 13
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q13",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q13text"
+          }
+        ],
+        "order": 14
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q14",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q14text"
+          }
+        ],
+        "order": 15
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q15",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q15text"
+          }
+        ],
+        "order": 16
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "id": "hu_norfolk_generic_q16",
+            "required": false,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q16text",
+            "description": "hu_norfolk_q16_description"
+          }
+        ],
+        "order": 17
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "id": "hu_norfolk_generic_q17",
+            "required": false,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "hu_norfolk_q17text",
+            "description": "hu_norfolk_q17_description"
+          }
+        ],
+        "order": 18
+      },
+      {
+        "type": "INFO",
+        "id": "norfolk_info_screen_symptom",
+        "order": 19,
+        "text": "hu_norfolk_part1_text",
+        "description": "hu_norfolk_part1_description",
+        "displayInCP": true
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_symptom_q18",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_symptom_numbness",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_feet",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_legs",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_hands",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_arms",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_norfolk_commonOp_none",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "MULTIPLE"
+          }
+        ],
+        "order": 20
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_symptom_q19",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_symptom_tingling",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_feet",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_legs",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_hands",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_arms",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_norfolk_commonOp_none",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "MULTIPLE"
+          }
+        ],
+        "order": 21
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_symptom_q20",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_symptom_electricshock",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_feet",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_legs",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_hands",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_arms",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_norfolk_commonOp_none",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "MULTIPLE"
+          }
+        ],
+        "order": 22
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_symptom_q21",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_symptom_sensations",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_feet",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_legs",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_hands",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_arms",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_norfolk_commonOp_none",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "MULTIPLE"
+          }
+        ],
+        "order": 23
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_symptom_q22",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_symptom_superficialPain",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_feet",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_legs",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_hands",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_arms",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_norfolk_commonOp_none",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "MULTIPLE"
+          }
+        ],
+        "order": 24
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_symptom_q23",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_symptom_deepPain",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_feet",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_legs",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_hands",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_arms",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_norfolk_commonOp_none",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "MULTIPLE"
+          }
+        ],
+        "order": 25
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_symptom_q24",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_symptom_weakness",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_feet",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_legs",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_hands",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_arms",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_norfolk_commonOp_none",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "MULTIPLE"
+          }
+        ],
+        "order": 26
+      },
+      {
+        "type": "INFO",
+        "id": "norfolk_info_screen_aodl",
+        "order": 27,
+        "text": "hu_norfolk_part2_text",
+        "description": "hu_norfolk_part2_description",
+        "displayInCP": true
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q25",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_pain_night",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 28
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q26",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_touch",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 29
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q27",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_feel",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 30
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q28",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_activity",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 31
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q29",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_movement",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 32
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q30",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_walk",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 33
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q31",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_hands",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 34
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q32",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_stairs",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 35
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q33",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_feelFeetWalking",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 36
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q34",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_tellWaterHands",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 37
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q35",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_tellWaterFeet",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 38
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q36",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_meals",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 39
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q37",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_controls",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 40
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_aodl_q38",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourweeks_standup",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 41
+      },
+      {
+        "type": "INFO",
+        "id": "norfolk_info_screen_diffiactivities",
+        "order": 42,
+        "text": "hu_norfolk_difficultyActivities",
+        "description": "",
+        "displayInCP": true
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_diffiactivities_q39",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_bathingShowering",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 43
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_diffiactivities_q40",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_dressing",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 44
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_diffiactivities_q41",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_walking",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 45
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_diffiactivities_q42",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_toilet",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 46
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_diffiactivities_q43",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_utensils",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notaProblem",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_veryMild",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_mild",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderate",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_Severe",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 47
+      },
+      {
+        "type": "INFO",
+        "id": "norfolk_info_screen_phyemohealth",
+        "order": 48,
+        "text": "hu_norfolk_physicalEmotional_health",
+        "description": "",
+        "displayInCP": true
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_phyemohealth_q44",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_cutDown_time",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notatall",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_alittle",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_somewhat",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderately",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_severely",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 49
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_phyemohealth_q45",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_accomplished",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notatall",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_alittle",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_somewhat",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderately",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_severely",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 50
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_phyemohealth_q46",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_limited_activities",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notatall",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_alittle",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_somewhat",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderately",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_severely",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 51
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_phyemohealth_q47",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_extra_effort",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notatall",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_alittle",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_somewhat",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderately",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_severely",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 52
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_phyemohealth_q48",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_general_health",
+            "options": [
+              {
+                "label": "hu_norfolk_op_excellent",
+                "value": "-2",
+                "weight": -2
+              },
+              {
+                "label": "hu_norfolk_op_veryGood",
+                "value": "-1",
+                "weight": -1
+              },
+              {
+                "label": "hu_norfolk_op_good",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_op_fair",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_op_poor",
+                "value": "2",
+                "weight": 2
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 53
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_phyemohealth_q49",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_threeMonth_healthRate",
+            "options": [
+              {
+                "label": "hu_norfolk_op_muchBetter",
+                "value": "-2",
+                "weight": -2
+              },
+              {
+                "label": "hu_norfolk_op_somewhatBetter",
+                "value": "-1",
+                "weight": -1
+              },
+              {
+                "label": "hu_norfolk_op_aboutSame",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_op_somewhatWorse",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_muchWorse",
+                "value": "2",
+                "weight": 2
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 54
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_phyemohealth_q50",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourWeeks_socialActivities",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notatall",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_alittle",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_somewhat",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderately",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_severely",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 55
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_phyemohealth_q51",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourWeeks_normalWork",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notatall",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_alittle",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_somewhat",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderately",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_severely",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 56
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_phyemohealth_q52",
+            "required": true,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_norfolk_fourWeeks_shakiness",
+            "options": [
+              {
+                "label": "hu_norfolk_commonOp_notatall",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_norfolk_commonOp_alittle",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_norfolk_commonOp_somewhat",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_norfolk_commonOp_moderately",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_norfolk_commonOp_severely",
+                "value": "4",
+                "weight": 4
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 57
+      }
+    ],
+    "submissionPage": {
+      "description": "hu_norfolk_submission_description",
+      "id": "fc5556da-ee52-43e6-84ef-ca449ab6025c",
+      "text": "hu_norfolk_submission_text",
+      "buttonText": "hu_norfolk_submission_button",
+      "order": 58,
+      "type": "SUBMISSION"
+    }
+  }
+}

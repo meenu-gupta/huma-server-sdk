@@ -1,0 +1,105 @@
+{
+    "5e8f0c74b50aa9656c34789c": {
+        "Weight": [
+            {
+                "id": "5eafd121b2d79d48ce4cd9e1",
+                "userId": "5e8f0c74b50aa9656c34789c",
+                "moduleId": "Weight",
+                "deploymentId": "5d386cc6ff885918d96edb2a",
+                "version": 0,
+                "deviceName": "Android",
+                "isAggregated": false,
+                "startDateTime": "2020-07-08T19:55:30.323000Z",
+                "endDateTime": "2020-07-08T20:00:20.000000Z",
+                "createDateTime": "2020-07-08T20:00:30.323000Z",
+                "submitterId": "5e8f0c74b50aa9656c34789c",
+                "value": 123.0,
+                "valueUnit": "kg",
+                "_cls": "Weight"
+            },
+            {
+                "id": "5eafd121b2d79d48ce4cd9e8",
+                "userId": "5e8f0c74b50aa9656c34789c",
+                "moduleId": "Weight",
+                "deploymentId": "5d386cc6ff885918d96edb2c",
+                "version": 0,
+                "deviceName": "Android",
+                "isAggregated": false,
+                "startDateTime": "2020-07-08T19:55:30.323000Z",
+                "endDateTime": "2020-07-08T20:00:20.000000Z",
+                "createDateTime": "2020-07-08T20:00:30.323000Z",
+                "submitterId": "5e8f0c74b50aa9656c34789c",
+                "value": 123.0,
+                "valueUnit": "kg",
+                "_cls": "Weight"
+            },
+            {
+                "id": "5eafd121b2d79d48ce4cd9e7",
+                "userId": "5e8f0c74b50aa9656c34789c",
+                "moduleId": "Weight",
+                "deploymentId": "5d386cc6ff885918d96edb2c",
+                "version": 0,
+                "deviceName": "Android",
+                "isAggregated": false,
+                "startDateTime": "2020-10-12T08:50:28.321000Z",
+                "endDateTime": "2020-10-12T08:50:28.321000Z",
+                "createDateTime": "2020-10-12T08:50:28.442000Z",
+                "submitterId": "5e8f0c74b50aa9656c34789c",
+                "value": 100.0,
+                "valueUnit": "kg",
+                "_cls": "Weight"
+            }
+        ],
+        "Questionnaire": [
+            {
+                "id": "5f8418d4c9608e67c8cf859f",
+                "userId": "5e8f0c74b50aa9656c34789c",
+                "moduleId": "Questionnaire",
+                "moduleConfigId": "5f0d64a47fe6637a82dcbea9",
+                "deploymentId": "5d386cc6ff885918d96edb2c",
+                "version": 0,
+                "deviceName": "iOS",
+                "isAggregated": false,
+                "startDateTime": "2020-10-12T08:50:28.321000Z",
+                "createDateTime": "2020-10-12T08:50:28.442000Z",
+                "submitterId": "5f834cd9952675f3bfaca997",
+                "answers": [
+                    {
+                        "answerText": "Often true",
+                        "questionId": "9f0c0b00-8541-4a0a-a8ba-c8eb4a629af7",
+                        "question": "I/We worried whether my/our food would run out before I/we got money to buy more."
+                    },
+                    {
+                        "answerText": "Sometimes true",
+                        "questionId": "7a23cb87-b7ad-4083-bb33-417b9ae3ceae",
+                        "question": "The food that I/we bought just didn\u2019t last, and I/we didn\u2019t have money to get more."
+                    }
+                ],
+                "questionnaireId": "6d4ea71a-7554-4315-8e67-53bfbc0760b1",
+                "questionnaireName": "Food Security Questionnaire",
+                "_cls": "Questionnaire"
+            }
+        ],
+        "ECGAliveCor": [
+            {
+                "id": "5f5b73a30ac012c5c2100764",
+                "userId": "5e8f0c74b50aa9656c34789c",
+                "moduleId": "ECGAliveCor",
+                "deploymentId": "5d386cc6ff885918d96edb2c",
+                "version": 0,
+                "deviceName": "Alivecor App",
+                "isAggregated": false,
+                "startDateTime": "2020-09-11T12:54:59.000000Z",
+                "createDateTime": "2020-09-11T12:54:59.000000Z",
+                "submitterId": "5f457b5830890183115d7e63",
+                "s3Object": {
+                    "bucket": "integrationtests",
+                    "key": "user/5e8f0c74b50aa9656c34789c/ECGAliveCor/ecg_sample.pdf",
+                    "region": "region"
+                },
+                "kardiaEcgRecordId": "ecg_sample",
+                "_cls": "ECGAliveCor"
+            }
+        ]
+    }
+}

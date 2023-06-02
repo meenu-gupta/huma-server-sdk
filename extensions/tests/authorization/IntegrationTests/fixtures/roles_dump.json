@@ -1,0 +1,484 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "X",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "code": "AU15",
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebeca"
+          },
+          "moduleId": "Weight",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test"
+        },
+        {
+          "about": "",
+          "id": {
+            "$oid": "5f86d0f4dd28f8686d75c5d4"
+          },
+          "configBody": {},
+          "learnArticleIds": [],
+          "moduleId": "BackgroundInformation",
+          "moduleName": "BackgroundInformation",
+          "order": 4,
+          "ragThresholds": [],
+          "schedule": {
+            "friendlyText": "friendlyText",
+            "isoDuration": "P1W",
+            "timesOfDay": [],
+            "timesPerDuration": 1
+          },
+          "status": "ENABLED"
+        },
+        {
+          "id": {
+            "$oid": "5e94b2007773091c9a59265b"
+          },
+          "configBody": {
+            "keyActions": {
+              "PREGNANT": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth",
+                "BreastFeedingStatus",
+                "PregnancyStatus",
+                "PregnancyFollowUp",
+                "InfantFollowUp"
+              ],
+              "BREAST_FEEDING": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth",
+                "BreastFeedingStatus",
+                "BreastFeedingUpdate",
+                "PregnancyStatus",
+                "PregnancyUpdate",
+                "AZFurtherPregnancyKeyActionTrigger"
+              ],
+              "BOTH_P_AND_B": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth",
+                "PregnancyStatus",
+                "BreastFeedingStatus",
+                "BreastFeedingUpdate",
+                "PregnancyFollowUp",
+                "InfantFollowUp"
+              ],
+              "FEMALE_LESS_50_NOT_P_OR_B": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth",
+                "BreastFeedingStatus",
+                "PregnancyStatus",
+                "PregnancyUpdate",
+                "AZFurtherPregnancyKeyActionTrigger"
+              ],
+              "MALE_OR_FEMALE_OVER_50": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth"
+              ]
+            }
+          },
+          "enabledPreferredUnit": false,
+          "learnArticleIds": [],
+          "moduleId": "AZGroupKeyActionTrigger",
+          "moduleName": "",
+          "order": 4,
+          "ragThresholds": [],
+          "schedule": {
+            "friendlyText": "friendlyText",
+            "isoDuration": "P1W",
+            "timesOfDay": [],
+            "timesPerDuration": 1
+          },
+          "status": "ENABLED",
+          "version": 0
+        }
+      ],
+      "keyActions": [
+        {
+          "id": {
+            "$oid": "5f07a582c565202bd6cb03af"
+          },
+          "title": "Complete your background information",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P0W",
+          "durationFromTrigger": "P7W",
+          "durationIso": "P7WT10H0M",
+          "instanceExpiresIn": "P7W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 3,
+          "moduleId": "BackgroundInformation",
+          "moduleConfigId": "5f86d0f4dd28f8686d75c5d4"
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "econsent": {
+        "id": {
+          "$oid": "5e9443789911c97c0b639444"
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586785704470"
+          }
+        },
+        "enabled": "ENABLED",
+        "title": "Informed consent form",
+        "overviewText": "To participate in the trial study, please read  the consent form through in detail. \n\nIf you have any questions, please contact your study team at studyteam@reallylongemail.com or +44 1234 567 890 providing your consent to participate.",
+        "contactText": "Please contact your study team at contact@studyteam.com if you have any questions.",
+        "instituteFullName": "string",
+        "instituteName": "string",
+        "instituteTextDetails": "string",
+        "revision": 1,
+        "signature": {
+          "signatureTitle": "Signature",
+          "signatureDetails": "Please sign using your finger in the box below",
+          "nameTitle": "Medopad Consent",
+          "nameDetails": "Type your full name in text fields below",
+          "hasMiddleName": true,
+          "showFirstLastName": true
+        },
+        "sections": [
+          {
+            "type": "INTRODUCTION",
+            "title": "Introduction",
+            "details": "INTRODUCTION",
+            "reviewDetails": "You have been asked to participate in a clinical research study initiated, managed, and financed by ABC LAbs, who is the Sponsor of this study. Before your decide, it is important for you to understand why the research is being done and what it will involve. This informed consent form will provide you with essential information about this study and your rights as a study participant so that you can make an informed decision about your participation. Y \nYour decision to participate in this study is entirely voluntary. You will not lose any benefits to which you would otherwise be entitled if you refuse to participant. In addition, you may withdraw from the study at any time without penality or loss of benefits to which you are otherwise entitled. You will be informed in a timely manner, if any relevant new information about this drug or this study becomes available that may alter your willingness to continue to participate. If you agree, your General Practitioner will be told that you are taking part in this study.",
+            "contentType": "IMAGE",
+            "thumbnailLocation": {
+              "key": "deployment/<deployment_id>/<image_location>",
+              "region": "eu",
+              "bucket": "ppdeveufrankfurt"
+            }
+          },
+          {
+            "type": "PURPOSE",
+            "title": "PURPOSE",
+            "reviewDetails": "You are being asked to participate in this clinical research study because you have high blood pressure and are already taking prescribed commercial Cligoliob for an approved dose and indication in your countr.\nYou are eligible to participate in this study because following discussions with your own doctor you have decided to continue taking Cigoliob.\nInformation regarding the use of Cigoliob may be obtained from the patient information leaflet which accompanies your supply of Cigoliob and from your own treating physician.\nThe purpose of this study is to assess the levels of Cigoliob in blood across the course of the study in study participants with high blood pressure.\nThis study is expected to enroll approximately 100 women who have high blood pressure while takingcommercial Cigoliob across approximately 13 centers throughout Canada, USA, Swizerland and selected countries in the European Union (possible including but not necessarily limited to France, Germany, Spain or Italy).",
+            "contentType": "IMAGE",
+            "thumbnailUrl": "https://www.roadrunnerrecords.com/sites/g/files/g2000005056/f/sample-4.jpg"
+          },
+          {
+            "type": "REVIEW_TO_SIGN",
+            "title": "REVIEW_TO_SIGN",
+            "reviewDetails": "I have read and understood this consent document. By signing this: \n• I confirm that I have had time to read carefully and understand the study participant informed consent provided for this study.\n• I confirm that I have had the opportunity to discuss the study and ask questions, and I am satisfied with the answers and explanations that I have been provided.\n• I give permission for my medical records to be reviewed by the Sponsor or designee and/or representatives of any Drug Reculatory Authorities such as the U.S. FDA and Insitutional Review Boards.\n• I understand that my participation is voluntary and that I am free to withdraw at any time without giving any reason and without my medical care or legal rights being affected.. I agree that the Sponsor can continue to use the information about my health collected during the study to preserve the integrity of the study, even if I withdraw from the study.",
+            "contentType": "VIDEO",
+            "videoLocation": {
+              "key": "deployment/<deployment_id>/<video_location>",
+              "region": "eu",
+              "bucket": "ppdeveufrankfurt"
+            },
+            "thumbnailLocation": {
+              "key": "deployment/<deployment_id>/<thumbnail_location>",
+              "region": "eu",
+              "bucket": "ppdeveufrankfurt"
+            }
+          },
+          {
+            "type": "DURING_THE_TRIAL",
+            "title": "DURING_THE_TRIAL",
+            "reviewDetails": "During the course of this trial, you’ll be asked to complete a series of task such as:\n• Entering your blood pressure in the morning every day in the Huma app\n•Recording your medication intake in the Huma app\n• Attending telemedicine video conferences with your study care team in the Huma app\n• Attending face-to-face appointments with your study care team every 3 months\nThere are some acitivites that you would not be able to do during the course of the trial. They are:\n• Donating blood\n• Traveling via plane or helicopter",
+            "contentType": "VIDEO",
+            "videoUrl": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
+            "thumbnailUrl": "https://www.roadrunnerrecords.com/sites/g/files/g2000005056/f/sample-4.jpg"
+          }
+        ]
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96eda4a"
+      },
+      "name": "Y",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "code": "AC10",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96eda4c"
+      },
+      "name": "XY",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "code": "AC10",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684412"
+      },
+      "id": "5ed803dd5f2f99da73684412",
+      "status": 1,
+      "email": "user@test.com",
+      "displayName": "Test",
+      "userAttributes": {
+        "familyName": "User",
+        "givenName": "Test",
+        "dob": "2000-01-01",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": 1591215069319
+      },
+      "createDateTime": {
+        "$date": 1591215069319
+      }
+    },
+    {
+      "_id": {
+        "$oid": "601919b5c03550c421c075eb"
+      },
+      "id": "601919b5c03550c421c075eb",
+      "status": 1,
+      "emailVerified": false,
+      "email": "call@center.com",
+      "userAttributes": {
+        "familyName": "M",
+        "givenName": "T"
+      },
+      "updateDateTime": {
+        "$date": 1591369393218
+      },
+      "createDateTime": {
+        "$date": 1591369393218
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "user2@test.com",
+      "displayName": "User2",
+      "userAttributes": {
+        "familyName": "Test",
+        "givenName": "User2",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "proxy@huma.com",
+      "displayName": "Proxy",
+      "userAttributes": {
+        "familyName": "Test",
+        "givenName": "Proxy",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684412"
+      },
+      "familyName": "User",
+      "givenName": "Test",
+      "gender": "MALE",
+      "email": "user@test.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        },
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96eda4c",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC",
+      "updateDateTime": {
+        "$date": 1591215069321
+      },
+      "createDateTime": {
+        "$date": 1591215069321
+      }
+    },
+    {
+      "_id": {
+        "$oid": "601919b5c03550c421c075eb"
+      },
+      "givenName": "Call",
+      "familyName": "Center",
+      "email": "call@center.com",
+      "roles": [
+        {
+          "roleId": "CallCenter",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC",
+      "updateDateTime": {
+        "$date": 1591396854605
+      },
+      "createDateTime": {
+        "$date": 1591369393225
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "User2",
+      "familyName": "Test",
+      "email": "user2@test.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96eda4a",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": 1591396844605
+      },
+      "updateDateTime": {
+        "$date": 1591396854605
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "Proxy",
+      "familyName": "Test",
+      "email": "proxy@huma.com",
+      "roles": [
+        {
+          "roleId": "Proxy",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Proxy"
+        },
+        {
+          "roleId": "Proxy",
+          "resource": "user/5ed803dd5f2f99da73684412",
+          "userType": "Proxy"
+        },
+        {
+          "roleId": "Proxy",
+          "resource": "deployment/5d386cc6ff885918d96eda4a",
+          "userType": "Proxy"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": 1591396844605
+      },
+      "updateDateTime": {
+        "$date": 1591396854605
+      }
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+Upload a file
+---
+tags:
+  - storage
+security:
+  - Bearer: []
+consumes:
+  - multipart/form-data
+parameters:
+  - in: formData
+    name: file
+    type: file
+    required: true
+    description: File to upload
+responses:
+  201:
+    description: uploaded file ID
+    schema:
+      $ref: "#/definitions/FileUploadResponse"
+
+definitions:
+  FileUploadResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5f14d84444be16798a763c10"

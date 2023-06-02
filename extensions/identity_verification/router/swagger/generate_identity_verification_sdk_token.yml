@@ -1,0 +1,38 @@
+summary: Generate Identity Verification Sdk Token
+tags:
+  - identity
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/GenerateIdentityVerificationSdkTokenRequest'
+responses:
+  201:
+    description: Return identity verification sdk token
+    schema:
+      $ref: '#/definitions/GenerateIdentityVerificationSdkTokenResponse'
+definitions:
+  GenerateIdentityVerificationSdkTokenRequest:
+    type: object
+    required:
+      - legalFirstName
+      - legalLastName
+    properties:
+      legalFirstName:
+        type: string
+      legalLastName:
+        type: string
+
+  GenerateIdentityVerificationSdkTokenResponse:
+    type: object
+    properties:
+      applicantId:
+        type: string
+      token:
+        type: string
+      utcExpirationDateTime:
+        type: string

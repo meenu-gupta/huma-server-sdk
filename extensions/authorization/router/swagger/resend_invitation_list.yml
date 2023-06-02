@@ -1,0 +1,56 @@
+Bulk Resend Invitation
+---
+tags:
+  - invitation
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/ResendInvitationListRequest"
+
+responses:
+  200:
+    description: Number of resent invitations
+    schema:
+      $ref: "#/definitions/ResendInvitationResponse"
+definitions:
+  ResendInvitationListRequest:
+    type: object
+    required:
+      - clientId
+      - projectId
+    properties:
+      invitationsList:
+        type: array
+        items:
+          $ref: "#/definitions/InvitationItem"
+      clientId:
+        type: string
+        example: c1
+      language:
+        type: string
+      projectId:
+        type: string
+        example: p1
+
+  InvitationItem:
+    type: object
+    required:
+      - invitationCode
+      - email
+    properties:
+      email:
+        type: string
+        example: "test@huma.com"
+      invitationCode:
+        type: string
+
+  ResendInvitationResponse:
+    type: object
+    properties:
+      resentInvitations:
+        type: integer
+        example: 10

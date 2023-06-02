@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>ECG Health Kit</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Source+Serif+Pro:wght@200&display=swap" rel="stylesheet">
+
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+
+    <style>
+       path[d="M0.5,0.5 L1999.5,0.5 L1999.5,279.5 L0.5,279.5 Z"], path[d="M0.5,0.5 L0.5,0.5 L1934.5,0.5"]{
+            stroke: white;
+        }
+
+      .chart {
+        width: 2000px;
+        height: 280px;
+      }
+      .amcharts-chart-div > a {
+        visibility: hidden;
+      }
+
+      .page-header-wrapper {
+        width: 2000px;
+        padding: 25px 25px;
+      }
+
+      .header-text-name {
+        font-weight: 200;
+        font-size: 32px;
+        font-style: normal;
+      }
+
+      .header-text-bold {
+        font-family: 'Noto Sans';
+        font-weight: 800;
+      }
+
+      .footer-text,
+      .header-text-report {
+        font-family: 'Noto Sans';
+        font-weight: 100;
+      }
+
+      .page-header-section.left {
+        float: left;
+      }
+
+      .page-header-section.right {
+        float: right;
+        margin-right: 65px;
+      }
+
+      .page-header-section.clear {
+        clear: both;
+      }
+
+      .page-footer-wrapper {
+        width: 2000px;
+        text-align: center;
+        color: #BBBBBB;
+      }
+
+      .footer-text {
+        font-family: 'Noto Sans';
+      }
+
+
+    </style>
+</head>
+<body>
+
+<div class="page-header-wrapper">
+    <div class="page-header-section left">
+        <div class="header-text-name">{{ classification }}</div>
+        <div class="header-text-bold">{{ average_bpm }} bpm average</div>
+        <div class="header-text-report">{{ time }}</div>
+    </div>
+    <div class="page-header-section right">
+        <div class="header-text-bold">{{ user_full_name }}</div>
+        <div class="header-text-report">{{ user_dob }}</div>
+    </div>
+    <div class="page-header-section clear"></div>
+</div>
+
+<div id="chart-1" class="chart"></div>
+<div id="chart-2" class="chart"></div>
+<div id="chart-3" class="chart"></div>
+
+<div class="page-footer-wrapper">
+    <div class="footer-text">25 mm/s, 10mm/mV, Apple Watch Lead I</div>
+</div>
+
+<script>
+
+      // raw data points from module results
+      var dataPoints = {{ data | tojson }}
+
+      // data provider for chart filled with formatted date values for each point
+      var dataProvider = dataPoints.map(function(point, index) {
+        // time distance between points for chart
+        var SEC_LIMIT = 30;
+        var msGap = (SEC_LIMIT * 1000) / dataPoints.length;
+        // date for each data point to properly display 30 sec on chart
+        var dateFormatted = moment()
+          .startOf('day')
+          .add(index * msGap, 'ms');
+
+        // chart data provider { date, value }
+        return {
+          date: dateFormatted.toDate(),
+          value: point
+        };
+      });
+
+      // split {dataPoints} array {splitLength} times on equal chunks
+      function getSplitDataPoints(dataPoints, splitLength) {
+        // empty array if no data points exists
+        if (!dataPoints || !dataPoints.length) {
+          return [];
+        }
+
+        var splitDataResult = [];
+        // size of single chunk array based on data points total length
+        var splitArraySize = Math.floor(dataPoints.length / splitLength);
+        // create shallow copy to avoid changing initial array
+        var inputDataPointsShallowCopy = JSON.parse(JSON.stringify(dataPoints));
+
+        for (var index = 0; index < splitLength; index++) {
+          // if last chunk - add rest of the points
+          if (index == splitLength - 1) {
+            splitDataResult.push(inputDataPointsShallowCopy);
+            break;
+          }
+
+          // if non-last chunk - remove data points from shallow copy array and add to the new array
+          splitDataResult.push(
+            inputDataPointsShallowCopy.splice(0, splitArraySize)
+          );
+        }
+        return splitDataResult;
+      }
+
+      function getMinMaxChartValue(data) {
+        var dataShallowCopy = JSON.parse(JSON.stringify(data));
+        dataShallowCopy.sort(function compare(a, b) {
+          if (a < b) {
+            return -1;
+          }
+          if (a > b) {
+            return 1;
+          }
+          // a must be equal to b
+          return 0;
+        });
+        return {
+          min: dataShallowCopy[0],
+          max: dataShallowCopy[dataShallowCopy.length - 1]
+        };
+      }
+
+      // draw chart core function
+      function drawChart(elementId, dataProvider) {
+        var ranges = getMinMaxChartValue(dataPoints);
+        var labels = [];
+
+        var chart = AmCharts.makeChart(elementId, {
+          type: 'serial',
+          theme: 'none',
+          marginRight: 40,
+          marginLeft: 40,
+          autoMarginOffset: 20,
+          mouseWheelZoomEnabled: true,
+          // "dataDateFormat": "YYYY-MM-DD JJ:NN:SS",
+          valueAxes: [
+            {
+              id: 'v1',
+              axisAlpha: 0,
+              position: 'left',
+              labelsEnabled: false,
+              gridColor: 'rgba(0, 0, 0, 0.1)',
+              gridAlpha: 1,
+              autoGridCount: false,
+              gridCount: 7,
+              logarithmic: false,
+              minorGridEnabled: true,
+              minorGridAlpha: 0.2,
+              minorTickLength: 1,
+              strictMinMax: false,
+              minimum: ranges.min - 250,
+              maximum: ranges.max + 250,
+              baseValue: -10000000
+            }
+          ],
+          balloon: {
+            borderThickness: 1,
+            shadowAlpha: 0
+          },
+          graphs: [
+            {
+              id: 'g1',
+              balloon: {
+                drop: true,
+                adjustBorderColor: false,
+                color: '#ffffff'
+              },
+              bullet: 'round',
+              bulletBorderAlpha: 1,
+              bulletColor: '#FFFFFF',
+              bulletSize: 0,
+              hideBulletsCount: 1,
+              lineThickness: 1,
+              lineColor: '#eb1a44',
+              title: 'red line',
+              useLineColorForBulletBorder: true,
+              valueField: 'value',
+              balloonText: "<span style='font-size:18px;'>[[value]]</span>"
+            }
+          ],
+          categoryField: 'date',
+          categoryAxis: {
+            parseDates: false,
+            minorGridEnabled: true,
+            minorGridAlpha: 0.2,
+            minorTickLength: 1,
+            equalSpacing: false,
+            markPeriodChange: false,
+            gridThickness: 1,
+            labelRotation: 45,
+            minPeriod: 'fff',
+            axisAlpha: 1,
+            minorTickLength: 1,
+            axisColor: '#BBBBBB',
+            groupToPeriods: ['ss'],
+            labelsEnabled: true,
+            color: '#BBBBBB',
+            gridColor: 'rgba(0, 0, 0, 0.1)',
+            gridAlpha: 1,
+            dateFormats: [{ period: 'ss', format: 'SSs' }],
+            labelFunction: function(label, dateValue, categoryAxis) {
+              if (label) {
+                var labelTime = moment(label).valueOf();
+                var dayStartMs = moment(label)
+                  .startOf('day')
+                  .valueOf();
+                return (
+                  moment
+                    .duration(labelTime - dayStartMs)
+                    .asSeconds()
+                    .toFixed(1) + 's'
+                );
+                // return moment(label).format('MM:ss:SSSS');
+              }
+              return '';
+            },
+            autoGridCount: false,
+            gridCount: 49
+          },
+          dataProvider: dataProvider
+        });
+      }
+
+      // split array into multiple chunks to show multiple charts for 30s
+      var dataProviderChart = getSplitDataPoints(dataProvider, 3);
+
+      // draw each chart
+      drawChart('chart-1', dataProviderChart[0]);
+      drawChart('chart-2', dataProviderChart[1]);
+      drawChart('chart-3', dataProviderChart[2]);
+
+</script>
+</body>
+</html>

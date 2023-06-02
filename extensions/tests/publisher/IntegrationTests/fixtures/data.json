@@ -1,0 +1,699 @@
+{
+  "publisher": [
+    {
+      "_id": {
+        "$oid": "61c0c9ff9e134b08d48e8349"
+      },
+      "_cls": "MongoPublisher",
+      "name": "HL7 Integration Kafka",
+      "filter": {
+        "organizationIds": [
+          {
+            "$oid": "5f652a9661c37dd829c8d23a"
+          }
+        ],
+        "deploymentIds": [
+          {
+            "$oid": "5f652a9661c37dd829c8d23a"
+          },
+          {
+            "$oid": "61926cbe9cb844829c967f8a"
+          }
+        ],
+        "eventType": "MODULE_RESULT",
+        "listenerType": "DEPLOYMENT_IDS"
+      },
+      "transform": {
+        "deIdentified": true,
+        "includeNullFields": true,
+        "includeUserMetaData": true,
+        "excludeFields": [
+          "user.tags",
+          "user.tagsAuthorId",
+          "user.roles",
+          "user.recentModuleResults",
+          "metadata"
+        ],
+        "includeFields": [],
+        "deIdentifyHashFields": [
+          "id",
+          "userId",
+          "submitterId"
+        ],
+        "deIdentifyRemoveFields": [
+          "nhsId",
+          "wechatId",
+          "kardiaId",
+          "insuranceNumber",
+          "pamThirdPartyIdentifier",
+          "emergencyPhoneNumber",
+          "primaryAddress",
+          "givenName",
+          "familyName",
+          "email",
+          "phoneNumber",
+          "additionalContactDetails",
+          "personalDocuments",
+          "familyMedicalHistory",
+          "extraCustomFields"
+        ]
+      },
+      "target": {
+        "retry": 4,
+        "publisherType": "KAFKA",
+        "kafka": {
+          "url": "pkc-l6wr6.europe-west20.gcp.confluent.cloud:9092",
+          "topic": "module-result",
+          "authType": "PLAIN",
+          "saslUsername": "OYMYIEH7QWGXVLIK",
+          "saslPassword": "mY+zp+8ZETVB/x4ovbjJ6O5wso0duXTqcDJTkYfjQbww2KjDhAD0H4IhpDSq/+ni"
+        }
+      },
+      "updateDateTime": {
+        "$date": "2021-12-20T18:22:55.552Z"
+      },
+      "createDateTime": {
+        "$date": "2021-12-20T18:22:55.552Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61815cb0515a3d3bae2960e7"
+      },
+      "_cls": "MongoPublisher",
+      "name": "HL7 Integration Webhook",
+      "filter": {
+        "organizationIds": [
+          {
+            "$oid": "5f652a9661c37dd829c8d23a"
+          }
+        ],
+        "deploymentIds": [
+          {
+            "$oid": "5f652a9661c37dd829c8d23a"
+          },
+          {
+            "$oid": "61926cbe9cb844829c967f8a"
+          }
+        ],
+        "eventType": "MODULE_RESULT",
+        "listenerType": "DEPLOYMENT_IDS"
+      },
+      "transform": {
+        "deIdentified": true,
+        "includeNullFields": true,
+        "includeUserMetaData": true,
+        "excludeFields": [
+          "user.tags",
+          "user.tagsAuthorId",
+          "user.roles",
+          "user.recentModuleResults",
+          "metadata"
+        ],
+        "includeFields": [],
+        "deIdentifyHashFields": [
+          "id",
+          "userId",
+          "submitterId"
+        ],
+        "deIdentifyRemoveFields": [
+          "nhsId",
+          "wechatId",
+          "kardiaId",
+          "insuranceNumber",
+          "pamThirdPartyIdentifier",
+          "emergencyPhoneNumber",
+          "primaryAddress",
+          "givenName",
+          "familyName",
+          "email",
+          "phoneNumber",
+          "additionalContactDetails",
+          "personalDocuments",
+          "familyMedicalHistory",
+          "extraCustomFields"
+        ]
+      },
+      "target": {
+        "retry": 4,
+        "publisherType": "WEBHOOK",
+        "webhook": {
+          "endpoint": "https://webhook.site/64a6d6f5-34f3-450c-9497-63ffd468a9e9",
+          "authType": "NONE"
+        }
+      },
+      "updateDateTime": {
+        "$date": "2021-12-10T14:32:21.426Z"
+      },
+      "createDateTime": {
+        "$date": "2021-12-10T14:32:21.426Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "625065faf5d84f256974230d"
+      },
+      "_cls": "MongoPublisher",
+      "name": "FHIR Integration GCP_FHIR NHS",
+      "filter": {
+        "organizationIds": [
+          {
+            "$oid": "5f652a9661c37dd829c8d23a"
+          }
+        ],
+        "deploymentIds": [
+          {
+            "$oid": "5f652a9661c37dd829c8d23a"
+          },
+          {
+            "$oid": "61926cbe9cb844829c967f8a"
+          }
+        ],
+        "eventType": "MODULE_RESULT",
+        "listenerType": "DEPLOYMENT_IDS"
+      },
+      "transform": {
+        "deIdentified": true,
+        "includeNullFields": true,
+        "includeUserMetaData": true,
+        "excludeFields": [
+          "user.tags",
+          "user.tagsAuthorId",
+          "user.roles",
+          "user.recentModuleResults",
+          "metadata"
+        ],
+        "includeFields": [],
+        "deIdentifyHashFields": [
+          "id",
+          "userId",
+          "submitterId"
+        ],
+        "deIdentifyRemoveFields": [
+          "nhsId",
+          "wechatId",
+          "kardiaId",
+          "insuranceNumber",
+          "pamThirdPartyIdentifier",
+          "emergencyPhoneNumber",
+          "primaryAddress",
+          "givenName",
+          "familyName",
+          "email",
+          "phoneNumber",
+          "additionalContactDetails",
+          "personalDocuments",
+          "familyMedicalHistory",
+          "extraCustomFields"
+        ]
+      },
+      "target": {
+        "retry": 4,
+        "publisherType": "GCPFHIR",
+        "gcp_fhir": {
+          "url": "https://healthcare.googleapis.com/v1/projects/hu-global-sandbox/locations/us-east4/datasets/test/fhirStores/huma_demo_fhir/fhir",
+          "serviceAccountData": "{}",
+          "config": {}
+        }
+      },
+      "updateDateTime": {
+        "$date": "2022-04-08T16:42:34.846Z"
+      },
+      "createDateTime": {
+        "$date": "2022-04-08T16:42:34.846Z"
+      }
+    }
+  ],
+  "consentlog": [
+    {
+      "_id": {
+        "$oid": "617add4e0acea597224f5fa6"
+      },
+      "userId": {
+        "$oid": "615db4dd92a28f0cee2e14c1"
+      },
+      "consentId": {
+        "$oid": "617a6ae12ad9606b933e3daf"
+      },
+      "revision": 1,
+      "givenName": "Test client",
+      "middleName": "test",
+      "familyName": "Test client",
+      "signature": {
+        "bucket": "bucket",
+        "key": "key",
+        "region": "eu"
+      },
+      "sharingOption": 1,
+      "createDateTime": {
+        "$date": "2021-10-28T17:26:38.662Z"
+      },
+      "deploymentId": "617a6ade2ad9606b933e3d8e"
+    },
+    {
+      "_id": {
+        "$oid": "614c57a392896a5b886daa71"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "consentId": {
+        "$oid": "614b51c94868da0568f90f66"
+      },
+      "revision": 1,
+      "createDateTime": {
+        "$date": "2021-09-23T10:32:03.686Z"
+      },
+      "agreement": true,
+      "deploymentId": "614b51bce422623dcb0e455c"
+    },
+    {
+      "_id": {
+        "$oid": "614c57a392896a5b886daa72"
+      },
+      "userId": {
+        "$oid": "4e8f0c74b50aa9656c34789c"
+      },
+      "consentId": {
+        "$oid": "614b51c94868da0568f90f66"
+      },
+      "revision": 1,
+      "createDateTime": {
+        "$date": "2021-08-23T10:32:03.686Z"
+      },
+      "agreement": true,
+      "deploymentId": "614b51bce422623dcb0e455c"
+    }
+  ],
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "61926cbe9cb844829c967f8a"
+      },
+      "name": "Publisher Test Deployment",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "updateDateTime": {
+        "$date": "2021-11-15T14:20:56.732Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-15T14:20:46.599Z"
+      },
+      "userActivationCode": "80250665",
+      "managerActivationCode": "Gk4hILF6byxL",
+      "proxyActivationCode": "92928579",
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "61926cc89cb844829c967fd7"
+          },
+          "updateDateTime": {
+            "$date": "2021-11-15T14:20:56.452Z"
+          },
+          "createDateTime": {
+            "$date": "2021-11-15T14:20:56.452Z"
+          },
+          "moduleId": "BloodPressure",
+          "status": "ENABLED",
+          "order": 2,
+          "configBody": {},
+          "about": "hu_bloodpressure_about",
+          "schedule": {
+            "friendlyText": "friendlyText"
+          },
+          "ragThresholds": [
+            {
+              "type": "VALUE",
+              "severity": 2,
+              "thresholdRange": [
+                {
+                  "maxValue": 110.9
+                },
+                {
+                  "minValue": 150,
+                  "maxValue": 179.9
+                }
+              ],
+              "color": "#FFDA9F",
+              "fieldName": "systolicValue",
+              "enabled": true
+            },
+            {
+              "type": "VALUE",
+              "severity": 1,
+              "thresholdRange": [
+                {
+                  "minValue": 111,
+                  "maxValue": 149.9
+                }
+              ],
+              "color": "#CBEBF0",
+              "fieldName": "systolicValue",
+              "enabled": true
+            },
+            {
+              "type": "VALUE",
+              "severity": 3,
+              "thresholdRange": [
+                {
+                  "minValue": 180
+                }
+              ],
+              "color": "#FBCCD7",
+              "fieldName": "systolicValue",
+              "enabled": true
+            }
+          ],
+          "version": 0
+        }
+      ],
+      "onboardingConfigs": [
+        {
+          "id": {
+            "$oid": "61926cc89cb844829c967fe0"
+          },
+          "onboardingId": "Consent",
+          "status": "ENABLED",
+          "configBody": {},
+          "order": 1,
+          "version": 2,
+          "userTypes": [
+            "User"
+          ]
+        }
+      ],
+      "keyActions": [],
+      "keyActionsEnabled": true,
+      "profile": {
+        "fields": {
+          "givenName": true,
+          "familyName": true,
+          "dateOfBirth": true,
+          "race": false,
+          "gender": true,
+          "biologicalSex": false,
+          "genderOptions": [
+            {
+              "displayName": "hu_genderoption_male",
+              "value": "MALE"
+            },
+            {
+              "displayName": "hu_genderoption_female",
+              "value": "FEMALE"
+            },
+            {
+              "displayName": "hu_genderoption_other",
+              "value": "OTHER"
+            }
+          ],
+          "bloodGroup": false,
+          "height": true,
+          "phoneNumber": true,
+          "email": true,
+          "primaryAddress": false,
+          "emergencyPhoneNumber": false,
+          "ethnicity": false,
+          "familyMedicalHistory": false,
+          "pastHistory": false,
+          "presentSymptoms": false,
+          "operationHistory": false,
+          "chronicIllness": false,
+          "allergyHistory": false,
+          "pregnancy": false,
+          "dateOfLastPhysicalExam": false,
+          "mandatoryOnboardingFields": [
+            "dateOfBirth",
+            "height",
+            "gender"
+          ],
+          "validators": {}
+        }
+      },
+      "features": {
+        "appMenu": [
+          "TO_DO",
+          "TRACK",
+          "LEARN",
+          "PROFILE"
+        ],
+        "appointment": true,
+        "carePlanDailyAdherence": false,
+        "healthDeviceIntegration": false,
+        "offBoarding": false,
+        "personalDocuments": false,
+        "proxy": false,
+        "hideAppSupport": false
+      },
+      "privacyPolicyUrl": "https://storage.googleapis.com/hu-deployment-static-content/mediclinic/HumaAppPrivacyPolicy_Healthcare%26LifeSciences_ENAR.pdf",
+      "eulaUrl": "https://storage.googleapis.com/hu-deployment-static-content/mediclinic/HumaAppPrivacyPolicy_Healthcare%26LifeSciences_ENAR.pdf",
+      "termAndConditionUrl": "https://storage.googleapis.com/hu-deployment-static-content/mediclinic/HumaAppPrivacyPolicy_Healthcare%26LifeSciences_ENAR.pdf",
+      "version": 5,
+      "language": "en",
+      "icon": {
+        "bucket": "ppdeveufrankfurt",
+        "key": "deployment/61926cbe9cb844829c967f8a/logo.png",
+        "region": "eu"
+      },
+      "consent": {
+        "id": {
+          "$oid": "61926cc89cb844829c967fd2"
+        },
+        "createDateTime": {
+          "$date": "2021-11-15T14:20:56.341Z"
+        },
+        "enabled": "ENABLED",
+        "revision": 1,
+        "additionalConsentQuestions": [
+          {
+            "type": "contactForResearchStudies",
+            "enabled": "ENABLED",
+            "format": "BOOLEAN",
+            "text": "Can Discover contact you to take part in research studies and surveys to improve healthcare for you and others?",
+            "description": "If you give consent, the following information will be shared: your first and last name, date of birth, sex, and postcode.\n\nFull information on how Discover handles your data, including how to withdraw consent, <a href=\"https://www.registerfordiscover.org.uk\">can be found here</a>.",
+            "order": 1
+          }
+        ],
+        "sections": [
+          {
+            "type": "DATA_GATHERING",
+            "title": "Your data",
+            "details": "We recognise the importance of processing and protecting your personal and health information responsibly and securely. For further information on how Huma process your personal information, please refer to the <a href=\"https://storage.googleapis.com/hu-deployment-static-content/afib/Huma_US_Privacy_Policy_incl_CCPA.pdf\">Privacy Policy</a>."
+          },
+          {
+            "type": "AGREEMENT",
+            "title": "Agreement",
+            "options": [
+              {
+                "type": 0,
+                "text": "I understand that Huma will process my personal data, including health information, as described in the <a href=\"https://storage.googleapis.com/hu-deployment-static-content/afib/Huma_US_Privacy_Policy_incl_CCPA.pdf\">Privacy Policy</a>.",
+                "order": 0
+              },
+              {
+                "type": 1,
+                "text": "I agree to the <a href=\"https://storage.googleapis.com/hu-deployment-static-content/afib/Huma_EULA_Bayer_AFib.pdf\">Terms & Conditions</a>.",
+                "order": 1
+              }
+            ]
+          }
+        ],
+        "instituteName": "string",
+        "instituteFullName": "string",
+        "instituteTextDetails": "string"
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "615db4dd92a28f0cee2e14c1"
+      },
+      "status": 1,
+      "emailVerified": true,
+      "email": "mahdi.biria+u@huma.com",
+      "mfaEnabled": false,
+      "displayName": "Mahdi",
+      "userAttributes": {
+        "familyName": "Biria",
+        "givenName": "Mahdi",
+        "dob": "1988-04-04",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": "2021-11-01T10:59:35.453Z"
+      },
+      "createDateTime": {
+        "$date": "2021-10-06T14:38:21.103Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "id": "5e8f0c74b50aa9656c34789a",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testSuper@test.com",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "615db4dd92a28f0cee2e14c1"
+      },
+      "updateDateTime": {
+        "$date": "2021-11-11T19:03:16.148Z"
+      },
+      "createDateTime": {
+        "$date": "2021-10-06T14:38:21.150Z"
+      },
+      "givenName": "Mahdi",
+      "familyName": "Biria",
+      "gender": "MALE",
+      "email": "mahdi.biria+u@huma.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/61926cbe9cb844829c967f8a",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC",
+      "enrollmentId": 354,
+      "language": "en",
+      "finishedOnboarding": true,
+      "stats": {
+        "taskCompliance": {
+          "current": 0,
+          "total": 14,
+          "due": 0,
+          "updateDateTime": {
+            "$date": "2021-11-11T19:03:16.121Z"
+          }
+        }
+      },
+      "dateOfBirth": {
+        "$date": "1988-04-04T00:00:00.000Z"
+      },
+      "biologicalSex": "MALE"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        },
+        {
+          "roleId": "Admin",
+          "resource": "deployment/614b51bce422623dcb0e455c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "testSuper@test.com",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ],
+  "bloodpressure": [
+    {
+      "_id": {
+        "$oid": "618a8595a57e07e2de456e33"
+      },
+      "userId": {
+        "$oid": "615db4dd92a28f0cee2e14c1"
+      },
+      "moduleId": "BloodPressure",
+      "moduleConfigId": "617a6ae12ad9606b933e3db7",
+      "deploymentId": {
+        "$oid": "617a6ade2ad9606b933e3d8e"
+      },
+      "version": 0,
+      "deviceName": "iOS",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-24T10:09:17.694Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-24T10:09:17.845Z"
+      },
+      "submitterId": {
+        "$oid": "615db4dd92a28f0cee2e14c1"
+      },
+      "server": {
+        "hostUrl": "vb-ppserver.ngrok.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "diastolicValue": 80,
+      "systolicValue": 92,
+      "diastolicValueUnit": "mmHg",
+      "systolicValueUnit": "mmHg"
+    }
+  ]
+}

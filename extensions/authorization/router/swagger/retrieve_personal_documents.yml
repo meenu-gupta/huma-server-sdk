@@ -1,0 +1,15 @@
+Retrieve personal documents
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID for whom to retrieve personal documents
+responses:
+  200:
+    description: 200 successful

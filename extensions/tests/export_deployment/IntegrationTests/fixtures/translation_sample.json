@@ -1,0 +1,27 @@
+{
+    "dictionary": [
+        {
+            "keyword": "FSQ_moduleID",
+            "moduleId": null,
+            "text": "Food Security Questionnaire"
+        },
+        {
+            "keyword": "some_times_translated",
+            "moduleId": "FSQ_moduleID",
+            "text": "Sometimes true"
+        },
+        {
+            "keyword": "often_translated_value",
+            "moduleId": "__all__",
+            "text": "Often true"
+        },
+        {
+            "keyword": "test_answer_translated",
+            "moduleId": [
+                "FSQ_moduleID",
+                "Weight"
+            ],
+            "text": "Test answer"
+        }
+    ]
+}

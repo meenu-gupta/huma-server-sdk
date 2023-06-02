@@ -1,0 +1,30 @@
+Get full configuration by user ID
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID to retrieve full configuration for.
+responses:
+  200:
+    description: Full Configuration for user
+    schema:
+      $ref: '#/definitions/FullConfigurationResponse'
+
+definitions:
+  FullConfigurationResponse:
+    type: object
+    properties:
+      organizations:
+        type: array
+        items:
+          $ref: "#/definitions/Organization"
+      deployments:
+        type: array
+        items:
+          $ref: "#/definitions/Deployment"

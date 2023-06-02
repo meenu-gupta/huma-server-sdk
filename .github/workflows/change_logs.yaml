@@ -1,0 +1,65 @@
+name: Changelog Workflow
+
+on:
+  push:
+    branches:
+      - "release-**"
+
+jobs:
+  changelog_update:
+    name: Changelog Update
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout out current code using public action
+        uses: actions/checkout@v2
+
+      - name: "Get Project Version"
+        id: project_version
+        run: |
+          echo "Reading version from version_path"
+          echo ::set-output name=VERSION::$(\
+            cat apps/ppserver/version.py \
+            | grep __VERSION__ \
+            | awk '{ split($0,a,/"/); print a[2]}' \
+            | cut -f1,2 -d'.' \
+            | tr -d '[[:space:]]' \
+          )
+
+      - name: Extract branch name
+        id: extract_branch
+        run: echo ::set-output name=BRANCH::${GITHUB_REF#refs/heads/}
+
+      - name: "Get list of PRs"
+        id: github_pull_requests
+        run: |
+          echo "Getting list of PRs"
+          echo ::set-output name=RELEASE::$(\
+            gh pr list \
+            --search 'milestone:${{ steps.project_version.outputs.VERSION }}' \
+            --state merged \
+            --json title,author,mergedAt,createdAt,number,url,labels \
+            --limit 200 \
+          )
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Changelog Update"
+        id: bumpVersion
+        uses: "./.github/actions/changelog-update"
+        with:
+          version: ${{ steps.project_version.outputs.VERSION }}
+          release: ${{ steps.github_pull_requests.outputs.RELEASE }}
+
+      - name: "Create PR"
+        id: createPr
+        uses: "./.github/actions/create-pull-request"
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit_message: Update CHANGELOG.md
+          base: ${{steps.extract_branch.outputs.BRANCH}}
+          branch: fix/changelog-update-${{steps.extract_branch.outputs.BRANCH}}
+          title: "[UPDATE] CHANGELOG.md update: ${{ steps.project_version.outputs.VERSION }}"
+          body: |
+            CHANGELOG.md updates for: ${{steps.extract_branch.outputs.BRANCH}}
+          file_path: "CHANGELOG.md"
+          folder: "."

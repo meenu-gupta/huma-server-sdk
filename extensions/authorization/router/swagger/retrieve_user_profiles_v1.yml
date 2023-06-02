@@ -1,0 +1,117 @@
+Retrieve Profiles
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: body
+    name: body
+    schema:
+      $ref: "#/definitions/ProfilesRequest"
+responses:
+  200:
+    description: List user profiles
+    schema:
+      $ref: '#/definitions/RetrieveProfilesV1Response'
+definitions:
+  ProfilesRequest:
+    type: object
+    properties:
+      search:
+        type: string
+        example: "test"
+      sort:
+        description: sort parameters
+        $ref: "#/definitions/SortParams"
+      role:
+        type: string
+        enum: ["User", "Manager"]
+      patientIdentifiersOnly:
+        type: boolean
+        description: Optional field to show only patient identifiers
+      patientDataOnly:
+        type: boolean
+        description: Optional field to show only patient data
+      skip:
+        type: integer
+        minimum: 0
+        example: 0
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+      managerId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      filters:
+        type: object
+        additionalProperties:
+          type: string
+
+  SortParams:
+    type: object
+    properties:
+      status:
+        type: array
+        items:
+          type: string
+          enum: ["CONTINUE_MONITORING", "DECEASED", "FLAGGED", "INPATIENT", "NEEDS_ADMISSION", "RECOVERED"]
+      fields:
+        type: array
+        items:
+          type: string
+          enum: [
+            "LAST_UPDATED",
+            "DOB",
+            "SURGERY_DATE",
+            "RAG",
+            "FLAGS",
+            "MODULE",
+            "GIVEN_NAME",
+            "FAMILY_NAME",
+            "BOARDING_STATUS",
+            "BOARDING_UPDATE_DATE_TIME",
+            "TASK_COMPLIANCE"
+          ]
+      order:
+        type: string
+        enum: ["DESCENDING", "ASCENDING"]
+      extra:
+        type: object
+        required:
+          - moduleId
+          - moduleConfigId
+        description: "Additional data required by complex sorting fields"
+        properties:
+          moduleId:
+            type: string
+            example: "Weight"
+          moduleConfigId:
+            type: string
+            example: "61e0303f3547262976bd66bb"
+
+  RetrieveProfilesV1Response:
+    type: object
+    properties:
+      users:
+        type: array
+        items:
+          $ref: "#/definitions/ProfileResponseItem"
+      filtered:
+        type: integer
+      total:
+        type: integer
+
+  ProfileResponseItem:
+    allOf:
+      - properties:
+          assingedManagers:
+            type: array
+            items:
+              type: string
+              example: "5e84b0dab8dfa268b1180536"
+          assignedUsersCount:
+            type: integer
+            example: 3
+      - $ref: '#/definitions/UserProfile'

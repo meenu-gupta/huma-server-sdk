@@ -1,0 +1,55 @@
+{
+  "symptoms": ["Chills", "Fever", "Paresthesia", "Light-headed"],
+  "complexSymptoms": [
+    {
+      "name": "Chills",
+      "scale": [
+        {
+          "severity": 1,
+          "value": "never"
+        },
+        {
+          "severity": 2,
+          "value": "seldom"
+        },
+        {
+          "severity": 3,
+          "value": "usually"
+        },
+        {
+          "severity": 4,
+          "value": "often"
+        },
+        {
+          "severity": 5,
+          "value": "always"
+        }
+      ]
+    },
+    {
+      "name": "Cough",
+      "scale": [
+        {
+          "severity": 1,
+          "value": "never"
+        },
+        {
+          "severity": 2,
+          "value": "seldom"
+        },
+        {
+          "severity": 3,
+          "value": "usually"
+        },
+        {
+          "severity": 4,
+          "value": "often"
+        },
+        {
+          "severity": 5,
+          "value": "always"
+        }
+      ]
+    }
+  ]
+}

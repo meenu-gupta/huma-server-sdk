@@ -1,0 +1,54 @@
+summary: Retrieve list of file IDs in the file-library
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: library_id
+    description: id of the library, for example "huma_image_library"
+    required: true
+    type: string
+  - in: query
+    name: deployment_id
+    type: string
+    description: deployment ID
+  - in: query
+    name: offset
+    type: integer
+    description: starting from zero
+  - in: query
+    name: limit
+    type: integer
+    description: maximum number of returned items
+
+responses:
+  200:
+    description: List of file IDs in the library
+    schema:
+      $ref: "#/definitions/GetFileLibraryResponse"
+
+definitions:
+  GetFileLibraryResponse:
+    type: object
+    properties:
+      files:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              example: "5e84b0dab8dfa268b1180536"
+            fileName:
+              type: string
+              example: "patient.png"
+            fileSize:
+              type: integer
+              example: 2000000
+            metadata:
+              type: object
+              properties:
+                description:
+                  type: string
+                  example: "Patient using the app"

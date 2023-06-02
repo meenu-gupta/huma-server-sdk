@@ -1,0 +1,20 @@
+Delete Deployment Label
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment label belongs to.
+  - in: path
+    name: label_id
+    type: string
+    required: true
+    description: ID of the label.
+responses:
+  204:
+    description: Label Deleted

@@ -1,0 +1,18 @@
+Validate Invitation with code [PUBLIC ROUTE]
+---
+tags:
+  - invitation
+parameters:
+  - in: path
+    name: invitation_code
+    type: string
+    required: true
+    description: Invitation code to retrieve.
+responses:
+  200:
+    description: The original invitation code
+    schema:
+      type: object
+      properties:
+        invitationCode:
+          type: string

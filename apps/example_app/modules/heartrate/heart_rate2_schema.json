@@ -1,0 +1,29 @@
+{
+  "$id": "com.medopad.platformplay.heart-rate.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "HeartRate",
+  "description": "Heart Rate Config Schema",
+  "properties": {
+    "isHRVEnabled": {
+      "type": "boolean"
+    },
+    "dataSource": {
+      "type": "object",
+      "properties": {
+        "cameraCollection": {
+          "type": "boolean"
+        },
+        "manualCollection": {
+          "type": "boolean"
+        },
+        "healthAppCollection": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "required": ["isHRVEnabled"]
+}

@@ -1,0 +1,111 @@
+{
+  "$id": "com.medopad.platformplay.video-questionnaire.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "definitions": {
+    "uuid": {
+      "type": "string",
+      "format": "uuid",
+      "examples": [
+        "67ED4D53-37E0-4538-BB7A-6ECB62E6CD55"
+      ]
+    },
+    "datetime": {
+      "type": "string",
+      "format": "date-time",
+      "examples": [
+        "2008-09-15T15:53:00+05:00"
+      ]
+    },
+    "s3Object": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "bucket": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "region",
+        "bucket"
+      ]
+    },
+    "step": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "instruction": {
+          "$ref": "#/definitions/instruction"
+        },
+        "recording": {
+          "$ref": "#/definitions/recording"
+        },
+        "note": {
+          "$ref": "#/definitions/note"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "instruction"
+      ]
+    },
+    "instruction": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "image": {
+          "$ref": "#/definitions/s3Object"
+        }
+      },
+      "required": [
+        "title",
+        "description"
+      ]
+    },
+    "recording": {
+      "type": "object",
+      "properties": {
+        "maxDuration": {
+          "type": "integer"
+        }
+      }
+    },
+    "note": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        }
+      }
+    }
+  },
+  "properties": {
+    "steps": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/step"
+      }
+    }
+  },
+  "required": [
+    "steps"
+  ]
+}

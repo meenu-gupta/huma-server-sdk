@@ -1,0 +1,13 @@
+table AdditionalDeviceInfo {
+  osVersion:string;
+  deviceName:string;
+  deviceDetails:string;
+}
+table HRMonitorTable {
+  version:int;
+  timestamp:long;
+  additionalDeviceInfo:AdditionalDeviceInfo;
+  value:string;
+  finalState:string;
+}
+root_type HRMonitorTable;

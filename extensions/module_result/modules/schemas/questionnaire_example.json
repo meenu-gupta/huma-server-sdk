@@ -1,0 +1,353 @@
+{
+  "isForManager": false,
+  "publisherName": "Bruce Willis",
+  "questionnaireType": "EQ5D_5L",
+  "pages": [
+    {
+      "type": "INFO",
+      "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1667",
+      "order": 1,
+      "text": "Some hint?",
+      "description": "Explain more here?",
+      "image": {
+        "key": "info.png",
+        "region": "us-west-2",
+        "bucket": "bucket"
+      }
+    },
+    {
+      "type": "QUESTION",
+      "items": [
+        {
+          "logic": {
+            "isEnabled": false
+          },
+          "description": "",
+          "id": "composite_question_id",
+          "required": true,
+          "format": "COMPOSITE",
+          "order": 1,
+          "text": "What is your waist and hip circumference?",
+          "fields": [
+            {
+              "id": "waist_circumference",
+              "format": "NUMERIC",
+              "placeholder": "Enter waist circumference",
+              "required": true,
+              "validation": {
+                "expression": "/^\\d{0,3}(?:\\.\\d)?$",
+                "errorMessage": "Value cannot include more than one decimal",
+                "required": false
+              }
+            },
+            {
+              "id": "hip_circumference",
+              "format": "NUMERIC",
+              "placeholder": "Enter hip circumference",
+              "required": true,
+              "validation": {
+                "expression": "/^\\d{0,3}(?:\\.\\d)?$/gm",
+                "errorMessage": "Value cannot include more than one decimal",
+                "required": false
+              }
+            }
+          ]
+        }
+      ],
+      "order": 1
+    },
+    {
+      "type": "QUESTION",
+      "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+      "order": 1,
+      "text": "Some hint?",
+      "description": "Explain more here?",
+      "items": [
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "TEXT",
+          "required": true,
+          "order": 1,
+          "text": "Text Question",
+          "description": "Text Question Description?",
+          "regex": "[0-9]{8}",
+          "defaultValue": "some text",
+          "placeholder": "enter your phone here"
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "TEXTCHOICE",
+          "required": true,
+          "order": 2,
+          "text": "Text Choice Question",
+          "description": "Text Choice Question Description?",
+          "options": [
+            {
+              "label": "key1",
+              "value": "value1"
+            },
+            {
+              "label": "key2",
+              "value": "value2"
+            }
+          ],
+          "selectionCriteria": "SINGLE",
+          "defaultOptions": [
+            "key1"
+          ],
+          "logic": {
+            "rules": [
+              {
+                "allOf": [
+                  {
+                    "questionId": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+                    "neq": 3
+                  },
+                  {
+                    "neq": 4
+                  }
+                ],
+                "jumpToId": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669"
+              },
+              {
+                "anyOf": [
+                  {
+                    "eq": 8
+                  },
+                  {
+                    "eq": 5
+                  }
+                ],
+                "jumpToId": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1666"
+              }
+            ],
+            "enabled": true
+          }
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "SCALE",
+          "required": false,
+          "order": 3,
+          "text": "Scale Question",
+          "description": "Scale Question Description?",
+          "lowerBound": 1,
+          "upperBound": 5,
+          "defaultValue": 2
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "BOOLEAN",
+          "required": false,
+          "order": 4,
+          "text": "Boolean Question",
+          "description": "Boolean Question Description",
+          "defaultValue": true
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "DATE",
+          "required": false,
+          "order": 5,
+          "text": "Date Question",
+          "description": "Date Question Description",
+          "includeTime": true
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "NUMERIC",
+          "required": false,
+          "order": 5,
+          "text": "Numberic Question",
+          "description": "Numberic Question Description",
+          "upperBound": 120,
+          "lowerBound": 12,
+          "unit": "years",
+          "normalRange": {
+            "lowerBound": 3,
+            "upperBound": 6,
+            "warningMessage": "string"
+          }
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb166a",
+          "format": "MEDIA",
+          "order": 6,
+          "text": "Media Question",
+          "description": "Media Question Description",
+          "mediaType": ["FILE"],
+          "multipleAnswers": {
+            "enabled": true,
+            "maxAnswers": 20
+          }
+        },
+        {
+          "description": "",
+          "format": "AUTOCOMPLETE_TEXT",
+          "autocomplete": {
+            "placeholder": "Search conditions",
+            "options": [
+              {
+                "key": "Ukraine",
+                "value": "Ukraine"
+              },
+              {
+                "key": "United Kingdom",
+                "value": "United Kingdom"
+              }
+            ]
+          },
+          "id": "7c50c7d5-6f4e-4c0b-aeaf-c266eafd056e",
+          "logic": {
+            "isEnabled": false
+          },
+          "multipleAnswers": {
+            "enabled": true,
+            "maxAnswers": 20
+          },
+          "order": 7,
+          "required": true,
+          "placeholder": "Enter condition",
+          "text": "What condition do you have?"
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "TEXT",
+          "required": true,
+          "order": 8,
+          "description": "Text Question Description?",
+          "text": "text value with @{} selected",
+          "defaultValue": "some text",
+          "placeholder": "enter your phone here",
+          "logic": {
+            "rules": [],
+            "order": 8,
+            "reuse": {
+              "questionId": "7c50c7d5-6f4e-4c0b-ae2c-c266eafd4621",
+              "loop": {
+                "isEnabled": true,
+                "choices": "selected"
+              },
+              "recall": {
+                "isEnabled": true
+              }
+            },
+            "isEnabled": true
+          }
+        },
+        {
+          "description": "",
+          "format": "AUTOCOMPLETE_TEXT",
+          "autocomplete": {
+            "placeholder": "Search conditions",
+            "options": [
+              {
+                "key": "Ukraine",
+                "value": "Ukraine"
+              },
+              {
+                "key": "United Kingdom",
+                "value": "United Kingdom"
+              }
+            ]
+          },
+          "id": "7c50c7d5-6f4e-5f0b-aeaf-c277eafd056e",
+          "logic": {
+            "rules": [],
+            "order": 8,
+            "reuse": {
+              "questionId": "7c50c7d5-6f4e-4c0b-ae2c-c266eafd4621",
+              "loop": {
+                "isEnabled": true,
+                "choices": "unselected"
+              },
+              "recall": {
+                "isEnabled": true
+              }
+            },
+            "isEnabled": true
+          },
+          "multipleAnswers": {
+            "enabled": true,
+            "maxAnswers": 20
+          },
+          "order": 9,
+          "required": true,
+          "placeholder": "Enter condition",
+          "text": "What condition do you have regarding you have not selected @{}?"
+        }
+      ]
+    },
+    {
+      "type": "QUESTION",
+      "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1666",
+      "order": 2,
+      "text": "Some hint?",
+      "description": "Explain more here?",
+      "items": [
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "TEXT",
+          "required": true,
+          "order": 1,
+          "text": "Text Question",
+          "description": "Text Question Description?",
+          "regex": "[0-9]{8}",
+          "defaultValue": "some text",
+          "placeholder": "enter your phone here"
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "TEXTCHOICE",
+          "required": true,
+          "order": 2,
+          "text": "Text Choice Question",
+          "description": "Text Choice Question Description?",
+          "options": [
+            {
+              "label": "key1",
+              "value": "value1"
+            },
+            {
+              "label": "key2",
+              "value": "value2"
+            }
+          ],
+          "selectionCriteria": "MULTIPLE",
+          "defaultOptions": [
+            "key1",
+            "key2"
+          ]
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "SCALE",
+          "required": false,
+          "order": 3,
+          "text": "Scale Question",
+          "description": "Scale Question Description?",
+          "options": [
+            {
+              "label": "key1",
+              "value": "value1"
+            },
+            {
+              "label": "key2",
+              "value": "value2"
+            }
+          ],
+          "defaultValue": "value1"
+        },
+        {
+          "id": "d23deeb0-a72e-4ab0-bba0-e52bc6fb1669",
+          "format": "DATE",
+          "required": false,
+          "order": 4,
+          "text": "Date Question",
+          "description": "Date Question Description",
+          "includeTime": false
+        }
+      ]
+    }
+  ]
+}

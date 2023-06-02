@@ -1,0 +1,33 @@
+Link deployment to organization. DEPRECATED. use /link-deployments instead
+---
+tags:
+  - organization
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: organization_id
+    type: string
+    required: true
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/LinkDeploymentRequest'
+responses:
+  200:
+    description: updated organization
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  LinkDeploymentRequest:
+    type: object
+    required:
+      - deploymentId
+    properties:
+      deploymentId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"

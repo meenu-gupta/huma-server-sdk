@@ -1,0 +1,169 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+      - 'release-**'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  unit_test:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Unit Tests
+        env:
+          DOCKER_BUILDKIT: '1'
+        run: make ppserver/tests/docker-compose-unit-tests
+      - name: Store pytest results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: unit-pytest.log
+          path: ./testresults/unit-pytest.log
+      - name: Store junit report
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: unit-junitresult.xml
+          path: ./testresults/unit-junitresult.xml
+      - name: Publish code coverage results
+        if: always()
+        env:
+          prNumber: ${{ github.event.pull_request.number }}
+        run: |
+          make common/git-unit-tests-code-cov-pr-comment
+          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+          export value=`cat pr-unit-test-coverage.txt`
+      - name: Store Unit Test Coverage
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: pr-unit-test-coverage
+          path: pr-unit-test-coverage.txt
+
+  integration_test:
+    name: Integration Tests
+    needs: unit_test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Integration Tests
+        env:
+          DOCKER_BUILDKIT: '1'
+        run: make ppserver/tests/docker-compose-integration-tests
+      - name: Store pytest results
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: integration-pytest.log
+          path: ./testresults/integration-pytest.log
+      - name: Store junit report
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: integration-junitresult.xml
+          path: ./testresults/integration-junitresult.xml
+      - name: Publish code coverage results
+        if: always()
+        env:
+          prNumber: ${{ github.event.pull_request.number }}
+        run: |
+          make common/git-integration-tests-code-cov-pr-comment
+          echo ${{ secrets.GITHUB_TOKEN }} | gh auth login --with-token
+          export value=`cat pr-integration-test-coverage.txt`
+      - name: Store Unit Test Coverage
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: pr-integration-test-coverage
+          path: pr-integration-test-coverage.txt
+
+  publish_coverage_results:
+    name: Publish Tests Coverage Results
+    needs: [unit_test, integration_test]
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download unit tests
+        uses: actions/download-artifact@v2
+        with:
+          name: pr-unit-test-coverage
+      - name: Download integration tests
+        uses: actions/download-artifact@v2
+        with:
+          name: pr-integration-test-coverage
+      - name: Merge Integration Tests Files
+        run: |
+          make common/git-tests-code-cov-pr-comment
+      - name: Find Comment
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/find-comment@v1
+        id: fc
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: Coverage
+      - id: get-comment-body
+        if: github.event_name == 'pull_request'
+        run: |
+          body=$(cat pr-unit-test-coverage.txt)
+          body="${body//'%'/'%25'}"
+          body="${body//$'\n'/'%0A'}"
+          body="${body//$'\r'/'%0D'}"
+          echo ::set-output name=body::$body
+      - name: Create or update comment
+        if: github.event_name == 'pull_request'
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          comment-id: ${{ steps.fc.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          body: ${{ steps.get-comment-body.outputs.body }}
+          edit-mode: replace
+
+  publish_test_results:
+    name: Publish Tests Results
+    needs: [unit_test, integration_test]
+    if: success()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Download unit tests
+        uses: actions/download-artifact@v2
+        with:
+          name: unit-junitresult.xml
+          path: ./testresults/
+      - name: Download integration tests
+        uses: actions/download-artifact@v2
+        with:
+          name: integration-junitresult.xml
+          path: ./testresults/
+      - name: Test Results
+        if: always()
+        uses: EnricoMi/publish-unit-test-result-action@v1
+        with:
+          check_name: "PR Test Results"
+          files: testresults/**/*.xml
+          comment_mode: create new
+
+  build_and_push:
+    name: Build and push py-ppserver image
+    needs: integration_test
+    runs-on: ubuntu-latest
+    # yamllint disable rule:line-length
+    if: github.ref == 'refs/heads/master' || startsWith(github.ref, 'refs/heads/release-')
+    # yamllint enable
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to ghcr
+        # yamllint disable rule:line-length
+        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+        # yamllint enable
+      - name: Build and Push to ghcr
+        env:
+          DOCKER_BUILDKIT: '1'
+        run: make ppserver/push/docker/ghcr

@@ -1,0 +1,39 @@
+Get Key Actions List
+---
+tags:
+  - key-action
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user to retrieve key-actions for.
+  - in: query
+    name: start
+    type: string
+    format: date-time
+    required: true
+    description: Datetime to calculate events from. Should be less then end param.
+  - in: query
+    name: end
+    type: string
+    format: date-time
+    required: true
+    description: Datetime to calculate events to. Should be greater then start param.
+  - in: query
+    name: allowPastEvents
+    type: boolean
+    required: false
+    description: flag to show only events starting in the given timeframe.
+responses:
+  200:
+    description: List of user key actions.
+    schema:
+      $ref: "#/definitions/KeyActionTimeframeResponse"
+definitions:
+  KeyActionTimeframeResponse:
+    type: array
+    items:
+      $ref: '#/definitions/KeyAction'

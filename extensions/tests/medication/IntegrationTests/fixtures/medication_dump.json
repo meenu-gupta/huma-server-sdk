@@ -1,0 +1,92 @@
+{
+  "medication": [
+    {
+      "_id": {
+        "$oid": "5eafd121b2d79d48ce4cd9e8"
+      },
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "name": "Medicine",
+      "doseQuantity": {
+        "$numberDouble": "250"
+      },
+      "doseUnits": "mg",
+      "prn": true,
+      "enabled": true,
+      "extraProperties": {
+        "extra_property_key": "extra_property_value"
+      },
+      "changeHistory": [
+        {
+          "changeType": "MEDICATION_CREATE",
+          "name": "Medicine",
+          "enabled": true,
+          "doseQuantity": {
+            "$numberDouble": "250"
+          },
+          "doseUnits": "mg",
+          "userId": {
+            "$oid": "5e84b0dab8dfa268b1180536"
+          }
+        }
+      ],
+      "updateDateTime": {
+        "$date": "2022-04-03T10:00:00.000Z"
+      },
+      "createDateTime": {
+        "$date": "2020-01-03T10:00:00.000Z"
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "id": "5e84b0dab8dfa268b1180536",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testa@test.com",
+      "phoneNumber": "+380999999989",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "testa@test.com",
+      "phoneNumber": "+380999999989",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

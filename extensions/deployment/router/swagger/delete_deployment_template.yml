@@ -1,0 +1,16 @@
+Delete Deployment Template
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: template_id
+    type: string
+    required: true
+    description: ID of template
+
+responses:
+  204:
+    description: Template deleted

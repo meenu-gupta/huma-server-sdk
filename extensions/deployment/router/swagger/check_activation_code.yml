@@ -1,0 +1,38 @@
+Update deployment
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: code
+    type: string
+    required: true
+    description: Activation Code to be tested
+responses:
+  200:
+    description: Role activation code belongs to.
+    schema:
+      $ref: "#/definitions/CheckActivationCodeResponse"
+definitions:
+  CheckActivationCodeResponse:
+    type: object
+    required:
+      - type
+    properties:
+      type:
+        type: string
+        example: "User or Manager"
+      privacyPolicyUrl:
+        type: string
+      eulaUrl:
+        type: string
+      contactUsURL:
+        type: string
+      termAndConditionUrl:
+        type: string
+      mfaRequired:
+        type: boolean
+      security:
+        $ref: "#/definitions/Security"

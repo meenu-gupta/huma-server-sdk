@@ -1,0 +1,25 @@
+Async user export
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: user_id
+    in: path
+    description: "User ID to export data for"
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: "Json body with options"
+    schema:
+      $ref: "#/definitions/ExportDeploymentRequest"
+
+responses:
+  200:
+    description: Task id.
+    schema:
+      $ref: '#/definitions/RunExportTaskResponse'

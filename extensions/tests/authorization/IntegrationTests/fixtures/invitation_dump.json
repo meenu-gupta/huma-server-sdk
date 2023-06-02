@@ -1,0 +1,128 @@
+{
+  "invitation": [
+    {
+      "_id": {
+        "$oid": "605345882f7d4c18ef9e6dbb"
+      },
+      "_cls": "MongoInvitation",
+      "roles": [
+        {
+          "roleId": "Contributor",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "email": "user1@example.com",
+      "code": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTYwNzAwMjQsIm5iZiI6MTYxNjA3MDAyNCwianRpIjoiYjliMDRiYzQtNmFiZi00MzkwLWI0MjUtYTM1YTc1NjgyNWQ4IiwiaWRlbnRpdHkiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInR5cGUiOiJpbnZpdGF0aW9uIn0.6M22glMJAavCoeHGf8CEDOWyn9SBNyITxQot7PpaHZo",
+      "expiresAt": {
+        "$date": "2031-04-21T20:23:08.136Z"
+      },
+      "type": "PERSONAL",
+      "senderId": {
+        "$oid": "5ed803dd5f2f99da73684413"
+      },
+      "createDateTime": {
+        "$date": "2031-01-21T20:23:08.136Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "605345882f7d4c18ef9e6dbc"
+      },
+      "_cls": "MongoInvitation",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "email": "user2@example.com",
+      "code": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTYwNzAwMjQsIm5iZiI6MTYxNjA3MDAyNCwianRpIjoiYjliMDRiYzQtNmFiZi00MzkwLWI0MjUtYTM1YTc1NjgyNWQ4IiwiaWRlbnRpdHkiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInR5cGUiOiJpbnZpdGF0aW9uIn0.6M22glMJAavCoeHGf8CEDOWyn9SBNyITxQot7PpaHZn",
+      "expiresAt": {
+        "$date": "2031-04-21T20:23:08.136Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "605345882f7d4c18ef9e6dbd"
+      },
+      "_cls": "MongoInvitation",
+      "roles": [
+        {
+          "roleId": "OrganizationStaff",
+          "resource": "organization/5fde855f12db509a2785da06"
+        }
+      ],
+      "email": "user3@example.com",
+      "expiresAt": {
+        "$date": "2031-04-21T20:23:08.136Z"
+      },
+      "code": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTYwNzAwMjQsIm5iZiI6MTYxNjA3MDAyNCwianRpIjoiYjliMDRiYzQtNmFiZi00MzkwLWI0MjUtYTM1YTc1NjgyNWQ4IiwiaWRlbnRpdHkiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInR5cGUiOiJpbnZpdGF0aW9uIn0.6M22glMJAavCoeHGf8CEDOWyn9SBNyITxQot7PpaHZm"
+    },
+    {
+      "_id": {
+        "$oid": "606ab3fa1a242f8f8ac513cc"
+      },
+      "_cls": "MongoInvitation",
+      "roles": [
+        {
+          "roleId": "DeploymentStaff",
+          "resource": "organization/5fde855f12db509a2785da06"
+        },
+        {
+          "roleId": "DeploymentStaff",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "email": "user5@example.com",
+      "code": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTc2MDU2MjYsIm5iZiI6MTYxNzYwNTYyNiwianRpIjoiYzE5MmM0NmQtMzkyYi00MjMzLWIzMWYtM2NmY2FhMDkyOTc2IiwiZXhwIjoxNjE3NjkyMDI2LCJpZGVudGl0eSI6ImFrc2hheS50ZXJhaXlhK29yZ19kc0BodW1hLmNvbSIsInR5cGUiOiJpbnZpdGF0aW9uIiwidXNlckNsYWltcyI6eyJwcml2YWN5UG9saWN5VXJsIjoiaHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL2h1LWRlcGxveW1lbnQtc3RhdGljLWNvbnRlbnQvc19hbmRfbi9IdW1hX0FwcF9Qcml2YWN5X1BvbGljeV9IZWFsdGhjYXJlXyUyNl9MaWZlX1NjaWVuY2VzLnBkZiIsImV1bGFVcmwiOiJodHRwczovL3N0b3JhZ2UuZ29vZ2xlYXBpcy5jb20vaHUtZGVwbG95bWVudC1zdGF0aWMtY29udGVudC9zX2FuZF9uL0h1bWFfKE1lZG9wYWQpX0VVTEFfTWF5XzIwMjAucGRmIiwidGVybUFuZENvbmRpdGlvblVybCI6Imh0dHBzOi8vc3RvcmFnZS5nb29nbGVhcGlzLmNvbS9odS1kZXBsb3ltZW50LXN0YXRpYy1jb250ZW50L3NfYW5kX24vSHVtYV8oTWVkb3BhZClfRVVMQV9NYXlfMjAyMC5wZGYifX0.E5u8Qrgo84RxcWs1ueEwwXlWpQ3t7z2S8eAQe7Mv3D4",
+      "expiresAt": {
+        "$date": "2031-10-13T15:02:26.302Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "605345882f7d4c18ef9e6dba"
+      },
+      "_cls": "MongoInvitation",
+      "roles": [
+        {
+          "roleId": "5e8eeae1b707216625ca4203",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "roleId": "5e8eeae1b707216625ca4203",
+      "email": "user4@example.com",
+      "expiresAt": {
+        "$date": "2031-04-21T20:23:08.136Z"
+      },
+      "createDateTime": {
+        "$date": "2031-02-21T20:23:08.136Z"
+      },
+      "code": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTYwNzAwMjQsIm5iZiI6MTYxNjA3MDAyNCwianRpIjoiYjliMDRiYzQtNmFiZi00MzkwLWI0MjUtYTM1YTc1NjgyNWQ4IiwiaWRlbnRpdHkiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInR5cGUiOiJpbnZpdGF0aW9uIn0.6M22glMJAavCoeHGf8CEDOWyn9SBNyITxQot7PpaHZp"
+    },
+    {
+      "_id": {
+        "$oid": "620628918975395487e5814b"
+      },
+      "_cls": "MongoInvitation",
+      "roles": [
+        {
+          "roleId": "Contributor",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "email": "user6@example.com",
+      "code": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2MTYwNzAwMjQsIm5iZiI6MTYxNjA3MDAyNCwianRpIjoiYjliMDRiYzQtNmFiZi00MzkwLWI0MjUtYTM1YTc1NjgyNWQ4IiwiaWRlbnRpdHkiOiJ1c2VyMUBleGFtcGxlLmNvbSIsInR5cGUiOiJpbnZpdGF0aW9uIn0.6M22glMJAavCoeHGf8CEDOWyn9SBNyITxQot7PpaHZo",
+      "expiresAt": {
+        "$date": "2031-04-21T20:23:08.136Z"
+      },
+      "type": "UNIVERSAL",
+      "senderId": {
+        "$oid": "5ed803dd5f2f99da73684413"
+      },
+      "createDateTime": {
+        "$date": "2031-03-21T20:23:08.136Z"
+      }
+    }
+  ]
+}

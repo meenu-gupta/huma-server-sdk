@@ -1,0 +1,77 @@
+Get Deployment's Key Actions List
+---
+tags:
+  - key-action
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment to retrieve key-actions for.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/RetrieveDeploymentKeyActionsRequestObject'
+responses:
+  200:
+    description: List of deployment key actions.
+    schema:
+      $ref: "#/definitions/DeploymentEventResponse"
+definitions:
+  DeploymentEventResponse:
+    type: object
+    properties:
+      events:
+        type: array
+        items:
+          $ref: '#/definitions/DeploymentEvent'
+
+  DeploymentEvent:
+    type: object
+    properties:
+      title:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      description:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      model:
+        type: string
+        example: "KeyAction"
+      moduleId:
+        type: string
+        example: "BloodPressure"
+      moduleConfigId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      keyActionConfigId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      learnArticleId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      enabled:
+        type: boolean
+      startDateTime:
+        type: string
+        format: date-time
+      endDateTime:
+        type: string
+        format: date-time
+
+  RetrieveDeploymentKeyActionsRequestObject:
+    type: object
+    required:
+      - startDate
+      - endDate
+    properties:
+      startDate:
+        type: string
+        format: date-time
+      endDate:
+        type: string
+        format: date-time

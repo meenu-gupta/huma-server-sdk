@@ -1,0 +1,453 @@
+summary: Retrieve Modules
+tags:
+  - modules
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/RetrievePrimitiveRequest"
+  - name: user_id
+    in: path
+    required: true
+    type: string
+  - name: module_id
+    in: path
+    required: true
+    type: string
+responses:
+  200:
+    description: Modules with array of records to each module based on requested data
+    schema:
+      $ref: "#/definitions/RetrievePrimitiveResponse"
+definitions:
+  RetrievePrimitiveRequest:
+    type: object
+    properties:
+      skip:
+        type: integer
+        minimum: 0
+        example: 100
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+      fromDateTime:
+        type: string
+        example: "2020-04-07T10:25:25"
+      toDateTime:
+        type: string
+        example: "2020-04-07T11:25:25"
+      direction:
+        type: string
+        enum: [ASC, DESC]
+      excludedFields:
+        type: array
+        items:
+          type: string
+      moduleConfigId:
+        type: string
+        example: 5d386cc6ff885918d96edb11
+      deploymentId:
+        type: string
+        example: 5d386cc6ff885918d96edb12
+      normalQuestionnaires:
+        type: boolean
+      unseenOnly:
+        type: boolean
+
+  RetrievePrimitiveResponse:
+    type: object
+    properties:
+      AlcoholConsumption:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/AlcoholConsumptionData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      BackgroundInformationData:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/BackgroundInformationData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      BreastFeedingUpdate:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/BreastFeedingUpdateData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      BloodGlucose:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/BloodGlucoseData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      BloodPressure:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/BloodPressureData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Checkin:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/CheckinData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      CScore:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/CScoreData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      DeviceMedicationTracker:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/DeviceMedicationTrackerData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      ElectrocardiogramReport:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/ElectrocardiogramReportData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      HeartRate:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/HeartRateData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      HighFrequencyHeartRate:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/HighFrequencyHeartRateData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      HealthStatus:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/HealthStatusData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+
+      ECGHealthKitData:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/ECGHealthKitData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      FingerTap:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/FingerTapData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Journal:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/JournalData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Location:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/LocationData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      MedicalHistory:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/MedicalHistoryData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      NumericMemory:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/NumericMemoryData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      OtherVaccine:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/OtherVaccineData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+
+      PulseOximetry:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/PulseOximetryData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      QuestionnaireScore:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/QuestionnaireScoreData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      ReactionTime:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/ReactionTimeData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Spirometry:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/SpirometryData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Temperature:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/TemperatureData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      TimedUpAndGo:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/TimedUpAndGoData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      TimedWalk:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/TimedWalkData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      UserAction:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/UserActionData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Video:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/VideoData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      VideoQuestionnaireStep:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/VideoQuestionnaireStepData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      VideoQuestionnaire:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/VideoQuestionnaireData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      WaistToHeight:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/WaistToHeightData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      WoundAnalysis:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/WoundAnalysisData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      RespiratoryRate:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/RespiratoryRateData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Height:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/HeightData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Weight:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/WeightData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Symptom:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/SymptomData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Photo:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/PhotoData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Step:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/StepData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Questionnaire:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/QuestionnaireData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      PregnancyStatus:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/PregnancyStatus"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      OxfordHipScore:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/OxfordHipScore"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      OxfordKneeScore:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/OxfordKneeScore"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      BreastFeedingStatus:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/BreastFeedingStatusData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      BMI:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/BMIData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      BVI:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/BodyMeasurementData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      PostVaccination:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/PostVaccination"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      DiabetesDistressScore:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/DiabetesDistressScoreData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      KOOS:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/KOOS"
+            - $ref: "#/definitions/WOMAC"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      NORFOLK:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/NORFOLK"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      PeakFlow:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/PeakFlowData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      PregnancyFollowUp:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/PregnancyFollowUp"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      KCCQ:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/KCCQ"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      AZGroupKeyActionTrigger:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/AZGroupKeyActionTrigger"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      AZScreeningQuestionnaire:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/AZScreeningQuestionnaire"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      SF36:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/SF36"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      PROMISGlobalHealth:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/PROMISGlobalHealthData"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+            - $ref: "#/definitions/PROMISGlobalHealthProperties"
+      Lysholm:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/Lysholm"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      Tegner:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/Tegner"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      IKDC:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/IKDC"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      OACS:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/OACS"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      OARS:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/OARS"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+      EQ5D5L:
+        type: array
+        items:
+          allOf:
+            - $ref: "#/definitions/EQ5D5L"
+            - $ref: "#/definitions/PrimitiveAdditionalData"
+  PROMISGlobalHealthProperties:
+    type: object
+    properties:
+      mentalHealthValue:
+        type: number
+      physicalHealthValue:
+        type: number
+      mentalHealthResult:
+        $ref: "#/definitions/QuestionnaireAppResult"
+      physicalHealthResult:
+        $ref: "#/definitions/QuestionnaireAppResult"

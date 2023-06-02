@@ -1,0 +1,23 @@
+Get Deployment by version number
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment to return.
+  - in: path
+    name: version_number
+    type: integer
+    required: true
+    description: Version Number of the deployment to return.
+
+responses:
+  200:
+    description: Deployment requested by ID and Version number
+    schema:
+      $ref: '#/definitions/Deployment'

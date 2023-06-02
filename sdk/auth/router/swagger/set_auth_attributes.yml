@@ -1,0 +1,53 @@
+Set auth attributes
+---
+tags:
+  - auth
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/SetAuthAttributesRequest'
+responses:
+  200:
+    description: ok
+    schema:
+      $ref: '#/definitions/SetAuthAttributesResponse'
+definitions:
+  SetAuthAttributesResponse:
+    type: object
+    properties:
+      uid:
+        type: string
+
+  SetAuthAttributesRequest:
+    type: object
+    required:
+      - authToken
+      - clientId
+      - projectId
+    properties:
+      email:
+        type: string
+      password:
+        type: string
+      oldPassword:
+        type: string
+      phoneNumber:
+        type: string
+      authToken:
+        type: string
+      tokenType:
+        type: string
+        enum: [0, 1, 2]
+      mfaEnabled:
+        type: boolean
+      confirmationCode:
+        type: string
+      deviceToken:
+        type: string
+      clientId:
+        type: string
+      projectId:
+        type: string

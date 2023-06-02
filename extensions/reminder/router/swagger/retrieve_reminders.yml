@@ -1,0 +1,41 @@
+Retrieve reminders
+---
+tags:
+  - reminder
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/RetrieveRemindersRequest'
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  200:
+    description: list of reminder
+    schema:
+      $ref: '#/definitions/RetrieveRemindersResponse'
+definitions:
+  RetrieveRemindersRequest:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+      moduleId:
+        type: string
+        example: "BloodPressure"
+      moduleConfigId:
+        type: string
+        example: 5d386cc6ff885918d96edb11
+
+  RetrieveRemindersResponse:
+    type: array
+    items:
+      $ref: "#/definitions/ModuleUserReminder"

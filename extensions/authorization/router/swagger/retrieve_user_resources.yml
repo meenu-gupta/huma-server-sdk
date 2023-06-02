@@ -1,0 +1,30 @@
+Get User Resources
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID to retrieve resources.
+responses:
+  200:
+    description: User's resources
+    schema:
+      $ref: '#/definitions/RetrieveUserResourcesResponse'
+
+definitions:
+  RetrieveUserResourcesResponse:
+    type: object
+    properties:
+      organizations:
+        type: array
+        items:
+          $ref: "#/definitions/Organization"
+      deployments:
+        type: array
+        items:
+          $ref: "#/definitions/Deployment"

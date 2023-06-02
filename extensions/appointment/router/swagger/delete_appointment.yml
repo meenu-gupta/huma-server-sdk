@@ -1,0 +1,21 @@
+Delete appointment
+---
+tags:
+  - appointment
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - in: path
+    name: appointment_id
+    type: string
+    required: true
+    description: ID of the appointment to delete.
+responses:
+  204:
+    description: Appointment deleted by ID

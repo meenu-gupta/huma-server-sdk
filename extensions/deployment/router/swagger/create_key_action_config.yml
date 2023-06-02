@@ -1,0 +1,83 @@
+Create Key Action Config
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment key action belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreateKeyActionConfigRequest'
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  KeyActionConfig:
+    allOf:
+      - $ref: "#/definitions/CreateKeyActionConfigRequest"
+      - required:
+          - id
+          - updateDateTime
+          - createDateTime
+      - properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          updateDateTime:
+            type: string
+            format: date-time
+          createDateTime:
+            type: string
+            format: date-time
+  CreateKeyActionConfigRequest:
+    type: object
+    required:
+      - deltaFromTriggerTime
+      - type
+      - trigger
+      - durationIso
+    properties:
+      title:
+        type: string
+        example: "Some title"
+      description:
+        type: string
+        example: "Some description for this stuff"
+      deltaFromTriggerTime:
+        type: string
+      durationFromTrigger:
+        type: string
+      type:
+        type: string
+        enum: ["LEARN", "MODULE"]
+      trigger:
+        type: string
+        enum: ["SIGN_UP", "SURGERY", "MANUAL"]
+      durationIso:
+        type: string
+      instanceExpiresIn:
+        type: string
+        default: P1W
+      notifyEvery:
+        type: string
+        example: "P3D"
+      numberOfNotifications:
+        type: integer
+      learnArticleId:
+        type: string
+      moduleId:
+        type: string
+        example: "BloodPressure"
+      moduleConfigId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"

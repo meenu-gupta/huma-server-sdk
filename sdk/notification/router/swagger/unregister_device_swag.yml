@@ -1,0 +1,23 @@
+UnRegister a device
+Returning Huma ID of a unregistered device
+---
+tags:
+  - notification
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UnRegisterDeviceRequestObject'
+responses:
+  204:
+    description: Device unregistred
+definitions:
+  UnRegisterDeviceRequestObject:
+    type: object
+    properties:
+      devicePushId:
+        type: string

@@ -1,0 +1,718 @@
+{% if data %}
+    {% for each_data in data %}
+      {% if each_data.isShow %}
+        <div>
+        <div class="general general-container">
+          <div class="charts-container general-container">
+            <h3 class="title containers-align">
+                {{ each_data.title }}
+                <div class="for-subtitle font-size-12" style="display: contents">
+                    <div class="dark-dot dot-margin"></div>
+                    {{ each_data.subtitle }}
+                </div>
+            </h3>
+            <div class="generic-data font-size-12">
+                <div class="column">
+                  {% for field in each_data.fields %}
+                    <div class="generic-row">
+                      <div class="generic-titles">{{ field.title }}</div>
+                      <div class="generic-values">{{ field.value }}</div>
+                    </div>
+                  {% endfor %}
+                </div>
+            </div>
+            <div class="for-charts" id="OxfordHipScoreCharts{{ loop.index0|string }}">
+              <div class="display-none" id="OxfordHipScore6monthChart{{ loop.index0|string }}"></div>
+              <div class="display-none" id="OxfordHipScoreWeekChart{{ loop.index0|string }}"></div>
+            </div>
+          </div>
+          <div class="generic-footer">
+              <div class="for-bottom-markers container-align">
+                <div class="bottom-markers monthly-mean-value">
+                  <div class="dark-dot"></div>
+                  <div class="line"></div>
+                  <div class="dark-dot"></div>
+                </div>
+                <div>Monthly mean value</div>
+              </div>
+              <div class="for-bottom-markers containers-align">
+                <div class="bottom-markers">
+                  <div class="dark-dot title-dot-margin"></div>
+                </div>
+                <div>Individual data point</div>
+              </div>
+              <div class="for-bottom-markers containers-align">
+                <div class="bottom-markers standard-deviation">
+                  <div class="standard-deviation-line"></div>
+                  <div class="standard-deviation-line"></div>
+                  <div class="standard-deviation-line"></div>
+                </div>
+                <div>
+                  Sample Standard deviation<span class="superscripts-footer">*<span>1</span></span>
+                </div>
+              </div>
+            </div>
+        </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+<script>
+    am5.addLicense("AM5C332366403");
+
+    let monthlyOxfordShow = "{{ data[0].isShow }}";
+    let monthlyOxfordShow1 = "{{ data[1].isShow }}";
+    let monthlyOxford = {{ data[0].weekly_data }};
+    let lastWeekDataOxford = {{ data[0].last_week_data }};
+    let monthlyOxford1 = {{ data[1].weekly_data }};
+    let lastWeekDataOxford1 = {{ data[1].last_week_data }};
+    var isNegative = false;
+    var lastDate;
+    var endOfMonth;
+    var lastDateDay;
+    function convertDateToFloatNumber(dateString, day) {
+      let hour = moment(dateString).hour();
+      let minutes = moment(dateString).minutes();
+      let seconds = moment(dateString).seconds();
+
+      let secondsPerDay = 24 * 60 * 60;
+
+      let hourToSeconds = hour * 60 * 60;
+      let minutesToSeconds = minutes * 60;
+
+      let calculatedSeconds = hourToSeconds + minutesToSeconds + seconds;
+
+      let fractional = calculatedSeconds / secondsPerDay;
+
+      return Number(day) + Number(fractional);
+    }
+
+    for (let moduleData of [lastWeekDataOxford, lastWeekDataOxford1]) {
+      if (Object.keys(moduleData).length > 0) {
+        firstDateDay = moment(moduleData.data[0].date).format("DD");
+        maxDay = Math.max(...moduleData.data.map((o) => Number(moment(o.date).format("DD"))));
+        isNegative = false;
+        lastDate = moment.utc(moduleData.data[moduleData.data.length - 1].date);
+        endOfMonth = lastDate.clone().endOf("month").format("DD");
+        lastDateDay = lastDate.format("DD");
+        let negativeValueCounter = -(maxDay - Number(firstDateDay)) - 1;
+        let previousElementDate;
+        moduleData.data.forEach((element) => {
+          const currentElementDay = moment(element.date).format("DD");
+          if (Number(firstDateDay) >= 22 && Number(currentElementDay) >= 22) {
+            if (currentElementDay !== previousElementDate) {
+              negativeValueCounter++;
+            }
+            element.date = convertDateToFloatNumber(element.date, negativeValueCounter);
+            previousElementDate = currentElementDay;
+          } else {
+            element.date = convertDateToFloatNumber(element.date, currentElementDay);
+          }
+        });
+      }
+    }
+
+    function createDateRangeOxford(text, yAxis, root) {
+      yAxis.axisHeader.children.push(
+          am5.Label.new(root, {
+            text: text,
+            fontSize: 10,
+            paddingBottom: 4,
+            paddingLeft: 0,
+            fill: am5.color('#6A6D72'),
+          })
+      );
+
+      yAxis.axisHeader.get('background').setAll({
+        fill: am5.color('#FBFBFB'),
+      });
+    }
+
+    function createRangeOxford(value, endValue, color, yAxis) {
+      let rangeDataItem = yAxis.makeDataItem({
+        value: value || -10000,
+        endValue: endValue || 10000,
+      });
+
+      yAxis.createAxisRange(rangeDataItem);
+      rangeDataItem.get('axisFill').setAll({
+        fill: color,
+        fillOpacity: 0.35,
+        visible: true,
+      });
+    }
+
+    function createDeviationSeriesOxford(chart, root, name, xAxis, yAxis, valueYField, categoryXField) {
+      return chart.series.push(
+          am5xy.ColumnSeries.new(root, {
+            name: name,
+            stacked: true,
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: valueYField,
+            categoryXField: categoryXField,
+          })
+      );
+    }
+
+    function createSelectedDatesSeries(
+        chart,
+        root,
+        name,
+        xAxis,
+        yAxis,
+        valueYField,
+        categoryXField,
+        selectedDates
+      ) {
+        var bulletsSeries = chart.series.push(
+          am5xy.LineSeries.new(root, {
+            name: name,
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: valueYField,
+            categoryXField: categoryXField,
+            stroke: am5.color('#FBFBFB'),
+          })
+        );
+
+        bulletsSeries.bullets.push(function (root, series, dataItem) {
+          if (selectedDates.find(elem => elem === dataItem.dataContext.month)) {
+            return am5.Bullet.new(root, {
+              sprite: am5.Label.new(root, {
+                text: '|',
+                fontWeight: 200,
+                centerX: am5.percent(50),
+                centerY: am5.percent(50),
+                populateText: true,
+                fill: am5.color('#424347'),
+              }),
+            });
+          }
+        });
+        return bulletsSeries;
+      }
+
+    function createGenericChartOxford(chartId, genericModuleData, rag, dateRange, min, max) {
+      let root = am5.Root.new(chartId);
+
+      let chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+      chart.zoomOutButton.set("forceHidden", true);
+
+      let yRenderer = am5xy.AxisRendererY.new(root, {
+        minGridDistance: 1,
+        strokeOpacity: 1,
+        strokeWidth: 1,
+        stroke: am5.color('#424347'),
+      });
+
+      yRenderer.grid.template.set('visible', false);
+
+      yRenderer.labels.template.setAll({
+        paddingRight: 10,
+        paddingLeft: -5,
+        fontSize: 10,
+        fill: am5.color('#2F3033'),
+      });
+
+      let yAxis = chart.yAxes.push(
+          am5xy.ValueAxis.new(root, {
+            max: max,
+            min: min,
+            maxPrecision: 0,
+            renderer: yRenderer,
+          })
+      );
+
+      yRenderer.labels.template.adapters.add("visible", (_, target) => {
+        // show only 3 labels of y-Axis: first, middle and last
+        let labels = yRenderer.labels.values
+            .filter((x) => !!x.get("text"))
+            .slice(1);
+        if (labels.length <= 3) return true;
+        let middle = Math.round((labels.length - 1) / 2);
+        let allowedIndexes = [0, middle, labels.length - 1];
+        return allowedIndexes.includes(labels.indexOf(target));
+      });
+
+      createDateRangeOxford(dateRange, yAxis, root);
+
+      let xRenderer = am5xy.AxisRendererX.new(root, {
+        minGridDistance: 10,
+        strokeOpacity: 1,
+        strokeWidth: 1,
+        stroke: am5.color('#424347'),
+      });
+
+      xRenderer.grid.template.setAll({
+        location: 0.5,
+        color: am5.color('#EBEBEB'),
+        strokeOpacity: 0.05,
+      });
+
+      xRenderer.labels.template.setAll({
+        paddingTop: 10,
+        fontSize: 9,
+        fill: am5.color('#2F3033'),
+      });
+
+      let xAxis = chart.xAxes.push(
+          am5xy.CategoryAxis.new(root, {
+            categoryField: 'month',
+            renderer: xRenderer,
+          })
+      );
+
+      let selectedDates = [];
+      let monthLabel;
+      xRenderer.labels.template.adapters.add('text', (text, target) => {
+        if (target.dataItem && target.dataItem.dataContext) {
+            let currentMonthLabel = moment
+              .utc(target.dataItem.dataContext.month)
+              .format("MMM");
+            let firstDate = moment.utc(genericModuleData[0].month);
+            let firstDayFormat = Number(firstDate.format("DD"));
+            let firstMonthFormat = firstDate.format("MMM");
+            if (monthLabel !== currentMonthLabel) {
+              if (
+                firstDayFormat > 14 &&
+                currentMonthLabel === firstMonthFormat
+              ) return;
+
+              if ((firstDayFormat < 8 &&
+                currentMonthLabel === firstMonthFormat) ||
+                currentMonthLabel !== firstMonthFormat
+              ){
+                selectedDates.push(target.dataItem.dataContext.month);
+              }
+              monthLabel = currentMonthLabel;
+              return currentMonthLabel;
+            }
+          }
+      });
+
+      xAxis.data.setAll(genericModuleData);
+
+      let series1 = createDeviationSeriesOxford(
+          chart,
+          root,
+          'DeviationStart',
+          xAxis,
+          yAxis,
+          'deviationStart',
+          'month'
+      );
+
+      series1.columns.template.setAll({
+        strokeWidth: 0,
+        strokeOpacity: 0,
+        fillOpacity: 0,
+        width: am5.percent(40),
+      });
+
+      series1.data.setAll(genericModuleData);
+
+      let series2 = chart.series.push(
+          am5xy.LineSeries.new(root, {
+            name: 'MiddleMonthValue',
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: 'value',
+            categoryXField: 'month',
+            stroke: am5.color('#424347'),
+          })
+      );
+
+      series2.strokes.template.set('strokeWidth', 0.5);
+
+      series2.bullets.push(function () {
+        return am5.Bullet.new(root, {
+          sprite: am5.Circle.new(root, {
+            strokeWidth: 0,
+            fill: am5.color('#424347'),
+            stroke: series2.get('stroke'),
+            radius: 2,
+          }),
+        });
+      });
+
+      series2.data.setAll(genericModuleData);
+
+      let series3 = createDeviationSeriesOxford(
+          chart,
+          root,
+          'DeviationEnd',
+          xAxis,
+          yAxis,
+          'deviationEnd',
+          'month'
+      );
+
+      series3.columns.template.setAll({
+        fillOpacity: 0.3,
+        cornerRadiusBL: 20,
+        cornerRadiusBR: 20,
+        cornerRadiusTL: 20,
+        cornerRadiusTR: 20,
+        fill: am5.color('#909499'),
+        strokeOpacity: 0,
+        width: am5.percent(40),
+      });
+
+      series3.data.setAll(genericModuleData);
+      var series4 = createSelectedDatesSeries(
+        chart,
+        root,
+        'MinValue',
+        xAxis,
+        yAxis,
+        'minValue',
+        'month',
+        selectedDates
+      );
+      setTimeout(() => {
+        let chartMinValue = yAxis.getPrivate("min");
+        genericModuleData.forEach((elem) => elem.minValue = chartMinValue);
+        series4.data.setAll(genericModuleData);
+      }, 300)
+
+      rag.forEach(({color, thresholdRange}) => {
+        thresholdRange.forEach(range => {
+          createRangeOxford(range.minValue, range.maxValue, am5.color(color), yAxis);
+        });
+      });
+    }
+
+    function createGenericWeekChartOxford(chartId, data, deviationData, rag, dateRange, min, max) {
+      let root = am5.Root.new(chartId);
+
+      let chart = root.container.children.push(am5xy.XYChart.new(root, {}));
+      chart.zoomOutButton.set("forceHidden", true);
+
+      let yRenderer = am5xy.AxisRendererY.new(root, {
+        minGridDistance: 1,
+        strokeOpacity: 1,
+        strokeWidth: 1,
+        opposite: true,
+        stroke: am5.color('#EBEBEB'),
+      });
+
+      yRenderer.grid.template.set('visible', false);
+
+      let yAxis = chart.yAxes.push(
+          am5xy.ValueAxis.new(root, {
+            max: max,
+            min: min,
+            maxPrecision: 0,
+            renderer: yRenderer,
+          })
+      );
+
+      yRenderer.labels.template.set("visible", false);
+
+      createDateRangeOxford(dateRange, yAxis, root);
+
+      let xRenderer = am5xy.AxisRendererX.new(root, {
+        strokeOpacity: 1,
+        strokeWidth: 1,
+        minGridDistance: 30,
+        stroke: am5.color('#424347'),
+      });
+
+      xRenderer.grid.template.set('visible', false);
+
+      let xAxis1;
+      if (!isNegative && lastDateDay !== endOfMonth) {
+        xAxis1 = chart.xAxes.push(
+          am5xy.ValueAxis.new(root, {
+            max: maxDay + 1,
+            min: firstDateDay,
+            renderer: xRenderer,
+          })
+        );
+      } else {
+        xAxis1 = chart.xAxes.push(
+          am5xy.ValueAxis.new(root, {
+            renderer: xRenderer,
+          })
+        );
+      }
+
+      xRenderer.labels.template.set("visible", false);
+
+      let series1 = chart.series.push(
+          am5xy.SmoothedXLineSeries.new(root, {
+            name: 'MiddleDayValue',
+            xAxis: xAxis1,
+            yAxis: yAxis,
+            valueYField: 'middleDayValue',
+            valueXField: 'date',
+            stroke: am5.color('#2F3033'),
+          })
+      );
+
+      series1.strokes.template.set('strokeWidth', 0.5);
+
+      series1.data.setAll(data);
+
+      let series2 = chart.series.push(
+          am5xy.LineSeries.new(root, {
+            name: 'Value',
+            calculateAggregates: true,
+            xAxis: xAxis1,
+            yAxis: yAxis,
+            valueYField: 'value',
+            valueXField: 'date',
+            valueField: 2.5,
+          })
+      );
+
+      let circleTemplate = am5.Template.new({});
+      series2.bullets.push(() => {
+        let graphics = am5.Circle.new(
+            root,
+            {
+              fill: am5.color('#424347'),
+              radius: 2.5,
+            },
+            circleTemplate
+        );
+        return am5.Bullet.new(root, {
+          sprite: graphics,
+        });
+      });
+
+      series2.set('heatRules', [
+        {
+          target: circleTemplate,
+          dataField: 'middleDayValue',
+          key: 'radius',
+        },
+      ]);
+
+      series2.strokes.template.set('strokeOpacity', 0);
+      series2.data.setAll(data);
+
+      let xAxisDeviation = chart.xAxes.push(
+          am5xy.CategoryAxis.new(root, {
+            categoryField: 'day',
+            renderer: am5xy.AxisRendererX.new(root, {
+              minGridDistance: 10,
+            }),
+          })
+      );
+      let xRendererDeviation = xAxisDeviation.get('renderer');
+      xRendererDeviation.labels.template.setAll({
+        location: 0,
+        paddingTop: 4,
+        fontSize: 9,
+        fill: am5.color('#2F3033'),
+      });
+
+      xRendererDeviation.grid.template.setAll({
+        color: am5.color('#EBEBEB'),
+        strokeOpacity: 0.05,
+      });
+
+      xAxisDeviation.data.setAll(deviationData);
+
+      let dayLabel;
+      xRendererDeviation.labels.template.set('location', 0.5);
+      xRendererDeviation.labels.template.adapters.add('text', (_, target) => {
+        if (target.dataItem && target.dataItem.dataContext) {
+          let currentDayLabel = moment(target.dataItem.dataContext.day)
+              .format('DD')
+          if (dayLabel !== currentDayLabel) {
+            dayLabel = currentDayLabel;
+            return currentDayLabel;
+          }
+        }
+      });
+
+      let series3 = createDeviationSeriesOxford(
+          chart,
+          root,
+          'DeviationStart',
+          xAxisDeviation,
+          yAxis,
+          'deviationStart',
+          'day'
+      );
+
+      series3.columns.template.setAll({
+        strokeWidth: 0,
+        strokeOpacity: 0,
+        fillOpacity: 0,
+      });
+
+      series3.data.setAll(deviationData);
+
+      let series4 = createDeviationSeriesOxford(
+          chart,
+          root,
+          'DeviationEnd',
+          xAxisDeviation,
+          yAxis,
+          'deviationEnd',
+          'day'
+      );
+
+      series4.columns.template.setAll({
+        fillOpacity: 0.3,
+        cornerRadiusBL: 6,
+        cornerRadiusBR: 6,
+        cornerRadiusTL: 6,
+        cornerRadiusTR: 6,
+        fill: am5.color('#909499'),
+        stroke: am5.color('#909499'),
+        strokeOpacity: 0,
+      });
+
+      series4.data.setAll(deviationData);
+
+      rag.forEach(({color, thresholdRange}) => {
+        thresholdRange.forEach(range => {
+          createRangeOxford(range.minValue, range.maxValue, am5.color(color), yAxis);
+        });
+      });
+    }
+
+    function createChartContainerOxford(chartId, containerId, containerClass) {
+      let chartDiv = document.createElement('div');
+      chartDiv.id = chartId;
+      chartDiv.className = 'chartDiv';
+      chartDiv.style.marginTop = '5px';
+
+      let container = document.getElementById(containerId);
+      container.className = containerClass;
+      container.appendChild(chartDiv);
+
+      let cont = document.getElementById('OxfordHipScoreCharts0');
+      cont.appendChild(container);
+    }
+
+    function createChartContainerOxford1(chartId, containerId, containerClass) {
+      let chartDiv = document.createElement('div');
+      chartDiv.id = chartId;
+      chartDiv.className = 'chartDiv';
+      chartDiv.style.marginTop = '5px';
+
+      let container = document.getElementById(containerId);
+      container.className = containerClass;
+      container.appendChild(chartDiv);
+
+      let cont = document.getElementById('OxfordHipScoreCharts1');
+      cont.appendChild(container);
+    }
+
+    function initOxfordCharts() {
+      let scores = [];
+      isNegative = true;
+      for (let item of monthlyOxford.data) {
+        if (item.value !== undefined) scores.push(item.value);
+        if (item.deviationStart !== undefined) {
+          scores.push(item.deviationStart);
+          scores.push(item.deviationStart + item.deviationEnd);
+        }
+      }
+      for (let item of lastWeekDataOxford.data) {
+        if (item.value !== undefined) scores.push(item.value);
+        if (item.deviationStart !== undefined) {
+          scores.push(item.deviationStart);
+          scores.push(item.deviationStart + item.deviationEnd);
+        }
+      }
+      let minMedian = Math.min(...scores);
+      let maxMedian = Math.max(...scores);
+      let min = Math.max(Math.floor(minMedian * .9), 0);
+      let max = Math.min(Math.ceil(maxMedian * 1.1) || 10, 48);
+      max = max <= min ? max + 1 : max;
+      max = (max - min) % 2 === 1 ? (max + 1) : max;
+
+      if (monthlyOxford?.data?.length > 0) {
+        createChartContainerOxford('6MonthChartOxfordHipScore0', 'OxfordHipScore6monthChart0', 'generic-6month-chart');
+
+        createGenericChartOxford(
+            '6MonthChartOxfordHipScore0',
+            monthlyOxford.data,
+            monthlyOxford.ragThresholds,
+            monthlyOxford.dateRange,
+            min,
+            max,
+        );
+      }
+
+      if (lastWeekDataOxford?.data?.length > 0) {
+        createChartContainerOxford('weekChartOxfordHipScore0', 'OxfordHipScoreWeekChart0', 'generic-week-chart');
+
+        createGenericWeekChartOxford(
+            'weekChartOxfordHipScore0',
+            lastWeekDataOxford.data,
+            lastWeekDataOxford.deviationData,
+            lastWeekDataOxford.ragThresholds,
+            lastWeekDataOxford.dateRange,
+            min,
+            max,
+        );
+      }
+    }
+
+    function initOxfordCharts1() {
+      let scores = [];
+      isNegative = true;
+      for (let item of monthlyOxford1.data) {
+        if (item.value !== undefined) scores.push(item.value);
+        if (item.deviationStart !== undefined) {
+          scores.push(item.deviationStart);
+          scores.push(item.deviationStart + item.deviationEnd);
+        }
+      }
+      for (let item of lastWeekDataOxford1.data) {
+        if (item.value !== undefined) scores.push(item.value);
+        if (item.deviationStart !== undefined) {
+          scores.push(item.deviationStart);
+          scores.push(item.deviationStart + item.deviationEnd);
+        }
+      }
+      let minMedian = Math.min(...scores);
+      let maxMedian = Math.max(...scores);
+      let min = Math.max(Math.floor(minMedian * .9), 0);
+      let max = Math.min(Math.ceil(maxMedian * 1.1) || 10, 48);
+      max = max <= min ? max + 1 : max;
+      max = (max - min) % 2 === 1 ? (max + 1) : max;
+
+      if (monthlyOxford1?.data?.length > 0) {
+        createChartContainerOxford1('6MonthChartOxfordHipScore1', 'OxfordHipScore6monthChart1', 'generic-6month-chart');
+        monthlyOxford1.data.forEach(elem => elem.minValue = 0);
+        createGenericChartOxford(
+            '6MonthChartOxfordHipScore1',
+            monthlyOxford1.data,
+            monthlyOxford1.ragThresholds,
+            monthlyOxford1.dateRange,
+            min,
+            max,
+        );
+      }
+
+      if (lastWeekDataOxford1?.data?.length > 0) {
+        createChartContainerOxford1('weekChartOxfordHipScore1', 'OxfordHipScoreWeekChart1', 'generic-week-chart');
+
+        createGenericWeekChartOxford(
+            'weekChartOxfordHipScore1',
+            lastWeekDataOxford1.data,
+            lastWeekDataOxford1.deviationData,
+            lastWeekDataOxford1.ragThresholds,
+            lastWeekDataOxford1.dateRange,
+            min,
+            max,
+        );
+      }
+    }
+
+    if (monthlyOxfordShow === "True") {
+      initOxfordCharts();
+    }
+    if (monthlyOxfordShow1 === "True") {
+      initOxfordCharts1();
+    }
+  </script>
+{% endif %}

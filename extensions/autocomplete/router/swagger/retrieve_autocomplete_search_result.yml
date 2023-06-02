@@ -1,0 +1,33 @@
+summary: Retrieve Autocomplete search result
+tags:
+  - autocomplete
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/RetrieveAutocompleteSearchResultRequest'
+responses:
+  200:
+    description: Autocomplete search result
+    schema:
+      $ref: '#/definitions/RetrieveAutocompleteSearchResultResponse'
+definitions:
+  RetrieveAutocompleteSearchResultRequest:
+    type: object
+    properties:
+      listEndpointId:
+        type: string
+        example: "Medications or Symptoms or AZVaccineBatchNumber"
+      search:
+        type: string
+        example: "abc"
+      exactWord:
+        type: boolean
+  RetrieveAutocompleteSearchResultResponse:
+    type: array
+    items:
+      type: string

@@ -1,0 +1,33 @@
+name: Trigger build and push container
+
+on:
+  workflow_dispatch:
+    inputs:
+      github_ref:
+        description: Github branch, tag or SHA to checkout
+        required: false
+      registry:
+        description: Container registry
+        required: false
+        default: ghcr.io
+      repository:
+        description: Container repository
+        required: false
+        default: ghcr.io/huma-engineering/py-ppserver
+      tag:
+        description: Container image tag
+        required: true
+
+jobs:
+  build:
+    name: Build and Push Container
+    runs-on: ubuntu-latest
+    steps:
+      - uses: huma-engineering/huma-github-actions/build-server-sdk-container@v0.4.0
+        with:
+          tag: ${{ inputs.tag }}
+          github_ref: ${{ inputs.github_ref }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_user: ${{ github.actor }}
+          registry: ${{ inputs.registry }}
+          repository: ${{ inputs.repository }}

@@ -1,0 +1,13 @@
+{
+    "Appointment.title": "Appointment German",
+    "Appointment.body": "Appointment German body",
+    "Reminder.BloodPressure.title": "German Blood Pressure",
+    "Reminder.BloodPressure.body": "German BP body",
+    "SMSVerificationTemplate": "Test verification template german",
+    "hu_offboarding_reason_completed": "Behandlung abgeschlossen",
+    "hu_offboarding_reason_deceased": "Verstorben",
+    "hu_offboarding_reason_lost_to_follow_up": "Nachbeobachtung abgelehnt",
+    "hu_offboarding_reason_inappropriate_monitoring": "Monitoring unzureichend",
+    "hu_offboarding_reason_no_longer_monitoring": "Keine Beobachtung mehr erforderlich",
+    "hu_offboarding_reason_recovered": "Genesen"
+}

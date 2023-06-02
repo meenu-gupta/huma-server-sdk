@@ -1,0 +1,32 @@
+Create a personal document
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID for whom we add the personal documents
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreatePersonalDocumentRequest'
+responses:
+  201:
+    description: 201 when the personal document is created successfully
+definitions:
+  CreatePersonalDocumentRequest:
+    type: object
+    properties:
+      name:
+        type: string
+      fileType:
+        type: string
+        enum: [PHOTO, PDF]
+      s3Object:
+        $ref: "#/definitions/S3Object"

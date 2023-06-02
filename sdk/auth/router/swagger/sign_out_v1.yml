@@ -1,0 +1,41 @@
+Sign Out v1
+
+---
+tags:
+  - auth
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/SignOutRequestV1'
+responses:
+  200:
+    description: Sign Out Response. Created device session id.
+    schema:
+      $ref: '#/definitions/SignOutResponse'
+definitions:
+  SignOutRequestV1:
+    type: object
+    required:
+      - userId
+      - refreshToken
+    properties:
+      userId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      devicePushId:
+        type: string
+      deviceToken:
+        type: string
+      refreshToken:
+        type: string
+      voipDevicePushId:
+        type: string
+  SignOutResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"

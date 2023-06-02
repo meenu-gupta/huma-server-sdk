@@ -1,0 +1,46 @@
+Update Learn Article
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UpdateLearnArticleRequest'
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment that section to update.
+  - in: path
+    name: section_id
+    type: string
+    required: true
+    description: ID of the article to update.
+  - in: path
+    name: article_id
+    type: string
+    required: true
+    description: ID of the article that section belongs to.
+responses:
+  200:
+    description: ID of updated Article
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  UpdateLearnArticleRequest:
+    $ref: "#/definitions/LearnArticleCreateRequest"
+  LearnArticle:
+    allOf:
+      - $ref: "#/definitions/LearnArticleCreateRequest"
+      - type: object
+        required:
+          - id
+        properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"

@@ -1,0 +1,31 @@
+Off board a user
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID which needs to be offboarded from study
+  - name: body
+    in: body
+    description: "Json body with details OffBoarded"
+    required: true
+    schema:
+      $ref: "#/definitions/OffBoardUserDetails"
+responses:
+  200:
+    description: 200 When the user is offboarded successfully
+
+definitions:
+  OffBoardUserDetails:
+    type: object
+    required:
+      - detailsOffBoarded
+    properties:
+      detailsOffBoarded:
+        type: string
+        example: "Completed treatment"

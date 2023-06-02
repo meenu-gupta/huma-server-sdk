@@ -1,0 +1,655 @@
+{
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684413"
+      },
+      "id": "5ed803dd5f2f99da73684413",
+      "status": 1,
+      "emailVerified": false,
+      "email": "admin@example.com",
+      "phoneNumber": "+8618621320546",
+      "displayName": "admin",
+      "userAttributes": {
+        "familyName": "hey",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": 1591215069319
+      },
+      "createDateTime": {
+        "$date": 1591215069319
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73675513"
+      },
+      "id": "5ed803dd5f2f99da73675513",
+      "status": 1,
+      "emailVerified": true,
+      "email": "humasupport@example.com",
+      "displayName": "admin",
+      "userAttributes": {
+        "familyName": "hey",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": 1591215069319
+      },
+      "createDateTime": {
+        "$date": 1591215069319
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73675555"
+      },
+      "id": "5ed803dd5f2f99da73675555",
+      "status": 1,
+      "emailVerified": true,
+      "email": "humaorgeditor@example.com",
+      "displayName": "admin",
+      "userAttributes": {
+        "familyName": "hey",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": 1591215069319
+      },
+      "createDateTime": {
+        "$date": 1591215069319
+      }
+    },
+    {
+      "_id": {
+        "$oid": "607eb479a73c845d84e2f53b"
+      },
+      "id": "607eb479a73c845d84e2f53b",
+      "status": 1,
+      "emailVerified": false,
+      "email": "user_without_role@example.com",
+      "phoneNumber": "+8618621320547",
+      "displayName": "admin",
+      "userAttributes": {
+        "familyName": "hey",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": 1591215069319
+      },
+      "createDateTime": {
+        "$date": 1591215069319
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed8b1e433e5e0eb8cca02f4"
+      },
+      "id": "5ed8b1e433e5e0eb8cca02f4",
+      "status": 1,
+      "emailVerified": false,
+      "email": "admin1@example.com",
+      "userAttributes": {
+        "familyName": "Bilyi",
+        "givenName": "Oleksii"
+      },
+      "updateDateTime": {
+        "$date": 1591259620632
+      },
+      "createDateTime": {
+        "$date": 1591259620632
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eda57bc7adadfb46f7ff714"
+      },
+      "id": "5eda57bc7adadfb46f7ff714",
+      "status": 1,
+      "emailVerified": false,
+      "email": "user1+x@example.com",
+      "userAttributes": {
+        "familyName": "M",
+        "givenName": "T"
+      },
+      "updateDateTime": {
+        "$date": 1591367612248
+      },
+      "createDateTime": {
+        "$date": 1591367612248
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6034bfa242276aaded6ad685"
+      },
+      "id": "6034bfa242276aaded6ad685",
+      "status": 1,
+      "emailVerified": false,
+      "email": "user1+xw@example.com",
+      "userAttributes": {
+        "familyName": "M",
+        "givenName": "T"
+      },
+      "updateDateTime": {
+        "$date": 1591367612248
+      },
+      "createDateTime": {
+        "$date": 1591367612248
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eda57e77adadfb46f7ff715"
+      },
+      "id": "5eda57e77adadfb46f7ff715",
+      "status": 1,
+      "emailVerified": false,
+      "email": "user2+x@example.com",
+      "displayName": "a",
+      "userAttributes": {
+        "familyName": "b",
+        "givenName": "c",
+        "dob": "",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": 1591367655663
+      },
+      "createDateTime": {
+        "$date": 1591367655663
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eda5a2b7adadfb46f7ff717"
+      },
+      "id": "5eda5a2b7adadfb46f7ff717",
+      "status": 1,
+      "emailVerified": false,
+      "email": "user3+y@example.com",
+      "userAttributes": {
+        "familyName": "M",
+        "givenName": "T"
+      },
+      "updateDateTime": {
+        "$date": 1591368235171
+      },
+      "createDateTime": {
+        "$date": 1591368235171
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eda5c48c460d4c74b162a4d"
+      },
+      "id": "5eda5c48c460d4c74b162a4d",
+      "status": 1,
+      "emailVerified": false,
+      "email": "manager1+x@example.com",
+      "displayName": "Daksh",
+      "userAttributes": {
+        "familyName": "Bhatt",
+        "givenName": "Daksh"
+      },
+      "updateDateTime": {
+        "$date": 1591368776826
+      },
+      "createDateTime": {
+        "$date": 1591368776826
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eda5cb97adadfb46f7ff71a"
+      },
+      "id": "5eda5cb97adadfb46f7ff71a",
+      "status": 1,
+      "emailVerified": false,
+      "email": "manager2+x@example.com",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "paresh",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": 1591368889656
+      },
+      "createDateTime": {
+        "$date": 1591368889656
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eda5db67adadfb46f7ff71d"
+      },
+      "id": "5eda5db67adadfb46f7ff71d",
+      "status": 1,
+      "emailVerified": false,
+      "email": "manager3+y@example.com",
+      "userAttributes": {
+        "familyName": "M",
+        "givenName": "T"
+      },
+      "updateDateTime": {
+        "$date": 1591369142173
+      },
+      "createDateTime": {
+        "$date": 1591369142173
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ff744265208ef492e895f1c"
+      },
+      "id": "5ff744265208ef492e895f1c",
+      "status": 1,
+      "emailVerified": false,
+      "email": "contributor+y@example.com",
+      "userAttributes": {
+        "familyName": "M",
+        "givenName": "T"
+      },
+      "updateDateTime": {
+        "$date": 1591369142173
+      },
+      "createDateTime": {
+        "$date": 1591369142173
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eda5e367adadfb46f7ff71f"
+      },
+      "id": "5eda5e367adadfb46f7ff71f",
+      "status": 1,
+      "emailVerified": false,
+      "email": "daksh.bhatt+13@gmail.com",
+      "displayName": "Daksh",
+      "userAttributes": {
+        "familyName": "Bhatt",
+        "givenName": "Daksh"
+      },
+      "updateDateTime": {
+        "$date": 1591369270798
+      },
+      "createDateTime": {
+        "$date": 1591369270798
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eda5eb1c460d4c74b162a50"
+      },
+      "id": "5eda5eb1c460d4c74b162a50",
+      "status": 1,
+      "enrollmentId": 1,
+      "emailVerified": false,
+      "email": "thomas.moussajee+testdev4@huma.com",
+      "userAttributes": {
+        "familyName": "M",
+        "givenName": "T"
+      },
+      "updateDateTime": {
+        "$date": 1591369393218
+      },
+      "createDateTime": {
+        "$date": 1591369393218
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684413"
+      },
+      "updateDateTime": {
+        "$date": 1591215069321
+      },
+      "createDateTime": {
+        "$date": 1591215069321
+      },
+      "givenName": "test",
+      "familyName": "hey",
+      "gender": "MALE",
+      "email": "admin@example.com",
+      "phoneNumber": "+8618621320546",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73675513"
+      },
+      "updateDateTime": {
+        "$date": 1591215069321
+      },
+      "createDateTime": {
+        "$date": 1591215069321
+      },
+      "givenName": "test",
+      "familyName": "hey",
+      "gender": "MALE",
+      "email": "humasupport@example.com",
+      "roles": [
+        {
+          "roleId": "HumaSupport",
+          "resource": "deployment/*",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73675555"
+      },
+      "updateDateTime": {
+        "$date": 1591215069321
+      },
+      "createDateTime": {
+        "$date": 1591215069321
+      },
+      "givenName": "test",
+      "familyName": "hey",
+      "gender": "MALE",
+      "email": "humaorgeditor@example.com",
+      "roles": [
+        {
+          "roleId": "OrganizationEditor",
+          "resource": "deployment/*",
+          "userType": "OrganizationEditor"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "607eb479a73c845d84e2f53b"
+      },
+      "updateDateTime": {
+        "$date": 1591215069321
+      },
+      "createDateTime": {
+        "$date": 1591215069321
+      },
+      "givenName": "test",
+      "familyName": "hey",
+      "gender": "MALE",
+      "email": "user_without_role@example.com",
+      "phoneNumber": "+8618621320547",
+      "roles": [],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed8b1e433e5e0eb8cca02f4"
+      },
+      "updateDateTime": {
+        "$date": 1591599473346
+      },
+      "createDateTime": {
+        "$date": 1591259620639
+      },
+      "givenName": "Oleksii",
+      "familyName": "Bilyi",
+      "email": "oleksii.bilyi@gmail.com",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC",
+      "dateOfBirth": {
+        "$date": 1023321600000
+      },
+      "gender": "MALE"
+    },
+    {
+      "_id": {
+        "$oid": "5eda57bc7adadfb46f7ff714"
+      },
+      "updateDateTime": {
+        "$date": 1591367612257
+      },
+      "createDateTime": {
+        "$date": 1591367612257
+      },
+      "givenName": "T",
+      "familyName": "M",
+      "email": "user1+x@example.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5eda57e77adadfb46f7ff715"
+      },
+      "updateDateTime": {
+        "$date": 1591379751544
+      },
+      "createDateTime": {
+        "$date": 1591367655669
+      },
+      "givenName": "c",
+      "familyName": "b",
+      "gender": "MALE",
+      "email": "user2+x@example.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "6034bfa242276aaded6ad685"
+      },
+      "updateDateTime": {
+        "$date": 1591379751544
+      },
+      "createDateTime": {
+        "$date": 1591367655669
+      },
+      "givenName": "c",
+      "familyName": "b",
+      "gender": "MALE",
+      "email": "user2+xw@example.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC",
+      "onfidoApplicantId": "some_id",
+      "verificationStatus": 3
+    },
+    {
+      "_id": {
+        "$oid": "5eda5a2b7adadfb46f7ff717"
+      },
+      "updateDateTime": {
+        "$date": 1591368235177
+      },
+      "createDateTime": {
+        "$date": 1591368235177
+      },
+      "givenName": "T",
+      "familyName": "M",
+      "email": "user3+y@example.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb1a",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5eda5c48c460d4c74b162a4d"
+      },
+      "updateDateTime": {
+        "$date": 1591368776832
+      },
+      "createDateTime": {
+        "$date": 1591368776832
+      },
+      "givenName": "Daksh",
+      "familyName": "Bhatt",
+      "email": "manager1+x@example.com",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5eda5cb97adadfb46f7ff71a"
+      },
+      "updateDateTime": {
+        "$date": 1591565358030
+      },
+      "createDateTime": {
+        "$date": 1591368889662
+      },
+      "givenName": "test",
+      "familyName": "paresh",
+      "gender": "MALE",
+      "email": "manager2+x@example.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5eda5db67adadfb46f7ff71d"
+      },
+      "updateDateTime": {
+        "$date": 1591369190295
+      },
+      "createDateTime": {
+        "$date": 1591369142179
+      },
+      "givenName": "T",
+      "familyName": "M",
+      "email": "manager3+y@example.com",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ff744265208ef492e895f1c"
+      },
+      "updateDateTime": {
+        "$date": 1591369190295
+      },
+      "createDateTime": {
+        "$date": 1591369142179
+      },
+      "givenName": "T",
+      "familyName": "M",
+      "email": "contributor+y@example.com",
+      "roles": [
+        {
+          "roleId": "Contributor",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5eda5e367adadfb46f7ff71f"
+      },
+      "enrollmentId": 2,
+      "updateDateTime": {
+        "$date": 1591369270804
+      },
+      "createDateTime": {
+        "$date": 1591369270804
+      },
+      "givenName": "Daksh",
+      "familyName": "Bhatt",
+      "email": "daksh.bhatt+13@gmail.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5eda5eb1c460d4c74b162a50"
+      },
+      "updateDateTime": {
+        "$date": 1591396854605
+      },
+      "createDateTime": {
+        "$date": 1591369393225
+      },
+      "enrollmentId": 3,
+      "givenName": "T",
+      "familyName": "M",
+      "email": "thomas.moussajee+testdev4@huma.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

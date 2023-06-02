@@ -1,0 +1,29 @@
+Update module user reminder
+---
+tags:
+  - reminder
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: reminder_id
+    type: string
+    required: true
+    description: ID of the reminder to update.
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateModuleUserReminderRequest"
+responses:
+  200:
+    description: Updated reminder ID.
+    schema:
+      $ref: "#/definitions/ObjIdResponse"

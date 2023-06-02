@@ -1,0 +1,93 @@
+Create Learn Article
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment learn article belongs to.
+  - in: path
+    name: section_id
+    type: string
+    required: true
+    description: ID of the section learn article belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/LearnArticleCreateRequest"
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: "#/definitions/ObjIdResponse"
+definitions:
+  LearnArticle:
+    allOf:
+      - $ref: "#/definitions/LearnArticleCreateRequest"
+      - required:
+          - id
+      - properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          updateDateTime:
+            type: string
+            format: date-time
+          createDateTime:
+            type: string
+            format: date-time
+  LearnArticleCreateRequest:
+    type: object
+    properties:
+      title:
+        type: string
+        example: "Some title"
+      order:
+        type: integer
+        example: 1
+      type:
+        $ref: "#/definitions/LearnArticleType"
+      thumbnailUrl:
+        $ref: "#/definitions/S3Object"
+      content:
+        $ref: "#/definitions/ArticleContent"
+
+  ArticleContent:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      type:
+        $ref: "#/definitions/LearnArticleContentType"
+      timeToRead:
+        type: string
+      textDetails:
+        type: string
+      videoUrl:
+        $ref: "#/definitions/S3Object"
+      url:
+        type: string
+      contentObject:
+        $ref: "#/definitions/S3Object"
+
+  LearnArticleType:
+    type: string
+    enum:
+      - SMALL
+      - MEDIUM
+      - BIG
+      - VIDEO
+
+  LearnArticleContentType:
+    type: string
+    enum:
+      - TITLE_VIDEO_CONTENT
+      - VIDEO
+      - LINK

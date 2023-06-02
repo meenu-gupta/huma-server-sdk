@@ -1,0 +1,17 @@
+Delete export profile
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: profile_id
+    required: true
+    type: string
+
+responses:
+  204:
+    description: Profile deleted

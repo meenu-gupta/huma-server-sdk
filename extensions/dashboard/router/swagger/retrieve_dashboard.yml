@@ -1,0 +1,66 @@
+Retrieve dashboard
+---
+tags:
+  - dashboard
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: resource_type
+    type: string
+    required: true
+    description: Type of the resource to return.
+  - in: path
+    name: resource_id
+    type: string
+    required: true
+    description: ID of the resource to return.
+  - in: path
+    name: dashboard_id
+    type: string
+    required: true
+    description: ID of the dashboard to return.
+responses:
+  200:
+    description: Dashboard retrieved by ID
+    schema:
+      $ref: '#/definitions/Dashboard'
+
+definitions:
+  Dashboard:
+    type: object
+    required:
+      - name
+      - resource
+      - gadgets
+    properties:
+      id:
+        type: string
+        enum:
+          - OrganisationOverview
+      name:
+        type: string
+        example: "some name"
+      gadgets:
+        type: array
+        items:
+          $ref: "#/definitions/Gadget"
+  Gadget:
+    type: object
+    properties:
+      id:
+        type: string
+        enum:
+          - SignedUp
+          - Consented
+          - KeyMetrics
+          - OverallView
+          - DeploymentOverview
+          - StudyProgress
+      order:
+        type: integer
+      size:
+        type: string
+        example: "2x2"

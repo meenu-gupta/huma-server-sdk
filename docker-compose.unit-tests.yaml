@@ -1,0 +1,14 @@
+version: "3.4"
+
+services:
+  run-tests:
+    build:
+      context: .
+      dockerfile: docker/ppserver.unit-tests/Dockerfile
+    env_file:
+      - ./apps/ppserver/dev.env
+    healthcheck:
+      test: "echo '1';"
+      start_period: 10s
+    volumes:
+      - ./testresults:/app/testresults

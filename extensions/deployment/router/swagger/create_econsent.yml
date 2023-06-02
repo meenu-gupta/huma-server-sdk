@@ -1,0 +1,126 @@
+Create EConsent
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment econsent belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/EConsentCreateRequest'
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  EConsentCreateRequest:
+    type: object
+    properties:
+      instituteName:
+        type: string
+      instituteFullName:
+        type: string
+      instituteTextDetails:
+        type: string
+      enabled:
+        $ref: "#/definitions/EnableStatus"
+      sections:
+        type: array
+        items:
+          $ref: "#/definitions/EConsentSection"
+      review:
+        $ref: "#/definitions/ConsentReview"
+      signature:
+        $ref: "#/definitions/ConsentSignature"
+      title:
+        type: string
+      overviewText:
+        type: string
+      contactText:
+        type: string
+      additionalConsentQuestions:
+        type: array
+        items:
+          $ref: "#/definitions/AdditionalConsentQuestion"
+  EConsent:
+    allOf:
+      - $ref: "#/definitions/EConsentCreateRequest"
+      - properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          createDateTime:
+            type: string
+            format: date-time
+  EConsentSection:
+    type: object
+    properties:
+      type:
+        $ref: "#/definitions/EConsentSectionType"
+      title:
+        type: string
+      details:
+        type: string
+      reviewDetails:
+        type: string
+      options:
+        type: array
+        items:
+          $ref: "#/definitions/ConsentSectionOptions"
+      contentType:
+        $ref: "#/definitions/ContentType"
+      thumbnailUrl:
+        type: string
+      thumbnailLocation:
+        $ref: "#/definitions/S3Object"
+      videoUrl:
+        type: string
+      videoLocation:
+        $ref: "#/definitions/S3Object"
+
+  EConsentSectionType:
+    type: string
+    enum:
+      - INTRODUCTION
+      - PURPOSE
+      - REVIEW_TO_SIGN
+      - DURING_THE_TRIAL
+
+  ContentType:
+    type: string
+    enum:
+      - IMAGE
+      - VIDEO
+
+  AnswerFormat:
+    type: string
+    enum:
+      - BOOLEAN
+      - TEXTCHOICE
+
+  AdditionalConsentQuestion:
+    type: object
+    properties:
+      type:
+        type: string
+        example: "isDataSharedForFutureStudies"
+      enabled:
+        $ref: "#/definitions/EnableStatus"
+      format:
+        $ref: "#/definitions/AnswerFormat"
+      text:
+        type: string
+        example: "Would you like your data to be used in future studies?"
+      description:
+        type: string
+      order:
+        type: integer

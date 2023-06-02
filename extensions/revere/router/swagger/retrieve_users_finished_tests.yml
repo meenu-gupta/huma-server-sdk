@@ -1,0 +1,16 @@
+Retrieve user's finished Revere tests
+---
+tags:
+  - revere
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  200:
+    description: list of finished revere tests, that belongs to user
+    schema:
+      $ref: '#/definitions/UserRevereTestsResponse'

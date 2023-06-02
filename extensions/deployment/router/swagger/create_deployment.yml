@@ -1,0 +1,599 @@
+summary: Create Deployment
+tags:
+  - deployment
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateDeploymentRequest"
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: "#/definitions/ObjIdResponse"
+
+definitions:
+  SurgeryDetailItem:
+    type: object
+    required:
+      - key
+      - value
+    properties:
+      key:
+        type: string
+      value:
+        type: string
+      order:
+        type: integer
+  SurgeryDetail:
+    type: object
+    required:
+      - displayString
+      - placeHolder
+    properties:
+      displayString:
+        type: string
+      placeHolder:
+        type: string
+      order:
+        type: integer
+      items:
+        type: array
+        items:
+          $ref: "#/definitions/SurgeryDetailItem"
+
+  SurgeryDetails:
+    type: object
+    properties:
+      operationType:
+        $ref: "#/definitions/SurgeryDetail"
+      implantType:
+        $ref: "#/definitions/SurgeryDetail"
+      roboticAssistance:
+        $ref: "#/definitions/SurgeryDetail"
+
+  CreateDeploymentRequest:
+    description: Deployment can NOT be created with ARCHIVED status
+    type: object
+    required:
+      - name
+    properties:
+      name:
+        type: string
+      description:
+        type: string
+      status:
+        $ref: "#/definitions/DeploymentStatus"
+      color:
+        type: string
+        example: "0x007AFF"
+      icon:
+        $ref: "#/definitions/S3Object"
+      profile:
+        $ref: "#/definitions/DeploymentProfileConfig"
+      features:
+        $ref: "#/definitions/DeploymentFeatureConfig"
+      integration:
+        $ref: "#/definitions/DeploymentIntegrationConfig"
+      extraCustomFields:
+        type: object
+        description: A hashmap with field name as a key and ExtraCustomFieldConfig object as a value.
+      surgeryDetails:
+        $ref: "#/definitions/SurgeryDetails"
+      keyActionsEnabled:
+        type: boolean
+      privacyPolicyUrl:
+        type: string
+      eulaUrl:
+        type: string
+      contactUsURL:
+        type: string
+      termAndConditionUrl:
+        type: string
+      language:
+        type: string
+      duration:
+        type: string
+        format: iso8601
+        description: Duration from individual user registration date to account expiration.
+      enforceIdentityVerification:
+        type: boolean
+      code:
+        type: string
+      onfidoRequiredReports:
+        type: array
+        items:
+          $ref: "#/definitions/OnfidoReportNameType"
+      staticEventConfig:
+        $ref: "#/definitions/StaticEventConfig"
+      mfaRequired:
+        type: boolean
+      security:
+        $ref: "#/definitions/Security"
+      localizations:
+        type: object
+      country:
+        type: string
+        example: "Germany"
+      location:
+        $ref: "#/definitions/Location"
+      privacyPolicyObject:
+        $ref: "#/definitions/S3Object"
+      termAndConditionObject:
+        $ref: "#/definitions/S3Object"
+      eulaObject:
+        $ref: "#/definitions/S3Object"
+      dashboardConfiguration:
+        $ref: "#/definitions/DashboardDeploymentConfiguration"
+  DashboardDeploymentConfiguration:
+    type: object
+    properties:
+      targetConsentedMonthly:
+        type: number
+        minimum: 0
+        maximum: 5000
+      targetConsented:
+        type: number
+        minimum: 1
+        maximum: 5000
+      day0Anchor:
+        type: string
+        enum:
+          - REGISTRATION_DATE
+          - CONSENT_DATE
+      targetCompleted:
+        type: number
+        minimum: 1
+        maximum: 5000
+  ObjIdResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+  Location:
+    type: object
+    properties:
+      address:
+        type: string
+      country:
+        type: string
+      countryCode:
+        type: string
+      city:
+        type: string
+      latitude:
+        type: number
+      longitude:
+        type: number
+      postalCode:
+        type: string
+      state:
+        type: string
+      street:
+        type: string
+  Learn:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      updateDateTime:
+        type: string
+        format: date-time
+      createDateTime:
+        type: string
+        format: date-time
+      sections:
+        type: array
+        items:
+          $ref: "#/definitions/LearnSection"
+  SortField:
+    type: object
+    properties:
+      field:
+        type: string
+        enum: [name, enrollmentCounter, updateDateTime]
+      direction:
+        type: string
+        enum: [ASC, DESC]
+  EnableStatus:
+    type: string
+    enum:
+      - ENABLED
+      - DISABLED
+  S3Object:
+    type: object
+    properties:
+      bucket:
+        type: string
+      key:
+        type: string
+      region:
+        type: string
+  DeploymentStatus:
+    type: string
+    enum:
+      - DRAFT
+      - DEPLOYED
+      - ARCHIVED
+
+  DeploymentProfileConfig:
+    type: object
+    properties:
+      fields:
+        $ref: "#/definitions/ProfileFields"
+      clinicianOnlyFields:
+        $ref: "#/definitions/ClinicianOnlyFields"
+
+  DeploymentFeatureConfig:
+    type: object
+    properties:
+      appMenu:
+        type: array
+        items:
+          type: string
+          enum:
+            ["CARE_PLAN", "KEY_ACTIONS", "TO_DO", "TRACK", "LEARN", "PROFILE"]
+        minItems: 1
+        maxItems: 4
+      appointment:
+        type: boolean
+      healthDeviceIntegration:
+        type: boolean
+      carePlanDailyAdherence:
+        type: boolean
+      labels:
+        type: boolean
+      offBoarding:
+        type: boolean
+      offboardingReasons:
+        type: object
+        $ref: "#/definitions/OffboardingReasons"
+      proxy:
+        type: boolean
+      personalDocuments:
+        type: boolean
+      portal:
+        type: object
+        description: could be any dictionary
+      hideAppSupport:
+        type: boolean
+      surgeryDateRule:
+        $ref: "#/definitions/SurgeryDateRule"
+      messaging:
+        $ref: "#/definitions/MessagingConfig"
+      summaryReport:
+        $ref: "#/definitions/SummaryReportConfig"
+      linkInvites:
+        type: boolean
+      personalizedConfig:
+        type: boolean
+  DeploymentIntegrationConfig:
+    type: object
+    properties:
+      pamConfig:
+        $ref: "#/definitions/DeploymentPAMIntegrationConfig"
+  MessagingConfig:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+      messages:
+        type: array
+        items:
+          type: string
+          example: "You're doing great!"
+      allowCustomMessage:
+        type: boolean
+  SummaryReportConfig:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+  Security:
+    type: object
+    properties:
+      mfaRequired:
+        type: boolean
+      appLockRequired:
+        type: boolean
+    required:
+      - mfaRequired
+      - appLockRequired
+  DeploymentPAMIntegrationConfig:
+    type: object
+    properties:
+      submitSurveyURI:
+        type: string
+      enrollUserURI:
+        type: string
+      clientExtID:
+        type: string
+      clientPassKeyEncrypted:
+        type: string
+      subgroupExtID:
+        type: string
+
+  ExtraCustomFieldConfig:
+    type: object
+    required:
+      - errorMessage
+      - onboardingCollectionText
+      - order
+      - profileCollectionText
+      - type
+    properties:
+      clinicianUpdate:
+        type: boolean
+      errorMessage:
+        type: string
+      onboardingCollectionText:
+        type: string
+      order:
+        type: integer
+      profileCollectionText:
+        type: string
+      required:
+        type: boolean
+      showClinicianHeader:
+        type: boolean
+      type:
+        type: string
+        enum: ["NUMERIC", "TEXT"]
+      validation:
+        type: string
+      isPrimary:
+        type: boolean
+        default: false
+
+  ProfileFields:
+    type: object
+    properties:
+      givenName:
+        type: boolean
+      familyName:
+        type: boolean
+      dateOfBirth:
+        type: boolean
+      race:
+        type: boolean
+      gender:
+        type: boolean
+      biologicalSex:
+        type: boolean
+      genderOptions:
+        type: array
+        items:
+          $ref: "#/definitions/GenderOption"
+      ethnicityOptions:
+        type: array
+        items:
+          $ref: "#/definitions/EthnicityOption"
+      ethnicity:
+        type: boolean
+      height:
+        type: boolean
+      additionalContactDetails:
+        $ref: "#/definitions/AdditionalContactDetailsItem"
+      bloodGroup:
+        type: boolean
+      phoneNumber:
+        type: boolean
+      email:
+        type: boolean
+      primaryAddress:
+        type: boolean
+      emergencyPhoneNumber:
+        type: boolean
+      familyMedicalHistory:
+        type: boolean
+      pastHistory:
+        type: boolean
+      presentSymptoms:
+        type: boolean
+      operationHistory:
+        type: boolean
+      chronicIllness:
+        type: boolean
+      allergyHistory:
+        type: boolean
+      pregnancy:
+        type: boolean
+      dateOfLastPhysicalExam:
+        type: boolean
+      mandatoryOnboardingFields:
+        type: array
+        items:
+          type: string
+          example: email
+      unEditableFields:
+        type: array
+        items:
+          type: string
+          example: email
+      extraIds:
+        $ref: "#/definitions/ProfileFieldsExtraIds"
+      validators:
+        type: object
+        additionalProperties:
+          $ref: "#/definitions/FieldValidator"
+      ordering:
+        type: array
+        items:
+          type: string
+          example: email
+
+  FieldValidator:
+    type: object
+    properties:
+      min:
+        type: string
+        format: date-time
+        example: "2020-10-10T10:00:00.000Z"
+      max:
+        type: string
+        format: date-time
+        example: "2020-10-10T10:00:00.000Z"
+      minISODuration:
+        type: string
+        example: "-P1Y"
+      maxISODuration:
+        type: string
+        example: "P1Y"
+
+  GenderOption:
+    type: object
+    required:
+      - displayName
+      - value
+    properties:
+      displayName:
+        type: string
+      value:
+        $ref: "#/definitions/Gender"
+
+  EthnicityOption:
+    type: object
+    required:
+      - displayName
+      - value
+    properties:
+      displayName:
+        type: string
+      value:
+        $ref: "#/definitions/Ethnicity"
+
+  Ethnicity:
+    type: string
+    enum:
+      - WHITE
+      - MIXED_OR_MULTI_ETHNIC_GROUPS
+      - ASIAN_OR_ASIAN_BRITISH
+      - BLACK_OR_AFRICAN_OR_CARIBBEAN_OR_BLACK_BRITISH
+      - OTHER_ETHNIC_GROUPS
+      - ASIAN_AMERICAN
+      - BLACK_AFRICAN
+      - HISPANIC
+
+  AdditionalContactDetailsItem:
+    type: object
+    properties:
+      altContactNumber:
+        type: boolean
+      regularContactName:
+        type: boolean
+      regularContactNumber:
+        type: boolean
+      emergencyContactName:
+        type: boolean
+      emergencyContactNumber:
+        type: boolean
+      mandatoryFields:
+        type: array
+        items:
+          type: string
+          example: regularContactName
+
+  Gender:
+    type: string
+    enum:
+      - MALE
+      - FEMALE
+      - NOT_KNOWN
+      - NOT_SPECIFIED
+      - NON_BINARY
+      - TRANSGENDER
+      - OTHER
+      - AGENDER_OR_TRANSGENDER
+
+  ProfileFieldsExtraIds:
+    type: object
+    properties:
+      fenlandCohortId:
+        type: boolean
+      nhsId:
+        type: boolean
+      insuranceNumber:
+        type: boolean
+      wechatId:
+        type: boolean
+      aliveCorId:
+        type: boolean
+      mandatoryOnboardingIds:
+        type: array
+        items:
+          type: string
+          example: nhsId
+      unEditableIds:
+        type: array
+        items:
+          type: string
+          example: nhsId
+
+  ClinicianOnlyFields:
+    type: object
+    properties:
+      surgeryDateTime:
+        type: boolean
+        example: false
+  OnfidoReportNameType:
+    type: string
+    enum:
+      - identity_enhanced
+      - document
+      - watchlist_standard
+      - facial_similarity_photo
+      - facial_similarity_photo_fully_auto
+      - facial_similarity_video
+      - known_faces
+      - right_to_work
+      - document_with_address_information
+      - document_with_driving_licence_information
+      - watchlist_enhanced
+      - watchlist_peps_only
+      - watchlist_sanctions_only
+      - proof_of_address
+  StaticEventConfig:
+    type: object
+    required:
+      - title
+      - description
+    properties:
+      title:
+        type: string
+      description:
+        type: string
+  SurgeryDateRule:
+    type: object
+    properties:
+      maxPastRange:
+        type: string
+      maxFutureRange:
+        type: string
+
+  Reason:
+    type: object
+    properties:
+      displayName:
+        type: string
+        example: Recovered
+      order:
+        type: integer
+
+  OffboardingReasons:
+    type: object
+    properties:
+      reasons:
+        type: array
+        items:
+          type: object
+          $ref: "#/definitions/Reason"
+      otherReason:
+        type: boolean

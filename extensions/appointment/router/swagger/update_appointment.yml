@@ -1,0 +1,36 @@
+Update appointment
+---
+tags:
+  - appointment
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: appointment_id
+    type: string
+    required: true
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/UpdateAppointmentRequest"
+responses:
+  200:
+    description: Updated appointment ID.
+    schema:
+      $ref: "#/definitions/ObjIdResponse"
+definitions:
+  UpdateAppointmentRequest:
+    allOf:
+      - $ref: "#/definitions/BaseAppointmentRequest"
+      - properties:
+          status:
+            type: string
+            enum: ["PENDING_CONFIRMATION", "REJECTED", "SCHEDULED"]

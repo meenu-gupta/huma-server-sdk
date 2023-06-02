@@ -1,0 +1,212 @@
+{
+  "autocomplete": [
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972dd"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/medications-ca.json",
+        "region": ""
+      },
+      "moduleId": "Medications",
+      "language": "ca",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.533Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972de"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/medications-en.json",
+        "region": ""
+      },
+      "moduleId": "Medications",
+      "language": "en",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.540Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972df"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/medications-fr.json",
+        "region": ""
+      },
+      "moduleId": "Medications",
+      "language": "fr",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.547Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e0"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/symptoms-ca.json",
+        "region": ""
+      },
+      "moduleId": "Symptoms",
+      "language": "ca",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.554Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e1"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/symptoms-en.json",
+        "region": ""
+      },
+      "moduleId": "Symptoms",
+      "language": "en",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.560Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e2"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/symptoms-fr.json",
+        "region": ""
+      },
+      "moduleId": "Symptoms",
+      "language": "fr",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.575Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e3"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/vaccine.json",
+        "region": ""
+      },
+      "moduleId": "AZVaccineBatchNumber",
+      "language": "en",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.580Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e4"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/medications-de.json",
+        "region": ""
+      },
+      "moduleId": "Medications",
+      "language": "de",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.587Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e5"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/medications-es.json",
+        "region": ""
+      },
+      "moduleId": "Medications",
+      "language": "es",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.595Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e6"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/medications-sv.json",
+        "region": ""
+      },
+      "moduleId": "Medications",
+      "language": "sv",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.602Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e7"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/symptoms-de.json",
+        "region": ""
+      },
+      "moduleId": "Symptoms",
+      "language": "de",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.612Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e8"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/symptoms-es.json",
+        "region": ""
+      },
+      "moduleId": "Symptoms",
+      "language": "es",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.620Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60dc8663a0ff4558440972e9"
+      },
+      "_cls": "MongoAutoCompleteMetadata",
+      "s3Object": {
+        "bucket": "integrationtests",
+        "key": "static/autocomplete/symptoms-sv.json",
+        "region": ""
+      },
+      "moduleId": "Symptoms",
+      "language": "sv",
+      "updateDateTime": {
+        "$date": "2021-06-30T14:57:39.631Z"
+      }
+    }
+  ]
+}

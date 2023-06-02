@@ -1,0 +1,83 @@
+Get Key Actions List
+---
+tags:
+  - key-action
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user to retrieve key-actions for.
+  - in: query
+    name: start
+    type: string
+    format: date-time
+    description: Datetime to calculate events from. Defaults to now.
+responses:
+  200:
+    description: List of user key actions.
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/KeyAction'
+definitions:
+  KeyAction:
+    type: object
+    required:
+      - id
+      - userId
+      - model
+      - enabled
+      - startDateTime
+      - endDateTime
+      - updateDateTime
+      - createDateTime
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      userId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      title:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      description:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      model:
+        type: string
+        example: "KeyAction"
+      learnArticleId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      moduleId:
+        type: string
+        example: "BloodPressure"
+      moduleConfigId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      keyActionConfigId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      enabled:
+        type: boolean
+      startDateTime:
+        type: string
+        format: date-time
+        description: Exact start datetime of the parent event.
+      endDateTime:
+        type: string
+        format: date-time
+        description: Exact end datetime of the parent event.
+      updateDateTime:
+        type: string
+        format: date-time
+      createDateTime:
+        type: string
+        format: date-time
+      completeDateTime:
+        type: string
+        format: date-time

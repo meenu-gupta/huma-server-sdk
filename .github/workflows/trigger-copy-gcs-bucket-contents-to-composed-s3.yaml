@@ -1,0 +1,56 @@
+name: Trigger Copy GCS bucket contents to a composed S3 bucket
+on:
+  workflow_dispatch:
+    inputs:
+      project_id_workload:
+        description: GCP project ID
+        default: hu-global-sandbox
+        required: true
+        type: string
+      cluster_name:
+        description: GKE cluster name
+        default: hu-uk-sandbox-pr-preview-gke
+        required: true
+        type: string
+      location:
+        description: GKE zone
+        default: europe-west2
+        required: true
+        type: string
+      secret_name:
+        description: name of bucket secret
+        default: ppserver-77-bucket-secret
+        required: true
+        type: string
+      app_namespace:
+        description: Namespace
+        default: pr-preview-77
+        required: true
+        type: string
+      project_id_bucket:
+        description: GCP project ID
+        default: hu-pp-pre-prod
+        required: true
+        type: string
+      bucket_name:
+        description: Bucket name
+        default: hu-pp-dev-app-bucket
+        required: true
+        type: string
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy files from GCS to a new S3 bucket
+        uses: huma-engineering/huma-github-actions/copy-gcs-bucket-contents-to-composed-s3@v0.4.0
+        with:
+          project_id_workload: ${{ github.event.inputs.project_id_workload }}
+          cluster_name: ${{ github.event.inputs.cluster_name }}
+          location: ${{ github.event.inputs.location }}
+          app_namespace: ${{ github.event.inputs.app_namespace }}
+          secret_name: ${{ github.event.inputs.secret_name }}
+          project_id_bucket: ${{ github.event.inputs.project_id_bucket }}
+          gcs_bucket: ${{ github.event.inputs.bucket_name }}
+          gcp_credentials_workload: ${{ secrets.GKE_SA_KEY }}
+          gcp_credentials_bucket: ${{ secrets.PRE_PROD_SA }}

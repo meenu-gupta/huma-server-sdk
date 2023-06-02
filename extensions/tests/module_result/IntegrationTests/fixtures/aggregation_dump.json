@@ -1,0 +1,76 @@
+{
+  "weight": [
+    {
+      "_id": {
+        "$oid": "5f50ffbeaad3c395ab806b92"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "moduleId": "Weight",
+      "moduleConfigId": {
+        "$oid": "5e94b2007773091c9a592660"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": {
+        "$numberInt": "0"
+      },
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1599143820000"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1599143870775"
+        }
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "value": {
+        "$numberDouble": "100"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5f50ffbeaad3c395ab806b94"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "moduleId": "Weight",
+      "moduleConfigId": {
+        "$oid": "5e94b2007773091c9a592660"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": {
+        "$numberInt": "0"
+      },
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1599143820000"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1599143870775"
+        }
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "value": {
+        "$numberDouble": "100"
+      }
+    }
+  ]
+}

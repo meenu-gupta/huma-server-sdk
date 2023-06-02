@@ -1,0 +1,241 @@
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user profile belongs to.
+responses:
+  200:
+    description: Data of user's profile
+    schema:
+      $ref: "#/definitions/UserProfile"
+definitions:
+  UserProfile:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      createDateTime:
+        type: string
+        format: date-time
+      updateDateTime:
+        type: string
+        format: date-time
+      lastLoginDateTime:
+        type: string
+        format: date-time
+      givenName:
+        type: string
+      familyName:
+        type: string
+      email:
+        type: string
+        format: email
+      phoneNumber:
+        type: string
+        example: "+780888888888"
+      primaryAddress:
+        type: string
+      enrollmentNumber:
+        type: string
+      enrollmentId:
+        type: integer
+      roles:
+        type: array
+        items:
+          $ref: "#/definitions/RoleAssignment"
+      timezone:
+        type: string
+        example: "Europe/London"
+      gender:
+        $ref: "#/definitions/Gender"
+      labels:
+        type: array
+        items:
+          $ref: "#/definitions/UserLabel"
+      dateOfBirth:
+        type: string
+        format: date
+      race:
+        type: string
+      bloodGroup:
+        type: string
+      emergencyPhoneNumber:
+        type: string
+        example: "+780888888889"
+      familyMedicalHistory:
+        type: string
+      pastHistory:
+        type: string
+      height:
+        type: number
+        format: float
+      presentSymptoms:
+        type: string
+      operationHistory:
+        type: string
+      chronicIllness:
+        type: string
+      allergyHistory:
+        type: string
+      pregnancy:
+        type: string
+      dateOfLastPhysicalExam:
+        type: string
+        format: date
+      fenlandCohortId:
+        type: string
+      nhsId:
+        type: string
+      insuranceNumber:
+        type: string
+      wechatId:
+        type: string
+      extraCustomFields:
+        type: object
+        properties:
+          someCustomField:
+            type: string
+            example: "654212"
+      boardingStatus:
+        type: object
+        properties:
+          status:
+            type: integer
+            enum: [0, 1]
+          updateDateTime:
+            type: string
+            format: date-time
+          submitterId:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          reasonOffBoarded:
+            type: integer
+            enum: [0, 1, 2, 3, 4, 5]
+      surgeryDetails:
+        type: object
+        properties:
+          operationType:
+            type: string
+          implantType:
+            type: string
+          roboticAssistance:
+            type: string
+      recentModuleResults:
+        type: object
+        properties:
+          5e84b0dab8dfa268b1180536:
+            type: object
+            properties:
+              Weight:
+                $ref: "#/definitions/WeightData"
+      ragThresholds:
+        type: object
+        description: a dictionary containing rag thresholds
+      status:
+        type: object
+        properties:
+          5e84b0dab8dfa268b1180536:
+            type: object
+            properties:
+              Weight:
+                type: object
+                properties:
+                  seen:
+                    type: boolean
+      tags:
+        type: object
+        additionalProperties:
+          type: string
+      tagsAuthorId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      surgeryDateTime:
+        type: string
+        format: date-time
+      preferredUnits:
+        type: object
+        description: a dictionary that contains module config id as a key and custom unit as a value
+      additionalContactDetails:
+        type: object
+        properties:
+          altContactNumber:
+            type: string
+          regularContactName:
+            type: string
+          regularContactNumber:
+            type: string
+          emergencyContactName:
+            type: string
+          emergencyContactNumber:
+            type: string
+      addressComponent:
+        $ref: "#/definitions/AddressObject"
+      language:
+        type: string
+      stats:
+        $ref: "#/definitions/Stats"
+      ragScore:
+        type: array
+        items:
+          type: integer
+          example: 2
+      badges:
+        type: object
+        properties:
+          appointments:
+            type: number
+            example: 5
+          messages:
+            type: number
+            example: 1
+          downloads:
+            type: number
+            example: 3
+
+  RoleAssignment:
+    type: object
+    properties:
+      roleId:
+        type: string
+        example: "Admin"
+      resource:
+        type: string
+        example: "deployment/*"
+      userType:
+        type: string
+        example: "User"
+
+  TaskCompliance:
+    type: object
+    properties:
+      current:
+        type: integer
+      total:
+        type: integer
+      due:
+        type: integer
+
+  Stats:
+    type: object
+    properties:
+      taskCompliance:
+        $ref: "#/definitions/TaskCompliance"
+
+  UserLabel:
+    type: object
+    properties:
+      labelId:
+        type: string
+        example: "5d386cc6ff885918d96edb2c"
+      assignedBy:
+        type: string
+        example: "5d386cc6ff885918d96edb2c"
+      assignDateTime:
+        type: string
+        example: "2022-04-12T11:35:21.435000Z"

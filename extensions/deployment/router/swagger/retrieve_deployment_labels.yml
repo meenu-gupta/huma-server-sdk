@@ -1,0 +1,43 @@
+Get deployment labels
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment to retrieve consent from.
+responses:
+  200:
+    description: Deployment Models
+    schema:
+      $ref: "#/definitions/DeploymentLabels"
+definitions:
+  DeploymentLabels:
+    type: array
+    items:
+      properties:
+        id:
+          type: string
+          example: "5d386cc6ff885918d96edb2c"
+        text:
+          type: string
+          example: "Deceased"
+        authorId:
+          type: string
+          example: "5d386cc6ff885918d96edb2c"
+        updatedBy:
+          type: string
+          example: "5d386cc6ff885918d96edb2c"
+        createDateTime:
+          type: string
+          example: "2022-04-12T11:35:21.435000Z"
+        updateDateTime:
+          type: string
+          example: "2022-04-12T11:35:21.435000Z"
+        count:
+          type: integer
+          example: 12

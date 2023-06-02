@@ -1,0 +1,35 @@
+Upload File
+---
+tags:
+  - storage
+security:
+  - Bearer: []
+consumes:
+  - multipart/form-data
+parameters:
+  - in: path
+    name: bucket
+    type: string
+    description: i.e. "mybucketname"
+    required: true
+  - in: formData
+    name: file
+    type: file
+    required: true
+    description: File to upload
+  - in: formData
+    name: filename
+    type: string
+    required: false
+    description: Optional name for file object
+  - in: formData
+    name: mime
+    type: string
+    required: false
+    description: Optional mime type for file object i.e. image/png. Default will be octect-stream.
+responses:
+  201:
+    description: Success string
+    schema:
+      type: "string"
+      example: "Success"

@@ -1,0 +1,21 @@
+server:
+  debug: true
+  debugLog: true
+  debugRouter: true
+
+  project:
+    id: test1
+    clients:
+      - name: TEST-client-1
+        clientId: test1
+        clientType: USER_IOS
+        roleIds: ["User", "Manager"]
+      - name: TEST-client-2
+        clientId: c2
+        clientType: USER_ANDROID
+        roleIds: ["SuperAdmin"]
+    masterKey: "888888888"
+
+  adapters:
+    auth:
+      enabled: true

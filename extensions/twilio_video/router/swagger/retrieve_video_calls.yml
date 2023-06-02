@@ -1,0 +1,83 @@
+Retrieve Video Calls
+---
+tags:
+  - video call
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+  - in: query
+    name: skip
+    type: integer
+    minimum: 0
+    required: false
+  - in: query
+    name: limit
+    type: integer
+    minimum: 1
+    required: false
+  - in: query
+    name: video_call_id
+    type: string
+    required: false
+responses:
+  200:
+    description: list of the calls
+    schema:
+      $ref: '#/definitions/RetrieveVideoCallsResponse'
+definitions:
+  VideoCall:
+    type: object
+    required:
+      - id
+      - type
+      - managerId
+      - userId
+      - duration
+      - startDateTime
+      - updateDateTime
+      - createdDateTime
+      - roomStatus
+    properties:
+      status:
+        type: string
+        enum: ["MISSED", "ANSWERED", "DECLINED"]
+      type:
+        type: string
+        enum: ["SCHEDULED", "UNSCHEDULED"]
+      appointmentId:
+        type: string
+      id:
+        type: string
+      managerId:
+        type: string
+      userId:
+        type: string
+      duration:
+        type: integer
+      startDateTime:
+        type: string
+        format: date-time
+      endDateTime:
+        type: string
+        format: date-time
+      updateDateTime:
+        type: string
+        format: date-time
+      createDateTime:
+        type: string
+        format: date-time
+      roomStatus:
+        type: string
+        enum: ["completed", "in-progress"]
+
+  RetrieveVideoCallsResponse:
+    type: object
+    properties:
+      calls:
+        type: array
+        items:
+          $ref: "#/definitions/VideoCall"

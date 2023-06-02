@@ -1,0 +1,320 @@
+name: Deploy the Huma Server SDK Helm chart to GKE
+
+on:
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issue_comment
+  issue_comment:
+    types: [created]
+
+env:
+  grafana_host: https://humasandbox.grafana.net
+  project_id: hu-global-sandbox
+  cluster_name: hu-uk-sandbox-pr-preview-gke
+  location: europe-west2
+  app_name: ppserver-${{ github.event.issue.number }}
+  app_namespace: pr-preview-${{ github.event.issue.number }}
+  db_service: pr-preview-mongodb-cluster-2
+  db_namespace: kubedb
+  db_provider: kubedb
+
+jobs:
+  check:
+    name: Deploy command received
+    if: ${{ github.event.issue.pull_request
+      && github.event.issue.state == 'open'
+      && startsWith(github.event.comment.body, '/deploy') }}
+    runs-on: ubuntu-latest
+    outputs:
+      head_ref: ${{ steps.comment-branch.outputs.head_ref }}
+      head_sha: ${{ steps.comment-branch.outputs.head_sha }}
+      short_sha: ${{ steps.sha.outputs.short_sha }}
+    steps:
+      - uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+
+      - id: sha
+        name: Get the short of Github commit SHA
+        run: |-
+          SHORT_SHA=$(echo ${{ steps.comment-branch.outputs.head_sha }} | cut -c1-7)
+          echo "::set-output name=short_sha::$SHORT_SHA"
+
+      - name: Put reaction on the command message
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ github.event.comment.id }}
+          reactions: eyes
+
+      - name: create a comment before exit
+        if: ${{ contains(github.event.issue.labels.*.name, 'deployed')
+          && !contains(github.event.comment.body, '--force') }}
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            This PR already have a preview deployment.❌
+            Please use a `/deploy --force` command to remove the old and create a new one.💡
+
+  build:
+    if: ${{ contains(github.event.comment.body, '--force') || !contains(github.event.issue.labels.*.name, 'deployed') }}
+    needs: check
+    name: Build and Push Container
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and Push Container
+        id: build
+        uses: huma-engineering/huma-github-actions/build-server-sdk-container@v0.7.1
+        with:
+          tag: ${{ env.app_namespace }}-${{ needs.check.outputs.short_sha }}
+          github_ref: ${{ needs.check.outputs.head_sha }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_user: ${{ github.actor }}
+          registry: ghcr.io
+          repository: ghcr.io/huma-engineering/py-ppserver
+
+      - name: Report on build success
+        if: steps.build.outputs.error == 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Built a new version of the container from the branch `${{needs.check.outputs.head_ref}}`,
+            commit ${{needs.check.outputs.head_sha}}, and pushed it to GHCR.👌
+
+      - name: Report on build failure
+        if: steps.build.outputs.error != 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Failed to build and push container from the branch `${{needs.check.outputs.head_ref}}`,
+            commit ${{needs.check.outputs.head_sha}}.❌
+          reactions: "-1"
+
+  deploy:
+    if: ${{ contains(github.event.comment.body, '--force') || !contains(github.event.issue.labels.*.name, 'deployed') }}
+    name: Deploy the Helm chart to GKE
+    needs: check
+    runs-on: ubuntu-latest
+    outputs:
+      dashboard_url: ${{ steps.dashboard.outputs.url }}
+      error: ${{ steps.helm.outputs.error }}
+    steps:
+      - name: Deploy the Helm chart to GKE
+        id: helm
+        uses: huma-engineering/huma-github-actions/deploy-helm-chart-to-gke@v0.6.0
+        with:
+          project_id: ${{ env.project_id }}
+          cluster_name: ${{ env.cluster_name }}
+          location: ${{ env.location }}
+          app_name: ${{ env.app_name }}
+          app_namespace: ${{ env.app_namespace }}
+          db_namespace: ${{ env.db_namespace }}
+          db_provider: ${{ env.db_provider }}
+          db_service: ${{ env.db_service }}
+          image_repository: ghcr.io/huma-engineering/py-ppserver
+          # NOTE: an image_tag should be the same as in job.build
+          image_tag: ${{ env.app_namespace }}-${{ needs.check.outputs.short_sha }}
+          chart_url: oci://ghcr.io/huma-engineering/helm-charts/huma-server-sdk
+          version: 0.9.0
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create Grafana logs dashboard
+        id: dashboard
+        if: steps.helm.outputs.error == 0
+        uses: huma-engineering/huma-github-actions/create-grafana-logs-dashboard@v0.7.0
+        with:
+          app_name: ${{ env.app_name }}
+          app_namespace: ${{ env.app_namespace }}
+          cluster_name: hu-uk-sandbox-pr-preview
+          grafana_api_key: ${{ secrets.PR_PREVIEW_GRAFANA_API_KEY }}
+          grafana_host: ${{ env.grafana_host }}
+
+      - name: Report on deploy success
+        if: steps.helm.outputs.error == 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          # yamllint disable rule:line-length
+          body: |-
+            Deployed a new version of the huma-server-sdk container built from the commit ${{ needs.check.outputs.head_sha }}.👌
+            Created the connected storage bucket, database and cache.
+            Created a new [Grafana dashboard with ppserver logs](${{ env.grafana_host }}${{ steps.dashboard.outputs.url }}).
+          # yamllint enable
+
+      - name: Report on deploy failure
+        if: steps.helm.outputs.error != 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Failed to deploy the SDK server application's Helm chart.❌
+          reactions: "-1"
+
+  restore-db:
+    name: Restore MongoDB archived DB
+    runs-on: ubuntu-latest
+    needs: deploy
+    outputs:
+      error: ${{ steps.restore-db.outputs.error }}
+    steps:
+      - name: Restore MongoDB archived DB
+        id: restore-db
+        uses: huma-engineering/huma-github-actions/restore-mongodb-archived-db@v0.6.0
+        with:
+          project_id: ${{ env.project_id }}
+          cluster_name: ${{ env.cluster_name }}
+          location: ${{ env.location }}
+          app_namespace: ${{ env.app_namespace }}
+          bucket_name: hu-europe2-github-action-pr-preview-bucket
+          db_namespace: ${{ env.db_namespace }}
+          db_service: ${{ env.db_service }}
+          db_user: ${{ env.app_name }}-db
+          source_db_name: ${{ contains(github.event.comment.body, 'pp_qa') && 'pp_qa' || 'pp_dev' }}
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+
+      - name: Report on restore-db success
+        if: steps.restore-db.outputs.error == 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Restored the latest snapshot of application database.👌
+
+      - name: Report on restore-db failure
+        if: steps.restore-db.outputs.error != 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Failed to restore application database snapshot.❌
+          reactions: "-1"
+
+  copy-bucket:
+    name: Sync an existing snapshot S3 bucket to a composed bucket
+    needs: deploy
+    outputs:
+      error: ${{ steps.sync.outputs.error }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: sync
+        id: sync
+        uses: huma-engineering/huma-github-actions/sync-s3-bucket-snapshot-to-composed-bucket@v0.6.0
+        with:
+          project_id: ${{ env.project_id }}
+          cluster_name: ${{ env.cluster_name }}
+          location: ${{ env.location }}
+          app_namespace: ${{ env.app_namespace }}
+          secret_name: ${{ env.app_name }}-bucket-secret
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+          source_bucket: ${{ contains(github.event.comment.body, 'pp_qa') &&
+            'hu-uk-sandbox-github-pr-preview-pp-qa-bucket' || 'hu-uk-sandbox-github-pr-preview-pp-dev-bucket' }}
+          aws_access_key_id: ${{ secrets.PR_PREVIEW_AWS_HUMA_SANDBOX_IAM_USER_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.PR_PREVIEW_AWS_HUMA_SANDBOX_IAM_USER_SECRET_KEY }}
+          aws_region: eu-west-2
+
+      - name: Report on copy-bucket success
+        if: steps.sync.outputs.error == 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Synced an existing snapshot S3 bucket to a composed bucket.👌
+
+      - name: Report on copy-bucket failure
+        if: steps.sync.outputs.error != 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Failed to copy files from GCS to a new S3 bucket for PR preview.❌
+          reactions: "-1"
+
+  report:
+    name: Send a preview URL to user
+    needs:
+      - restore-db
+      - copy-bucket
+      - check
+      - deploy
+    if: ${{ needs.deploy.outputs.error == 0 && needs.restore-db.outputs.error == 0 &&
+      needs.copy-bucket.outputs.error == 0 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup gcloud CLI
+        uses: google-github-actions/setup-gcloud@v0
+        with:
+          service_account_key: ${{ secrets.GKE_SA_KEY }}
+          project_id: hu-global-sandbox
+
+      - name: Get GKE cluster credentials
+        uses: google-github-actions/get-gke-credentials@v0
+        with:
+          cluster_name: hu-uk-sandbox-pr-preview-gke
+          location: europe-west2
+          credentials: ${{ secrets.GKE_SA_KEY }}
+
+      - name: Read DB connection secret
+        id: readSecret
+        env:
+          app_namespace: ${{ env.app_namespace }}
+          bucket_secret_name: ${{ env.app_name }}-bucket-secret
+          db_secret_name: ${{ env.app_name }}-db
+        run: |-
+          id=$(kubectl get -n $app_namespace secrets/$bucket_secret_name \
+            --template={{.data.aws_access_key_id}} | base64 --decode)
+          secret=$(kubectl get -n $app_namespace secrets/$bucket_secret_name \
+            --template={{.data.aws_secret_access_key}} | base64 --decode)
+          bucket=$(kubectl get -n $app_namespace secrets/$bucket_secret_name \
+            --template={{.data.bucket_name}} | base64 --decode)
+          region=$(kubectl get -n $app_namespace secrets/$bucket_secret_name \
+            --template={{.data.region}} | base64 --decode)
+          echo "::add-mask::$id"
+          echo "::add-mask::$secret"
+          echo "::set-output name=id::$id"
+          echo "::set-output name=secret::$secret"
+          echo "::set-output name=bucket::$bucket"
+          echo "::set-output name=region::$region"
+          PASSWORD=$(kubectl get -n $app_namespace secrets/$db_secret_name \
+            --template={{.data.password}} | base64 --decode)
+          USER=$(kubectl get -n $app_namespace secrets/$db_secret_name \
+            --template={{.data.user}} | base64 --decode)
+          echo "::add-mask::$PASSWORD"
+          echo "::add-mask::$USER"
+          echo "::set-output name=username::$USER"
+          echo "::set-output name=password::$PASSWORD"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Render pr-preview-comment template
+        id: template
+        uses: chuhlomin/render-template@v1.4
+        with:
+          template: .github/workflows/pr-preview-comment.tpl
+          vars: |
+            head_sha: ${{ needs.check.outputs.head_sha }}
+            url: "https://${{ env.app_name }}.sbx.huma.com"
+            mongo_host: "${{ env.app_name }}.sbx.huma.com"
+            username: ${{ steps.readSecret.outputs.username }}
+            password: ${{ steps.readSecret.outputs.password }}
+            id: ${{ steps.readSecret.outputs.id }}
+            secret: ${{ steps.readSecret.outputs.secret }}
+            bucket: ${{ steps.readSecret.outputs.bucket }}
+            region: ${{ steps.readSecret.outputs.region }}
+            dashboard_url: ${{ env.grafana_host }}${{ needs.deploy.outputs.dashboard_url }}
+
+      - name: Put a comment to the PR with the preview URL
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: ${{ steps.template.outputs.result }}
+
+      - name: Put reaction on the command message
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ github.event.comment.id }}
+          reactions: rocket
+
+      - uses: actions-ecosystem/action-add-labels@v1
+        with:
+          labels: deployed

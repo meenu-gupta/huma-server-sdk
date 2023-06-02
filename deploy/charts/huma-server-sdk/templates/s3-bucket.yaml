@@ -1,0 +1,11 @@
+{{- with .Values.bucket }}
+apiVersion: storage.huma.com/v1alpha1
+kind: S3Bucket
+metadata:
+  labels: {{ include "ppserver.labels" $ | nindent 4 }}
+  name: {{ include "ppserver.fullname" $ }}-bucket
+  namespace: {{ $.Release.Namespace }}
+spec:
+  region: {{ .region }}
+  readOnlyAccess: {{ .readOnlyAccess }}
+{{- end }}

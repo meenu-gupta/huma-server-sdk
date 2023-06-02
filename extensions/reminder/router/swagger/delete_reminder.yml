@@ -1,0 +1,21 @@
+Delete reminder
+---
+tags:
+  - reminder
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: reminder_id
+    type: string
+    required: true
+    description: ID of the reminder to delete.
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  204:
+    description: Reminder deleted by ID

@@ -1,0 +1,42 @@
+Delete Invitations List
+---
+tags:
+  - invitation
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/DeleteInvitationsListRequest"
+
+responses:
+  200:
+    description: Number of deleted invitations
+    schema:
+      $ref: "#/definitions/DeleteInvitationsListResponse"
+
+definitions:
+  DeleteInvitationsListRequest:
+    type: object
+    required:
+      - invitationIdList
+    properties:
+      invitationIdList:
+        type: array
+        description: List of invitation IDs to delete.
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      invitationType:
+        type: string
+        example: "PERSONAL"
+
+  DeleteInvitationsListResponse:
+    type: object
+    properties:
+      deletedInvitations:
+        type: integer
+        example: 10

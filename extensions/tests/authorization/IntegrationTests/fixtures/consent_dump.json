@@ -1,0 +1,384 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "enforceIdentityVerification": true,
+      "name": "X",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "onboardingConfigs" : [
+        {
+            "onboardingId" : "EConsent",
+            "status" : "ENABLED",
+            "order" : 1,
+            "id" : "604c89573a295dad259abb03",
+            "version" : 3,
+            "configBody" : {}
+        },
+        {
+            "onboardingId" : "IdentityVerification",
+            "status" : "ENABLED",
+            "id" : "604c895da1adf357ed1fe15f",
+            "order" : 2,
+            "version" : 1,
+            "configBody" : {}
+        },
+        {
+            "onboardingId" : "Consent",
+            "status" : "ENABLED",
+            "id" : "6061cbc41f37f7405c6bb923",
+            "order" : 1,
+            "version" : 1,
+            "configBody" : {}
+        },
+        {
+            "onboardingId" : "AZScreeningOnboarding",
+            "status" : "ENABLED",
+            "id" : "606705adc7558713d7d398e8",
+            "order" : 4,
+            "version" : 1,
+            "configBody" : {}
+        }
+    ],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "sections": [
+          {
+            "id": {
+              "$oid": "5e946c69e8002eac4a107f56"
+            },
+            "title": "Test section",
+            "order": 10,
+            "articles": [
+              {
+                "id": {
+                  "$oid": "5e8c58176207e5f78023e655"
+                },
+                "title": "article_ss three",
+                "order": 10,
+                "type": "SMALL",
+                "thumbnailUrl": {
+                  "region": "us-west-1",
+                  "key": "my.png",
+                  "bucket": "admin_bucket"
+                },
+                "content": {
+                  "type": "VIDEO",
+                  "timeToRead": "20m",
+                  "textDetails": "Here what you read",
+                  "videoUrl": {
+                    "bucket": "integrationtests",
+                    "key": "shared/5ded7cfa844317000162d5e7/logo/Screenshot_1572653613.png",
+                    "region": "cn"
+                  }
+                }
+              }
+            ],
+            "updateDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            },
+            "createDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            }
+          }
+        ],
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "5e94b2007773091c9a592650"
+          },
+          "about": "string",
+          "configBody": {},
+          "moduleId": "BloodPressure",
+          "moduleName": "string",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "timesOfDay": [
+              "BEFORE_DINNER"
+            ]
+          },
+          "status": "ENABLED"
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "consent": {
+        "id": {
+          "$oid": "5e9443789911c97c0b639374"
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586785704470"
+          }
+        },
+        "instituteName": "string",
+        "instituteFullName": "string",
+        "instituteTextDetails": "string",
+        "enabled": "ENABLED",
+        "revision": 1,
+        "review": {
+          "title": "review",
+          "details": "please review the form below, and tap agree if you are ready to continue. if you have any questions or queries, please contact us at support@medopad.com"
+        },
+        "signature": {
+          "signatureTitle": "signature",
+          "signatureDetails": "please sign using your finger in the box below",
+          "nameTitle": "medopad consent",
+          "nameDetails": "type your full name in text fields below",
+          "hasMiddleName": true
+        },
+        "sections": [
+          {
+            "type": "OVERVIEW",
+            "summary": "string",
+            "textDetails": "string"
+          },
+          {
+            "type": "AGREEMENT",
+            "title": "Agreement",
+            "reviewDetails": "In order for you to register and use the Huma app, your consent is required.",
+            "options": [
+              {
+                "type": 0,
+                "order": 0,
+                "text": "I consent to Huma processing my personal information, including my health information, as described in the <a href=\"https://storage.googleapis.com/hu-deployment-static-content/afib/Huma_US_Privacy_Policy_incl_CCPA.pdf\">Privacy Policy</a>"
+              },
+              {
+                "type": 1,
+                "order": 1,
+                "text": "I agree to the terms of the <a href=\"https://storage.googleapis.com/hu-deployment-static-content/afib/Huma_EULA_Bayer_AFib.pdf\">Huma End User Licence Agreement</a>"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2d"
+      },
+      "name": "Y",
+      "status": "DEPLOYED",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "consent": {
+        "id": {
+          "$oid": "5e9443789911c97c0b639375"
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586785704470"
+          }
+        },
+        "instituteName": "string",
+        "instituteFullName": "string",
+        "instituteTextDetails": "string",
+        "enabled": "ENABLED",
+        "revision": 1,
+        "review": {
+          "title": "review",
+          "details": "please review the form below, and tap agree if you are ready to continue. if you have any questions or queries, please contact us at support@medopad.com"
+        },
+        "signature": {
+          "signatureTitle": "signature",
+          "signatureDetails": "please sign using your finger in the box below",
+          "nameTitle": "medopad consent",
+          "nameDetails": "type your full name in text fields below",
+          "hasMiddleName": true
+        },
+        "sections": [
+          {
+            "type": "OVERVIEW",
+            "summary": "string",
+            "textDetails": "string"
+          }
+        ]
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "user@user.com",
+      "phoneNumber": "+380999999955",
+      "displayName": "user",
+      "userAttributes": {
+        "familyName": "user",
+        "givenName": "user",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "id": "5e8f0c74b50aa9656c34789d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "user+2@user.com",
+      "phoneNumber": "+380999999988",
+      "displayName": "user2",
+      "userAttributes": {
+        "familyName": "user2",
+        "givenName": "user2",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*"
+        }
+      ],
+      "timezone": "UTC",
+      "onfidoApplicantId": "some_id",
+      "verificationStatus": 1
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "user",
+      "familyName": "user",
+      "email": "user@user.com",
+      "phoneNumber": "+380999999955",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "nextOnboardingTaskId": "1"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "givenName": "user2",
+      "familyName": "user2",
+      "email": "user+2@user.com",
+      "phoneNumber": "+380999999988",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2d"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

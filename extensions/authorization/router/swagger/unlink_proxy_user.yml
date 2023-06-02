@@ -1,0 +1,29 @@
+Unlink proxy user from participant
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UnlinkProxyUserRequest'
+responses:
+  204:
+    description: Successfully unlinked
+definitions:
+  UnlinkProxyUserRequest:
+    type: object
+    required:
+      - proxyId
+    properties:
+      proxyId:
+        type: string
+        example: "5e84b0dab8dfa268b1180537"

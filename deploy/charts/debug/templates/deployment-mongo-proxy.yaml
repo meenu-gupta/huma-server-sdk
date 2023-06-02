@@ -1,0 +1,25 @@
+{{- if .Values.mongoProxy.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "..fullname" . }}-mongo-proxy
+  labels:
+    app: mongo-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-proxy
+  template:
+    metadata:
+      labels:
+        app: mongo-proxy
+    spec:
+      containers:
+      - name: phoenix-debug
+        image: index.docker.io/medopadrtd/phoenix-debug:v0.7
+        command: ["simpleproxy"]
+        args: ["-L", "27017", "-R", {{ .Values.mongoProxy.target | quote }}]
+        ports:
+        - containerPort: 27017
+{{- end}}

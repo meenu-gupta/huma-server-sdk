@@ -1,0 +1,550 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebeca"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Weight",
+          "moduleName": "Weight",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        },
+        {
+          "id": {
+            "$oid": "616e01fcfe93293e8ec384a5"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Questionnaire",
+          "moduleName": "Questionnaire",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        },
+        {
+          "id": {
+            "$oid": "6175d47dda8df3bb5935ef6a"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Questionnaire",
+          "moduleName": "Another Questionnaire",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        }
+      ]
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "id": "5e8f0c74b50aa9656c34789d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999599",
+      "displayName": "manager",
+      "userAttributes": {
+        "familyName": "manager",
+        "givenName": "manager",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "finishedOnboarding": true,
+      "verificationStatus": 1,
+      "boardingStatus": {
+        "status": 0
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "recentModuleResults": {
+        "5f1824ba504787d8d89ebeca": [
+          {
+            "Weight": {
+              "id": "5ff4b14e0b3791bf7278d9c6",
+              "userId": {
+                "$oid": "5e8f0c74b50aa9656c34789b"
+              },
+              "moduleId": "Weight",
+              "moduleConfigId": "5f1824ba504787d8d89ebeca",
+              "deploymentId": {
+                "$oid": "5d386cc6ff885918d96edb2c"
+              },
+              "version": 0,
+              "deviceName": "iOS",
+              "isAggregated": false,
+              "startDateTime": {
+                "$date": "2021-01-05T18:34:54.000Z"
+              },
+              "createDateTime": {
+                "$date": "2021-01-05T18:34:54.658Z"
+              },
+              "submitterId": {
+                "$oid": "5f914cb28ee0158d37d2cf9c"
+              },
+              "value": 1000
+            }
+          }
+        ]
+      },
+      "lastSubmitDateTime": {
+        "$date": "2021-01-05T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "user",
+      "familyName": "user",
+      "email": "user@user.com",
+      "finishedOnboarding": true,
+      "verificationStatus": 1,
+      "boardingStatus": {
+        "status": 0
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "stats": {
+        "taskCompliance": {
+          "current": 4,
+          "total": 14,
+          "due": null,
+          "percentage": 29
+        }
+      },
+      "lastSubmitDateTime": {
+        "$date": "2021-01-11T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61fb852583e256e58e7ea9e3"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "email": "user4@user.com",
+      "givenName": "nob4",
+      "familyName": "nob4",
+      "finishedOnboarding": true,
+      "recentModuleResults": {
+        "616e01fcfe93293e8ec384a5": [
+          {
+            "Questionnaire": {
+              "moduleConfigId": {
+                "$oid": "616e01fcfe93293e8ec384a5"
+              },
+              "flags": {
+                "amber": 0,
+                "gray": 1,
+                "red": 0
+              }
+            }
+          },
+          {
+            "Questionnaire": {
+              "moduleConfigId": {
+                "$oid": "616e01fcfe93293e8ec384a5"
+              },
+              "flags": {
+                "amber": 1,
+                "gray": 0,
+                "red": 0
+              },
+              "id": "61d875ab678bb4f9fe6ac331"
+            }
+          }
+        ],
+        "6175d47dda8df3bb5935ef6a": [
+          {
+            "DiabetesDistressScore": {
+              "moduleConfigId": {
+                "$oid": "6175d47dda8df3bb5935ef6a"
+              },
+              "flags": {
+                "amber": 0,
+                "gray": 1,
+                "red": 0
+              }
+            },
+            "Questionnaire": {
+              "moduleConfigId": {
+                "$oid": "6175d47dda8df3bb5935ef6a"
+              },
+              "flags": {
+                "amber": 0,
+                "gray": 0,
+                "red": 1
+              }
+            }
+          },
+          {
+            "DiabetesDistressScore": {
+              "moduleConfigId": {
+                "$oid": "6175d47dda8df3bb5935ef6a"
+              },
+              "flags": {
+                "amber": 1,
+                "gray": 0,
+                "red": 0
+              }
+            },
+            "Questionnaire": {
+              "moduleConfigId": {
+                "$oid": "6175d47dda8df3bb5935ef6a"
+              },
+              "flags": {
+                "amber": 1,
+                "gray": 0,
+                "red": 0
+              }
+            }
+          }
+        ]
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "lastSubmitDateTime": {
+        "$date": "2020-01-10T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61fb852583e256e58e7ea9e4"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "email": "user5@user.com",
+      "givenName": "nob5",
+      "familyName": "nob5",
+      "finishedOnboarding": true,
+      "recentModuleResults": {
+        "616e01fcfe93293e8ec384a5": [
+          {
+            "Questionnaire": {
+              "moduleConfigId": {
+                "$oid": "616e01fcfe93293e8ec384a5"
+              },
+              "flags": {
+                "amber": 1,
+                "gray": 0,
+                "red": 0
+              }
+            }
+          },
+          {
+            "Questionnaire": {
+              "moduleConfigId": {
+                "$oid": "616e01fcfe93293e8ec384a5"
+              },
+              "flags": {
+                "amber": 1,
+                "gray": 0,
+                "red": 0
+              },
+              "id": "61d875ab678bb4f9fe6ac331"
+            }
+          }
+        ],
+        "6175d47dda8df3bb5935ef6a": [
+          {
+            "DiabetesDistressScore": {
+              "moduleConfigId": {
+                "$oid": "6175d47dda8df3bb5935ef6a"
+              },
+              "flags": {
+                "amber": 0,
+                "gray": 1,
+                "red": 0
+              }
+            },
+            "Questionnaire": {
+              "moduleConfigId": {
+                "$oid": "6175d47dda8df3bb5935ef6a"
+              },
+              "flags": {
+                "amber": 0,
+                "gray": 0,
+                "red": 1
+              }
+            }
+          },
+          {
+            "DiabetesDistressScore": {
+              "moduleConfigId": {
+                "$oid": "6175d47dda8df3bb5935ef6a"
+              },
+              "flags": {
+                "amber": 1,
+                "gray": 0,
+                "red": 0
+              }
+            },
+            "Questionnaire": {
+              "moduleConfigId": {
+                "$oid": "6175d47dda8df3bb5935ef6a"
+              },
+              "flags": {
+                "amber": 1,
+                "gray": 0,
+                "red": 0
+              }
+            }
+          }
+        ]
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "lastSubmitDateTime": {
+        "$date": "2020-01-10T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789e"
+      },
+      "givenName": "test2",
+      "familyName": "test2",
+      "email": "test2@test2.com",
+      "boardingStatus": {
+        "status": 1
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "lastSubmitDateTime": {
+        "$date": "2020-11-10T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "givenName": "manager",
+      "familyName": "manager",
+      "email": "manager@manager.com",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ]
+    }
+  ],
+  "weight": [
+    {
+      "_id": {
+        "$oid": "5f50ffbeaad3c395ab806b99"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "moduleId": "Weight",
+      "moduleConfigId": {
+        "$oid": "5f1824ba504787d8d89ebeca"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": {
+        "$numberInt": "0"
+      },
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-01-07T15:33:04.000Z"
+      },
+      "createDateTime": {
+        "$date": "2021-01-07T15:33:05.042Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "value": {
+        "$numberDouble": "10000"
+      }
+    }
+  ],
+  "questionnaire": [
+    {
+      "_id": {
+        "$oid": "60084cec1523b147db7cd3cf"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "moduleId": "Questionnaire",
+      "moduleConfigId": {
+        "$oid": "5f0d64a47fe6637a82dcbea9"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "iOS",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2020-10-12T08:50:28.321Z"
+      },
+      "createDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "answers": [
+        {
+          "question": "Observation Notes",
+          "answerText": "aaa"
+        },
+        {
+          "question": "Have you reviewed patient vitals?",
+          "answerText": "true"
+        }
+      ],
+      "questionnaireName": "Observation Notes",
+      "questionnaireId": "e932907c-e2c6-4fc7-88a9-72e2bba65431"
+    }
+  ]
+}

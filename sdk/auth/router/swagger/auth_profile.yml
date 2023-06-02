@@ -1,0 +1,30 @@
+Auth Profile
+Returning Auth Profile
+---
+tags:
+  - auth
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/AuthProfileRequest'
+responses:
+  200:
+    description: Auth Profile Response
+    schema:
+      $ref: '#/definitions/AuthProfileResponse'
+definitions:
+  AuthProfileRequest:
+    type: object
+    required:
+      - authToken
+    properties:
+      authToken:
+        type: string
+  AuthProfileResponse:
+    type: object
+    properties:
+      uid:
+        type: string

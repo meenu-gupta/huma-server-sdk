@@ -1,0 +1,24 @@
+Update Module Config
+The Schedule and ragThresholds fields are atomic which means wouldn't get update field by fields.
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment module config belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UpdateModuleConfigRequest'
+responses:
+  200:
+    description: Updated object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'

@@ -1,0 +1,363 @@
+# Default values for ..
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+nameOverride: ""
+fullnameOverride: ""
+
+image:
+  repository: ghcr.io/huma-engineering/py-ppserver
+  tag: latest
+
+bucket:
+  region: eu-west-2
+  readOnlyAccess: false
+mongodb:
+  clusterRef:
+    name: pr-preview-mongodb-cluster-2
+    namespace: kubedb
+  provider: kubedb
+  roleName: readWrite
+redis:
+  storage: 100Mi
+
+cp:
+  image: ghcr.io/huma-engineering/huma-clinician-portal/cp-preview-dev
+  tag: latest
+
+gcpProject:
+  id: hu-global-sandbox
+
+externalSecrets:
+  - name: ppserver-dev-env-secret
+    backendSecretNames:
+      - pp-sandbox-ppserver-dev-env-secret
+  - name: pp-star-sbx-huma-com-secret
+    backendSecretNames:
+      - pp-common-star-sbx-huma-com-crt
+    type: kubernetes.io/tls
+  - name: regcred
+    backendSecretNames:
+      - pp-common-dockerconfigjson
+    type: kubernetes.io/dockerconfigjson
+
+mongoExpress:
+  basicAuth: true
+  requestSize: 10000kb
+  baseUrl: /mongo-express/
+
+# reference here any of secrets you expect to have in app's namespace
+injectSecretKeys:
+  - name: ppserver-dev-env-secret
+    envNames:
+      - MP_DEBUG_ENABLED
+      - MP_DEBUG_LOG_ENABLED
+      - MP_DEBUG_ROUTER_ENABLED
+      - MP_TEST_ENVIRONMENT_ENABLED
+      - MP_SWAGGER_ENABLED
+      - MP_SIGNUP_LIMIT
+      - MP_AUTH_LIMIT
+      - MP_API_LIMIT
+      - MP_JWT_SECRET
+      - MP_FROM_EMAIL
+      - MP_MASTER_KEY
+      - HOUNDIFY_CLIENT_ID
+      - HOUNDIFY_CLIENT_KEY
+      - MP_APNS_TEAM_ID
+      - MP_APNS_AUTH_KEY_FILE_PATH
+      - MP_APNS_AUTH_KEY_ID
+      - MP_FCM_SA_FILE_PATH
+      - MP_GCS_SA_FILE_PATH
+      - MP_IOS_APP_ID
+      - MP_APNS_BUNDLE_ID
+      - MP_APNS_USE_SANDBOX
+      - MP_USER_WEB_BASE_URL
+      - MP_ADMIN_WEB_BASE_URL
+      - MP_PAM_INTEGRATION_ENROLL_USER_URI
+      - MP_PAM_INTEGRATION_SUBMIT_SURVEY_URI
+      - MP_PAM_INTEGRATION_CLIENT_EXT_ID
+      - MP_PAM_INTEGRATION_CLIENT_PASS_KEY
+      - MP_PAM_INTEGRATION_SUB_GROUP_EXT_ID
+      - MP_KARDIA_API_KEY
+      - MP_KARDIA_BASE_URL
+      - MP_CVD_API_URL
+      - MP_CVD_API_USERNAME
+      - MP_CVD_API_PASSWORD
+      - MP_SIGNED_URL_SECRET
+      - MP_ENCRYPTION_SECRET
+      - MP_MAILGUN_API_KEY
+      - MP_MAILGUN_DOMAIN_URL
+      - MP_MAILGUN_API_URL_TEMPLATE
+      - MP_TWILIO_ACCOUNT_SID
+      - MP_TWILIO_AUTH_TOKEN
+      - MP_TWILIO_API_KEY
+      - MP_TWILIO_API_SECRET
+      - MP_TWILIO_SMS_SOURCE_PHONE_NUMBER
+      - ONFIDO_API_TOKEN
+      - ONFIDO_REGION
+      - ONFIDO_WEBHOOK_TOKEN
+      - SENTRY_DSN
+      - SENTRY_ENV
+      - SENTRY_CLUSTER
+      - MP_IOS_APP_URL
+      - MP_ANDROID_APP_URL
+      - MP_COUNTRY_NAME
+      - MP_COUNTRY_CODE
+      - MP_FCM_API_KEY
+      - MP_FCM_PROJECT_ID
+      - MP_TWILIO_MEDIA_REGION
+      - MP_TWILIO_SERVICE_SID
+      - MP_TWILIO_VERIFY_SERVICE_SID
+      - MP_ALI_CLOUD_PUSH_ACCESS_KEY
+      - MP_ALI_CLOUD_PUSH_ACCESS_KEY_SECRET
+      - MP_ALI_CLOUD_APP_KEY
+      - DEBUG_METRICS
+
+# https://github.com/huma-engineering/py-phoenix-server/blob/8f4ecc778583dbe6a0440d7f4c3a5c3b4617e353/apps/ppserver/config.atlas.yaml
+config: |
+  server:
+    host: 0.0.0.0
+    port: 80
+    debug: !ENVBOOL ${MP_DEBUG_ENABLED}
+    debugLog: !ENVBOOL ${MP_DEBUG_LOG_ENABLED}
+    debugRouter: !ENVBOOL ${MP_DEBUG_ROUTER_ENABLED}
+    testEnvironment: !ENVBOOL ${MP_TEST_ENVIRONMENT_ENABLED}
+    hostUrl: !ENV ${MP_HOST_URL}
+    webAppUrl: !ENV ${MP_WEB_APP_URL}
+    maxContentSize: 104857600
+    iosAppUrl: !ENV ${MP_IOS_APP_URL}
+    androidAppUrl: !ENV ${MP_ANDROID_APP_URL}
+    countryName: !ENV ${MP_COUNTRY_NAME}
+    countryCode: !ENV ${MP_COUNTRY_CODE}
+
+    publisher:
+      enable: true
+
+    swagger:
+      enable: !ENVBOOL ${MP_SWAGGER_ENABLED}
+      template:
+        swagger: '2.0'
+        info:
+          description: |
+            Huma Platform Play APIs.
+          title: Huma Platform Play APIs
+        securityDefinitions:
+          Bearer:
+            type: apiKey
+            name: Authorization
+            in: header
+        tags:
+        - name: deployment
+          description: |
+            This is for deployment a.k.a configuration
+        - name: modules
+          description: |
+            This is for modules a.k.a configuration
+
+    celery:
+      enable: true
+      brokerUrl: !ENV ${MP_REDIS_URL}
+
+    rateLimit:
+      enable: true
+      default: !ENV ${MP_API_LIMIT}
+      storageUri: !ENV ${MP_REDIS_URL}
+      strategy: "fixed-window"
+
+    exportDeployment:
+      sourceMongodbDatabase:
+        name: !ENV ${MP_DB_NAME}
+        url: !ENV ${MP_MONGODB_URL}
+
+    project:
+      id: p1
+      clients:
+        - name: ios-client
+          clientId: c1
+          clientType: USER_IOS
+          roleIds: ["User", "Proxy", "SuperAdmin"]
+          accessTokenExpiresAfterMinutes: 15
+          refreshTokenExpiresAfterMinutes: 64800
+          deepLinkBaseUrl: !ENV ${MP_DEEPLINK_MOBILE_BASE_URL}
+          appIds:
+            - !ENV ${MP_IOS_APP_ID}
+          passwordExpiresIn: 1000
+        - name: android-client
+          clientId: c2
+          clientType: USER_ANDROID
+          roleIds: ["User", "Proxy", "SuperAdmin"]
+          accessTokenExpiresAfterMinutes: 15
+          deepLinkBaseUrl: !ENV ${MP_DEEPLINK_MOBILE_BASE_URL}
+          refreshTokenExpiresAfterMinutes: 64800
+          appIds:
+            - !ENV ${MP_ANDROID_APP_ID}
+          fingerprints:
+            - !ENV ${MP_ANDROID_FINGERPRINT}
+          passwordExpiresIn: 1000
+        - name: web-client
+          clientId: c3
+          clientType: MANAGER_WEB
+          authType: MFA
+          roleIds: ["Manager", "SuperAdmin"]
+          accessTokenExpiresAfterMinutes: 15
+          refreshTokenExpiresAfterMinutes: 20160 # 14 days
+          deepLinkBaseUrl: !ENV ${MP_MANAGER_WEB_BASE_URL}
+          passwordExpiresIn: 90
+        - name: web-user-client
+          clientId: c4
+          clientType: USER_WEB
+          roleIds: ["User", "Proxy"]
+          accessTokenExpiresAfterMinutes: 15
+          refreshTokenExpiresAfterMinutes: 20160 # 14 days
+          deepLinkBaseUrl: !ENV ${MP_USER_WEB_BASE_URL}
+          passwordExpiresIn: 1000
+        - name: super-admin
+          clientId: c5
+          clientType: ADMIN_WEB
+          authType: MFA
+          roleIds: ["SuperAdmin"]
+          accessTokenExpiresAfterMinutes: 60
+          refreshTokenExpiresAfterMinutes: 20160 # 14 days
+          deepLinkBaseUrl: !ENV ${MP_ADMIN_WEB_BASE_URL}
+          passwordExpiresIn: 1000
+        - name: super-admin
+          clientId: c6
+          clientType: ADMIN_WEB
+          authType: MFA
+          roleIds: ["SuperAdmin"]
+          accessTokenExpiresAfterMinutes: 60
+          refreshTokenExpiresAfterMinutes: 20160 # 14 days
+          deepLinkBaseUrl: !ENV ${MP_ADMIN_WEB_BASE_URL}
+          passwordExpiresIn: 1000
+        - name: SERVICE_ACCOUNT-client
+          clientId: c7
+          clientType: SERVICE_ACCOUNT
+          authType: SFA
+          roleIds: ["ServiceAccount"]
+          deepLinkBaseUrl: !ENV ${MP_USER_WEB_BASE_URL}
+      masterKey: !ENV ${MP_MASTER_KEY}
+
+    auditLogger:
+      enable: true
+
+    auth:
+      enable: true
+      database: !ENV ${MP_DB_NAME}
+      rateLimit:
+        signup: !ENV ${MP_SIGNUP_LIMIT}
+        checkAuthAttributes: !ENV ${MP_SIGNUP_LIMIT}
+        default: !ENV ${MP_AUTH_LIMIT}
+      signedUrlSecret: !ENV ${MP_SIGNED_URL_SECRET}
+
+    storage:
+      enable: true
+      storageAdapter: MINIO
+      allowedBuckets:
+        - !ENV ${MP_BUCKET_NAME}
+      defaultBucket: !ENV ${MP_BUCKET_NAME}
+      rateLimit:
+        write: "60/minute"
+        read: "60 per minute"
+
+
+    authz:
+      enable: true
+      enableLogs: false
+
+    revereTest:
+      clientId: !ENV ${HOUNDIFY_CLIENT_ID}
+      clientKey: !ENV ${HOUNDIFY_CLIENT_KEY}
+
+    authorization:
+      enable: true
+      checkAdminIpAddress: true
+    deployment:
+      enable: true
+    moduleResult:
+      enable: true
+    medication:
+      enable: true
+
+    moduleResult:
+      applyDefaultDisclaimerConfig: true
+      pamIntegration:
+        submitSurveyURI: !ENV ${MP_PAM_INTEGRATION_SUBMIT_SURVEY_URI}
+        enrollUserURI: !ENV ${MP_PAM_INTEGRATION_ENROLL_USER_URI}
+        clientExtID: !ENV ${MP_PAM_INTEGRATION_CLIENT_EXT_ID}
+        clientPassKey: !ENV ${MP_PAM_INTEGRATION_CLIENT_PASS_KEY}
+        subgroupExtID: !ENV ${MP_PAM_INTEGRATION_SUB_GROUP_EXT_ID}
+        timeout: 30000
+      kardia:
+        apiKey: !ENV ${MP_KARDIA_API_KEY}
+        baseUrl: !ENV ${MP_KARDIA_BASE_URL}
+      cvd:
+        url: !ENV ${MP_CVD_API_URL}
+        username: !ENV ${MP_CVD_API_USERNAME}
+        password: !ENV ${MP_CVD_API_PASSWORD}
+
+    deployment:
+      enable: true
+      encryptionSecret: !ENV ${MP_ENCRYPTION_SECRET}
+
+    invitation:
+      invitationExpiresAfterMinutes: 1440
+
+    adapters:
+      twilioSms:
+        accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+        authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+      twilioSmsVerification:
+        sourcePhoneNumber: !ENV ${MP_TWILIO_SMS_SOURCE_PHONE_NUMBER}
+        templateKey: "SMSVerificationTemplate"
+        serviceName: "Huma"
+      twilioVideo:
+        accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+        authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+        apiKey: !ENV ${MP_TWILIO_API_KEY}
+        apiSecret: !ENV ${MP_TWILIO_API_SECRET}
+      mailgunEmail:
+        domainUrl: !ENV ${MP_MAILGUN_DOMAIN_URL}
+        mailgunApiUrlTemplate: !ENV ${MP_MAILGUN_API_URL_TEMPLATE}
+        apiKey: !ENV ${MP_MAILGUN_API_KEY}
+        defaultFromEmail: !ENV ${MP_FROM_EMAIL}
+      minio:
+        secure: true
+        accessKey: !ENV ${MP_MINIO_ACCESS_KEY}
+        secretKey: !ENV ${MP_MINIO_SECRET_KEY}
+        url: !ENV ${MP_MINIO_URL}
+      apnsPush:
+        useSandbox: !ENVBOOL ${MP_APNS_USE_SANDBOX}
+        teamId: !ENV ${MP_APNS_TEAM_ID}
+        bundleId: !ENV ${MP_APNS_BUNDLE_ID}
+        authKeyFilePath: !ENV ${MP_APNS_AUTH_KEY_FILE_PATH}
+        authKeyId: !ENV ${MP_APNS_AUTH_KEY_ID}
+      mongodbDatabase:
+        name: !ENV ${MP_DB_NAME}
+        url: !ENV ${MP_MONGODB_URL}
+      redisDatabase:
+        url: !ENV ${MP_REDIS_URL}
+      oneTimePasswordRepo:
+        rateLimit: 10
+      jwtToken:
+        secret: !ENV ${MP_JWT_SECRET}
+        audience: "urn:mp"
+        algorithm: "HS256"
+      fcmPush:
+        serviceAccountKeyFilePath: !ENV ${MP_FCM_SA_FILE_PATH}
+      onfido:
+        apiToken: !ENV ${ONFIDO_API_TOKEN}
+        region: !ENV ${ONFIDO_REGION}
+        tokenExpiresAfterMinutes: 90
+        webhookToken: !ENV ${ONFIDO_WEBHOOK_TOKEN}
+      hawk:
+        hashingAlgorithm: sha256
+        localTimeOffset: 0
+        timeStampSkew: 60
+      sentry:
+        dsn: !ENV ${SENTRY_DSN}
+        requestBodies: "always"
+        tracesSampleRate: 0.2
+        environment: !ENV ${SENTRY_ENV}
+        extraTags:
+          cluster: !ENV ${SENTRY_CLUSTER}
+          cloud: docker-compose

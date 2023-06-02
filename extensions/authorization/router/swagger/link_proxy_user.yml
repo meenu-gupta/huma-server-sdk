@@ -1,0 +1,37 @@
+Link proxy user to participant
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/LinkProxyUserRequest'
+responses:
+  201:
+    description: ID of assigned proxy user
+    schema:
+      $ref: '#/definitions/LinkProxyUserResponse'
+definitions:
+  LinkProxyUserRequest:
+    type: object
+    required:
+      - proxyEmail
+    properties:
+      proxyEmail:
+        type: string
+        format: email
+  LinkProxyUserResponse:
+    type: object
+    properties:
+      proxyId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"

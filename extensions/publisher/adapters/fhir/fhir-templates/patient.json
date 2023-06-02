@@ -1,0 +1,20 @@
+{
+    "resourceType": "Patient",
+    "identifier": [
+      {
+        "system": "https://fhir.nhs.uk/Id/nhs-number",
+        "value": "{obj.id}"
+      }
+    ],
+    "name": [
+      {
+        "use": "official",
+        "family": "{obj.familyName}",
+        "given": [
+          "{obj.givenName}"
+        ]
+      }
+    ],
+    "gender": "male",
+    "birthDate": "1988-04-04"
+}

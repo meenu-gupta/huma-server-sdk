@@ -1,0 +1,72 @@
+{
+  "$id": "com.medopad.platformplay.symptom.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Symptom",
+  "description": "Symptom Config Schema",
+  "definitions": {
+    "uuid": {
+      "type": "string",
+      "format": "uuid",
+      "examples": ["67ED4D53-37E0-4538-BB7A-6ECB62E6CD55"]
+    },
+    "complexSymptom": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "name": {
+          "type": "string"
+        },
+        "scale": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/scaleDef" }
+        },
+        "scaleSymptom": {
+          "$ref": "#/definitions/scaleBounds"
+        }
+      },
+      "additionalProperties": false
+    },
+    "scaleDef": {
+      "type": "object",
+      "properties": {
+        "severity": {
+          "type": "integer"
+        },
+        "value": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "scaleBounds": {
+      "type": "object",
+      "properties": {
+        "lowerBound": {
+          "type": "integer"
+        },
+        "upperBound": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "symptoms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "complexSymptoms": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/complexSymptom"
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,23 @@
+Get Download Url
+---
+tags:
+  - storage
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: bucket
+    type: string
+    description: i.e. "mybucketname"
+    required: true
+  - in: path
+    name: filename
+    type: string
+    description: i.e. "cat/persian2.png"
+    required: true
+responses:
+  200:
+    description: Download url
+    schema:
+      type: string
+      example: "https://mybucketname.oss-eu-central-1.aliyuncs.com/cat%2Fpersian2.png?params"

@@ -1,0 +1,127 @@
+Create Consent
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment consent belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/ConsentCreateRequest'
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  ConsentCreateRequest:
+    type: object
+    properties:
+      instituteName:
+        type: string
+      instituteFullName:
+        type: string
+      instituteTextDetails:
+        type: string
+      enabled:
+        $ref: "#/definitions/EnableStatus"
+      sections:
+        type: array
+        items:
+          $ref: "#/definitions/ConsentSection"
+      review:
+        $ref: "#/definitions/ConsentReview"
+      additionalConsentQuestions:
+        type: array
+        items:
+          $ref: "#/definitions/AdditionalConsentQuestion"
+      signature:
+        $ref: "#/definitions/ConsentSignature"
+  Consent:
+    allOf:
+      - $ref: "#/definitions/ConsentCreateRequest"
+      - properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          createDateTime:
+            type: string
+            format: date-time
+  ConsentSection:
+    type: object
+    properties:
+      type:
+        $ref: "#/definitions/ConsentSectionType"
+      title:
+        type: string
+      details:
+        type: string
+      reviewDetails:
+        type: string
+      options:
+        type: array
+        items:
+          $ref: "#/definitions/ConsentSectionOptions"
+
+  ConsentSectionType:
+    type: string
+    enum:
+      - OVERVIEW
+      - DATA_GATHERING
+      - PRIVACY
+      - DATA_USE
+      - TIME_COMMITMENT
+      - STUDY_SURVEY
+      - STUDY_TASKS
+      - WITHDRAWING
+      - SHARING
+      - DATA_PROCESSING
+      - FEEDBACK
+      - AGREEMENT
+
+  ConsentSectionOptions:
+    required:
+      - type
+    type: object
+    properties:
+      type:
+        type: integer
+      text:
+        type: string
+      order:
+        type: integer
+      abortOnChoose:
+        type: boolean
+
+  ConsentReview:
+    type: object
+    properties:
+      title:
+        type: string
+        example: "Review Title"
+      details:
+        type: string
+
+  ConsentSignature:
+    type: object
+    properties:
+      signatureTitle:
+        type: string
+      signatureDetails:
+        type: string
+      nameTitle:
+        type: string
+      nameDetails:
+        type: string
+      hasMiddleName:
+        type: boolean
+      showFirstLastName:
+        type: boolean

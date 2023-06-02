@@ -1,0 +1,174 @@
+{
+  "patientmanagerassignment": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "_cls": "MongoManagerAssignment",
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "managerIds": [
+        {
+          "$oid": "5e8f0c74b50aa9656c34789d"
+        },
+        {
+          "$oid": "5e8f0c74b50aa9656c34788d"
+        },
+        {
+          "$oid": "5ed803dd5f2f99da73654413"
+        }
+      ],
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1603468704019"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1603468704019"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34788c"
+      },
+      "_cls": "MongoManagerAssignment",
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34788c"
+      },
+      "managerIds": [
+        {
+          "$oid": "5e8f0c74b50aa9656c34789d"
+        }
+      ],
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1603468704019"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1603468704019"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34786d"
+      },
+      "id": "5e8f0c74b50aa9656c34786d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "manager3",
+      "userAttributes": {
+        "familyName": "manager3",
+        "givenName": "manager3",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "manager3@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999955551",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "449213d10b6d06b35e133e79"
+      },
+      "id": "449213d10b6d06b35e133e79",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "manager4",
+      "userAttributes": {
+        "familyName": "manager4",
+        "givenName": "manager4",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "manager4@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999955555",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34786d"
+      },
+      "givenName": "manager3",
+      "familyName": "manager3",
+      "email": "manager3@manager.com",
+      "phoneNumber": "+380999955551",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb1c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "449213d10b6d06b35e133e79"
+      },
+      "givenName": "manager4",
+      "familyName": "manager4",
+      "email": "manager4@manager.com",
+      "phoneNumber": "+380999955555",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5ed8ae76cf99540b259a7315"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "449213d10b6d06b35e133b79"
+      },
+      "givenName": "manager5",
+      "familyName": "manager5",
+      "email": "manager5@manager.com",
+      "phoneNumber": "+380999955556",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5ed8ae76cf99540b259a7c15"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

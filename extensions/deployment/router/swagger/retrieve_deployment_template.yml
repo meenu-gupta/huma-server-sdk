@@ -1,0 +1,30 @@
+Get Deployment Template
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: template_id
+    type: string
+    required: true
+    description: ID of the deployment template
+responses:
+  200:
+    description: Deployment Template Data
+    schema:
+      $ref: "#/definitions/DeploymentTemplate"
+definitions:
+  DeploymentTemplate:
+    allOf:
+      - $ref: "#/definitions/CreateDeploymentTemplateRequest"
+      - properties:
+          id:
+            type: string
+          createDateTime:
+            type: string
+            format: date-time
+          updateDateTime:
+            type: string
+            format: date-time

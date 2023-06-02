@@ -1,0 +1,27 @@
+version: "3.4"
+
+services:
+  run-tests:
+    build:
+      context: .
+      dockerfile: docker/ppserver.tests/Dockerfile
+    depends_on:
+      - delay_dependencies
+    links:
+      - pymongodb-primary
+      - py-minio
+      - py-redis
+    env_file:
+      - ./apps/ppserver/dev.env
+    environment:
+      MP_MONGODB_URL: mongodb://root:password123@pymongodb-primary:27017
+      MP_SOURCE_MONGODB_URL: mongodb://root:password123@pymongodb-primary:27017
+      MP_REDIS_URL: redis://default:redispassword@py-redis:6379
+      MP_MINIO_URL: py-minio:9000
+      MP_MINIO_BASE_URL: http://py-minio:9000
+    healthcheck:
+      test: "echo '1';"
+      start_period: 10s
+    volumes:
+      - ./testresults:/app/testresults
+

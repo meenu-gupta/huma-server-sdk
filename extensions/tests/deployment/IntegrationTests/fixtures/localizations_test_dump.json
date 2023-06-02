@@ -1,0 +1,296 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "roles": [
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4203"
+          },
+          "name": "Custom Role",
+          "permissions": [
+            "VIEW_PATIENT_IDENTIFIER"
+          ]
+        }
+      ],
+      "name": "hu_Deployment_name",
+      "description": "hu_Deployment_description",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "code": "Deployment code",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "proxyActivationCode": "96557443",
+      "country": "United Kingdom",
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "sections": [
+          {
+            "id": {
+              "$oid": "5e946c69e8002eac4a107f56"
+            },
+            "title": "hu_Learn_Sections_0_title",
+            "order": 10,
+            "articles": [
+              {
+                "id": {
+                  "$oid": "5e8c58176207e5f78023e655"
+                },
+                "title": "hu_Learn_Sections_0_articles_0_title",
+                "order": 10,
+                "type": "SMALL",
+                "thumbnailUrl": {
+                  "region": "eu",
+                  "key": "deployment/5d386cc6ff885918d96edb2c/section/5e946c69e8002eac4a107f56/article/5e8c58176207e5f78023e655/assets/sample.png",
+                  "bucket": "integrationtests"
+                },
+                "content": {
+                  "type": "VIDEO",
+                  "timeToRead": "20m",
+                  "textDetails": "hu_Learn_Sections_0_articles_0_content_textDetails",
+                  "videoUrl": {
+                    "bucket": "integrationtests",
+                    "key": "deployment/5d386cc6ff885918d96edb2c/section/5e946c69e8002eac4a107f56/article/5e8c58176207e5f78023e655/assets/sample.mp4",
+                    "region": "eu"
+                  }
+                },
+                "updateDateTime": {
+                  "$date": {
+                    "$numberLong": "1586433217042"
+                  }
+                },
+                "createDateTime": {
+                  "$date": {
+                    "$numberLong": "1586433217042"
+                  }
+                }
+              }
+            ],
+            "updateDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            },
+            "createDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            }
+          }
+        ],
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "5e94b2007773091c9a592650"
+          },
+          "about": "string",
+          "configBody": {},
+          "moduleId": "BloodPressure",
+          "moduleName": "hu_BloodPressure_moduleName",
+          "shortModuleName": "hu_BloodPressure_shortModuleName",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "timesOfDay": [
+              "BEFORE_DINNER"
+            ],
+            "friendlyText": "hu_BloodPressure_schedule_friendlyText"
+          },
+          "status": "ENABLED",
+          "learnArticleIds": [
+            "5e8c58176207e5f78023e655"
+          ]
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "keyActionsEnabled": true,
+      "keyActions": [
+        {
+          "id": {
+            "$oid": "5f078582c565202bd6cb03af"
+          },
+          "title": "hu_KeyActions_PAM_Questionnaire_title",
+          "description": "hu_KeyActions_PAM_Questionnaire_description",
+          "deltaFromTriggerTime": "PT0M",
+          "durationFromTrigger": "P6M",
+          "type": "MODULE",
+          "trigger": "SIGN_UP",
+          "durationIso": "P1DT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "3"
+          },
+          "moduleId": "BloodPressure",
+          "moduleConfigId": "5e94b2007773091c9a592650",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        }
+      ],
+      "extraCustomFields": {
+        "mediclinicNumber": {
+          "errorMessage": "hu_ExtraCustomFields_mediclinicNumber_errorMessage",
+          "validation": "\\d{7}",
+          "onboardingCollectionText": "hu_ExtraCustomFields_mediclinicNumber_onboardingCollectionText",
+          "profileCollectionText": "hu_ExtraCustomFields_mediclinicNumber_profileCollectionText",
+          "description": "hu_ExtraCustomFields_mediclinicNumber_description",
+          "required": true,
+          "clinicianUpdate": true,
+          "showClinicianHeader": true,
+          "type": "TEXT",
+          "order": 2
+        }
+      },
+      "icon": {
+        "key": "deployment/5d386cc6ff885918d96edb2c/sample.png",
+        "region": "eu",
+        "bucket": "integrationtests"
+      },
+      "features": {
+        "messaging": {
+          "enabled": true,
+          "messages": [
+            "hu_Features_messaging_messages_0",
+            "hu_Features_messaging_messages_1",
+            "hu_Features_messaging_messages_2",
+            "hu_Features_messaging_messages_3",
+            "hu_Features_messaging_messages_4"
+          ]
+        }
+      },
+      "stats": {
+        "completedCount": {
+          "value": 11,
+          "unit": "state unit"
+        }
+      },
+      "localizations": {
+        "en": {
+          "hu_Deployment_name": "Deployment1",
+          "hu_Deployment_description": "Deployment Description",
+          "hu_BloodPressure_moduleName": "BloodPressure ModuleName",
+          "hu_BloodPressure_shortModuleName": "BloodPressure shortModuleName",
+          "hu_BloodPressure_schedule_friendlyText": "BloodPressure schedule friendly text",
+          "hu_Learn_Sections_0_title": "Test section",
+          "hu_Learn_Sections_0_articles_0_title": "Article 0",
+          "hu_Learn_Sections_0_articles_0_content_textDetails": "Here what you read",
+          "hu_KeyActions_PAM_Questionnaire_title": "PAM Questionnaire",
+          "hu_KeyActions_PAM_Questionnaire_description": "You have a new activity for the DeTAP study. Please complete as soon as you are able to.",
+          "hu_ExtraCustomFields_mediclinicNumber_errorMessage": "Insurance Number is incorrect",
+          "hu_ExtraCustomFields_mediclinicNumber_onboardingCollectionText": "Please enter mediclinic number",
+          "hu_ExtraCustomFields_mediclinicNumber_profileCollectionText": "Patient Unique ID",
+          "hu_ExtraCustomFields_mediclinicNumber_description": "Please enter mediclinic number description",
+          "hu_Features_messaging_messages_0": "Great job! Keep up the good work.",
+          "hu_Features_messaging_messages_1": "You're doing great!",
+          "hu_Features_messaging_messages_2": "Awesome – you're right on track with your targets.",
+          "hu_Features_messaging_messages_3": "Excellent work",
+          "hu_Features_messaging_messages_4": "You're close to completing your tasks, keep going.",
+          "5d386cc6ff885918d96edb2c": "Should not be translated!",
+          "DRAFT": "Should not be translated!",
+          "0x007AFF": "Should not be translated!",
+          "53924415": "Should not be translated!",
+          "17781957": "Should not be translated!",
+          "96557443": "Should not be translated!",
+          "state unit": "Should not be translated!",
+          "Deployment code": "Should not be translated!",
+          "Deployment Description": "Should not be translated!",
+          "deployment/5d386cc6ff885918d96edb2c/sample.png": "Should not be translated!",
+          "1586433217042": "Should not be translated!",
+          "Custom Role": "Should not be translated!",
+          "VIEW_PATIENT_IDENTIFIER": "Should not be translated!",
+          "BloodPressure ModuleName": "Should not be translated!"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test+user+1@test.com",
+      "phoneNumber": "+380999911118",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "User",
+      "familyName": "test",
+      "email": "test+user+1@test.com",
+      "phoneNumber": "+380999911118",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ]
+}

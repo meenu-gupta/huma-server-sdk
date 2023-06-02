@@ -1,0 +1,140 @@
+server:
+  host: 0.0.0.0
+  port: 3901
+  hostUrl: localhost
+  debug: true
+  debugLog: true
+  debugRouter: true
+
+  auditLogger:
+    enable: true
+
+  project:
+    id: ptest1
+    clients:
+      - name: USER_IOS-client
+        clientId: ctest1
+        clientType: USER_IOS
+      - name: USER_ANDROID-client
+        clientId: c2
+        clientType: USER_ANDROID
+      - name: MANAGER_WEB-client
+        clientId: c3
+        clientType: MANAGER_WEB
+    masterKey: !ENV ${MP_MASTER_KEY}
+
+  rateLimit:
+    enable: true
+    default: "50 per minute"
+    storageUri: !ENV ${MP_REDIS_URL}
+    strategy: "fixed-window"
+
+  auth:
+    enable: true
+    database: pp_integration_tests_sdk
+    rateLimit:
+      signup: "10/minute"
+      checkAuthAttributes: "10/minute"
+    signedUrlSecret: !ENV ${MP_SIGNED_URL_SECRET}
+    passwordSecret: !ENV ${MP_PASSWORD_SECRET}
+
+  authorization:
+    enableAuthz: false
+
+  deployment:
+    enableAuthz: false
+
+  authz:
+    enabled: false
+
+  medication:
+    enableAuth: false
+
+  twilioVideo:
+    enableAuth: false
+
+  storage:
+    enable: true
+    allowedBuckets: ["integrationtests"]
+    defaultBucket: "integrationtests"
+    rateLimit:
+      read: "30/minute"
+      write: "30/hour"
+
+  adapters:
+    twilioSmsVerification:
+      sourcePhoneNumber: "+441347722095"
+      templateKey: "SMSVerificationTemplate"
+      serviceName: "Medopad Dev"
+    twilioSms:
+      accountSid: ENV ${MP_TWILIO_ACCOUNT_SID}
+      authToken: ENV ${MP_TWILIO_AUTH_TOKEN}
+    fluentd:
+      tag: huma
+      host: localhost
+      port: 8887
+    mongodbDatabase:
+      name: pp_integration_tests_sdk
+      url: !ENV ${MP_MONGODB_URL}
+    oneTimePasswordRepo:
+      rateLimit: 10
+    twilioVideo:
+      accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+      authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+      apiKey: !ENV ${MP_TWILIO_API_KEY}
+      apiSecret: !ENV ${MP_TWILIO_API_SECRET}
+    jwtToken:
+      secret: !ENV ${MP_JWT_SECRET}
+      audience: "urn:mp"
+      algorithm: "HS256"
+    minio:
+      url: !ENV ${MP_MINIO_URL}
+      accessKey: !ENV ${MP_MINIO_ACCESS_KEY}
+      secretKey: !ENV ${MP_MINIO_SECRET_KEY}
+      secure: false
+      baseUrl: !ENV ${MP_MINIO_BASE_URL}
+    redisDatabase:
+      url: !ENV ${MP_REDIS_URL}
+    twilioPush:
+      accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+      serviceSid: !ENV ${MP_TWILIO_SERVICE_SID}
+      authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+    aliCloudPush:
+      accessKeyId: !ENV ${MP_ALI_CLOUD_PUSH_ACCESS_KEY}
+      accessKeySecret: !ENV ${MP_ALI_CLOUD_PUSH_ACCESS_KEY_SECRET}
+      region: cn-beijing
+      appKey: !ENV ${MP_ALI_CLOUD_APP_KEY}
+    mailgunEmail:
+      domainUrl: medopad.us
+      apiKey: !ENV ${MP_MAILGUN_API_KEY}
+
+  notification:
+    enable: true
+
+  userModuleReminder:
+    enable: true
+
+  reminder:
+    enable: true
+
+  video:
+    enable: true
+
+  revereTest:
+    clientId: !ENV ${HOUNDIFY_CLIENT_ID}
+    clientKey: !ENV ${HOUNDIFY_CLIENT_KEY}
+    enableAuth: false
+
+  moduleResult:
+    applyDefaultDisclaimerConfig: true
+    enableAuthz: false
+    pamIntegration:
+      submitSurveyURI: !ENV ${MP_PAM_INTEGRATION_SUBMIT_SURVEY_URI}
+      enrollUserURI: !ENV ${MP_PAM_INTEGRATION_ENROLL_USER_URI}
+      clientExtID: !ENV ${MP_PAM_INTEGRATION_CLIENT_EXT_ID}
+      clientPassKey: !ENV ${MP_PAM_INTEGRATION_CLIENT_PASS_KEY}
+      subgroupExtID: !ENV ${MP_PAM_INTEGRATION_SUB_GROUP_EXT_ID}
+      timeout: 30000
+    kardia:
+      apiKey: !ENV ${MP_KARDIA_API_KEY}
+      baseUrl: !ENV ${MP_KARDIA_BASE_URL}

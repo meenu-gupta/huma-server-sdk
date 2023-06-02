@@ -1,0 +1,35 @@
+Update Deployment Label
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment label belongs to.
+  - in: path
+    name: label_id
+    type: string
+    required: true
+    description: ID of the label.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/LabelText"
+responses:
+  201:
+    description: Successfully Updated Label
+    schema:
+      $ref: "#/definitions/ObjIdResponse"
+
+definitions:
+  LabelText:
+    properties:
+      text:
+        type: string
+        example: "Recovered"

@@ -1,0 +1,23 @@
+Check user export task status
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - in: path
+    name: export_process_id
+    required: true
+    type: string
+
+responses:
+  200:
+    description: Status and storage file bucket with key
+    schema:
+      $ref: '#/definitions/CheckExportTaskStatusResponse'

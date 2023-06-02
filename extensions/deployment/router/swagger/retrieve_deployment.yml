@@ -1,0 +1,17 @@
+Get deployment
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment to return.
+responses:
+  200:
+    description: Deployment requested by ID
+    schema:
+      $ref: "#/definitions/Deployment"

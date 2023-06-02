@@ -1,0 +1,394 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "Deployment for Stats Test",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "consent": {
+        "id": {
+          "$oid": "5e9443789911c97c0b639374"
+        },
+        "enabled": "ENABLED",
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586785704470"
+          }
+        }
+      },
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "features": {
+        "offBoarding": true
+      },
+      "duration": "P6M",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "calendar": [
+    {
+      "_id": {
+        "$oid": "5f9975bae2db2e007f8ad118"
+      },
+      "_cls": "MongoCalendarEvent",
+      "model": "KeyAction",
+      "title": "PAM Questionnaire",
+      "description": "You have a new activity for the DeTAP study. Please complete as soon as you are able to.",
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "enabled": true,
+      "isRecurring": true,
+      "recurrencePattern": "DTSTART:20200812T043059\nRRULE:FREQ=WEEKLY;INTERVAL=1;BYHOUR=10;BYMINUTE=0;COUNT=3",
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1597236599787"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1612270199787"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1603892666322"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1603892666322"
+        }
+      }
+    }
+  ],
+  "calendarlog": [
+    {
+      "_id": {
+        "$oid": "5f50b56e7691b4367c89c948"
+      },
+      "_cls": "MongoCalendarEventLog",
+      "model": "KeyAction",
+      "parentId": {
+        "$oid": "5f9975bae2db2e007f8ad118"
+      },
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1597226459000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1597831199000"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1599124846660"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1599124846660"
+        }
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      }
+    }
+  ],
+  "consentlog": [
+    {
+      "_id": {
+        "$oid": "5f4cffefd41c8fc555a4df83"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "consentId": {
+        "$oid": "5e9443789911c97c0b639374"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5f4cffefd41c8fc555a4df82"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "consentId": {
+        "$oid": "5e9443789911c97c0b639374"
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "enrolledUser1@test.com",
+      "displayName": "Enrolled",
+      "userAttributes": {
+        "familyName": "Enrolled",
+        "givenName": "User",
+        "dob": "2000-01-01",
+        "gender": "MALE"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "enrolledUser2@test.com",
+      "displayName": "Enrolled2",
+      "userAttributes": {
+        "familyName": "Enrolled2",
+        "givenName": "User",
+        "dob": "2000-01-01",
+        "gender": "MALE"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ffee8a004ae8ffa8e721114"
+      },
+      "id": "5ffee8a004ae8ffa8e721114",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "user@test.com",
+      "displayName": "User",
+      "userAttributes": {
+        "familyName": "Test",
+        "givenName": "User",
+        "dob": "2000-01-01",
+        "gender": "MALE"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ffee8a004ae8ffa8e721114"
+      },
+      "id": "5ffee8a004ae8ffa8e721114",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "enrolledUserAnotherDeployment@test.com",
+      "displayName": "User",
+      "userAttributes": {
+        "familyName": "Test",
+        "givenName": "EnrolledAnotherDeployment",
+        "dob": "2000-01-01",
+        "gender": "MALE"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "User",
+      "familyName": "Enrolled",
+      "email": "enrolledUser1@test.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "finishedOnboarding": true,
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "User",
+      "familyName": "Enrolled2",
+      "email": "enrolledUser2@test.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "finishedOnboarding": true,
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ffee8a004ae8ffa8e721114"
+      },
+      "givenName": "User",
+      "familyName": "Test",
+      "email": "user@test.com",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ffee8a004ae8ffa8e723124"
+      },
+      "givenName": "Admin",
+      "familyName": "Test",
+      "email": "admin@test.com",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "finishedOnboarding": true
+    },
+    {
+      "_id": {
+        "$oid": "5ffee8a004ae8ffa8e721113"
+      },
+      "givenName": "EnrolledAnotherDeployment",
+      "familyName": "Test",
+      "email": "enrolledUserAnotherDeployment@test.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2a"
+        }
+      ],
+      "timezone": "UTC",
+      "finishedOnboarding": true,
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "organization": [
+    {
+      "_id": {
+        "$oid": "5fde855f12db509a2785da06"
+      },
+      "name": "ABC Pharmaceuticals EU Trials 123",
+      "deploymentIds": ["5d386cc6ff885918d96edb2c"],
+      "enrollmentTarget": 3000,
+      "studyCompletionTarget": 2800,
+      "status": "DEPLOYED"
+    }
+  ]
+}

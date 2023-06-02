@@ -1,0 +1,19 @@
+Update publisher
+---
+tags:
+  - publisher
+parameters:
+  - in: path
+    name: publisher_id
+    type: string
+    required: true
+  - name: body
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreatePublisherRequest"
+responses:
+  200:
+    description: Updated Publisher.
+    schema:
+      $ref: "#/definitions/ObjIdResponse"

@@ -1,0 +1,40 @@
+Update User's Roles
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user.
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UserRolesUpdate'
+responses:
+  200:
+    description: id of updated user
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  UserRolesUpdate:
+    type: object
+    properties:
+      roles:
+        type: array
+        items:
+          $ref: "#/definitions/UserRole"
+  UserRole:
+    type: object
+    properties:
+      roleId:
+        type: string
+        example: "Admin"
+      resource:
+        type: string
+        example: "deployment/5e84b0dab8dfa268b1180536"

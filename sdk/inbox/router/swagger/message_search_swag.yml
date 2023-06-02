@@ -1,0 +1,48 @@
+Search messages
+Find messages between a user and a sumbitter
+---
+tags:
+  - Inbox
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/MessageSearchRequestObject'
+responses:
+  201:
+    description: found messages
+    schema:
+      $ref: '#/definitions/MessageSearchResponseObject'
+definitions:
+  MessageSearchResponseObject:
+    type: object
+    properties:
+      messages:
+        type: array
+        items:
+          $ref: "#/definitions/Message"
+  MessageSearchRequestObject:
+    type: object
+    required:
+      - submitterId
+      - skip
+      - limit
+    properties:
+      submitterId:
+        type: string
+      skip:
+        type: integer
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+      custom:
+        type: boolean

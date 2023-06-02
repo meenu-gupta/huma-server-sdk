@@ -1,0 +1,32 @@
+Complete Video Call by User
+---
+tags:
+  - video call
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - in: path
+    name: video_call_id
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CompleteUserVideoCallRequestObject"
+responses:
+  200:
+    description: OK
+definitions:
+  CompleteUserVideoCallRequestObject:
+    type: object
+    required:
+      - reason
+    properties:
+      reason:
+        type: string

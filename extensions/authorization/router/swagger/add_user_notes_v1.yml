@@ -1,0 +1,33 @@
+Add notes
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+  - in: body
+    name: body
+    schema:
+      $ref: "#/definitions/AddUserNoteRequest"
+
+responses:
+  201:
+    description: ok
+
+definitions:
+  AddUserNoteRequest:
+    type: object
+    required:
+      - note
+    properties:
+      note:
+        type: string
+        example: "note"

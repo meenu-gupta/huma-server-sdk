@@ -1,0 +1,26 @@
+{
+  "$id": "com.medopad.platformplay.questionnaire.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "region": {
+      "enum": ["Denmark", "Germany", "Japan", "Netherlands", "Spain", "Thailand", "UK", "US", "Zimbabwe"]
+    },
+    "toggleIndexValue": {
+      "type": "boolean"
+    },
+    "isForManager": {
+      "type": "boolean"
+    },
+    "isHorizonalFlow": {
+      "type": "boolean"
+    },
+    "trademarkText": {
+      "type": "string"
+    },
+    "publisherName": {
+      "type": "string"
+    }
+  },
+  "required": ["isForManager"]
+}

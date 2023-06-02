@@ -1,0 +1,58 @@
+Send Admin Invitations
+---
+tags:
+  - invitation
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: "Json body with invitation options"
+    required: true
+    schema:
+      $ref: "#/definitions/SendAdminInvitationRequest"
+
+responses:
+  200:
+    description: Ok
+    schema:
+      $ref: '#/definitions/SendInvitationResponse'
+  403:
+    description: Forbidden
+    schema:
+      $ref: '#/definitions/PermissionDenied'
+definitions:
+  SendAdminInvitationRequest:
+    type: object
+    required:
+      - emails
+      - roleId
+      - clientId
+      - projectId
+    properties:
+      projectId:
+        type: string
+        example: p1
+      clientId:
+        type: string
+        example: c1
+      language:
+        type: string
+        default: "en"
+      emails:
+        type: array
+        items:
+          type: string
+          example: "test@huma.com"
+      roleId:
+        type: string
+        example: "AccountManager"
+      organizationId:
+        type: string
+        example: "602f641b90517902d644eff2"
+      expiresIn:
+        type: string
+        example: "P2D"
+        default: "P1W"

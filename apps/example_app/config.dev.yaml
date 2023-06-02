@@ -1,0 +1,104 @@
+server:
+  host: 0.0.0.0
+  port: 3901
+  hostUrl: vb-ppserver.ngrok.io
+  webAppUrl: devapp.humaapp.io
+  debug: true
+  debugLog: true
+  debugRouter: true
+  testEnvironment: !ENVBOOL ${MP_TEST_ENVIRONMENT}
+  maxContentSize: 104857600
+
+  deployment:
+    enable: true
+    encryptionSecret: !ENV ${MP_ENCRYPTION_SECRET}
+
+  auditLogger:
+    enable: true
+
+  project:
+    id: p1
+    clients:
+      - name: USER_IOS-client
+        clientId: c1
+        clientType: USER_IOS
+        roleIds: ["User", "SuperAdmin", "Proxy"]
+        accessTokenExpiresAfterMinutes: 15
+        refreshTokenExpiresAfterMinutes: 64800
+        deepLinkBaseUrl: http://userioshost:3901
+        appIds: ["MMNBVS2YRP.com.huma.HumaApp.dev"]
+    masterKey: !ENV ${MP_MASTER_KEY}
+
+  auth:
+    enable: true
+    database: example_local_dev1
+    rateLimit:
+      signup: "10/minute"
+      checkAuthAttributes: "10/minute"
+      default: "50 per minute"
+    signedUrlSecret: !ENV ${MP_SIGNED_URL_SECRET}
+
+  storage:
+    enable: true
+    enableAuth: true
+    # storageAdapter: GCS
+    allowedBuckets: ["ppdeveufrankfurt"]
+    defaultBucket: "ppdeveufrankfurt"
+
+  authorization:
+    checkAdminIpAddress: false
+
+  adapters:
+    fluentd:
+      tag: huma
+      host: localhost
+      port: 8887
+    twilioSms:
+      accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+      authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+    twilioPush:
+      accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+      serviceSid: !ENV ${MP_TWILIO_SERVICE_SID}
+      authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+    gcs:
+      serviceAccountKeyFilePath: !ENV ${MP_GCS_SA_FILE_PATH}
+    fcmPush:
+      serviceAccountKeyFilePath: !ENV ${MP_FCM_SA_FILE_PATH}
+    apnsPush:
+      useSandbox: true
+      teamId: !ENV ${MP_APNS_TEAM_ID}
+      bundleId: "com.huma.HumaApp.qa"
+      authKeyFilePath: !ENV ${MP_APNS_AUTH_KEY_FILE_PATH}
+      authKeyId: !ENV ${MP_APNS_AUTH_KEY_ID}
+    twilioSmsVerification:
+      sourcePhoneNumber: "+447401263344"
+      templateKey: "SMSVerificationTemplate"
+      serviceName: "Huma"
+      useTwilioVerify: false
+      twilioVerifyServiceSid: !ENV ${MP_TWILIO_VERIFY_SERVICE_SID}
+    mailgunEmail:
+      domainUrl: preprodemail.humatherapeutics.cn
+      mailgunApiUrlTemplate: https://api.mailgun.net/v3/{0}/messages
+      apiKey: !ENV ${MP_MAILGUN_API_KEY}
+      defaultFromEmail: !ENV ${MP_FROM_EMAIL}
+    minio:
+      url: !ENV ${MP_MINIO_URL}
+      accessKey: !ENV ${MP_MINIO_ACCESS_KEY}
+      secretKey: !ENV ${MP_MINIO_SECRET_KEY}
+      secure: false
+      baseUrl: !ENV ${MP_MINIO_BASE_URL}
+    mongodbDatabase:
+      name: example_local_dev1
+      url: !ENV ${MP_MONGODB_URL}
+    redisDatabase:
+      url: !ENV ${MP_REDIS_URL}
+    oneTimePasswordRepo:
+      rateLimit: 10
+    jwtToken:
+      secret: !ENV ${MP_JWT_SECRET}
+      audience: "urn:mp"
+      algorithm: "HS256"
+    oss:
+      accessKeyId: !ENV ${MP_ALI_CLOUD_ACCESS_KEY_ID}
+      accessKeySecret: !ENV ${MP_ALI_CLOUD_ACCESS_KEY_SECRET}
+      url: https://oss-eu-central-1.aliyuncs.com

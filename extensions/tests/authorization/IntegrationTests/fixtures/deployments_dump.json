@@ -1,0 +1,2932 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "enforceIdentityVerification": true,
+      "name": "X",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "code": "AU15",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "privacyPolicyUrl": "https://storage.googleapis.com/hu-deployment-static-content/discovernow/Huma%20App%20Privacy%20Notice%20-%20Discover%20Now.pdf",
+      "eulaUrl": "https://medopad.com/medopad_Ltd/EULA.pdf",
+      "termAndConditionUrl": "https://medopad.com/medopad_Ltd/EULA.pdf",
+      "profile": {
+        "fields": {
+          "dateOfBirth": true,
+          "gender": false,
+          "race": false,
+          "height": true,
+          "additionalContactDetails": {
+            "altContactNumber": true,
+            "regularContactName": true,
+            "regularContactNumber": true,
+            "emergencyContactName": true,
+            "emergencyContactNumber": true
+          }
+        }
+      },
+      "extraCustomFields": {
+        "phoneNumber": {
+          "clinicianUpdate": true,
+          "errorMessage": "hu_test_phone_number_error",
+          "isPrimary": false,
+          "onboardingCollectionText": "Please enter your phone number",
+          "order": 2,
+          "profileCollectionText": "Patient phone number",
+          "required": true,
+          "showClinicianHeader": true,
+          "type": "TEXT",
+          "validation": ""
+        },
+        "mediclinicNumber": {
+          "errorMessage": "Insurance Number is incorrect",
+          "validation": "",
+          "onboardingCollectionText": "Please enter mediclinic number",
+          "profileCollectionText": "Patient Unique ID",
+          "required": true,
+          "clinicianUpdate": true,
+          "showClinicianHeader": true,
+          "type": "TEXT",
+          "order": 2
+        }
+      },
+      "language": "en",
+      "contactUsURL": "https://huma.com/contact",
+      "onboardingConfigs": [
+        {
+          "onboardingId": "EConsent",
+          "status": "ENABLED",
+          "order": 1,
+          "id": "604c89573a295dad259abb03",
+          "version": 3,
+          "configBody": {}
+        },
+        {
+          "onboardingId": "IdentityVerification",
+          "status": "ENABLED",
+          "id": "604c895da1adf357ed1fe15f",
+          "order": 2,
+          "version": 1,
+          "configBody": {}
+        },
+        {
+          "onboardingId": "Consent",
+          "status": "ENABLED",
+          "id": "6061cbc41f37f7405c6bb923",
+          "order": 1,
+          "version": 1,
+          "configBody": {}
+        },
+        {
+          "onboardingId": "AZScreeningOnboarding",
+          "status": "DISABLED",
+          "id": "606705adc7558713d7d398e8",
+          "order": 4,
+          "version": 1,
+          "configBody": {}
+        }
+      ],
+      "roles": [
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4202"
+          },
+          "name": "User",
+          "permissions": [
+            "VIEW_PATIENT_IDENTIFIER",
+            "VIEW_PATIENT_DATA",
+            "MANAGE_PATIENT_DATA",
+            "EXPORT_PATIENT_DATA",
+            "CONTACT_PATIENT"
+          ],
+          "userType": "Manager"
+        },
+        {
+          "id": {
+            "$oid": "6009d18864a6786c2a2be181"
+          },
+          "name": "Manager",
+          "permissions": [
+            "VIEW_PATIENT_IDENTIFIER"
+          ]
+        },
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4203"
+          },
+          "name": "Custom Role",
+          "userType": "Manager",
+          "permissions": [
+            "MANAGE_PATIENT_DATA",
+            "VIEW_PATIENT_DATA",
+            "CONTACT_PATIENT"
+          ]
+        }
+      ],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "sections": [
+          {
+            "id": {
+              "$oid": "5e946c69e8002eac4a107f56"
+            },
+            "title": "Test section",
+            "order": 10,
+            "articles": [
+              {
+                "id": {
+                  "$oid": "5e8c58176207e5f78023e655"
+                },
+                "title": "article_ss three",
+                "order": 10,
+                "type": "SMALL",
+                "thumbnailUrl": {
+                  "region": "us-west-1",
+                  "key": "my.png",
+                  "bucket": "admin_bucket"
+                },
+                "content": {
+                  "type": "VIDEO",
+                  "timeToRead": "20m",
+                  "textDetails": "Here what you read",
+                  "videoUrl": {
+                    "bucket": "integrationtests",
+                    "key": "shared/5ded7cfa844317000162d5e7/logo/Screenshot_1572653613.png",
+                    "region": "cn"
+                  }
+                }
+              },
+              {
+                "id": {
+                  "$oid": "61dec75c76fa0352ff8edf0b"
+                },
+                "title": "article_ss three",
+                "order": 10,
+                "type": "SMALL",
+                "thumbnailUrl": {
+                  "region": "us-west-1",
+                  "key": "my.png",
+                  "bucket": "admin_bucket"
+                },
+                "content": {
+                  "type": "VIDEO",
+                  "timeToRead": "20m",
+                  "textDetails": "Here what you read",
+                  "contentObject": {
+                    "bucket": "integrationtests",
+                    "key": "shared/5ded7cfa844317000162d5e7/logo/Screenshot_1572653613.png",
+                    "region": "cn"
+                  }
+                }
+              }
+            ],
+            "updateDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            },
+            "createDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            }
+          }
+        ],
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "5d386cc6ff885918d96edb4a"
+          },
+          "moduleId": "EQ5D5L",
+          "moduleName": "EQ5D5L",
+          "ragThresholds": [],
+          "status": "ENABLED",
+          "configBody": {
+            "id": "hu_eq5d5l_configbody",
+            "isForManager": false,
+            "name": "EQ-5D-5L",
+            "publisherName": "RT",
+            "region": "UK",
+            "scoreAvailable": true,
+            "trademarkText": "©EuroQol Research Foundation.EQ–5D™ is a trade mark of the EuroQol Research foundation",
+            "isHorizontalFlow": true,
+            "questionnaireType": "EQ5D_5L",
+            "pages": []
+          },
+          "schedule": {
+            "timesPerDuration": 1,
+            "timesOfDay": [],
+            "friendlyText": "ONCE A WEEK",
+            "isoDuration": "P1W"
+          },
+          "order": 24,
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1586433217042"
+          }
+          },
+          "createDateTime": {
+            "$date": {
+                "$numberLong": "1586433217042"
+            }
+          }
+        },
+        {
+          "about": "here we are",
+          "configBody": {
+            "id": "e932907c-e2c6-4fc7-88a9-72e2bba65431",
+            "isForManager": true,
+            "name": "Observation Notes",
+            "questionnaireType": "OBSERVATION_NOTES",
+            "pages": [
+              {
+                "items": [
+                  {
+                    "description": "hu_test_observation_note_description",
+                    "format": "TEXT",
+                    "id": "574f462e-31d5-42ac-8987-83d4dad0ce3f",
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "order": 1,
+                    "required": false,
+                    "text": "Observation Notes"
+                  }
+                ],
+                "order": 1,
+                "type": "QUESTION"
+              }
+            ],
+            "publisherName": "NX"
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "id": "5f15aaea6530a4c3c6db4506",
+          "learnArticleIds": [],
+          "moduleId": "Questionnaire",
+          "moduleName": "Observation Notes",
+          "order": 10,
+          "schedule": {
+            "friendlyText": "friendlyText",
+            "timesOfDay": [],
+            "timesPerDuration": 0
+          },
+          "status": "ENABLED",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          }
+        },
+        {
+          "about": "",
+          "configBody": {
+            "id": "m0327a25-52af-4ec6-8bc9-6732baebba0c",
+            "isForManager": false,
+            "name": "Surgery Details",
+            "pages": [
+              {
+                "items": [
+                  {
+                    "description": "",
+                    "format": "DATE",
+                    "id": "d4df7037-f909-4567-b344-3b9a2442f83c",
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "order": 1,
+                    "placeholder": "Enter discharge date",
+                    "required": false,
+                    "text": "Hospital discharge date"
+                  }
+                ],
+                "order": 1,
+                "type": "QUESTION"
+              },
+              {
+                "items": [
+                  {
+                    "description": "",
+                    "format": "TEXTCHOICE",
+                    "id": "851e7e66-ak95-4f67-9aa8-befeb70379b5",
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "options": [
+                      {
+                        "label": "Total hip replacement",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Partial hip replacement",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Birmingham Hip Resurfacing",
+                        "value": "2"
+                      }
+                    ],
+                    "order": 1,
+                    "placeholder": "Enter operation type",
+                    "required": false,
+                    "selectionCriteria": "SINGLE",
+                    "text": "Operation type"
+                  }
+                ],
+                "order": 2,
+                "type": "QUESTION"
+              }
+            ],
+            "publisherName": "PM"
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "id": "61a8dc52f8170a8a48b8866e",
+          "learnArticleIds": [],
+          "moduleId": "SurgeryDetails",
+          "moduleName": "Surgery Details",
+          "order": 4,
+          "ragThresholds": [],
+          "schedule": {
+            "friendlyText": "friendlyText",
+            "timesOfDay": [],
+            "timesPerDuration": 0
+          },
+          "status": "ENABLED",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "version": 0
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebeca"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Weight",
+          "moduleName": "Weight",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "ragThresholds": [
+            {
+              "type": "VALUE",
+              "severity": 3,
+              "thresholdRange": [
+                {
+                  "minValue": 120
+                }
+              ],
+              "color": "#FBCCD7",
+              "fieldName": "value",
+              "enabled": true
+            },
+            {
+              "type": "VALUE",
+              "severity": 2,
+              "thresholdRange": [
+                {
+                  "minValue": 100,
+                  "maxValue": 120
+                }
+              ],
+              "color": "#FFDA9F",
+              "fieldName": "value",
+              "enabled": true
+            },
+            {
+              "type": "VALUE",
+              "severity": 1,
+              "thresholdRange": [
+                {
+                  "maxValue": 100
+                }
+              ],
+              "color": "#CBEBF0",
+              "fieldName": "value",
+              "enabled": true
+            }
+          ],
+          "about": "test",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89eb78d"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "BMI",
+          "moduleName": "",
+          "about": "BMI module",
+          "configBody": {},
+          "ragThresholds": [],
+          "order": 3,
+          "schedule": {
+            "friendlyText": "string",
+            "isoDuration": "P1D",
+            "timesOfDay": [
+              "UPON_WAKING"
+            ],
+            "timesPerDuration": 0
+          },
+          "status": "DISABLED"
+        },
+        {
+          "id": {
+            "$oid": "6012a1ecce15b9e7d5ab7c71"
+          },
+          "moduleId": "ECGHealthKit",
+          "about": "string",
+          "moduleName": "ECGHealthKit",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "timesOfDay": [
+              "BEFORE_DINNER"
+            ]
+          },
+          "ragThresholds": [
+            {
+              "color": "#FBCCD7",
+              "enabled": true,
+              "fieldName": "value",
+              "severity": 3,
+              "thresholdRange": [
+                {
+                  "minValue": 2,
+                  "maxValue": 4
+                }
+              ],
+              "type": "VALUE"
+            },
+            {
+              "color": "#FFDA9F",
+              "enabled": true,
+              "fieldName": "value",
+              "severity": 2,
+              "thresholdRange": [
+                {
+                  "minValue": 6,
+                  "maxValue": 6
+                }
+              ],
+              "type": "VALUE"
+            },
+            {
+              "color": "#FFDA9F",
+              "enabled": true,
+              "fieldName": "value",
+              "severity": 2,
+              "thresholdRange": [
+                {
+                  "minValue": 8,
+                  "maxValue": 8
+                }
+              ],
+              "type": "VALUE"
+            },
+            {
+              "color": "#CBEBF0",
+              "enabled": true,
+              "fieldName": "value",
+              "severity": 1,
+              "thresholdRange": [
+                {
+                  "minValue": 1,
+                  "maxValue": 1
+                }
+              ],
+              "type": "VALUE"
+            }
+          ],
+          "status": "ENABLED"
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebecb"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Height",
+          "moduleName": "Height",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test",
+          "schedule": {
+            "friendlyText": "string",
+            "isoDuration": "P1W",
+            "timesOfDay": [
+              "BEFORE_BREAKFAST"
+            ],
+            "timesPerDuration": 0
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebe4a"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "order": {
+            "$numberInt": "7"
+          },
+          "about": "string",
+          "configBody": {},
+          "moduleId": "Journal",
+          "moduleName": "string",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          },
+          "status": "ENABLED"
+        },
+        {
+          "id": {
+            "$oid": "61701ca06b257efe2a53f4a5"
+          },
+          "updateDateTime": {
+            "$date": "2021-10-28T18:00:38.234Z"
+          },
+          "createDateTime": {
+            "$date": "2021-10-20T13:41:52.481Z"
+          },
+          "moduleId": "BodyMeasurement",
+          "moduleName": "Body Measurements",
+          "status": "ENABLED",
+          "order": 3,
+          "configBody": {},
+          "about": "Waist circumference<br><br>Waist circumference is a good measurement to estimate the body fat content in your midsection. It is a useful and simple screening tool for weight-related and metabolic health problems.<br><br>Total body fat<br><br>Total body fat is a measure of how much of your body mass is made up of essential body fat and storage body fat. These are essential for body function and too much or too little can cause health problems. A balanced diet and regular exercise can help maintain the optimum level.<br><br>Visceral fat<br><br>Visceral fat measures the fat in and around your midsection, which plays an important part in protecting vital organs. Too much or too little visceral fat can cause long-term health problems. A balanced diet and regular exercise can help maintain the optimum level.<br><br>Hip circumference<br><br>Hip circumference is a useful measurement to help calculate the body fat content in your midsection. When combined with other measurements, it is a useful screening tool to help calculate your risk of weight-related and metabolic health problems.<br><br>Waist-to-hip ratio<br><br>Waist-to-hip ratio (WHR) compares the measurements of your hip and waist to estimate the body fat content in your midsection. It is a useful screening tool which can help estimate your risk of diseases such as heart disease and diabetes. By using a ratio, WHR adjusts for different body shapes.",
+          "schedule": {
+            "timesPerDuration": 0,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "version": 3,
+          "notificationData": {
+            "title": "Time to take your body measurements",
+            "body": "Body Measurements"
+          }
+        },
+        {
+          "id": {
+            "$oid": "61701ca0ad074d9322baa08e"
+          },
+          "updateDateTime": {
+            "$date": "2021-10-28T18:00:38.551Z"
+          },
+          "createDateTime": {
+            "$date": "2021-10-20T13:41:52.585Z"
+          },
+          "moduleId": "CVDRiskScore",
+          "moduleName": "Heart Health Risk",
+          "status": "ENABLED",
+          "order": 1,
+          "configBody": {},
+          "about": "Individuals with this risk score have this percentage (%) of developing cardiovascular disease (CVD)* over the next 10 years. Several factors affect the risk prediction which are outlined in the contributors below. The algorithm is based on the data from 0.5M individuals in the UK Biobank.<br><br>*Cardiovascular disease (CVD) is defined as any of the following conditions: Coronary heart disease (including angina or heart attack), heart failure, stroke and mini-strokes.<br><br><b>This tool is intended for informational purposes only. It is not intended to provide a medical diagnosis, medical advice, or medical treatment. Contact your healthcare provider after using the tool to discuss your heart health or if you have any health concerns.</b>",
+          "schedule": {
+            "timesPerDuration": 0,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [
+            "61701c8dd2fff2e51d482e36"
+          ],
+          "version": 3,
+          "notificationData": {
+            "title": "Tell us about your cardiovascular health",
+            "body": "Time to complete your CVD risk score questionnaire"
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f108cb1243046d018bf3ec6"
+          },
+          "updateDateTime": {
+            "$date": "2020-12-01T11:00:29.852Z"
+          },
+          "createDateTime": {
+            "$date": "2020-07-16T17:21:53.273Z"
+          },
+          "moduleId": "HighFrequencyStep",
+          "moduleName": "",
+          "status": "ENABLED",
+          "order": 7,
+          "configBody": {},
+          "about": "From walking the dog to moving around the house – it all counts. If you keep your mobile in your pocket the Huma app will create a picture of your general activity based on your step-count. Information about how many steps you take and your general activity over time gives researchers extra insight into your activity",
+          "schedule": {
+            "timesPerDuration": 0,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": []
+        }
+      ],
+      "labels": [
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4202"
+          },
+          "text": "RECOVERED",
+          "authorId": {
+            "$oid": "5e8f0c74b50aa9656c34789b"
+          },
+          "createDateTime": "2022-04-12T11:35:21.435000Z"
+        },
+        {
+          "id": {
+            "$oid": "5d386cc6ff885918d96edb2c"
+          },
+          "text": "IN TREATMENT",
+          "authorId": {
+            "$oid": "5e8f0c74b50aa9656c34789b"
+          },
+          "createDateTime": "2022-04-12T11:35:21.435000Z"
+        }
+      ],
+      "features": {
+        "messaging": {
+          "enabled": true,
+          "messages": [
+            "Great job! Keep up the good work."
+          ]
+        },
+        "labels": true
+      },
+      "keyActionsEnabled": true,
+      "keyActions": [
+        {
+          "id": {
+            "$oid": "5f078582c565202bd6cb03af"
+          },
+          "title": "Observation Notes",
+          "description": "Test",
+          "deltaFromTriggerTime": "PT0M",
+          "durationFromTrigger": "P6M",
+          "type": "MODULE",
+          "trigger": "SIGN_UP",
+          "durationIso": "P1WT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "0"
+          },
+          "moduleId": "Questionnaire",
+          "moduleConfigId": "5f1824ba504787d8d89ebecb",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f078582c565202bd6cb03ac"
+          },
+          "title": "Learn Key Action",
+          "description": "",
+          "deltaFromTriggerTime": "PT0M",
+          "durationFromTrigger": "P6M",
+          "type": "LEARN",
+          "trigger": "SIGN_UP",
+          "durationIso": "P1WT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "0"
+          },
+          "learnArticleId": "5e8c58176207e5f78023e655",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f078582c565202bd6cb03aa"
+          },
+          "title": "Removed Module Key Action",
+          "description": "",
+          "deltaFromTriggerTime": "PT0M",
+          "durationFromTrigger": "P6M",
+          "type": "MODULE",
+          "trigger": "SIGN_UP",
+          "durationIso": "P1WT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "0"
+          },
+          "moduleId": "",
+          "moduleConfigId": "5f15aaea6530a4c3c6db4506",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        }
+      ],
+      "carePlanGroup": {
+        "groups": [
+          {
+            "id": "com.huma.covid19.mild",
+            "name": "Mild cases",
+            "default": true,
+            "extensionForActivationCode": "01",
+            "moduleConfigPatches": [
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebecb",
+                "changeType": "REMOVE",
+                "patch": []
+              }
+            ]
+          },
+          {
+            "id": "com.huma.covid19.severe",
+            "name": "Severe cases",
+            "extensionForActivationCode": "02",
+            "moduleConfigPatches": [
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebeca",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/schedule/timesPerDuration",
+                    "value": 3
+                  }
+                ]
+              },
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebe4a",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/status",
+                    "value": "DISABLED"
+                  }
+                ]
+              },
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebecb",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/schedule/timesOfDay/0",
+                    "value": "UPON_WAKING"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "include_invalid_module_config_id",
+            "name": "Test Patch",
+            "extensionForActivationCode": "03",
+            "moduleConfigPatches": [
+              {
+                "moduleConfigId": "5f1824ba504787d8d89eaaaa",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/schedule/isoDuration",
+                    "value": "P4D"
+                  }
+                ]
+              },
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebe4a",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/status",
+                    "value": "DISABLED"
+                  }
+                ]
+              },
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebecb",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/schedule/timesOfDay/0",
+                    "value": "UPON_WAKING"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "surgeryDetails": {
+        "operationType": {
+          "displayString": "Test1",
+          "placeHolder": "Test1",
+          "order": 1,
+          "items": [
+            {
+              "key": "testKey",
+              "value": "testValue"
+            }
+          ]
+        }
+      },
+      "localizations": {
+        "en": {
+          "hu_test_observation_note_description": "Default localization"
+        },
+        "nl": {
+          "hu_test_observation_note_description": "NL localization",
+          "hu_test_phone_number_error": "NL Error localization"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed8ae76cf99540b259a7315"
+      },
+      "name": "Y",
+      "status": "DEPLOYED",
+      "code": "AZ17",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "features": {
+        "offBoardingReasons": {
+          "reasons": [
+            {
+              "order": 1,
+              "displayName": "Completed treatment"
+            },
+            {
+              "order": 2,
+              "displayName": "Deceased"
+            },
+            {
+              "order": 3,
+              "displayName": "Lost to follow-up"
+            },
+            {
+              "order": 4,
+              "displayName": "Monitoring inappropriate"
+            },
+            {
+              "order": 5,
+              "displayName": "No longer needs monitoring"
+            },
+            {
+              "order": 6,
+              "displayName": "Recovered"
+            }
+          ],
+          "otherReason": true
+        }
+      },
+      "localizations": {
+        "en": {
+          "hu_obs_notes": "Observation Notes"
+        }
+      },
+      "language": "en",
+      "moduleConfigs": [
+        {
+          "about": "here we are",
+          "configBody": {
+            "id": "e932907c-e2c6-4fc7-88a9-72e2bba65431",
+            "isForManager": true,
+            "name": "Observation Notes",
+            "pages": [
+              {
+                "items": [
+                  {
+                    "description": "",
+                    "format": "TEXT",
+                    "id": "574f462e-31d5-42ac-8987-83d4dad0ce3f",
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "order": 1,
+                    "required": false,
+                    "text": "Observation Notes"
+                  }
+                ],
+                "order": 1,
+                "type": "QUESTION"
+              }
+            ],
+            "publisherName": "NX"
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "id": "5f15aaea6530a4c3c6db4506",
+          "learnArticleIds": [],
+          "moduleId": "Questionnaire",
+          "moduleName": "hu_obs_notes",
+          "order": 10,
+          "schedule": {
+            "friendlyText": "friendlyText",
+            "timesOfDay": [],
+            "timesPerDuration": 0
+          },
+          "status": "ENABLED",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          }
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96eab2c"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "termAndConditionObject": {
+        "bucket": "",
+        "key": "",
+        "region": ""
+      },
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "moduleConfigs": [],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96eaaaa"
+      },
+      "name": "NotConnectedDeployment",
+      "status": "DEPLOYED",
+      "color": "0x007AFF"
+    },
+    {
+      "_id": {
+        "$oid": "61dfe4ed306d9822167e9ad4"
+      },
+      "name": "Deployment connected to one org",
+      "status": "DEPLOYED",
+      "color": "0x007AFF"
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "60f4d43cbfedd39143165859"
+      },
+      "id": "60f4d43cbfedd39143165859",
+      "status": 1,
+      "emailVerified": true,
+      "email": "service.account@serviceaccount.huma.com",
+      "mfaEnabled": false,
+      "authKeys": [
+        {
+          "authKey": "8699dae334453b9f13bba7be2445c54848a18f0e04f7fdce7e9abb0e00ac88e5",
+          "authIdentifier": "2c153da944cd873b0a74121a",
+          "active": true,
+          "authType": 0
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684412"
+      },
+      "id": "5ed803dd5f2f99da73684412",
+      "status": 1,
+      "phoneNumber": "+441347722095",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "hey",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": 1591215069319
+      },
+      "createDateTime": {
+        "$date": 1591215069319
+      }
+    },
+    {
+      "_id": {
+        "$oid": "601919b5c03550c421c075eb"
+      },
+      "id": "601919b5c03550c421c075eb",
+      "status": 1,
+      "emailVerified": false,
+      "email": "thomas.moussajee543+testdev4@huma.com",
+      "userAttributes": {
+        "familyName": "M",
+        "givenName": "T"
+      },
+      "updateDateTime": {
+        "$date": 1591369393218
+      },
+      "createDateTime": {
+        "$date": 1591369393218
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "password": "$2b$12$hsS8Gi113IXUxe2Cw2Yc4.mFNcGaFeZJSWjP2IKAIxeFQwkYngDsu",
+      "previousPasswords": [
+        "$2b$12$JoyWB6XiHG4KC6ZWyy6JcZ38x06lKQX9OpxySn/plLLtsudAJcO"
+      ],
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "id": "5e8f0c74b50aa9656c34789d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999599",
+      "displayName": "manager",
+      "userAttributes": {
+        "familyName": "manager",
+        "givenName": "manager",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61cb194c630781b664bf8eb5"
+      },
+      "id": "61cb194c630781b664bf8eb5",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "AccountManager@AccountManager.com",
+      "phoneNumber": "+380999999555",
+      "displayName": "AccountManager",
+      "userAttributes": {
+        "familyName": "AccountManager",
+        "givenName": "AccountManager",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61cb194c630781b664bc7eb5"
+      },
+      "id": "61cb194c630781b664bc7eb5",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "orgOwner@test.com",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61e6a8e2d9681a389f060848"
+      },
+      "id": "61e6a8e2d9681a389f060848",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "orgEditor@test.com",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602ce48712b129679a501570"
+      },
+      "id": "602ce48712b129679a501570",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "SuperAdmin@manager.com",
+      "phoneNumber": "+380999999544",
+      "displayName": "SuperAdmin",
+      "userAttributes": {
+        "familyName": "SuperAdmin",
+        "givenName": "SuperAdmin",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "user@user.com",
+      "phoneNumber": "+380999999955",
+      "displayName": "user",
+      "userAttributes": {
+        "familyName": "user",
+        "givenName": "user",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62569f29e427af0b5c12779a"
+      },
+      "id": "62569f29e427af0b5c12779a",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "withdrawnuser@user.com",
+      "phoneNumber": "+380999999953",
+      "displayName": "user",
+      "userAttributes": {
+        "familyName": "oliver",
+        "givenName": "mike",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61fb852583e256e58e7ea9e1"
+      },
+      "id": "61fb852583e256e58e7ea9e1",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": false,
+      "email": "seconduser@user.com",
+      "displayName": "second",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61fb852583e256e58e7ea9e3"
+      },
+      "id": "61fb852583e256e58e7ea9e3",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": false,
+      "email": "user4@user.com",
+      "displayName": "User four",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34788d"
+      },
+      "id": "5e8f0c74b50aa9656c34788d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "manager2",
+      "userAttributes": {
+        "familyName": "manager2",
+        "givenName": "manager2",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "manager2@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999995555",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60071f359e7e44330f732037"
+      },
+      "id": "60071f359e7e44330f732037",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "contributor",
+      "userAttributes": {
+        "familyName": "contributor",
+        "givenName": "contributor",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "contributor@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999993452",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "600720843111683010a73b4e"
+      },
+      "id": "600720843111683010a73b4e",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "custom",
+      "userAttributes": {
+        "familyName": "custom",
+        "givenName": "custom",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "custom@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999923452",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6009d2409b0e1f2eab20bbb3"
+      },
+      "id": "6009d2409b0e1f2eab20bbb3",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "custom2",
+      "userAttributes": {
+        "familyName": "custom2",
+        "givenName": "custom2",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "custom2@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999920452",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789e"
+      },
+      "id": "5e8f0c74b50aa9656c34789e",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test2@test2.com",
+      "phoneNumber": "+380999999944",
+      "displayName": "test2",
+      "userAttributes": {
+        "familyName": "test2",
+        "givenName": "test2",
+        "dob": "1988-02-22",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34779c"
+      },
+      "id": "5e8f0c74b50aa9656c34779c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test6@test2.com",
+      "phoneNumber": "+380989999974",
+      "displayName": "test2",
+      "userAttributes": {
+        "familyName": "test2",
+        "givenName": "test2",
+        "dob": "1988-02-22",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556171c"
+      },
+      "id": "602fa576c06fe59e3556171c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "custom3@manager.com",
+      "phoneNumber": "+380999920421",
+      "displayName": "custom3",
+      "userAttributes": {
+        "familyName": "custom3",
+        "givenName": "custom3",
+        "dob": "1988-02-22",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556142a"
+      },
+      "id": "602fa576c06fe59e3556142a",
+      "email": "call@center.com",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "displayName": "call",
+      "userAttributes": {
+        "familyName": "Center",
+        "givenName": "Call",
+        "dob": "1988-02-22",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556142b"
+      },
+      "id": "602fa576c06fe59e3556142b",
+      "email": "call2@center.com",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "displayName": "call",
+      "userAttributes": {
+        "familyName": "Center",
+        "givenName": "Call",
+        "dob": "1988-02-22",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "606eba3a2c94383d620b52ad"
+      },
+      "id": "606eba3a2c94383d620b52ad",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test+user+proxy@test.com",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6192061841fee21a727f8f8e"
+      },
+      "id": "6192061841fee21a727f8f8e",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test+user+proxy2@test.com",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6192061841fee21a727f8fff"
+      },
+      "id": "6192061841fee21a727f8fff",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test+user+proxy3@test.com",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6192061841fee21a727f8aaa"
+      },
+      "id": "6192061841fee21a727f8aaa",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test+user+proxy4@test.com",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73666614"
+      },
+      "id": "5ed803dd5f2f99da73666614",
+      "status": 1,
+      "emailVerified": true,
+      "email": "administrator@deployment.com",
+      "displayName": "Deployment Administrator",
+      "userAttributes": {
+        "familyName": "Deployment",
+        "givenName": "Administrator",
+        "dob": "2000-04-20",
+        "gender": "MALE"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73666624"
+      },
+      "id": "5ed803dd5f2f99da73666624",
+      "status": 1,
+      "emailVerified": true,
+      "email": "multi_dep_administrator@deployment.com",
+      "displayName": "Multi Deployment Administrator",
+      "userAttributes": {
+        "familyName": "Multi Deployment",
+        "givenName": "Administrator",
+        "dob": "2000-04-20",
+        "gender": "MALE"
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "60f4d43cbfedd39143165859"
+      },
+      "updateDateTime": {
+        "$date": "2021-07-19T01:24:12.430Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-19T01:24:12.430Z"
+      },
+      "email": "service.account@serviceaccount.huma.com",
+      "timezone": "UTC",
+      "roles": [
+        {
+          "roleId": "Exporter",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "ServiceAccount"
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684412"
+      },
+      "updateDateTime": {
+        "$date": 1591215069321
+      },
+      "createDateTime": {
+        "$date": 1591215069321
+      },
+      "givenName": "test",
+      "familyName": "hey",
+      "gender": "MALE",
+      "phoneNumber": "+441347722095",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "601919b5c03550c421c075eb"
+      },
+      "enrollmentId": 1,
+      "updateDateTime": {
+        "$date": 1591396854605
+      },
+      "createDateTime": {
+        "$date": 1591369393225
+      },
+      "givenName": "Thomas",
+      "familyName": "M",
+      "email": "thomas.moussajee543+testdev4@huma.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC",
+      "height": 20,
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "verificationStatus": 1
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "nhsId": "nhs_id",
+      "gender": "MALE",
+      "finishedOnboarding": true,
+      "dateOfBirth": {
+        "$date": 923321600000
+      },
+      "tags": {
+        "inpatient": "true"
+      },
+      "extraCustomFields": {
+        "phoneNumber": "+327888777111",
+        "mediclinicNumber": "123abcd"
+      },
+      "verificationStatus": 1,
+      "boardingStatus": {
+        "status": 0
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC",
+      "carePlanGroupId": "com.huma.covid19.mild",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1071586422340"
+        }
+      },
+      "recentModuleResults": {
+        "5f1824ba504787d8d89ebeca": [
+          {
+            "Weight": {
+              "id": "5ff4b14e0b3791bf7278d9c6",
+              "userId": {
+                "$oid": "5e8f0c74b50aa9656c34789b"
+              },
+              "moduleId": "Weight",
+              "moduleConfigId": "5f1824ba504787d8d89ebeca",
+              "deploymentId": {
+                "$oid": "5d386cc6ff885918d96edb2c"
+              },
+              "version": 0,
+              "deviceName": "iOS",
+              "isAggregated": false,
+              "startDateTime": {
+                "$date": "2021-01-05T18:34:54.000Z"
+              },
+              "createDateTime": {
+                "$date": "2021-01-05T18:34:54.658Z"
+              },
+              "submitterId": {
+                "$oid": "5f914cb28ee0158d37d2cf9c"
+              },
+              "value": 1000
+            }
+          }
+        ]
+      },
+      "lastSubmitDateTime": {
+        "$date": "2021-01-05T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "user",
+      "familyName": "user",
+      "email": "user@user.com",
+      "phoneNumber": "+380999999955",
+      "nhsId": "nhs_id",
+      "dateOfBirth": {
+        "$date": 925521600000
+      },
+      "labels": [
+        {
+          "labelId": {
+            "$oid": "5d386cc6ff885918d96edb2c"
+          },
+          "assignedBy": {
+            "$oid": "5e8f0c74b50aa9656c34788d"
+          },
+          "assignDateTime": "2022-05-24T08:17:27.116055Z"
+        },
+        {
+          "labelId": {
+            "$oid": "5e8eeae1b707216625ca4202"
+          },
+          "assignedBy": {
+            "$oid": "5e8f0c74b50aa9656c34788d"
+          },
+          "assignDateTime": "2022-05-24T08:17:27.116055Z"
+        }
+      ],
+      "gender": "MALE",
+      "finishedOnboarding": true,
+      "verificationStatus": 1,
+      "boardingStatus": {
+        "status": 0
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "recentModuleResults": {
+        "5f1824ba504787d8d89ebeca": [
+          {
+            "Weight": {
+              "id": "5ff4b14e0b3791bf7278d9c5",
+              "userId": {
+                "$oid": "5e8f0c74b50aa9656c34789c"
+              },
+              "moduleId": "Weight",
+              "moduleConfigId": "5f1824ba504787d8d89ebeca",
+              "deploymentId": {
+                "$oid": "5d386cc6ff885918d96edb2c"
+              },
+              "version": 0,
+              "deviceName": "iOS",
+              "isAggregated": false,
+              "startDateTime": {
+                "$date": "2021-01-05T18:34:54.000Z"
+              },
+              "createDateTime": {
+                "$date": "2021-01-05T18:34:54.658Z"
+              },
+              "submitterId": {
+                "$oid": "5f914cb28ee0158d37d2cf9c"
+              },
+              "value": 85
+            }
+          }
+        ]
+      },
+      "tagsAuthorId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "timezone": "UTC",
+      "carePlanGroupId": "include_invalid_module_config_id",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1471586422340"
+        }
+      },
+      "stats": {
+        "taskCompliance": {
+          "current": 4,
+          "total": 14,
+          "due": null,
+          "percentage": 29
+        }
+      },
+      "tags": {
+        "flagged": "true"
+      },
+      "lastSubmitDateTime": {
+        "$date": "2021-01-11T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61fb852583e256e58e7ea9e1"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "email": "seconduser@user.com",
+      "givenName": "su",
+      "familyName": "su",
+      "phoneNumber": "+380199996677",
+      "nhsId": "nob_id",
+      "dateOfBirth": {
+        "$date": 1025521600000
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96eab2c",
+          "userType": "User"
+        }
+      ],
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "timezone": "UTC",
+      "enrollmentId": 10,
+      "language": "en",
+      "lastSubmitDateTime": {
+        "$date": "2020-01-10T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62569f29e427af0b5c12779a"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "email": "withdrawnuser@user.com",
+      "givenName": "mike",
+      "familyName": "oliver",
+      "phoneNumber": "+380999999953",
+      "nhsId": "nob_id",
+      "dateOfBirth": {
+        "$date": 1025521600000
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "labels": [
+        {
+          "labelId": {
+            "$oid": "5d386cc6ff885918d96edb2c"
+          },
+          "assignedBy": {
+            "$oid": "5e8f0c74b50aa9656c34788d"
+          },
+          "assignDateTime": "2022-05-24T08:17:27.116055Z"
+        },
+        {
+          "labelId": {
+            "$oid": "5e8eeae1b707216625ca4202"
+          },
+          "assignedBy": {
+            "$oid": "5e8f0c74b50aa9656c34788d"
+          },
+          "assignDateTime": "2022-05-24T08:17:27.116055Z"
+        }
+      ],
+      "boardingStatus": {
+        "status": 1,
+        "reasonOffBoarded": 7
+      },
+      "timezone": "UTC",
+      "enrollmentId": 10,
+      "language": "en",
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "lastSubmitDateTime": {
+        "$date": "2020-01-10T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61fb852583e256e58e7ea9e3"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1596422340"
+        }
+      },
+      "email": "user4@user.com",
+      "givenName": "nob4",
+      "familyName": "nob4",
+      "phoneNumber": "+380999996677",
+      "nhsId": "nob_id",
+      "dateOfBirth": {
+        "$date": 1025521600000
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/4d386cc6ff885918d96edb2c",
+          "userType": "User"
+        },
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "labels": [
+        {
+          "labelId": {
+            "$oid": "5d386cc6ff885918d96edb2c"
+          },
+          "assignedBy": {
+            "$oid": "5e8f0c74b50aa9656c34788d"
+          },
+          "assignDateTime": "2022-05-24T08:17:27.116055Z"
+        }
+      ],
+      "timezone": "UTC",
+      "enrollmentId": 4,
+      "language": "en",
+      "lastSubmitDateTime": {
+        "$date": "2020-01-10T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789e"
+      },
+      "givenName": "test2",
+      "familyName": "test2",
+      "email": "test2@test2.com",
+      "phoneNumber": "+380999998844",
+      "nhsId": "nhs_id",
+      "dateOfBirth": {
+        "$date": 723321600000
+      },
+      "tags": {},
+      "verificationStatus": 1,
+      "boardingStatus": {
+        "status": 1,
+        "reasonOffBoarded": 4,
+        "detailsOffBoarded": "Deceased"
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "extraCustomFields": {
+        "phoneNumber": "+380999999944"
+      },
+      "timezone": "UTC",
+      "carePlanGroupId": "invalid_care_plan_group_id",
+      "stats": {
+        "taskCompliance": {
+          "current": 4,
+          "total": 4,
+          "due": null,
+          "percentage": 100
+        }
+      },
+      "labels": [],
+      "lastSubmitDateTime": {
+        "$date": "2020-11-10T18:34:54.658Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34779c"
+      },
+      "givenName": "test2",
+      "familyName": "test2",
+      "email": "test6@test2.com",
+      "phoneNumber": "+380989999944",
+      "nhsId": "nhs_id",
+      "dateOfBirth": {
+        "$date": 723321600000
+      },
+      "tags": {},
+      "verificationStatus": 1,
+      "boardingStatus": {
+        "status": 1,
+        "reasonOffBoarded": 3,
+        "detailsOffBoarded": "Monitoring inappropriate"
+      },
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "extraCustomFields": {
+        "phoneNumber": "+380999999974"
+      },
+      "timezone": "UTC",
+      "carePlanGroupId": "invalid_care_plan_group_id",
+      "stats": {
+        "taskCompliance": {
+          "current": 4,
+          "total": 4,
+          "due": null,
+          "percentage": 100
+        }
+      },
+      "lastSubmitDateTime": {
+        "$date": "2020-11-10T18:34:54.658Z"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1071586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "givenName": "manager",
+      "familyName": "manager",
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999599",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "61cb194c630781b664bf8eb5"
+      },
+      "givenName": "AccountManager",
+      "familyName": "AccountManager",
+      "email": "AccountManager@AccountManager.com",
+      "phoneNumber": "+380999999555",
+      "roles": [
+        {
+          "roleId": "OrganizationOwner",
+          "resource": "organization/6156ad33a7082b29f6c6d0e8",
+          "userType": "SuperAdmin"
+        },
+        {
+          "roleId": "AccountManager",
+          "resource": "organization/*",
+          "userType": "SuperAdmin"
+        },
+        {
+          "roleId": "AccountManager",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "SuperAdmin"
+        },
+        {
+          "roleId": "OrganizationOwner",
+          "resource": "organization/61dfd4575e82e1f92a8f932d",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "61cb194c630781b664bc7eb5"
+      },
+      "email": "orgOwner@test.com",
+      "givenName": "orgOwner",
+      "roles": [
+        {
+          "roleId": "OrganizationOwner",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "61e6a8e2d9681a389f060848"
+      },
+      "email": "orgEditor@test.com",
+      "givenName": "orgEditor",
+      "roles": [
+        {
+          "roleId": "OrganizationEditor",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "602ce48712b129679a501570"
+      },
+      "givenName": "SuperAdmin",
+      "familyName": "SuperAdmin",
+      "email": "SuperAdmin@manager.com",
+      "phoneNumber": "+380999999544",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34788d"
+      },
+      "givenName": "manager2",
+      "familyName": "manager2",
+      "email": "manager2@manager.com",
+      "phoneNumber": "+380999995555",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        },
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96eab2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "60071f359e7e44330f732037"
+      },
+      "givenName": "contributor",
+      "familyName": "contributor",
+      "email": "contributor@manager.com",
+      "phoneNumber": "+380999993452",
+      "roles": [
+        {
+          "roleId": "Contributor",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        },
+        {
+          "roleId": "Contributor",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "600720843111683010a73b4e"
+      },
+      "givenName": "custom",
+      "familyName": "custom",
+      "email": "custom@manager.com",
+      "phoneNumber": "+380999923452",
+      "roles": [
+        {
+          "roleId": "5e8eeae1b707216625ca4202",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "6009d2409b0e1f2eab20bbb3"
+      },
+      "givenName": "custom2",
+      "familyName": "custom2",
+      "email": "custom2@manager.com",
+      "phoneNumber": "+380999920452",
+      "roles": [
+        {
+          "roleId": "6009d18864a6786c2a2be181",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556171c"
+      },
+      "givenName": "custom3",
+      "familyName": "custom3",
+      "email": "custom3@manager.com",
+      "phoneNumber": "+380999920421",
+      "roles": [
+        {
+          "roleId": "5e8eeae1b707216625ca4203",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556142a"
+      },
+      "givenName": "Call",
+      "familyName": "Center",
+      "email": "call@center.com",
+      "roles": [
+        {
+          "roleId": "CallCenter",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556142b"
+      },
+      "givenName": "Call",
+      "familyName": "Center",
+      "email": "call2@center.com",
+      "roles": [
+        {
+          "roleId": "CallCenter",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "606eba3a2c94383d620b52ad"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test+user+proxy@test.com",
+      "roles": [
+        {
+          "roleId": "Proxy",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Proxy"
+        },
+        {
+          "roleId": "Proxy",
+          "resource": "user/5e8f0c74b50aa9656c34789b",
+          "userType": "Proxy"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6192061841fee21a727f8f8e"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test+user+proxy2@test.com",
+      "roles": [
+        {
+          "roleId": "Proxy",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "Proxy"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6070b68c698f355159e1b724"
+      },
+      "updateDateTime": {
+        "$date": "2022-01-18T06:33:46.718Z"
+      },
+      "createDateTime": {
+        "$date": "2021-04-09T20:18:20.996Z"
+      },
+      "givenName": "parth",
+      "familyName": "tank",
+      "email": "parth.tank+aztest-accesscontroller3@huma.com",
+      "roles": [
+        {
+          "roleId": "6151051575fee50d15298adb",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "Asia/Calcutta",
+      "language": "en",
+      "finishedOnboarding": true
+    },
+    {
+      "_id": {
+        "$oid": "6192061841fee21a727f8fff"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test+user+proxy3@test.com",
+      "roles": [
+        {
+          "roleId": "Proxy",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Proxy"
+        }
+      ],
+      "boardingStatus": {
+        "status": 1
+      },
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6192061841fee21a727f8aaa"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test+user+proxy4@test.com",
+      "roles": [
+        {
+          "roleId": "Proxy",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Proxy"
+        },
+        {
+          "roleId": "Proxy",
+          "resource": "user/5e8f0c74b50aa9656c34789e",
+          "userType": "Proxy"
+        }
+      ],
+      "boardingStatus": {
+        "status": 1
+      },
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73666614"
+      },
+      "email": "administrator@deployment.com",
+      "givenName": "Administrator",
+      "familyName": "Deployment",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "Administrator",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73666624"
+      },
+      "email": "multi_dep_administrator@deployment.com",
+      "givenName": "Administrator",
+      "familyName": "Multi Deployment",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "Administrator",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        },
+        {
+          "roleId": "Administrator",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ],
+  "weight": [
+    {
+      "_id": {
+        "$oid": "5f50ffbeaad3c395ab806b99"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "moduleId": "Weight",
+      "moduleConfigId": {
+        "$oid": "5f1824ba504787d8d89ebeca"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": {
+        "$numberInt": "0"
+      },
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-01-07T15:33:04.000Z"
+      },
+      "createDateTime": {
+        "$date": "2021-01-07T15:33:05.042Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "value": {
+        "$numberDouble": "10000"
+      }
+    }
+  ],
+  "careplangrouplog": [
+    {
+      "_id": {
+        "$oid": "600671fb244f40e88bc94686"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "toCarePlanGroupId": "com.huma.covid19.mild",
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "submitterName": "test1 test1",
+      "note": "Note",
+      "createDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      },
+      "updateDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      }
+    }
+  ],
+  "questionnaire": [
+    {
+      "_id": {
+        "$oid": "60084cec1523b147db7cd3cf"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "moduleId": "Questionnaire",
+      "moduleConfigId": {
+        "$oid": "5f0d64a47fe6637a82dcbea9"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "iOS",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2020-10-12T08:50:28.321Z"
+      },
+      "createDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "answers": [
+        {
+          "question": "Observation Notes",
+          "answerText": "aaa"
+        },
+        {
+          "question": "Have you reviewed patient vitals?",
+          "answerText": "true"
+        }
+      ],
+      "questionnaireName": "Observation Notes",
+      "questionnaireId": "e932907c-e2c6-4fc7-88a9-72e2bba65431"
+    }
+  ],
+  "patientmanagerassignment": [
+    {
+      "_id": {
+        "$oid": "5f9947c3a0ac1d90f817d570"
+      },
+      "_cls": "MongoManagerAssignment",
+      "createDateTime": {
+        "$date": "2020-10-29T16:34:13.067Z"
+      },
+      "managerIds": [
+        {
+          "$oid": "5f9c36e07e985e9dd3187932"
+        },
+        {
+          "$oid": "5f87199add28f8686d75c7d1"
+        },
+        {
+          "$oid": "5e8f0c74b50aa9656c34789d"
+        }
+      ],
+      "submitterId": {
+        "$oid": "5f71a83d191e5b7fae3c1a7e"
+      },
+      "updateDateTime": {
+        "$date": "2020-10-31T00:30:04.644Z"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5f9947c3a0ac1d90f817d571"
+      },
+      "_cls": "MongoManagerAssignment",
+      "createDateTime": {
+        "$date": "2020-10-29T16:34:13.067Z"
+      },
+      "managerIds": [
+        {
+          "$oid": "5e8f0c74b50aa9656c34789d"
+        }
+      ],
+      "submitterId": {
+        "$oid": "5f71a83d191e5b7fae3c1a7e"
+      },
+      "updateDateTime": {
+        "$date": "2020-10-31T00:30:04.644Z"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5f9947c3a0ac1d90f817d572"
+      },
+      "_cls": "MongoManagerAssignment",
+      "createDateTime": {
+        "$date": "2020-10-29T16:34:13.067Z"
+      },
+      "managerIds": [
+        {
+          "$oid": "5e8f0c74b50aa9656c34788d"
+        }
+      ],
+      "submitterId": {
+        "$oid": "5f71a83d191e5b7fae3c1a7e"
+      },
+      "updateDateTime": {
+        "$date": "2020-10-31T00:30:04.644Z"
+      },
+      "userId": {
+        "$oid": "61fb852583e256e58e7ea9e1"
+      }
+    }
+  ]
+}

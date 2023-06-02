@@ -1,0 +1,83 @@
+Get User's Notes
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user.
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UserNotesRequest'
+responses:
+  200:
+    description: User's notes requested by User ID
+    schema:
+      $ref: '#/definitions/UserNotesResponse'
+definitions:
+  UserNotesRequest:
+    type: object
+    required:
+      - skip
+      - limit
+    properties:
+      skip:
+        type: integer
+        minimum: 0
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+  UserNotesResponse:
+    type: array
+    items:
+      $ref: '#/definitions/UserNote'
+  UserNote:
+    type: object
+    required:
+      - id
+      - type
+      - deploymentId
+      - submitterId
+      - submitterName
+      - createdDateTime
+    properties:
+      id:
+        type: string
+      type:
+        type: string
+      deploymentId:
+        type: string
+      fromCarePlanGroupId:
+        type: string
+      toCarePlanGroupId:
+        type: string
+      submitterId:
+        type: string
+      submitterName:
+        type: string
+      note:
+        type: string
+      moduleConfigId:
+        type: string
+      questionnaireId:
+        type: string
+      answers:
+        type: array
+        items:
+          $ref: "#/definitions/QuestionnaireAnswer"
+      createDateTime:
+        type: string
+        format: date-time

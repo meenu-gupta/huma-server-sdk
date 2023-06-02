@@ -1,0 +1,43 @@
+{
+  "configBody": {
+    "isForManager": false,
+    "publisherName": "PublisherName",
+    "name": "Sample Licenced Questionnaire",
+    "id": "150vc6284b02lo9x859uj847",
+    "pages": [
+      {
+        "type": "INFO",
+        "id": "norfolk_info_screen_1",
+        "order": 1,
+        "text": "<b>Norfolk Quality of Life-Diabetic Neuropathy (QOL-DN)</b>",
+        "description": "On the following screens, please tap the statement that best describes your health.",
+        "displayInCP": false
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "hu_norfolk_generic_q1",
+            "required": true,
+            "format": "BOOLEAN",
+            "order": 1,
+            "text": "Do you have diabetes?"
+          }
+        ],
+        "order": 2
+      }
+    ],
+    "submissionPage": {
+      "description": "Scroll up to change any of your answers. Changing answers may add new questions.",
+      "id": "fc5556da-ee52-43e6-84ef-ca449ab6025c",
+      "text": "You've completed the questionnaire.",
+      "buttonText": "Submit",
+      "order": 58,
+      "type": "SUBMISSION"
+    }
+  }
+}

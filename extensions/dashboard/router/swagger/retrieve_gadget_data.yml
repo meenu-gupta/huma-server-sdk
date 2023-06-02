@@ -1,0 +1,68 @@
+Retrieve gadget data
+---
+tags:
+  - gadget
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: gadget_id
+    type: string
+    required: true
+    description: gadget id to return
+  - in: path
+    name: resource_type
+    type: string
+    required: true
+    description: organization or deployment
+  - in: path
+    name: resource_id
+    type: string
+    required: true
+    description: resource id to return
+responses:
+  200:
+    description: Gadgets data
+    schema:
+      $ref: '#/definitions/Dashboard'
+
+definitions:
+  GadgetData:
+    type: object
+    properties:
+      id:
+        type: string
+        enum:
+          - SignedUp
+          - Consented
+          - KeyMetrics
+          - OverallView
+          - DeploymentOverview
+          - StudyProgress
+      tooltip:
+        type: string
+      infoFields:
+        type: array
+        items:
+          type: object
+      avg:
+        type: integer
+      data:
+        type: array
+        items:
+          $ref: '#/definitions/GadgetCalculatedData'
+      metadata:
+        type: object
+
+  GadgetCalculatedData:
+    type: object
+    properties:
+      x:
+        type: string
+        format: date-time
+      y:
+        type: integer
+      d:
+        type: string

@@ -1,0 +1,19 @@
+Retrieve publisher
+---
+tags:
+  - publisher
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: publisher_id
+    required: true
+    type: string
+
+responses:
+  200:
+    description: Retrieve the specified publisher
+    schema:
+      $ref: '#/definitions/Publisher'

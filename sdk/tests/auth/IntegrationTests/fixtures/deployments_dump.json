@@ -1,0 +1,95 @@
+{
+    "deployment": [
+        {
+            "_id": {
+                "$oid": "5d386cc6ff885918d96edb2c"
+            },
+            "name": "Unnamed care plan",
+            "status": "DRAFT",
+            "color": "0x007AFF",
+            "userActivationCode": "53924415",
+            "managerActivationCode": "ad4317781957",
+            "updateDateTime": "2019-07-24T14:35:50.889Z",
+            "createDateTime": "2019-07-24T14:35:50.889Z"
+        },
+        {
+            "_id": {
+                "$oid": "5d38bee8ff8859347fbc23b4"
+            },
+            "name": "Unnamed care plan",
+            "status": "DRAFT",
+            "color": "0x007AFF",
+            "userActivationCode": "05677151",
+            "managerActivationCode": "opre84839398",
+            "updateDateTime": "2019-07-24T20:26:16.821Z",
+            "createDateTime": "2019-07-24T20:26:16.821Z"
+        }
+    ],
+    "authuser": [
+        {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": false,
+      "email": "userTEST2@test.com",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c347777"
+      },
+      "id": "5e8f0c74b50aa9656c347777",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "usertest+single@test.com",
+      "mfaEnabled": false,
+      "hashedPassword": "$2b$12$tFJyIYBJVWxHtdG5ntYANO7zeqi7/zad3JKSmnPkzGRNhs6gne5Na",
+      "displayName": "test",
+      "mfaIdentifiers": [
+        {
+          "value": "+441700000000",
+          "type": 1,
+          "verified": true
+        }
+      ],
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+    ]
+}

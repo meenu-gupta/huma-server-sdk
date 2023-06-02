@@ -1,0 +1,71 @@
+name: Trigger Restore MongoDB dump
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: GCP project ID
+        default: hu-global-sandbox
+        required: true
+        type: string
+      cluster_name:
+        description: GKE cluster name
+        default: hu-uk-sandbox-pr-preview-gke
+        required: true
+        type: string
+      location:
+        description: GKE zone
+        default: europe-west2
+        required: true
+        type: string
+      bucket_name:
+        description: Bucket name
+        default: hu-europe2-github-action-pr-preview-bucket
+        required: false
+        type: string
+      source_db_name:
+        description: DB name of the source
+        default: pp_dev
+        required: false
+        type: string
+      db_namespace:
+        description: MongoDB Cluster Namespace
+        default: kubedb
+        required: false
+        type: string
+      db_user:
+        description: DB user's name
+        default: ppserver-2171-db
+        required: false
+        type: string
+      db_service:
+        description: DB service name
+        default: pr-preview-mongodb-cluster-2
+        required: false
+        type: string
+      app_namespace:
+        description: Namespace
+        default: pr-preview-2171
+        required: false
+        type: string
+
+jobs:
+  restore-mongodb-archived-db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restore MongoDB archived DB
+        id: restore
+        uses: huma-engineering/huma-github-actions/restore-mongodb-archived-db@v0.6.0
+        with:
+          project_id: ${{ github.event.inputs.project_id }}
+          cluster_name: ${{ github.event.inputs.cluster_name }}
+          location: ${{ github.event.inputs.location }}
+          bucket_name: ${{ github.event.inputs.bucket_name }}
+          source_db_name: ${{ github.event.inputs.source_db_name }}
+          db_namespace: ${{ github.event.inputs.db_namespace }}
+          db_user: ${{ github.event.inputs.db_user }}
+          db_service: ${{ github.event.inputs.db_service }}
+          app_namespace: ${{ github.event.inputs.app_namespace }}
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+
+      - name: print
+        run: echo "error=${{ steps.restore.outputs.error }}"

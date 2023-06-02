@@ -1,0 +1,28 @@
+Set tag for user by manager
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user profile belongs to.
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UserSetTags'
+responses:
+  200:
+    description: User object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  UserSetTags:
+    type: object
+    additionalProperties:
+      type: string

@@ -1,0 +1,30 @@
+Update Medication
+---
+tags:
+  - medication
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: medication to update
+    required: true
+    schema:
+      $ref: "#/definitions/Medication"
+  - in: path
+    name: user_id
+    description: user id to update medication for
+    required: true
+    type: string
+  - in: path
+    name: medication_id
+    description: medication id to update
+    required: true
+    type: string
+responses:
+  201:
+    description: Id of updated object
+    schema:
+      $ref: "#/definitions/ObjIdResponse"

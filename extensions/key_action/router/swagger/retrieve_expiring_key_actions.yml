@@ -1,0 +1,38 @@
+Get Expiring Key Actions List
+---
+tags:
+  - key-action
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user to retrieve key-actions for.
+  - in: query
+    name: start
+    type: string
+    format: date-time
+    description: Datetime to calculate events from. Should be less than end param.
+  - in: query
+    name: end
+    type: string
+    format: date-time
+    description: Datetime to calculate events to. Should be greater than start param.
+  - in: query
+    name: onlyEnabled
+    type: string
+    enum: ["true", "false"]
+    description: Flag to filter enabled events. Show only enabled events if true, show all events otherwise.
+
+responses:
+  200:
+    description: List of user key actions.
+    schema:
+      $ref: "#/definitions/KeyActionTimeframeResponse"
+definitions:
+  KeyActionTimeframeResponse:
+    type: array
+    items:
+      $ref: '#/definitions/KeyAction'

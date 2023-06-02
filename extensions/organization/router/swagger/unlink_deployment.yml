@@ -1,0 +1,20 @@
+Remove deployment from organization
+---
+tags:
+  - organization
+
+security:
+  - Bearer: [ ]
+
+parameters:
+  - in: path
+    name: organization_id
+    required: true
+    type: string
+  - in: path
+    name: deployment_id
+    required: true
+    type: string
+responses:
+  204:
+    description: Deployment removed from Organization

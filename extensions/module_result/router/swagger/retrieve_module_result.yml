@@ -1,0 +1,26 @@
+Retrieve Module result
+---
+tags:
+  - modules
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: user_id
+    in: path
+    required: true
+    type: string
+  - name: primitive_type
+    in: path
+    required: true
+    type: string
+  - name: module_result_id
+    in: path
+    required: true
+    type: string
+responses:
+  200:
+    description: Returns details of requested primitive
+    schema:
+      $ref: "#/definitions/RetrievePrimitiveResponse"

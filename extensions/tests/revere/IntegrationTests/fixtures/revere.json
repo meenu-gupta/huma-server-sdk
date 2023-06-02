@@ -1,0 +1,336 @@
+{
+    "reveretest": [
+        {
+            "_id": {
+                "$oid": "5eea217330fdc7bd52d352da"
+            },
+            "userId": {
+                "$oid": "5e8f0c74b50aa9656c34789b"
+            },
+            "startDateTime": {
+                "$date": {
+                    "$numberLong": "1592424394364"
+                }
+            },
+            "endDateTime": {
+                "$date": {
+                    "$numberLong": "1592424394384"
+                }
+            },
+            "moduleId": "RevereTest",
+            "deploymentId": {
+                "$oid": "5eea14f0747a4aa3addf1bae"
+            },
+            "results": [{
+                "id": {
+                    "$oid": "5eea217330fdc7bd52d352d1"
+                },
+                "userId": {
+                    "$oid": "5e8f0c74b50aa9656c34789b"
+                },
+                "moduleId": "RevereTest",
+                "deploymentId": {
+                    "$oid": "5eea14f0747a4aa3addf1bae"
+                },
+                "version": {
+                    "$numberInt": "0"
+                },
+                "deviceName": "iOS",
+                "isAggregated": false,
+                "startDateTime": "2020-04-28T21:13:07.000000Z",
+                "createDateTime": {
+                    "$date": {
+                        "$numberLong": "1592413101146"
+                    }
+                },
+                "submitterId": {
+                    "$oid": "5e8f0c74b50aa9656c34789b"
+                },
+                "audioResult": {
+                    "bucket": "integrationtests",
+                    "key": "user/5e8f0c74b50aa9656c34789b/revere-test/5eea217330fdc7bd52d352da/5eea217330fdc7bd52d352d1.wav",
+                    "region": "cn"
+                },
+                "initialWords": ["Parent", "Radio", "Nose", "River", "Helmet", "Music", "Sailor", "School", "Garden", "Coffee", "Drum", "House", "Machine", "Color", "Farmer"],
+                "wordsResult": ["this", "is", "a", "test", "for", "and", "fall", "for", "format"]
+            }, {
+                "id": {
+                    "$oid": "5eea217330fdc7bd52d352d1"
+                },
+                "userId": {
+                    "$oid": "5e8f0c74b50aa9656c34789b"
+                },
+                "moduleId": "RevereTest",
+                "deploymentId": {
+                    "$oid": "5eea14f0747a4aa3addf1bae"
+                },
+                "version": {
+                    "$numberInt": "0"
+                },
+                "deviceName": "iOS",
+                "isAggregated": false,
+                "startDateTime": "2020-04-28T21:13:07.000000Z",
+                "createDateTime": {
+                    "$date": {
+                        "$numberLong": "1592413101146"
+                    }
+                },
+                "submitterId": {
+                    "$oid": "5e8f0c74b50aa9656c34789b"
+                },
+                "audioResult": {
+                    "bucket": "integrationtests",
+                    "key": "user/5e8f0c74b50aa9656c34789b/revere-test/5eea217330fdc7bd52d352da/5eea217330fdc7bd52d352d1.wav",
+                    "region": "cn"
+                },
+                "initialWords": ["Parent", "Radio", "Nose", "River", "Helmet", "Music", "Sailor", "School", "Garden", "Coffee", "Drum", "House", "Machine", "Color", "Farmer"],
+                "wordsResult": ["this", "is", "a", "nose", "for", "and", "helmet", "for", "format"]
+            }, {
+                "id": {
+                    "$oid": "5eea217330fdc7bd52d352d1"
+                },
+                "userId": {
+                    "$oid": "5e8f0c74b50aa9656c34789b"
+                },
+                "moduleId": "RevereTest",
+                "deploymentId": {
+                    "$oid": "5eea14f0747a4aa3addf1bae"
+                },
+                "version": {
+                    "$numberInt": "0"
+                },
+                "deviceName": "iOS",
+                "isAggregated": false,
+                "startDateTime": "2020-04-28T21:13:07.000000Z",
+                "createDateTime": {
+                    "$date": {
+                        "$numberLong": "1592413101146"
+                    }
+                },
+                "submitterId": {
+                    "$oid": "5e8f0c74b50aa9656c34789b"
+                },
+                "audioResult": {
+                    "bucket": "integrationtests",
+                    "key": "user/5e8f0c74b50aa9656c34789b/revere-test/5eea217330fdc7bd52d352da/5eea217330fdc7bd52d352d1.wav",
+                    "region": "cn"
+                },
+                "initialWords": ["Parent", "Radio", "Nose", "River", "Helmet", "Music", "Sailor", "School", "Garden", "Coffee", "Drum", "House", "Machine", "Color", "Farmer"],
+                "wordsResult": ["this", "is", "a", "test", "for", "river", "fall", "for", "format"]
+            }, {
+                "id": {
+                    "$oid": "5eea217330fdc7bd52d352d1"
+                },
+                "userId": {
+                    "$oid": "5e8f0c74b50aa9656c34789b"
+                },
+                "moduleId": "RevereTest",
+                "deploymentId": {
+                    "$oid": "5eea14f0747a4aa3addf1bae"
+                },
+                "version": {
+                    "$numberInt": "0"
+                },
+                "deviceName": "iOS",
+                "isAggregated": false,
+                "startDateTime": "2020-04-28T21:13:07.000000Z",
+                "createDateTime": {
+                    "$date": {
+                        "$numberLong": "1592420444666"
+                    }
+                },
+                "submitterId": {
+                    "$oid": "5e8f0c74b50aa9656c34789b"
+                },
+                "audioResult": {
+                    "bucket": "integrationtests",
+                    "key": "user/5e8f0c74b50aa9656c34789b/revere-test/5eea217330fdc7bd52d352da/5eea217330fdc7bd52d352d1.wav",
+                    "region": "cn"
+                },
+                "initialWords": ["Parent", "Radio", "Nose", "River", "Helmet", "Music", "Sailor", "School", "Garden", "Coffee", "Drum", "House", "Machine", "Color", "Farmer"],
+                "wordsResult": ["this", "is", "a", "test", "for", "and", "fall", "for", "format"]
+            }],
+            "status": "FINISHED"
+        },
+        {
+            "_id": {
+                "$oid": "5eea217330fdc7bd52d352db"
+            },
+            "userId": {
+                "$oid": "5e8f0c74b50aa9656c34789b"
+            },
+            "startDateTime": {
+                "$date": {
+                    "$numberLong": "1592424394344"
+                }
+            },
+            "endDateTime": {
+                "$date": {
+                    "$numberLong": "1592424394364"
+                }
+            },
+            "moduleId": "RevereTest",
+            "deploymentId": {
+                "$oid": "5eea14f0747a4aa3addf1bae"
+            },
+            "results": [],
+            "status": "STARTED"
+        },
+        {
+            "_id": {
+                "$oid": "5eea217330fdc7bd52d352dc"
+            },
+            "userId": {
+                "$oid": "5e8f0c74b50aa9656c34789c"
+            },
+            "startDateTime": {
+                "$date": {
+                    "$numberLong": "1592424394344"
+                }
+            },
+            "endDateTime": {
+                "$date": {
+                    "$numberLong": "1592424394364"
+                }
+            },
+            "moduleId": "RevereTest",
+            "deploymentId": {
+                "$oid": "5eea14f0747a4aa3addf1bae"
+            },
+            "results": [],
+            "status": "STARTED"
+        }
+    ],
+    "authuser": [
+        {
+            "_id": {
+                "$oid": "5e8f0c74b50aa9656c34789b"
+            },
+            "id": "5e8f0c74b50aa9656c34789b",
+            "status": {
+                "$numberInt": "1"
+            },
+            "emailVerified": true,
+            "email": "test@test.com",
+            "phoneNumber": "+380999999999",
+            "displayName": "test",
+            "userAttributes": {
+                "familyName": "test",
+                "givenName": "test",
+                "dob": "1988-02-20",
+                "gender": "Male"
+            },
+            "createDateTime": {
+                "$date": {
+                    "$numberInt": "1586422340"
+                }
+            },
+            "updateDateTime": {
+                "$date": {
+                    "$numberInt": "1586422340"
+                }
+            }
+        },
+        {
+            "_id": {
+                "$oid": "5e8f0c74b50aa9656c34789c"
+            },
+            "id": "5e8f0c74b50aa9656c34789c",
+            "status": {
+                "$numberInt": "1"
+            },
+            "emailVerified": true,
+            "email": "testUser@test.com",
+            "phoneNumber": "+380999999998",
+            "displayName": "testUser",
+            "userAttributes": {
+                "familyName": "testUser",
+                "givenName": "testUser",
+                "dob": "1988-02-20",
+                "gender": "Male"
+            },
+            "createDateTime": {
+                "$date": {
+                    "$numberInt": "1586422340"
+                }
+            },
+            "updateDateTime": {
+                "$date": {
+                    "$numberInt": "1586422340"
+                }
+            }
+        }
+    ],
+    "user": [
+        {
+            "_id": {
+                "$oid": "5e8f0c74b50aa9656c34789c"
+            },
+            "givenName": "test",
+            "familyName": "test",
+            "email": "test@test.com",
+            "phoneNumber": "+380999999999",
+            "roles": [
+                {
+                    "roleId": "Admin",
+                    "resource": "deployment/5eea14f0747a4aa3addf1bae"
+                }
+            ],
+            "timezone": "UTC"
+        },
+        {
+            "_id": {
+                "$oid": "5e8f0c74b50aa9656c34789b"
+            },
+            "givenName": "testUser",
+            "familyName": "testUser",
+            "email": "testUser@test.com",
+            "phoneNumber": "+380999999998",
+            "roles": [
+                {
+                    "roleId": "User",
+                    "resource": "deployment/5eea14f0747a4aa3addf1bae"
+                }
+            ],
+            "timezone": "UTC"
+        }
+    ],
+    "deployment": [
+        {
+            "_id": {
+                "$oid": "5eea14f0747a4aa3addf1bae"
+            },
+            "name": "Unnamed care plan",
+            "status": "DRAFT",
+            "color": "0x007AFF",
+            "userActivationCode": "53924415",
+            "managerActivationCode": "17781957",
+            "moduleConfigs": [],
+            "learn": {
+                "id": {
+                    "$oid": "5e8eeae1b707216625ca4202"
+                },
+                "updateDateTime": {
+                    "$date": {
+                        "$numberLong": "1586433217042"
+                    }
+                },
+                "createDateTime": {
+                    "$date": {
+                        "$numberLong": "1586433217042"
+                    }
+                }
+            },
+            "updateDateTime": {
+                "$date": {
+                    "$numberLong": "1586433217042"
+                }
+            },
+            "createDateTime": {
+                "$date": {
+                    "$numberLong": "1586433217042"
+                }
+            }
+        }
+    ]
+}

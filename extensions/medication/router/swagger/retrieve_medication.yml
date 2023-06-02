@@ -1,0 +1,49 @@
+Retrieve Medication ( default value of onlyEnabled is true)
+---
+tags:
+  - medication
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/RetrieveMedication'
+  - in: path
+    name: user_id
+    description: user id to create medication for
+    required: true
+    type: string
+responses:
+  201:
+    description: Modules with array of records to each module based on requested data
+    schema:
+      $ref: '#/definitions/RetrieveMedicationResponse'
+definitions:
+  RetrieveMedication:
+    type: object
+    properties:
+      skip:
+        type: integer
+        example: 0
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+      startDateTime:
+        type: string
+        example: "2020-04-07T10:25:25"
+      onlyEnabled:
+        type: boolean
+    required:
+      - skip
+      - limit
+      - startDate
+  RetrieveMedicationResponse:
+    type: array
+    items:
+      $ref: "#/definitions/Medication"

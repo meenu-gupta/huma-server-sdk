@@ -1,0 +1,52 @@
+Retrieve export deployment processes
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: deployment_id
+    required: true
+    type: string
+
+responses:
+  200:
+    description: List of existing processes
+    schema:
+      $ref: '#/definitions/RetrieveExportProcessesResponse'
+
+definitions:
+
+  RetrieveExportProcessesResponse:
+    type: object
+    properties:
+      exportProcesses:
+        type: array
+        items:
+          $ref: "#/definitions/ExportProcess"
+
+  ExportProcess:
+    type: object
+    properties:
+      status:
+        type: string
+        enum: ["CREATED", "PROCESSING", "DONE", "ERROR"]
+      resultObject:
+        $ref: "#/definitions/ExportResultObject"
+      updateDateTime:
+        type: string
+        format: date-time
+      createDateTime:
+        type: string
+        format: date-time
+      requesterId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      exportParams:
+        $ref: "#/definitions/ExportDeploymentRequest"
+      exportType:
+        type: string
+        enum: ["DEFAULT", "USER", "SUMMARY_REPORT"]

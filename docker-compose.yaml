@@ -1,0 +1,122 @@
+version: "3.4"
+
+services:
+
+  # replica set
+  pymongodb-primary:
+    image: 'bitnami/mongodb:4.2'
+    logging:
+      driver: none
+    expose:
+      - 27017
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=pymongodb-primary
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_ROOT_PASSWORD=password123
+      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+      - MONGODB_DISABLE_SYSTEM_LOG=true
+    volumes:
+      - 'pymongodb_master_data:/bitnami'
+    ports:
+      - 27027:27017
+
+  pymongodb-secondary:
+    image: 'bitnami/mongodb:4.2'
+    logging:
+      driver: none
+    depends_on:
+      - pymongodb-primary
+    expose:
+      - 27017
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=pymongodb-secondary
+      - MONGODB_REPLICA_SET_MODE=secondary
+      - MONGODB_PRIMARY_HOST=pymongodb-primary
+      - MONGODB_PRIMARY_ROOT_PASSWORD=password123
+      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+      - MONGODB_DISABLE_SYSTEM_LOG=true
+    ports:
+      - 27026:27017
+
+  pymongodb-arbiter:
+    image: 'bitnami/mongodb:4.2'
+    logging:
+      driver: none
+    expose:
+      - 27017
+    depends_on:
+      - pymongodb-primary
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=pymongodb-arbiter
+      - MONGODB_REPLICA_SET_MODE=arbiter
+      - MONGODB_PRIMARY_HOST=pymongodb-primary
+      - MONGODB_PRIMARY_ROOT_PASSWORD=password123
+      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+      - MONGODB_DISABLE_SYSTEM_LOG=true
+    ports:
+      - 27025:27017
+
+  fluentd:
+    build: ./docker/fluentd
+    depends_on:
+      - py-minio
+      - pymongodb-primary
+    ports:
+      - "8887:8887"  # tcp
+    environment:
+      #  set db url - needs to be updated for each environment
+      - MP_MONGODB_URL=mongodb://root:password123@pymongodb-primary:27017/pp_local_dev?authSource=admin
+      - COLLECTION=auditlog
+    links:
+      - py-minio
+      - pymongodb-primary
+      - "py-minio:awstest321bucket.py-minio"
+
+  py-minio:
+    image: minio/minio:RELEASE.2021-07-22T05-23-32Z.fips
+    volumes:
+      - py_miniodata:/data
+    ports:
+      - "9005:9000"
+      - "9006:9001"
+    environment:
+      MINIO_ACCESS_KEY: minio
+      MINIO_SECRET_KEY: minio123
+    command: server /data --console-address ":9001"
+
+  py-redis:
+    image: sameersbn/redis:4.0.9-3
+    ports:
+      - "6389:6379"
+    environment:
+      REDIS_PASSWORD: redispassword
+    volumes:
+      - py_redisdata:/var/lib/redis
+    restart: always
+
+  start_dependencies:
+    image: dadarek/wait-for-dependencies
+    depends_on:
+      - pymongodb-primary
+      - pymongodb-secondary
+      - pymongodb-arbiter
+      - py-minio
+      - py-redis
+      - fluentd
+    command: pymongodb-primary:27017 py-minio:9000 py-redis:6379
+
+  delay_dependencies:
+    container_name: delay-for-dependencies
+    image: alpine:3.6
+    command: >
+      /bin/sh -c "
+        sleep 10;
+      "
+    depends_on:
+      - start_dependencies
+
+volumes:
+  py_redisdata:
+  py_miniodata:
+  pymongodb_master_data:
+    driver: local

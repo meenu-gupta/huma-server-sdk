@@ -1,0 +1,78 @@
+server:
+  host: 0.0.0.0
+  port: 3901
+  debug: true
+  debugLog: true
+  debugRouter: true
+  hostUrl: localhost
+
+  auditLogger:
+    enable: false
+
+  project:
+    id: ptest1
+    clients:
+      - name: USER_IOS-client
+        clientId: ctest1
+        clientType: USER_IOS
+      - name: MANAGER_WEB-client
+        clientId: c3
+        clientType: MANAGER_WEB
+    masterKey: !ENV ${MP_MASTER_KEY}
+
+  auth:
+    database: pp_integration_tests
+
+  authorization:
+    enableAuthz: false
+
+  deployment:
+    enableAuth: false
+    enable: true
+    encryptionSecret: !ENV ${MP_ENCRYPTION_SECRET}
+    onBoarding: false
+    offBoarding: false
+
+  authz:
+    enabled: false
+
+  medication:
+    enable: false
+
+  storage:
+    enable: false
+
+  adapters:
+    mongodbDatabase:
+      name: pp_integration_tests
+      url: !ENV ${MP_MONGODB_URL}
+    oneTimePasswordRepo:
+      rateLimit: 10
+    jwtToken:
+      secret: !ENV ${MP_JWT_SECRET}
+      audience: "urn:mp"
+      algorithm: "HS256"
+    minio:
+      url: !ENV ${MP_MINIO_URL}
+      accessKey: !ENV ${MP_MINIO_ACCESS_KEY}
+      secretKey: !ENV ${MP_MINIO_SECRET_KEY}
+      secure: false
+      baseUrl: !ENV ${MP_MINIO_BASE_URL}
+    redisDatabase:
+      url: !ENV ${MP_REDIS_URL}
+    twilioPush:
+      accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+      serviceSid: !ENV ${MP_TWILIO_SERVICE_SID}
+      authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+
+  notification:
+    enable: false
+
+  reminder:
+    enable: false
+
+  video:
+    enable: false
+
+  moduleResult:
+    enableAuthz: false

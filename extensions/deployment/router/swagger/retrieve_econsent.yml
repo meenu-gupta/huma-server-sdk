@@ -1,0 +1,17 @@
+Get latest econsent
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment to retrieve econsent from.
+responses:
+  200:
+    description: Latest econsent model
+    schema:
+      $ref: '#/definitions/EConsent'

@@ -1,0 +1,15 @@
+Reactivate a user
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID which needs to be reactivated
+responses:
+  200:
+    description: 200 When the user is reactivated successfully

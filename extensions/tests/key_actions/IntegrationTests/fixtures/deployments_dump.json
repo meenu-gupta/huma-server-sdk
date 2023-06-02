@@ -1,0 +1,1256 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "X",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "keyActionsEnabled": true,
+      "features": {
+        "appMenu": ["TO_DO"]
+      },
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebeaf"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Questionnaire",
+          "moduleName": "OAC Adherence Survey",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {
+            "id": "4318697b-b546-49ea-a2f9-9e077a0079b77",
+            "name": "OAC Adherence Survey",
+            "isForManager": false,
+            "publisherName": "NX",
+            "pages": [
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": true,
+                      "rules": [
+                        {
+                          "anyOf": [
+                            {
+                              "eq": {
+                                "$numberInt": "6"
+                              },
+                              "questionId": "278253b2-03af-4900-b3a6-fa24dc40bad4"
+                            }
+                          ],
+                          "jumpToId": "64fa6352-58e8-4959-94af-f3865d2caf71"
+                        }
+                      ]
+                    },
+                    "description": "",
+                    "id": "278253b2-03af-4900-b3a6-fa24dc40bad4",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "How many days did you take your OAC medication?",
+                    "options": [
+                      {
+                        "label": "1 day",
+                        "value": "0"
+                      },
+                      {
+                        "label": "2 days",
+                        "value": "1"
+                      },
+                      {
+                        "label": "3 days",
+                        "value": "2"
+                      },
+                      {
+                        "label": "4 days",
+                        "value": "3"
+                      },
+                      {
+                        "label": "5 days",
+                        "value": "4"
+                      },
+                      {
+                        "label": "6 days",
+                        "value": "5"
+                      },
+                      {
+                        "label": "7 days",
+                        "value": "6"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "1"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": true,
+                      "rules": [
+                        {
+                          "anyOf": [
+                            {
+                              "neq": {
+                                "$numberInt": "4"
+                              },
+                              "questionId": "d368c42a-5c28-4196-ae56-8ad62cc869f6"
+                            }
+                          ],
+                          "jumpToId": "64fa6352-58e8-4959-94af-f3865d2caf71"
+                        }
+                      ]
+                    },
+                    "description": "",
+                    "id": "d368c42a-5c28-4196-ae56-8ad62cc869f6",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "What was the reason for missing a dose(s)?",
+                    "options": [
+                      {
+                        "label": "Forgot",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Side effect",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Bleeding",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Ran out of medication",
+                        "value": "3"
+                      },
+                      {
+                        "label": "Other",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "2"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "aa994dbc-5a9a-4c35-9ea1-b99c27eba3f3",
+                    "required": false,
+                    "format": "TEXT",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "Please type your answers here"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "3"
+                }
+              }
+            ],
+            "submissionPage": {
+              "description": "Scroll up to change any of your answers. Changing answers may add new questions.",
+              "id": "64fa6352-58e8-4959-94af-f3865d2caf71",
+              "text": "You’ve completed the questionnaire",
+              "buttonText": "Submit",
+              "order": {
+                "$numberInt": "4"
+              },
+              "type": "SUBMISSION"
+            }
+          },
+          "about": "The Questionnaire feature is an easy way of collecting information about your health. Answering all questions and sharing this information will allow your care team to make better treatment decisions.",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebeb0"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586324"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586324"
+            }
+          },
+          "moduleId": "Questionnaire",
+          "moduleName": "PAM Questionnaire",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "2"
+          },
+          "configBody": {
+            "id": "d7c92a9e-ca3b-4f73-824e-3b1ac3b5141d",
+            "name": "PAM Questionnaire",
+            "isForManager": false,
+            "publisherName": "NX",
+            "pages": [
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "383adfe1-2a69-4a97-8fe2-df4ab63ad80c",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I am the person who is responsible for taking care of my health.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "1"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "b1c79e0d-8f31-44d6-9fbe-989537424623",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "Taking an active role in my own health care is the most important thing that affects my health.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "2"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "b013284b-899c-4e70-a15e-a69079b2e90d",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I am confident I can help prevent or reduce problems associated with my health.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "3"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "0889852b-e340-4414-8417-c8c6984baeb8",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I know what each of my prescribed medications do.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "4"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "fab6df48-c919-46a6-9e3f-648c515b5b81",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I am confident that I can tell whether I need to go to the doctor or whether I can take care of a health problem myself.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "5"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "a7a72d34-931d-4d3e-804f-1764b39676cc",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I am confident that I can tell a doctor or nurse concerns I have even when he or she does not ask.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "6"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "6d5366bd-46c0-44c7-85b1-a5ef65de70f0",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I am confident that I can carry out medical treatments I may need to do at home.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "7"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "17409c1d-c2e7-4b9a-957c-6620d9eb2870",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I understand my health problems and what causes them.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "8"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "85d695a1-61db-4951-8d78-2cf0aa24a790",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I know what treatments are available for my health problems.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "9"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "90aab8ce-7dcd-4d15-9a96-52a94233ea5b",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I have been able to maintain lifestyle changes, like healthy eating or exercising.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "10"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "101993af-6e6c-49f0-b1b6-7dfa14699ffb",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I know how to prevent problems with my health.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "11"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "37ff0b6a-a3e2-4dfa-b6e3-5d82156973d3",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I am confident I can work out solutions when new problems arise with my health.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "12"
+                }
+              },
+              {
+                "type": "QUESTION",
+                "items": [
+                  {
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "description": "",
+                    "id": "b1889f1f-1cd3-47d3-bd58-cba3087ebf13",
+                    "required": true,
+                    "format": "TEXTCHOICE",
+                    "order": {
+                      "$numberInt": "1"
+                    },
+                    "text": "I am confident that I can maintain lifestyle changes, like healthy eating and exercising, even during times of stress.",
+                    "options": [
+                      {
+                        "label": "Disagree Strongly",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Disagree",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Agree",
+                        "value": "2"
+                      },
+                      {
+                        "label": "Agree Strongly",
+                        "value": "3"
+                      },
+                      {
+                        "label": "N/A",
+                        "value": "4"
+                      }
+                    ],
+                    "selectionCriteria": "SINGLE"
+                  }
+                ],
+                "order": {
+                  "$numberInt": "13"
+                }
+              }
+            ],
+            "submissionPage": {
+              "description": "Scroll up to change any of your answers. Changing answers may add new questions.",
+              "id": "e8b98855-e130-4831-84f2-b7fc0b19154a",
+              "text": "You’ve completed the questionnaire",
+              "buttonText": "Submit",
+              "order": {
+                "$numberInt": "14"
+              },
+              "type": "SUBMISSION"
+            }
+          },
+          "about": "The Questionnaire feature is an easy way of collecting information about your health. Answering all questions and sharing this information will allow your care team to make better treatment decisions.",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebeca"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Weight",
+          "moduleName": "Weight",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "calendar": [
+    {
+      "_id": {
+        "$oid": "5f0f0373d656ed903e5a969e"
+      },
+      "_cls": "MongoCalendarEvent",
+      "model": "KeyAction",
+      "title": "Weight",
+      "description": "Time to messure your weight",
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "enabled": true,
+      "isRecurring": true,
+      "recurrencePattern": "DTSTART:20200715T132400\nRRULE:FREQ=DAILY;BYHOUR=0;BYMINUTE=0",
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1594819440000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1894713840000"
+        }
+      },
+      "extraFields": {
+        "moduleId": "Weight",
+        "moduleConfigId": "5f1824ba504787d8d89ebeca",
+        "keyActionConfigId": "5f1824ba504787d8d89ebeca"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1594818911975"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1594818911975"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5f0f0373d656ed903e5a969c"
+      },
+      "_cls": "MongoCalendarEvent",
+      "model": "KeyAction",
+      "title": "Questionnaire",
+      "description": "Time to complete questionnaire",
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "enabled": true,
+      "isRecurring": true,
+      "recurrencePattern": "DTSTART:20200715T132400\nRRULE:FREQ=DAILY;BYHOUR=0;BYMINUTE=0",
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1594819440000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1894713840000"
+        }
+      },
+      "extraFields": {
+        "moduleId": "Questionnaire",
+        "moduleConfigId": "5f1824ba504787d8d89ebeb0",
+        "keyActionConfigId": "5f1824ba504787d8d89ebeb0"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1594818911975"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1594818911975"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5f0f0373d656ed903e5a969a"
+      },
+      "_cls": "MongoCalendarEvent",
+      "model": "KeyAction",
+      "title": "Questionnaire",
+      "description": "Time to complete questionnaire",
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "enabled": true,
+      "isRecurring": true,
+      "recurrencePattern": "DTSTART:20200715T132400\nRRULE:FREQ=DAILY;BYHOUR=0;BYMINUTE=0",
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1594819440000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1894713840000"
+        }
+      },
+      "extraFields": {
+        "moduleId": "Questionnaire",
+        "moduleConfigId": "5f1824ba504787d8d89ebeaf",
+        "keyActionConfigId": "5f1824ba504787d8d89ebeaf"
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1594818911975"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1594818911975"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999995",
+      "displayName": "manager",
+      "userAttributes": {
+        "familyName": "manager",
+        "givenName": "manager",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602d249f78de8b5e09beaeef"
+      },
+      "id": "602d249f78de8b5e09beaeef",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "SuperAdmin@test.com",
+      "phoneNumber": "+380999999992",
+      "displayName": "SuperAdmin",
+      "userAttributes": {
+        "familyName": "SuperAdmin",
+        "givenName": "SuperAdmin",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+       "_id": {
+         "$oid": "5e8f0c74b50aa9656c34789d"
+       },
+       "id": "5e8f0c74b50aa9656c34789d",
+       "status": {
+         "$numberInt": "1"
+       },
+       "emailVerified": true,
+       "email": "manager@manager.com",
+       "phoneNumber": "+380999999555",
+       "displayName": "manager",
+       "userAttributes": {
+         "familyName": "manager",
+         "givenName": "manager",
+         "dob": "1988-02-20",
+         "gender": "Male"
+       },
+       "createDateTime": {
+         "$date": {
+           "$numberInt": "1586422340"
+         }
+       },
+       "updateDateTime": {
+         "$date": {
+           "$numberInt": "1586422340"
+         }
+       }
+     },
+    {
+       "_id": {
+         "$oid": "5e8f0c74b50aa9656c34744a"
+       },
+       "id": "5e8f0c74b50aa9656c34744a",
+       "status": {
+         "$numberInt": "1"
+       },
+       "emailVerified": true,
+       "email": "proxy@user.com",
+       "displayName": "Proxy",
+       "userAttributes": {
+         "familyName": "User",
+         "givenName": "Proxy",
+         "dob": "2000-02-20",
+         "gender": "Male"
+       },
+       "createDateTime": {
+         "$date": {
+           "$numberInt": "1586422340"
+         }
+       },
+       "updateDateTime": {
+         "$date": {
+           "$numberInt": "1586422340"
+         }
+       }
+     }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "Europe/Kiev",
+      "language":"en",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "manager",
+      "familyName": "manager",
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999995",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602d249f78de8b5e09beaeef"
+      },
+      "givenName": "SuperAdmin",
+      "familyName": "SuperAdmin",
+      "email": "SuperAdmin@test.com",
+      "phoneNumber": "+380999999991",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "givenName": "manager",
+      "familyName": "manager",
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999555",
+      "roles": [
+        {
+          "roleId": "Manager",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34744a"
+      },
+      "givenName": "Proxy",
+      "familyName": "User",
+      "email": "proxy@user.com",
+      "roles": [
+        {
+          "roleId": "Proxy",
+          "resource": "user/5e8f0c74b50aa9656c34789b"
+        },
+        {
+          "roleId": "Proxy",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

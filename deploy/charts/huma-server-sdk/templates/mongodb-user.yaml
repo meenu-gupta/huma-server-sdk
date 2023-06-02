@@ -1,0 +1,16 @@
+{{- with .Values.mongodb }}
+{{- $name := include "ppserver.fullname" $ -}}
+apiVersion: db.operator.huma.com/v1alpha1
+kind: MongoDBUser
+metadata:
+  labels: {{ include "ppserver.labels" $ | nindent 4 }}
+  name: {{ $name }}-db
+  namespace: {{ $.Release.Namespace }}
+spec:
+  databaseName: {{ $name }}-db
+  clusterRef:
+    name: {{ .clusterRef.name }}
+    namespace: {{ .clusterRef.namespace }}
+  provider: {{ .provider }}
+  roleName: {{ .roleName }}
+{{- end }}

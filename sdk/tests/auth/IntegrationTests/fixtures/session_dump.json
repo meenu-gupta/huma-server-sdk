@@ -1,0 +1,87 @@
+{
+  "devicesession": [
+    {
+      "_id": {
+        "$oid": "5ebbe8e64a4765cbda76248c"
+      },
+      "deviceAgent": "werkzeug/1.0.1",
+      "userId": {
+        "$oid": "5eafc4cf573e3f55ee088e1c"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1589383958653"
+        }
+      },
+      "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODk0NDkyMjUsIm5iZiI6MTU4OTQ0OTIyNSwianRpIjoiOTIxMmZlNWYtYjhmMi00NjMyLThlM2UtMzhlMDUzMGE3NDMxIiwiZXhwIjoxNTg5NTM1NjI1LCJpZGVudGl0eSI6IjVlYWZjNGNmNTczZTNmNTVlZTA4OGUxYyIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsImF1ZCI6InVybjptcCIsInVzZXJDbGFpbXMiOnsicHJvamVjdElkIjoicDEiLCJjbGllbnRJZCI6ImMxIiwibWV0aG9kIjoiZW1haWxfcGFzc3dvcmRsZXNzIiwiZW1haWxWZXJpZmllZCI6ZmFsc2V9fQ.DZcBhJUfMWqmhb9v9cBabEAf5AfslMaowQKw3NeXUyY",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1589384431102"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ebbe8e64a4765cbda762492"
+      },
+      "deviceAgent": "werkzeug/1.0.1",
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1589383958653"
+        }
+      },
+      "isActive": true,
+      "refreshToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1ODk0NDkyMjUsIm5iZiI6MTU4OTQ0OTIyNSwianRpIjoiOTIxMmZlNWYtYjhmMi00NjMyLThlM2UtMzhlMDUzMGE3NDMxIiwiZXhwIjoxNTg5NTM1NjI1LCJpZGVudGl0eSI6IjVlYWZjNGNmNTczZTNmNTVlZTA4OGUxYyIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyIsImF1ZCI6InVybjptcCIsInVzZXJDbGFpbXMiOnsicHJvamVjdElkIjoicDEiLCJjbGllbnRJZCI6ImMxIiwibWV0aG9kIjoiZW1haWxfcGFzc3dvcmRsZXNzIiwiZW1haWxWZXJpZmllZCI6ZmFsc2V9fQ.DZcBhJUfMWqmhb9v9cBabEAf5AfslMaowQKw3NeXUyY",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1589384431102"
+        }
+      }
+    }
+  ],
+  "device": [
+    {
+      "_id": {
+        "$oid": "5f0d6bd77fe6637a82dcbeb5"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "devicePushId": "cp8tp-XcRjCTPe5NIVsxbr:APA91bGC8igi6XNehsmoWIJfN-loX9eoma2_sRW197dlVoVbrKuchmfwXLpLaOsF9uGdtgNWZMTz8v_dkb-WLOdeRr_hHXX-PNn5ELhlmb1w9XG92aSMH-GeMRyArcBU8CmPx-012EbR",
+      "devicePushIdType": "ANDROID_FCM",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1589384431102"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1589383958653"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5f0d6bd77fe6637a82dcbeb6"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "devicePushId": "cp8tp-XcRjCTPe5NIVsxbr:APA91bGC8igi6XNehsmoWIJfN-loX9eoma2_sRW197dlVoVbrKuchmfwXLpLaOsF9uGdtgNWZMTz8v_dkb-WLOdeRr_hHXX-PNn5ELhlmb1w9XG92aSMH-GeMRyArcBU8CmPx-999EaR",
+      "devicePushIdType": "IOS_VOIP",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1589384431102"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1589383958653"
+        }
+      }
+    }
+  ]
+}

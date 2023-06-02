@@ -1,0 +1,15 @@
+Delete user and its dependencies
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID which needs to be deleted
+responses:
+  204:
+    description: 204 When user deleted properly

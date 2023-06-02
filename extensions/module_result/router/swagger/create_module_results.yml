@@ -1,0 +1,3171 @@
+summary: Create Modules
+tags:
+  - modules
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: list of Primitives. For example BloodPressureData (Model)
+    required: true
+    schema:
+      $ref: "#/definitions/CreateModuleResultRequest"
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - in: path
+    name: module_id
+    required: true
+    type: string
+responses:
+  201:
+    description: Ids of created objects and errors if present
+    schema:
+      $ref: "#/definitions/CreateModuleResultsResponse"
+definitions:
+  PhotoVaccinationCard:
+    type: number
+    minimum: 0
+    maximum: 1
+  BeforeAfter:
+    type: number
+    minimum: 0
+    maximum: 1
+  YesNoDont:
+    type: number
+    minimum: 0
+    maximum: 2
+  YesNoNa:
+    type: number
+    minimum: 0
+    maximum: 2
+  BabyQuantity:
+    type: number
+    minimum: 0
+    maximum: 2
+  SmokingStatus:
+    type: number
+    minimum: 0
+    maximum: 2
+  SmokingStopped:
+    type: number
+    minimum: 0
+    maximum: 2
+  SymptomIntensity:
+    type: number
+    minimum: 0
+    maximum: 2
+  NewSymptomAction:
+    type: number
+    minimum: 0
+    maximum: 2
+  CovidTestOverall:
+    type: number
+    minimum: 0
+    maximum: 2
+  HealthIssueAction:
+    type: number
+    minimum: 0
+    maximum: 3
+  BabyGender:
+    type: number
+    minimum: 0
+    maximum: 2
+  BreastFeedingBabyIssue:
+    type: number
+    minimum: 0
+    maximum: 2
+  GenderIdentity:
+    type: number
+    minimum: 0
+    maximum: 4
+  Employment:
+    type: number
+    minimum: 0
+    maximum: 5
+  CovidTestType:
+    type: number
+    minimum: 0
+    maximum: 4
+  CovidTestResult:
+    type: number
+    minimum: 0
+    maximum: 4
+  Regularly:
+    type: number
+    minimum: 0
+    maximum: 4
+  MedicalFertility:
+    type: number
+    minimum: 0
+    maximum: 5
+  Count:
+    type: number
+    minimum: 0
+    maximum: 5
+  VaccineCategory:
+    type: number
+    minimum: 0
+    maximum: 6
+  PregnancyOutcome:
+    type: number
+    minimum: 0
+    maximum: 6
+  CovidSymptoms:
+    type: number
+    minimum: 0
+    maximum: 9
+  BrandOfVaccine:
+    type: number
+    minimum: 0
+    maximum: 9
+  VaccineLocation:
+    type: number
+    minimum: 0
+    maximum: 11
+  PlaceOfVaccination:
+    type: number
+    minimum: 0
+    maximum: 11
+  ChildBirth:
+    type: number
+    minimum: 1
+    maximum: 2
+  MedicalDiagnosis:
+    type: number
+    minimum: 0
+    maximum: 16
+  QuestionnaireAnswer:
+    type: object
+    required:
+      - question
+      - format
+    properties:
+      answerText:
+        type: string
+      answerValue:
+        type: object
+      id:
+        type: string
+      questionId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      question:
+        type: string
+      format:
+        type: string
+        enum: [NUMERIC, TEXTCHOICE, BOOLEAN, DATE, TEXT, DURATION, SCALE]
+      selectedChoices:
+        type: array
+        items:
+          type: string
+          example: "Yes"
+      selectionCriteria:
+        type: string
+        enum: [MULTIPLE, SINGLE]
+      lowerBound:
+        type: integer
+      upperBound:
+        type: integer
+      recalledText:
+        type: array
+        items:
+          type: string
+  CreateModuleResultRequest:
+    type: array
+    items:
+      $ref: "#/definitions/PrimitiveData"
+  CreateModuleResultsResponse:
+    type: object
+    properties:
+      ids:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      errors:
+        type: array
+        items:
+          type: string
+          example: "Something went wrong"
+  PrimitiveData:
+    type: object
+    required:
+      - userId
+      - deviceName
+    properties:
+      type:
+        type: string
+        example: "BloodPressure"
+      deploymentId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      version:
+        type: integer
+        example: 2
+      deviceName:
+        type: string
+        example: "iOS"
+      deviceDetails:
+        type: string
+      isAggregated:
+        type: boolean
+      aggregationPrecision:
+        type: string
+      startDateTime:
+        type: string
+        format: date-time
+      endDateTime:
+        type: string
+        format: date-time
+      submitterId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      correlationStartDateTime:
+        type: string
+        format: date-time
+      tags:
+        type: object
+      tagsAuthorId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+  PrimitiveAdditionalData:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      createDateTime:
+        type: string
+        format: date-time
+      userId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      moduleId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      moduleResultId:
+        type: string
+        example: "31f79109948c469bba0b3e202960d961"
+      moduleConfigId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+  AlcoholConsumptionItem:
+    type: object
+    properties:
+      alcoholType:
+        type: string
+        enum:
+          [
+            BEER_LAGGER_OR_SIDER,
+            WHINE_OR_SPARKLING_WINE,
+            SHOTS,
+            ALCOPOPS,
+            FORTIFIED_WINE,
+            SPIRIT,
+            WINE_OR_SPARKLING_WINE,
+            BEER_LAGER_OR_CIDER,
+          ]
+      bottleCount:
+        type: number
+        default: 0
+      canCount:
+        type: number
+        default: 0
+      pintCount:
+        type: number
+        default: 0
+      litreCount:
+        type: number
+        default: 0
+      largeGlassCount:
+        type: number
+        default: 0
+      standardGlassCount:
+        type: number
+        default: 0
+      smallGlassCount:
+        type: number
+        default: 0
+      smallShotCount:
+        type: number
+        default: 0
+      largeShotCount:
+        type: number
+        default: 0
+      glassCount:
+        type: number
+        default: 0
+      doubleCount:
+        type: number
+        default: 0
+      largeDoubleCount:
+        type: number
+        default: 0
+      singleCount:
+        type: number
+        default: 0
+      largeSingleCount:
+        type: number
+        default: 0
+      alcoholAverageStrength:
+        type: string
+        enum: [LIGHT, NORMAL, STRONG]
+      period:
+        type: string
+        enum: [DAY, WEEK, MONTH]
+  AlcoholConsumptionData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - sections
+          - drinkAlcohol
+      - properties:
+          sections:
+            type: array
+            items:
+              $ref: "#/definitions/AlcoholConsumptionItem"
+          drinkAlcohol:
+            type: boolean
+  BackgroundInformationData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - age
+          - sexAtBirth
+          - genderIdentity
+          - residenceCountry
+          - birthCountry
+          - weight
+          - height
+          - employment
+          - smokingStatus
+          - metadata
+      - properties:
+          age:
+            type: number
+            format: integer
+            example: 25
+            minimum: 18
+            maximum: 120
+          sexAtBirth:
+            $ref: "#/definitions/BabyGender"
+          genderIdentity:
+            $ref: "#/definitions/GenderIdentity"
+          genderOther:
+            type: string
+          residenceCountry:
+            type: string
+          birthCountry:
+            type: string
+          weight:
+            type: number
+            format: float
+            example: 71.6
+            minimum: 20
+            maximum: 300
+          height:
+            type: number
+            format: float
+            example: 175.5
+            minimum: 100
+            maximum: 250
+          employment:
+            $ref: "#/definitions/Employment"
+          otherEmployment:
+            type: string
+          isHealthcareWorker:
+            type: boolean
+          smokingStatus:
+            $ref: "#/definitions/SmokingStatus"
+          smokingStopped:
+            $ref: "#/definitions/SmokingStopped"
+  BreastFeedingUpdateBabyDetails:
+    type: object
+    required:
+      - healthIssueAction
+      - hasReceivedDiagnosis
+      - healthIssue
+    properties:
+      healthIssue:
+        type: array
+        items:
+          type: string
+      healthIssueAction:
+        type: array
+        items:
+          $ref: "#/definitions/HealthIssueAction"
+      hasReceivedDiagnosis:
+        type: boolean
+      diagnosisList:
+        type: array
+        items:
+          type: string
+
+  BreastFeedingUpdateData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - isBreastFeedingNow
+          - newOrWorseSymptoms
+          - metadata
+      - properties:
+          isBreastFeedingNow:
+            type: boolean
+          stopDate:
+            type: string
+            format: date
+          newOrWorseSymptoms:
+            type: array
+            items:
+              $ref: "#/definitions/NewSymptomAction"
+          numBreastFeedingBabies:
+            type: number
+            format: integer
+          breastFeedingBabyDetails:
+            type: array
+            items:
+              $ref: "#/definitions/BreastFeedingUpdateBabyDetails"
+  VaccineListItem:
+    type: object
+    required:
+      - name
+      - vaccinatedDate
+    properties:
+      name:
+        type: string
+      vaccinatedDate:
+        type: string
+        format: date
+
+  OtherVaccineData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - metadata
+      - properties:
+          hasFluVaccine:
+            type: boolean
+          fluVaccineDate:
+            type: string
+            format: date
+          hasOtherVaccine:
+            type: boolean
+          vaccineCategory:
+            type: array
+            items:
+              $ref: "#/definitions/VaccineCategory"
+          vaccineList:
+            type: array
+            items:
+              $ref: "#/definitions/VaccineListItem"
+          unknownVaccineDate:
+            type: string
+            format: date
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  BloodGlucoseData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            format: float
+            example: 15.5
+            minimum: 1
+            maximum: 26
+          unitSi:
+            type: string
+          valueUnit:
+            type: string
+            default: "mmol/L"
+          originalValue:
+            type: number
+            format: float
+            example: 270.5
+          originalUnit:
+            type: string
+            example: "mg/dL"
+  BloodPressureData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - diastolicValue
+          - systolicValue
+      - properties:
+          diastolicValue:
+            type: integer
+            example: 110
+            minimum: 30
+            maximum: 130
+          systolicValue:
+            type: integer
+            example: 70
+            minimum: 60
+            maximum: 260
+          unitSi:
+            type: string
+            minLength: 1
+            maxLength: 256
+          diastolicValueUnit:
+            type: string
+            default: "mmHg"
+          systolicValueUnit:
+            type: string
+            default: "mmHg"
+  BreastFeedingBabyStatusDetailsItem:
+    type: object
+    required:
+      - ageInMonths
+      - weightAtBirth
+      - hasBirthDefects
+      - hasChronicConditions
+      - hasMedications
+    properties:
+      ageInMonths:
+        type: number
+        format: integer
+        example: 6
+      hasOnlyBreastMilk:
+        type: boolean
+      weightAtBirth:
+        type: number
+        format: float
+        example: 20.5
+      hasBirthDefects:
+        type: boolean
+      babyBirthDefectList:
+        type: array
+        items:
+          type: string
+      hasChronicConditions:
+        type: boolean
+      chronicConditionList:
+        type: array
+        items:
+          type: string
+      hasMedications:
+        type: boolean
+      isMedicationByDoctor:
+        type: boolean
+      conditionList:
+        type: array
+        items:
+          type: string
+  BreastFeedingStatusData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - isBreastFeedingCurrently
+          - metadata
+      - properties:
+          isBreastFeedingCurrently:
+            type: boolean
+          numberOfWeeksAtChildBirth:
+            type: number
+            format: integer
+          hadComplicationsAtBirth:
+            type: boolean
+          complicationList:
+            type: array
+            items:
+              type: string
+          hasHighRiskConditions:
+            type: boolean
+          highRiskConditions:
+            type: array
+            items:
+              type: string
+          familyHistoryOfDefects:
+            $ref: "#/definitions/YesNoDont"
+          familyHistoryOfDefectsList:
+            type: array
+            items:
+              type: string
+          numBreastFeedingBabies:
+            type: number
+            format: integer
+          breastFeedingBabyDetails:
+            type: array
+            items:
+              $ref: "#/definitions/BreastFeedingBabyStatusDetailsItem"
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  CheckinData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: string
+  CScoreData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: integer
+  DeviceMedicationTrackerData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - completionStatus
+          - value
+      - properties:
+          administrationMethod:
+            enum: [NEBULIZER, INHALER]
+          completionStatus:
+            enum: [NONE, PARTIAL, FULL]
+          doseDuration:
+            type: integer
+          doseUnit:
+            type: string
+          medicationName:
+            type: string
+          value:
+            type: number
+            example: 15.5
+  ElectrocardiogramReportData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - s3Object
+      - properties:
+          s3Object:
+            $ref: "#/definitions/S3Object"
+  FingerTapData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - leftHandValue
+          - rightHandValue
+      - properties:
+          leftHandValue:
+            type: integer
+            example: 45
+          rightHandValue:
+            type: integer
+            example: 45
+  CovidTestListItem:
+    type: object
+    required:
+      - method
+      - result
+    properties:
+      method:
+        $ref: "#/definitions/CovidTestType"
+      date_:
+        type: string
+        format: date
+      otherMethodName:
+        type: string
+      result:
+        $ref: "#/definitions/CovidTestResult"
+  SymptomsListItem:
+    type: object
+    required:
+      - name
+      - intensity
+      - isResolved
+    properties:
+      name:
+        type: string
+      intensity:
+        type: string
+        enum: [0, 1, 2]
+      startDate:
+        type: string
+        format: date
+      isResolved:
+        type: boolean
+      endDate:
+        type: string
+        format: date
+  HealthProblemsOrDisabilityItem:
+    type: object
+    required:
+      - reportedBefore
+      - symptomsList
+      - healthIssueAction
+      - receivedDiagnosis
+      - lostDaysAtWorkOrEducation
+      - isHealthIssueDueToCovid
+      - isMedicationsPrescribed
+    properties:
+      reportedBefore:
+        $ref: "#/definitions/YesNoDont"
+      symptomsList:
+        type: array
+        items:
+          $ref: "#/definitions/SymptomsListItem"
+      healthIssueAction:
+        type: array
+        items:
+          $ref: "#/definitions/HealthIssueAction"
+      remoteConsultation:
+        type: integer
+      inPersonConsultation:
+        type: integer
+      hospitalizedNights:
+        type: integer
+      isMedicationsPrescribed:
+        type: boolean
+      medicationName:
+        type: array
+        items:
+          type: string
+      receivedDiagnosis:
+        $ref: "#/definitions/YesNoDont"
+      diagnosisName:
+        type: array
+        items:
+          type: string
+      lostDaysAtWorkOrEducation:
+        $ref: "#/definitions/YesNoNa"
+      lostWorkDays:
+        type: integer
+      lostEducationDays:
+        type: integer
+      isHealthIssueDueToCovid:
+        type: boolean
+      tookCovidTest:
+        $ref: "#/definitions/YesNoDont"
+      numCovidTestsTaken:
+        type: integer
+      covidTestList:
+        type: array
+        items:
+          $ref: "#/definitions/CovidTestListItem"
+      otherNewOrWorseSymptoms:
+        type: boolean
+  HealthStatusData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - newOrWorseSymptoms
+          - metadata
+      - properties:
+          newOrWorseSymptoms:
+            type: string
+            enum: [0, 1, 2]
+          healthProblemsOrDisabilityList:
+            type: array
+            items:
+              $ref: "#/definitions/HealthProblemsOrDisabilityItem"
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  HeartRateData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: integer
+            example: 72
+            minimum: 30
+            maximum: 250
+          heartRateType:
+            enum: [UNSPECIFIED, RESTING, HIGH_FREQ]
+          variabilityAVNN:
+            type: integer
+            example: 72
+          variabilitySDNN:
+            type: integer
+            example: 72
+          variabilityRMSSD:
+            type: integer
+            example: 72
+          variabilityPNN50:
+            type: number
+            format: float
+            example: 7.1
+          variabilityprcLF:
+            type: number
+            format: float
+            example: 7.1
+          confidence:
+            type: integer
+            example: 7.1
+          goodIBI:
+            type: integer
+            example: 7.1
+          rawDataObject:
+            $ref: "#/definitions/S3Object"
+          valueUnit:
+            type: string
+            default: "bpm"
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+
+  HighFrequencyHeartRateData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - $ref: "#/definitions/HeartRateData"
+      - properties:
+          dataType:
+            enum: [MULTIPLE_VALUE, PPG_VALUE, SINGLE_VALUE]
+          multipleValues:
+            type: array
+            items:
+              $ref: "#/definitions/MultipleValues"
+
+  MultipleValues:
+    type: object
+    required:
+      - id
+      - d
+      - p
+    properties:
+      id:
+        type: string
+      d:
+        type: string
+        example: "2019-06-30T00:00:00Z"
+      p:
+        type: object
+        example: {"0": 56.56, "15": 56.56, "30": 56.58, "45": 57.02}
+
+  HeightData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            format: float
+            example: 175.5
+            minimum: 100
+            maximum: 250
+          valueUnit:
+            type: string
+            default: "cm"
+
+  ECGHealthKitData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            example: 1
+            minimum: 1
+            maximum: 8
+          generatedPDF:
+            $ref: "#/definitions/S3Object"
+          ecgReading:
+            $ref: "#/definitions/ECGReadingData"
+
+  ECGReadingData:
+    type: object
+    required:
+      - averageHeartRate
+      - classification
+      - dataPoints
+    properties:
+      averageHeartRate:
+        type: number
+        format: float
+        example: 89.5
+      dataPoints:
+        $ref: "#/definitions/FlatBufferS3Object"
+
+  JournalData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: string
+            example: "New note"
+  LocationData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - locationQuestion
+          - locationProvider
+      - properties:
+          countryName:
+            type: string
+            example: "London"
+          geonameId:
+            type: integer
+            example: 126
+          latitude:
+            type: integer
+            minimum: -180
+            maximum: 180
+            exclusiveMinimum: true
+            exclusiveMaximum: true
+            example: 75.25
+          longitude:
+            type: integer
+            minimum: -90
+            maximum: 90
+            exclusiveMinimum: true
+            exclusiveMaximum: true
+            example: 12.67
+          locationQuestion:
+            enum: [WHERE_LIVING]
+          locationProvider:
+            enum: [DATAHUB]
+          placeName:
+            type: string
+            example: "My Place"
+  NumericMemoryData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            format: float
+            example: 71.6
+  CancerTypeItem:
+    type: object
+    required:
+      - name
+      - isTakingMedication
+      - metatstatic
+    properties:
+      name:
+        type: string
+      isTakingMedication:
+        type: boolean
+      metatstatic:
+        $ref: "#/definitions/YesNoDont"
+  MedicalConditionsItem:
+    type: object
+    required:
+      - conditionName
+      - isTakingMedication
+    properties:
+      conditionName:
+        type: string
+      isTakingMedication:
+        type: boolean
+  CovidSymptomsItem:
+    type: object
+    required:
+      - name
+      - intensity
+      - persistPostInfection
+    properties:
+      name:
+        $ref: "#/definitions/CovidSymptoms"
+      intensity:
+        type: integer
+      persistPostInfection:
+        $ref: "#/definitions/YesNoDont"
+  OtherCovidSymptomsItem:
+    type: object
+    required:
+      - name
+      - intensity
+      - persistPostInfection
+    properties:
+      name:
+        type: string
+      intensity:
+        type: integer
+      persistPostInfection:
+        $ref: "#/definitions/YesNoDont"
+  MedicalHistoryData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - medicalDiagnosis
+          - takingImmunoSuppressants
+          - isCovidInfectedInPast
+          - isCovidToldByDoctor
+          - takenCovidTest
+          - metadata
+          - isDiagnosedWithCancer
+      - properties:
+          cancerType:
+            type: array
+            items:
+              $ref: "#/definitions/CancerTypeItem"
+          medicalDiagnosis:
+            type: array
+            items:
+              $ref: "#/definitions/MedicalDiagnosis"
+          medicalConditions:
+            type: array
+            items:
+              $ref: "#/definitions/MedicalConditionsItem"
+          takingImmunoSuppressants:
+            $ref: "#/definitions/YesNoDont"
+          immunoSuppressantMedicationList:
+            type: array
+            items:
+              type: string
+          isCovidInfectedInPast:
+            type: boolean
+          covidInfectedDate:
+            type: string
+            format: date
+          isCovidToldByDoctor:
+            type: boolean
+          covidToldByDoctorDate:
+            type: string
+            format: date
+          takenCovidTest:
+            $ref: "#/definitions/YesNoDont"
+          covidTestResult:
+            $ref: "#/definitions/CovidTestResult"
+          covidTestDate:
+            type: string
+            format: date
+          covidTestMethod:
+            $ref: "#/definitions/CovidTestType"
+          covidTestOther:
+            type: string
+          covidSymptoms:
+            type: array
+            items:
+              $ref: "#/definitions/CovidSymptomsItem"
+          otherCovidSymptoms:
+            type: array
+            items:
+              $ref: "#/definitions/OtherCovidSymptomsItem"
+          covidSymptomAction:
+            type: array
+            items:
+              $ref: "#/definitions/HealthIssueAction"
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+          hadCovidSymptoms:
+            type: boolean
+          hadOtherCovidSymptoms:
+            type: boolean
+          isDiagnosedWithCancer:
+            type: boolean
+  HighFrequencyStepData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - stepsObject
+      - properties:
+          stepsObject:
+            $ref: "#/definitions/FlatBufferS3Object"
+  PhotoData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - s3Object
+      - properties:
+          s3Object:
+            $ref: "#/definitions/S3Object"
+          s3Thumbnail:
+            $ref: "#/definitions/S3Object"
+          width:
+            type: number
+            example: 15.5
+          height:
+            type: number
+            example: 15.5
+          note:
+            type: string
+            example: "Some note"
+  PulseOximetryData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            example: 19.7
+  QuestionnaireAppResultValue:
+    type: object
+    properties:
+      label:
+        type: string
+      valueFloat:
+        type: number
+        format: float
+      valueType:
+        type: string
+        enum: [VALUE_FLOAT, STD_ERR_FLOAT]
+  QuestionnaireAppResult:
+    type: object
+    properties:
+      appType:
+        type: string
+        enum: [T_DISTRIBUTION, GRADED_RESULT]
+      values:
+        type: array
+        items:
+          $ref: "#/definitions/QuestionnaireAppResultValue"
+  QuestionnaireData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          answers:
+            type: array
+            items:
+              $ref: "#/definitions/QuestionnaireAnswer"
+          appResult:
+            $ref: "#/definitions/QuestionnaireAppResult"
+          isForManager:
+            type: boolean
+          questionnaireId:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          questionnaireName:
+            type: string
+          value:
+            type: number
+            format: float
+          skipped:
+            type: array
+            items:
+              $ref: "#/definitions/QuestionnaireAnswer"
+  QuestionnaireScoreData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          appResult:
+            $ref: "#/definitions/QuestionnaireAppResult"
+          error:
+            type: string
+            example: "Some error"
+          questionnaireResultId:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          questionnaireName:
+            enum: [PAM_13]
+          value:
+            type: number
+            example: 24.5
+          fullResponse:
+            type: string
+            example: "Some response"
+  ReactionTimeData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            example: 19.7
+  SpirometryData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - fvc
+          - fvcPredictedValue
+          - fev1
+          - fev1PredictedValue
+      - properties:
+          fvc:
+            type: number
+            example: 19.7
+          fvcPredictedValue:
+            type: number
+            example: 19.7
+          fev1:
+            type: number
+            example: 19.7
+          fev1PredictedValue:
+            type: number
+            example: 19.7
+  StepData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: integer
+            example: 191
+  ComplexSymptomValue:
+    type: object
+    properties:
+      name:
+        type: string
+      severity:
+        type: integer
+        example: 3
+  SymptomData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: array
+            items:
+              type: string
+          complexValues:
+            type: array
+            items:
+              $ref: "#/definitions/ComplexSymptomValue"
+  TemperatureData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            format: float
+            example: 36.6
+            minimum: 33
+            maximum: 42
+          valueUnit:
+            type: string
+            default: "oC"
+          originalValue:
+            type: number
+            format: float
+            example: 38.5
+          originalUnit:
+            type: string
+            example: "oF"
+  TimedUpAndGoData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            example: 36.6
+  TimedWalkData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - s3Object
+      - properties:
+          s3Object:
+            type: number
+            example: 36.6
+          sanityCheck:
+            type: boolean
+          measurementLocation:
+            enum: [LEFT_POCKET, RIGHT_POCKET]
+  UserActionData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - action
+      - properties:
+          action:
+            enum: [RETAKE, CONFIRM]
+  VideoData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - s3Object
+      - properties:
+          s3Object:
+            $ref: "#/definitions/S3Object"
+          s3Thumbnail:
+            $ref: "#/definitions/S3Object"
+          width:
+            type: number
+            example: 15.5
+          height:
+            type: number
+            example: 15.5
+          note:
+            type: string
+            example: "Some note"
+          videoTestId:
+            type: string
+  VideoQuestionnaireStepData:
+    type: object
+    required:
+      - s3Object
+      - startDateTime
+    properties:
+      id:
+        type: string
+      s3Object:
+        $ref: "#/definitions/S3Object"
+      s3thumbnail:
+        $ref: "#/definitions/S3Object"
+      note:
+        type: string
+        example: "Some note"
+      startDateTime:
+        type: string
+        example: "2020-04-10T10:00:00"
+  VideoQuestionnaireData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - steps
+        properties:
+          steps:
+            type: array
+            items:
+              $ref: "#/definitions/VideoQuestionnaireStepData"
+  WaistToHeightData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          waist:
+            type: number
+            format: float
+            example: 89.2
+            minimum: 40
+            maximum: 150
+          height:
+            type: number
+            format: float
+            example: 175.5
+            minimum: 100
+            maximum: 250
+          value:
+            type: number
+            format: float
+            example: 3.5
+  WeightData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            format: float
+            example: 71.6
+            minimum: 20
+            maximum: 300
+          valueUnit:
+            type: string
+            default: "kg"
+          originalValue:
+            type: number
+            format: float
+            example: 454.3
+          originalUnit:
+            type: string
+            example: "lb"
+
+  WoundAnalysisData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          errors:
+            type: array
+            items:
+              type: string
+              enum: [NO_DOT, NO_WOUND, EXCEEDS_MAX_ANGLE, API_ERROR]
+          woundId:
+            type: integer
+            example: 15
+          woundEvaluationId:
+            type: integer
+            example: 15
+          woundAnalysisId:
+            type: number
+            example: 3.5
+          value:
+            type: number
+            example: 35.5
+          fullAnalysis:
+            type: object
+  BMIData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            format: float
+            example: 20.5
+          valueUnit:
+            type: string
+            default: "kg/cm2"
+
+  PostVaccination:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - secondCOVIDVaccinationDose
+          - isSecondDoseAZ
+          - batchNumberVaccine
+          - isSamePlaceVaccine2As1
+          - vaccinationPlace
+          - vaccinationPlaceLocation
+          - metadata
+      - properties:
+          secondCOVIDVaccinationDose:
+            type: string
+            format: date-time
+          isSecondDoseAZ:
+            type: boolean
+          secondDoseBrand:
+            type: number
+            minimum: 0
+            maximum: 9
+          batchNumberVaccine:
+            type: string
+          isSamePlaceVaccine2As1:
+            type: boolean
+          vaccinationPlace:
+            type: number
+            minimum: 0
+            maximum: 11
+          vaccinationPlaceOther:
+            type: string
+          vaccinationPlaceLocation:
+            type: string
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  KOOS:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - adlScore
+          - qualityOfLifeScore
+          - painScore
+          - symptomsScore
+          - sportRecreationScore
+      - properties:
+          adlScore:
+            type: number
+            format: float
+          qualityOfLifeScore:
+            type: number
+            format: float
+          painScore:
+            type: number
+            format: float
+          symptomsScore:
+            type: number
+            format: float
+          sportRecreationScore:
+            type: number
+            format: float
+  WOMAC:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - painScore
+          - symptomsScore
+          - adlScore
+          - totalScore
+      - properties:
+          painScore:
+            type: number
+            format: float
+          symptomsScore:
+            type: number
+            format: float
+          adlScore:
+            type: number
+            format: float
+          totalScore:
+            type: number
+            format: float
+
+  KCCQ:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - physicalLimitation
+          - symptomStability
+          - symptomFrequency
+          - symptomBurden
+          - totalSymptomScore
+          - selfEfficacy
+          - qualityOfLife
+          - socialLimitation
+          - overallSummaryScore
+          - clinicalSummaryScore
+      - properties:
+          physicalLimitation:
+            type: number
+            format: float
+          symptomStability:
+            type: number
+            format: float
+          symptomFrequency:
+            type: number
+            format: float
+          symptomBurden:
+            type: number
+            format: float
+          totalSymptomScore:
+            type: number
+            format: float
+          selfEfficacy:
+            type: number
+            format: float
+          qualityOfLife:
+            type: number
+            format: float
+          socialLimitation:
+            type: number
+            format: float
+          overallSummaryScore:
+            type: number
+            format: float
+          clinicalSummaryScore:
+            type: number
+            format: float
+
+  DiabetesDistressScoreData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - totalDDS
+      - properties:
+          totalDDS:
+            type: number
+            format: float
+            minimum: 1
+            maximum: 6
+            example: 2.5
+          emotionalBurden:
+            type: number
+            format: float
+            minimum: 1
+            maximum: 6
+            example: 2.7
+          physicianDistress:
+            type: number
+            format: float
+            minimum: 1
+            maximum: 6
+            example: 2.6
+          regimenDistress:
+            type: number
+            format: float
+            minimum: 1
+            maximum: 6
+            example: 2.2
+          interpersonalDistress:
+            type: number
+            format: float
+            minimum: 1
+            maximum: 6
+            example: 2.1
+  RespiratoryRateData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: integer
+            example: 26
+            minimum: 6
+            maximum: 30
+          valueUnit:
+            type: string
+            default: "rpm"
+
+  PeakFlowData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: integer
+            example: 500
+            minimum: 300
+            maximum: 700
+          valueUnit:
+            type: string
+            default: "L/s"
+          valuePercent:
+            type: number
+            format: float
+
+  BabyInfo:
+    type: object
+    required:
+      - pregnancyForBaby
+    properties:
+      pregnancyForBaby:
+        type: string
+        enum:
+          - LIVE_BIRTH
+          - MISCARRIAGE
+          - ELECTIVE_ABORTION
+          - STILLBIRTH
+          - ECTOPIC
+          - OTHER
+      dateDelivery:
+        type: string
+        format: date-time
+      pregnancyDuration:
+        type: integer
+        minimum: 22
+        maximum: 45
+      specifiedOutcome:
+        type: array
+        items:
+          type: string
+      babyGender:
+        type: string
+        enum:
+          - MALE
+          - FEMALE
+          - INTERSEX
+      methodDelivery:
+        type: string
+        enum:
+          - VAGINAL_DELIVERY
+          - CAESAREAN_SECTION
+      isBreastfeedingBaby:
+        type: boolean
+      isCurrentlyBreastfeedingBaby:
+        type: boolean
+      breastfeedLongTerm:
+        type: integer
+      isBabyNoLiquid:
+        type: boolean
+      isBabyIssues:
+        type: string
+        enum:
+          - YES
+          - NO
+          - DONT_KNOW
+      specifiedIssues:
+        type: array
+        items:
+          type: string
+
+  PregnancyFollowUp:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - pregnantMedications
+          - overCounterPregnantMedications
+          - babyCount
+          - currentBabyCount
+          - babyInfo
+          - metadata
+      - properties:
+          pregnantMedications:
+            type: boolean
+          prescriptionMedications:
+            type: array
+            items:
+              type: string
+          overCounterPregnantMedications:
+            type: boolean
+          overCounterMedications:
+            type: array
+            items:
+              type: string
+          babyCount:
+            type: integer
+          currentBabyCount:
+            type: integer
+          babyInfo:
+            type: array
+            items:
+              $ref: "#/definitions/BabyInfo"
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  AZScreeningQuestionnaire:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - hasReceivedCOVIDVacInPast4Weeks
+          - isAZVaccineFirstDose
+          - is18YearsOldDuringVaccination
+          - metadata
+      - properties:
+          hasReceivedCOVIDVacInPast4Weeks:
+            type: boolean
+          isAZVaccineFirstDose:
+            type: boolean
+          is18YearsOldDuringVaccination:
+            type: boolean
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  PROMISGlobalHealthData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - global01
+          - global02
+          - global03
+          - global04
+          - global05
+          - global06
+          - global07rc
+          - global08r
+          - global09r
+          - global10r
+          - metadata
+      - properties:
+          global01:
+            type: number
+            minimum: 1
+            maximum: 5
+          global02:
+            type: integer
+            minimum: 1
+            maximum: 5
+          global03:
+            type: integer
+            minimum: 1
+            maximum: 5
+          global04:
+            type: integer
+            minimum: 1
+            maximum: 5
+          global05:
+            type: integer
+            minimum: 1
+            maximum: 5
+          global06:
+            type: integer
+            minimum: 1
+            maximum: 5
+          global07rc:
+            type: integer
+            minimum: 1
+            maximum: 10
+          global08r:
+            type: integer
+            minimum: 1
+            maximum: 5
+          global09r:
+            type: integer
+            minimum: 0
+            maximum: 5
+          global10r:
+            type: integer
+            minimum: 0
+            maximum: 5
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  SF36:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          physicalFunctioningScore:
+            type: number
+            format: float
+          limitationsPhysicalHealthScore:
+            type: number
+            format: float
+          limitationsEmotionalProblemsScore:
+            type: number
+            format: float
+          energyFatigueScore:
+            type: number
+            format: float
+          emotionalWellBeingScore:
+            type: number
+            format: float
+          socialFunctioningScore:
+            type: number
+            format: float
+          painScore:
+            type: number
+            format: float
+          generalHealthScore:
+            type: number
+            format: float
+
+  FlatBufferS3Object:
+    allOf:
+      - $ref: "#/definitions/S3Object"
+      - properties:
+          fbsVersion:
+            type: number
+            default: 0
+  AdditionalQoLData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - contactProfessionals
+          - viewFamily
+          - contributeActivities
+      - properties:
+          viewFamily:
+            $ref: "#/definitions/Regularly"
+          contactProfessionals:
+            $ref: "#/definitions/Regularly"
+          contributeActivities:
+            $ref: "#/definitions/Regularly"
+
+  AZGroupKeyActionTrigger:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - firstVaccineDate
+          - fluVaccineDate
+          - hasOtherVaccine
+          - groupCategory
+          - metadata
+      - properties:
+          firstVaccineDate:
+            type: string
+            format: date-time
+          fluVaccineDate:
+            type: string
+            format: date-time
+          hasOtherVaccine:
+            type: boolean
+          groupCategory:
+            type: number
+            minimum: 0
+            maximum: 4
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+
+  AZFurtherPregnancyKeyActionTrigger:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - currentGroupCategory
+          - metadata
+      - properties:
+          currentGroupCategory:
+            type: integer
+            minimum: 0
+            maximum: 1
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+
+  InfantFollowUpData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - isCovPregLiveBirth
+          - metadata
+      - properties:
+          isCovPregLiveBirth:
+            type: boolean
+          isMoreThan1ChildCovVac:
+            type: boolean
+          countCovPreg:
+            type: number
+          children:
+            type: object
+            required:
+              - hasChildDevelopIssues
+            properties:
+              issues:
+                type: array
+                items:
+                  type: string
+              additionalInfo:
+                type: string
+              hasChildDevelopIssues:
+                type: boolean
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  OtherVaccCategoryItem:
+    type: object
+    required:
+      - vaccDate
+    properties:
+      name:
+        type: string
+      vaccDate:
+        type: string
+        format: date-time
+  VaccinationDetailsData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - vaccinatedPlace
+          - vaccinationCity
+          - batchNumber
+          - isSecondDoseVacc
+          - isSeasonFluVac
+          - isOtherSpecifiedVacc
+          - isAllergicReactionVacc
+          - metadata
+      - properties:
+          vaccinatedPlace:
+            type: number
+            enum: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+          vaccinationLocation:
+            type: string
+          vaccinationCity:
+            type: string
+          batchNumber:
+            type: string
+          isSecondDoseVacc:
+            $ref: "#/definitions/YesNoDont"
+          secondVacScheduleDate:
+            type: string
+            format: date-time
+          isSeasonFluVac:
+            type: boolean
+          seasonFluVacDate:
+            type: string
+            format: date-time
+          isOtherSpecifiedVacc:
+            type: boolean
+          otherSpecifiedVacc:
+            type: number
+            enum: [0, 1, 2, 3, 4, 5, 6]
+          otherVaccCategory:
+            type: array
+            items:
+              $ref: "#/definitions/OtherVaccCategoryItem"
+          isAllergicReactionVacc:
+            type: boolean
+          allergicReactionVacc:
+            type: array
+            items:
+              type: string
+          allergicReaction:
+            type: array
+            items:
+              type: string
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  FeverAndPainDrugsData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - hasAntiFeverPainDrugs
+          - metadata
+      - properties:
+          hasAntiFeverPainDrugs:
+            type: boolean
+          medStartedBeforeAfter:
+            type: number
+            enum: [0, 1]
+          daysBeforeVacMedication:
+            type: number
+          daysAfterVacMedication:
+            type: number
+          isUnderMedication:
+            type: boolean
+          daysCountMedication:
+            type: number
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+  PregnancyUpdateData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - metadata
+      - properties:
+          hasMenstrualPeriod:
+            type: boolean
+          lastMenstrualPeriodDateDay1:
+            type: string
+            format: date-time
+          becamePregnant:
+            type: boolean
+          isPregnancyCurrent:
+            type: boolean
+          isExpectedDueDateAvailable:
+            type: boolean
+          expectedDueDate:
+            type: string
+            format: date-time
+          pregnancyMoreThan1:
+            type: number
+            enum: [0, 1, 2]
+          babyCount:
+            type: number
+          pastPregnancyMoreThan1:
+            $ref: "#/definitions/YesNoDont"
+          pastBabyCount:
+            type: number
+          pregnancyResult:
+            type: number
+            enum: [0, 1, 2, 3, 4, 5]
+          hasOtherPregnancyOutcome:
+            type: boolean
+          otherPregnancyResult:
+            type: array
+            items:
+              type: string
+          pastPregnancyWeeks:
+            type: number
+          hasPastPregnancy:
+            type: number
+            enum: [0, 1, 2]
+          pregnancyTimes:
+            type: number
+          pastPregnancyLifeBirth:
+            type: number
+          pastPregnancyStillBorn:
+            type: number
+          pastPregnancyEctopic:
+            type: number
+          pastPregnancyMiscarriage:
+            type: number
+          pastPregnancyElectiveTermination:
+            type: number
+          hasVisitMedicalProfessional:
+            type: boolean
+          highRiskCondition:
+            type: number
+            enum: [0, 1, 2]
+          highRiskConditionAnswers:
+            type: array
+            items:
+              type: string
+          familyHistoryDefects:
+            type: number
+            enum: [0, 1, 2]
+          familyHistoryDefectsAnswers:
+            type: array
+            items:
+              type: string
+          hasPrenatalScreening:
+            type: boolean
+          prenatalScreeningAnswers:
+            type: array
+            items:
+              type: number
+              enum: [0, 1, 2, 3, 4]
+          hasOtherPrenatalScreening:
+            type: boolean
+          otherPrenatalScreening:
+            type: string
+          hasScreeningProblem:
+            type: boolean
+          screeningProblemText:
+            type: string
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+
+  AwarenessTrainingData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - certificateNumber
+          - totalHealthScore
+          - status
+      - properties:
+          certificateNumber:
+            type: string
+          totalHealthScore:
+            type: number
+          status:
+            type: string
+            enum: [HIGH, MODERATE, LOW]
+  BodyMeasurementData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          visceralFat:
+            type: number
+          totalBodyFat:
+            type: number
+          waistCircumference:
+            type: number
+          waistCircumferenceUnit:
+            type: string
+            default: "cm"
+          hipCircumference:
+            type: number
+          hipCircumferenceUnit:
+            type: string
+            default: "cm"
+          waistToHipRatio:
+            type: number
+  Covid19DailyCheckInData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - contactType
+      - properties:
+          contactType:
+            type: string
+            enum:
+              [
+                I_LIVE_WITH_SUCH_PERSON,
+                PROVIDED_DIRECT_CARE_TO_SUCH_A_PERSON,
+                DIRECT_PHYSICAL_CONTACT_WITH_SUCH_PERSON,
+                FACE_TO_FACE_CONTACT_WITH_SUCH_PERSON,
+                NONE_OF_THE_ABOVE,
+                OTHER_TYPE_OF_CONTACT,
+              ]
+  Covid19RiskScoreCoreQuestionsData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - bloodType
+          - preExistingConditions
+          - currentSymptoms
+      - properties:
+          bloodType:
+            type: string
+            enum:
+              [
+                O_POSITIVE,
+                O_NEGATIVE,
+                A_POSITIVE,
+                A_NEGATIVE,
+                B_POSITIVE,
+                B_NEGATIVE,
+                AB_POSITIVE,
+                AB_NEGATIVE,
+                UNKNOWN,
+              ]
+          preExistingConditions:
+            type: array
+            items:
+              type: string
+              enum:
+                [
+                  CURRENT_CANCER,
+                  DIABETES,
+                  HEART_FAILURE,
+                  CHRONIC_KIDNEY_DISEASE,
+                  CHRONIC_LUNG_DISEASE,
+                  CHRONIC_LIVER_DISEASE,
+                  CARDIOVASCULAR_DISEASE,
+                  STROKE,
+                  HYPERTENSION,
+                  OTHER,
+                ]
+          currentSymptoms:
+            type: array
+            items:
+              type: string
+              enum:
+                [
+                  DIFFICULT_BREATHING,
+                  CHEST_TIGHTNESS,
+                  PERSISTENT_NEW_COUGH,
+                  COUGHING_UP_PHLEGM,
+                  HEADACHE,
+                  MYALGIA,
+                  FATIGUE,
+                  NAUSEA,
+                  DIARRHOEA,
+                  GI_SYMPTOMS,
+                  HEMOPTYSIS,
+                ]
+          score:
+            type: number
+          status:
+            type: string
+            enum: [LOW, MEDIUM, HIGH]
+  Covid19RiskScoreData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          value:
+            type: number
+          status:
+            type: string
+            enum: [LOW, MEDIUM, HIGH]
+  Covid19SeverityRiskScoreData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - age
+          - weight
+          - height
+          - biologicalSex
+          - ethnicity
+          - smokeStatus
+          - bloodType
+          - preExistingConditions
+          - temperature
+          - currentSymptoms
+          - restingHeartRate
+          - restingBreathingRate
+          - oxygenSaturation
+      - properties:
+          covid19TestScore:
+            type: string
+            enum:
+              [
+                I_WAS_TESTED_AND_DIAGNOSED_WITH_COVID_19,
+                I_WAS_TESTED_NEGATIVE_FOR_COVID_19,
+                I_WAS_TESTED_AND_AWAITING_RESULTS,
+                I_WAS_NOT_TESTED_FOR_COVID_19,
+              ]
+          covid19TestDate:
+            type: string
+            format: date-time
+          covid19TestType:
+            type: string
+            enum: [BLOOD_TEST_ANTIBODY, SWAB_TEST_ANTIGEN]
+          age:
+            type: number
+            example: 42
+          weight:
+            type: number
+            format: float
+            example: 75.5
+          height:
+            type: number
+            format: float
+            example: 187.5
+          biologicalSex:
+            type: string
+            enum: [FEMALE, MALE, OTHER, NOT_SPECIFIED]
+          ethnicity:
+            type: string
+            enum:
+              [
+                WHITE,
+                MIXED_OR_MULTI_ETHNIC_GROUPS,
+                ASIAN_OR_ASIAN_BRITISH,
+                BLACK_OR_AFRICAN_OR_CARIBBEAN_OR_BLACK_BRITISH,
+                OTHER_ETHNIC_GROUPS,
+              ]
+          smokeStatus:
+            type: string
+            enum: [YES_AND_I_STILL_DO, YES_BUT_I_QUIT, NO]
+          bloodType:
+            enum:
+              [
+                O_POSITIVE,
+                O_NEGATIVE,
+                A_POSITIVE,
+                A_NEGATIVE,
+                B_POSITIVE,
+                B_NEGATIVE,
+                AB_POSITIVE,
+                AB_NEGATIVE,
+                UNKNOWN,
+              ]
+            type: string
+          symptomStartDateTime:
+            type: string
+            format: date-time
+          preExistingConditions:
+            type: array
+            items:
+              type: string
+              enum:
+                [
+                  CURRENT_CANCER,
+                  DIABETES,
+                  HEALTH_FAILURE,
+                  CHRONIC_KIDNEY_DISEASE,
+                  CHRONIC_LUNG_DISEASE,
+                  CHRONIC_LIVER_DISEASE,
+                  CARDIOVASCULAR_DISEASE,
+                  STROKE,
+                  HYPERTENSION,
+                  OTHER,
+                  NONE,
+                ]
+          temperature:
+            type: number
+            format: float
+            example: 37
+          currentSymptoms:
+            type: array
+            items:
+              type: string
+              enum:
+                [
+                  DIFFICULT_BREATHING,
+                  CHEST_TIGHTNESS,
+                  PERSISTENT_NEW_COUGH,
+                  COUGHING_UP_PHLEGM,
+                  HEADACHE,
+                  MYALGIA,
+                  FATIGUE,
+                  NAUSEA,
+                  DIARRHOEA,
+                  GI_SYMPTOMS,
+                  HEMOPTYSIS,
+                ]
+          restingHeartRate:
+            type: number
+          restingBreathingRate:
+            type: number
+          oxygenSaturation:
+            type: number
+          score:
+            type: number
+          status:
+            type: string
+            enum: [LOW, MEDIUM, HIGH]
+  Covid19SeverityRiskScorePublicData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - age
+          - weight
+          - height
+          - biologicalSex
+          - ethnicity
+          - smokeStatus
+          - bloodType
+          - preExistingConditions
+          - temperature
+          - currentSymptoms
+          - restingHeartRate
+          - restingBreathingRate
+          - oxygenSaturation
+      - properties:
+          covid19TestScore:
+            type: string
+            enum:
+              [
+                I_WAS_TESTED_AND_DIAGNOSED_WITH_COVID_19,
+                I_WAS_TESTED_NEGATIVE_FOR_COVID_19,
+                I_WAS_TESTED_AND_AWAITING_RESULTS,
+                I_WAS_NOT_TESTED_FOR_COVID_19,
+              ]
+          covid19TestDate:
+            type: string
+            format: date-time
+          covid19TestType:
+            type: string
+            enum: [BLOOD_TEST_ANTIBODY, SWAB_TEST_ANTIGEN]
+          age:
+            type: number
+            example: 42
+          weight:
+            type: number
+            format: float
+            example: 75.5
+          height:
+            type: number
+            format: float
+            example: 187.5
+          biologicalSex:
+            type: string
+            enum: [FEMALE, MALE]
+          ethnicity:
+            type: string
+            enum:
+              [
+                WHITE,
+                MIXED_OR_MULTI_ETHNIC_GROUPS,
+                ASIAN_OR_ASIAN_BRITISH,
+                BLACK_OR_AFRICAN_OR_CARIBBEAN_OR_BLACK_BRITISH,
+                OTHER_ETHNIC_GROUPS,
+              ]
+          smokeStatus:
+            type: string
+            enum: [YES_AND_I_STILL_DO, YES_BUT_I_QUIT, NO]
+          bloodType:
+            enum:
+              [
+                O_POSITIVE,
+                O_NEGATIVE,
+                A_POSITIVE,
+                A_NEGATIVE,
+                B_POSITIVE,
+                B_NEGATIVE,
+                AB_POSITIVE,
+                AB_NEGATIVE,
+                UNKNOWN,
+              ]
+            type: string
+          symptomStartDateTime:
+            type: string
+            format: date-time
+          preExistingConditions:
+            type: array
+            items:
+              type: string
+              enum:
+                [
+                  CURRENT_CANCER,
+                  DIABETES,
+                  HEALTH_FAILURE,
+                  CHRONIC_KIDNEY_DISEASE,
+                  CHRONIC_LUNG_DISEASE,
+                  CHRONIC_LIVER_DISEASE,
+                  CARDIOVASCULAR_DISEASE,
+                  STROKE,
+                  HYPERTENSION,
+                  OTHER,
+                ]
+          temperature:
+            type: number
+            format: float
+            example: 37
+          currentSymptoms:
+            type: array
+            items:
+              type: string
+              enum:
+                [
+                  DIFFICULT_BREATHING,
+                  CHEST_TIGHTNESS,
+                  PERSISTENT_NEW_COUGH,
+                  COUGHING_UP_PHLEGM,
+                  HEADACHE,
+                  MYALGIA,
+                  FATIGUE,
+                  NAUSEA,
+                  DIARRHOEA,
+                  GI_SYMPTOMS,
+                  HEMOPTYSIS,
+                ]
+          heartRate:
+            type: number
+          restingBreathingRate:
+            type: number
+          oxygenSaturation:
+            type: number
+          score:
+            type: number
+          status:
+            type: string
+            enum: [LOW, MEDIUM, HIGH]
+          deviceName:
+            type: string
+            minLength: 1
+            maxLength: 256
+          deploymentId:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+  ECGAliveCorData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - s3Object
+          - kardiaEcgRecordId
+      - properties:
+          s3Object:
+            $ref: "#/definitions/S3Object"
+          kardiaEcgRecordId:
+            type: string
+  HScoreData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+          - topValue
+          - bottomValue
+          - status
+      - properties:
+          value:
+            type: number
+          topValue:
+            type: number
+          bottomValue:
+            type: number
+          status:
+            type: string
+            enum: [LOW, MEDIUM, HIGH]
+          keyAreasItems:
+            type: array
+            $ref: "#/definitions/KeyAreaItem"
+  KeyAreaItem:
+    type: object
+    required:
+      - keyArea
+      - messageLine
+      - status
+      - value
+    properties:
+      keyArea:
+        type: string
+        enum:
+          [
+            SLEEP,
+            SELF_RATED_HEALTH,
+            COGNITION,
+            TOBACCO_AND_ALCOHOL,
+            BODY,
+            CVD_HEALTH,
+            TOBACCO_ONLY,
+            ALCOHOL_ONLY,
+          ]
+      messageLine:
+        type: string
+      status:
+        type: string
+        enum: [VERY_POOR, POOR, AVERAGE, GOOD, VERY_GOOD, NILL]
+      value:
+        type: number
+  NORFOLK:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - totalQolScore
+          - physicalFunctionLargeFiber
+          - activitiesOfDailyLiving
+          - symptoms
+          - smallFiber
+          - automic
+      - properties:
+          totalQolScore:
+            type: number
+            format: float
+          physicalFunctionLargeFiber:
+            type: number
+            format: float
+          activitiesOfDailyLiving:
+            type: number
+            format: float
+          symptoms:
+            type: number
+            format: float
+          smallFiber:
+            type: number
+            format: float
+          automic:
+            type: number
+            format: float
+  OxygenSaturationData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+            format: float
+          valueUnit:
+            type: string
+            default: "%"
+  RestingBreathingRateData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+  RestingHeartRateData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: number
+  SelfHealthRateData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - value
+      - properties:
+          value:
+            type: string
+            enum: [POOR, FAIR, GOOD, EXCELLENT]
+  SensorCaptureData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          s3Object:
+            $ref: "#/definitions/S3Object"
+          sanityCheck:
+            type: boolean
+          sanityCheckMessage:
+            type: string
+          measurementLocation:
+            type: string
+            enum:
+              [
+                LEFT_FRONT_TROUSERS_POCKET,
+                RIGHT_FRONT_TROUSERS_POCKET,
+                LEFT_BACK_TROUSERS_POCKET,
+                RIGHT_BACK_TROUSERS_POCKET,
+                CHEST,
+                DIAPHRAGM,
+              ]
+          sensorDataTypes:
+            type: array
+            items:
+              type: string
+              enum: [ACCELEROMETER, GYROSCOPE, MICROPHONE, PEDOMETER]
+  SleepQuestionsData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - sleepQualityScore
+          - tiredScore
+          - hoursSleep
+          - minutesSleep
+      - properties:
+          sleepQualityScore:
+            type: string
+            enum: [VERY_POOR, POOR, FAIR, GOOD, EXCELLENT]
+          tiredScore:
+            type: string
+            enum:
+              [
+                LESS_THAN_NORMAL,
+                SLIGHTLY_LESS_THAN_NORMAL,
+                NO_MORE_THAN_NORMAL,
+                SLIGHTLY_MORE_THAN_NORMAL,
+                MORE_THAN_NORMAL,
+              ]
+          hoursSleep:
+            type: number
+          minutesSleep:
+            type: number
+  SmokeQuestionsData:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - smokeStatus
+          - vapeStatus
+      - properties:
+          smokeStatus:
+            type: string
+            enum: [YES_AND_I_STILL_DO, YES_BUT_I_QUIT, NO]
+          smokerType:
+            type: string
+            enum: [REGULAR_SMOKER, SOCIAL_SMOKER]
+          smokingPeriod:
+            type: string
+            enum:
+              [
+                LESS_THAN_A_YEAR,
+                FROM_1_to_5_YEARS,
+                FROM_6_to_10_YEARS,
+                FROM_11_to_15_YEARS,
+                MORE_THAN_15_YEARS,
+              ]
+          numberOfCigarettesPerDay:
+            type: number
+          numberOfCigarettesPerMonth:
+            type: number
+          vapeStatus:
+            type: string
+            enum: [YES_AND_I_STILL_DO, YES_BUT_I_QUIT, NO]
+          vapePeriodic:
+            type: string
+            enum: [RARELY, OCCASIONALLY, OFTEN, EVERY_DAY]
+  OxfordHipScore:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - hipAffected
+          - hipsData
+      - properties:
+          hipAffected:
+            type: integer
+            enum: [0, 1, 2]
+          rightHipScore:
+            type: integer
+          leftHipScore:
+            type: integer
+          hipsData:
+            type: array
+            items:
+              $ref: "#/definitions/HipsData"
+          configBody:
+            type: object
+            description: could be any dictionary
+  HipsData:
+    type: object
+    required:
+      - pain
+      - washing
+      - transport
+      - socks
+      - shopping
+      - walking
+      - stairs
+      - standing
+      - limping
+      - shooting
+      - interference
+      - bed
+    properties:
+      pain:
+        type: number
+        minimum: 1
+        maximum: 5
+      washing:
+        type: number
+        minimum: 1
+        maximum: 5
+      transport:
+        type: number
+        minimum: 1
+        maximum: 5
+      socks:
+        type: number
+        minimum: 1
+        maximum: 5
+      shopping:
+        type: number
+        minimum: 1
+        maximum: 5
+      walking:
+        type: number
+        minimum: 1
+        maximum: 5
+      stairs:
+        type: number
+        minimum: 1
+        maximum: 5
+      standing:
+        type: number
+        minimum: 1
+        maximum: 5
+      limping:
+        type: number
+        minimum: 1
+        maximum: 5
+      shooting:
+        type: number
+        minimum: 1
+        maximum: 5
+      interference:
+        type: number
+        minimum: 1
+        maximum: 5
+      bed:
+        type: number
+        minimum: 1
+        maximum: 5
+      score:
+        type: number
+      hipAffected:
+        type: number
+        enum: [0, 1, 2]
+  OxfordKneeScore:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - legAffected
+          - legsData
+      - properties:
+          legAffected:
+            type: integer
+            enum: [0, 1, 2]
+          rightKneeScore:
+            type: integer
+          leftKneeScore:
+            type: integer
+          legsData:
+            type: array
+            items:
+              $ref: "#/definitions/LegsData"
+          configBody:
+            type: object
+            description: could be any dictionary
+  LegsData:
+    type: object
+    required:
+      - pain
+      - washing
+      - transport
+      - walk
+      - meal
+      - limping
+      - kneelDown
+      - bed
+      - usualWork
+      - letYouDown
+      - shopping
+      - stairs
+    properties:
+      pain:
+        type: number
+        minimum: 1
+        maximum: 5
+      washing:
+        type: number
+        minimum: 1
+        maximum: 5
+      transport:
+        type: number
+        minimum: 1
+        maximum: 5
+      walk:
+        type: number
+        minimum: 1
+        maximum: 5
+      meal:
+        type: number
+        minimum: 1
+        maximum: 5
+      limping:
+        type: number
+        minimum: 1
+        maximum: 5
+      kneelDown:
+        type: number
+        minimum: 1
+        maximum: 5
+      bed:
+        type: number
+        minimum: 1
+        maximum: 5
+      usualWork:
+        type: number
+        minimum: 1
+        maximum: 5
+      letYouDown:
+        type: number
+        minimum: 1
+        maximum: 5
+      shopping:
+        type: number
+        minimum: 1
+        maximum: 5
+      stairs:
+        type: number
+        minimum: 1
+        maximum: 5
+      score:
+        type: number
+      legAffected:
+        type: number
+        enum: [0, 1, 2]
+  PregnancyStatus:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - metadata
+          - menstrualPeriod
+      - properties:
+          menstrualPeriod:
+            type: boolean
+          pregnancyStatus:
+            type: number
+            minimum: 0
+            maximum: 2
+          isExpectedDueDateAvailable:
+            type: boolean
+          expectedDueDate:
+            type: string
+            format: date-time
+          pregnancyMoreThan1:
+            type: number
+            minimum: 0
+            maximum: 2
+          babyCount:
+            type: integer
+          hasMedicalFertilityProcedure:
+            type: boolean
+          medicalFertilityProcedureAnswer:
+            type: array
+            items:
+              type: number
+              minimum: 0
+              maximum: 5
+          hasOtherMedicalFertilityProcedure:
+            type: boolean
+          otherMedicalFertilityProcedureAnswer:
+            type: string
+          pregnantBefore:
+            type: number
+            minimum: 0
+            maximum: 2
+          pregnancyTimes:
+            type: integer
+          pastPregnancyLiveBirth:
+            type: integer
+          pastPregnancyStillBorn:
+            type: integer
+          pastPregnancyMiscarriage:
+            type: integer
+          pastPregnancyEctopic:
+            type: integer
+          pastPregnancyElectiveTermination:
+            type: integer
+          hasMedicalProfessionalVisit:
+            type: boolean
+          highRiskCondition:
+            type: number
+            minimum: 0
+            maximum: 2
+          highRiskConditionAnswers:
+            type: array
+            items:
+              type: string
+          familyHistoryDefects:
+            type: number
+            minimum: 0
+            maximum: 2
+          familyHistoryDefectsAnswers:
+            type: array
+            items:
+              type: string
+          hasPrenatalScreening:
+            type: boolean
+          prenatalScreeningAnswer:
+            type: array
+            items:
+              type: number
+              minimum: 0
+              maximum: 4
+          hasOtherPrenatalScreening:
+            type: boolean
+          otherPrenatalScreening:
+            type: string
+          hasOtherScreeningProblem:
+            type: boolean
+          otherScreeningProblem:
+            type: string
+          metadata:
+            type: object
+            properties:
+              answers:
+                type: array
+                items:
+                  $ref: "#/definitions/QuestionnaireAnswer"
+
+  Lysholm:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - limp
+          - caneOrCrutches
+          - lockingSensation
+          - givingWaySensation
+          - pain
+          - swelling
+          - climbingStairs
+          - squatting
+      - properties:
+          limp:
+            type: number
+            format: float
+          caneOrCrutches:
+            type: number
+            format: float
+          lockingSensation:
+            type: number
+            format: float
+          givingWaySensation:
+            type: number
+            format: float
+          pain:
+            type: number
+            format: float
+          swelling:
+            type: number
+            format: float
+          climbingStairs:
+            type: number
+            format: float
+          squatting:
+            type: number
+            format: float
+          lysholm:
+            type: number
+            format: float
+  Tegner:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - required:
+          - activityLevelBefore
+          - activityLevelCurrent
+      - properties:
+          activityLevelBefore:
+            type: number
+            format: float
+          activityLevelCurrent:
+            type: number
+            format: float
+
+  Symptoms:
+    type: object
+    properties:
+      painActivity:
+        type: number
+        format: float
+      painHistory:
+        type: number
+        format: float
+      painSeverity:
+        type: number
+        format: float
+      stiffnessHistory:
+        type: number
+        format: float
+      swellingActivity:
+        type: number
+        format: float
+      giveWayLock:
+        type: number
+        format: float
+      giveWayActivity:
+        type: number
+        format: float
+
+  SportsActivity:
+    type: object
+    properties:
+      highestLevel:
+        type: number
+        format: float
+      stairsUp:
+        type: number
+        format: float
+      stairsDown:
+        type: number
+        format: float
+      kneel:
+        type: number
+        format: float
+      squat:
+        type: number
+        format: float
+      sit:
+        type: number
+        format: float
+      rise:
+        type: number
+        format: float
+      run:
+        type: number
+        format: float
+      jumpAndLand:
+        type: number
+        format: float
+      stopAndStart:
+        type: number
+        format: float
+
+  KneeFunction:
+    type: object
+    properties:
+      prior:
+        type: number
+        format: float
+      current:
+        type: number
+        format: float
+
+  IKDC:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          symptoms:
+            $ref: "#/definitions/Symptoms"
+          sportsActivity:
+            $ref: "#/definitions/SportsActivity"
+          kneeFunction:
+            $ref: "#/definitions/KneeFunction"
+          value:
+            type: number
+            format: float
+
+  OACS:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          oacsScore:
+            type: number
+            format: float
+
+  OARS:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          oarsScore:
+            type: number
+            format: float
+          painScore:
+            type: number
+            format: float
+          sleepScore:
+            type: number
+            format: float
+          nauseaScore:
+            type: number
+            format: float
+          mobilityScore:
+            type: number
+            format: float
+
+  EQ5D5L:
+    allOf:
+      - $ref: "#/definitions/PrimitiveData"
+      - properties:
+          indexValue:
+            type: number
+            format: float
+          healthState:
+            type: number
+            format: float

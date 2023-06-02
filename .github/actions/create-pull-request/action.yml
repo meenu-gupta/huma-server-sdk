@@ -1,0 +1,38 @@
+name: HUMA Pull Request
+description: Help make a pull Request when a file has been modified during CI
+runs:
+  using: docker
+  image: Dockerfile
+inputs:
+  token:
+    description: "Github Token"
+    default: ""
+    required: true
+  branch:
+    description: "Name of new branch"
+    default: ""
+    required: true
+  base:
+    description: "Name of base branch for PR"
+    default: ""
+    required: true
+  commit_message:
+    description: "The commit message"
+    default: ""
+    required: true
+  body:
+    description: "The PR Body"
+    default: ""
+    required: true
+  title:
+    description: "The PR Title"
+    default: ""
+    required: true
+  folder:
+    description: "Folder with changes"
+    default: ""
+    required: false
+  file_path:
+    description: "The File that was changed"
+    default: ""
+    required: true

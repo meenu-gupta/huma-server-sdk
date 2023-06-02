@@ -1,0 +1,505 @@
+{
+  "organization": [
+    {
+      "_id": {
+        "$oid": "5fde855f12db509a2785da06"
+      },
+      "name": "ABC Pharmaceuticals EU Trials 123",
+      "deploymentIds": [
+        "5d386cc6ff885918d96edb2c",
+        "5ed8ae76cf99540b259a7315",
+        "5d386cc6ff885918d96eab2c"
+      ],
+      "enrollmentTarget": 3000,
+      "studyCompletionTarget": 2800,
+      "status": "DEPLOYED",
+      "eulaUrl": "https://some_url.com/eulaUrl",
+      "termAndConditionUrl": "https://some_url.com/termAndConditionUrl",
+      "privacyPolicyUrl": "https://some_url.com/privacyPolicyUrl",
+      "roles": [
+        {
+          "id": {
+            "$oid": "6151051575fee50d15298adb"
+          },
+          "name": "Custom org role",
+          "permissions": ["VIEW_PATIENT_IDENTIFIER", "VIEW_PATIENT_DATA", "MANAGE_PATIENT_DATA", "EXPORT_PATIENT_DATA", "CONTACT_PATIENT", "ADD_STAFF_MEMBERS"]
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "6156ad33a7082b29f6c6d0e8"
+      },
+      "name": "org with no deployments",
+      "enrollmentTarget": 3000,
+      "studyCompletionTarget": 2800,
+      "status": "DEPLOYED"
+    },
+    {
+      "_id": {
+        "$oid": "61dfd4575e82e1f92a8f932d"
+      },
+      "name": "org with 1 deployment",
+      "enrollmentTarget": 3000,
+      "studyCompletionTarget": 2800,
+      "status": "DEPLOYED",
+      "deploymentIds": [
+        "61dfe4ed306d9822167e9ad4"
+      ]
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654413"
+      },
+      "id": "5ed803dd5f2f99da73654413",
+      "status": 1,
+      "emailVerified": true,
+      "email": "organization@staff.com",
+      "displayName": "Organization",
+      "userAttributes": {
+        "familyName": "Organization",
+        "givenName": "Staff",
+        "dob": "2000-02-20",
+        "gender": "MALE"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602ce48712b129679a501570"
+      },
+      "id": "602ce48712b129679a501570",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "SuperAdmin@manager.com",
+      "phoneNumber": "+380999999544",
+      "displayName": "SuperAdmin",
+      "userAttributes": {
+        "familyName": "SuperAdmin",
+        "givenName": "SuperAdmin",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654410"
+      },
+      "id": "5ed803dd5f2f99da73654410",
+      "status": 1,
+      "emailVerified": true,
+      "email": "access@controller.com",
+      "displayName": "Access",
+      "userAttributes": {
+        "familyName": "Controller",
+        "givenName": "Access",
+        "dob": "2000-02-20",
+        "gender": "MALE"
+      }
+    },
+     {
+      "_id": {
+        "$oid": "6156477be8a969c484d4cbed"
+      },
+      "id": "6156477be8a969c484d4cbed",
+      "status": 1,
+      "emailVerified": true,
+      "email": "access+1@controller.com",
+      "displayName": "Access",
+      "userAttributes": {
+        "familyName": "Controller",
+        "givenName": "Access",
+        "dob": "2000-02-20",
+        "gender": "MALE"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654412"
+      },
+      "id": "5ed803dd5f2f99da73654412",
+      "status": 1,
+      "emailVerified": true,
+      "email": "call1@center.com",
+      "displayName": "Call Center",
+      "userAttributes": {
+        "familyName": "Call",
+        "givenName": "Center",
+        "dob": "2000-02-20",
+        "gender": "MALE"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654411"
+      },
+      "id": "5ed803dd5f2f99da73654411",
+      "status": 1,
+      "emailVerified": true,
+      "email": "deployment@staff.com",
+      "displayName": "Deployment",
+      "userAttributes": {
+        "familyName": "Staff",
+        "givenName": "Deployment",
+        "dob": "2000-02-20",
+        "gender": "MALE"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654422"
+      },
+      "id": "5ed803dd5f2f99da73654422",
+      "status": 1,
+      "emailVerified": true,
+      "email": "deployment_org@staff.com",
+      "displayName": "Deployment_Org_staff",
+      "userAttributes": {
+        "familyName": "Staff",
+        "givenName": "Deployment_Org",
+        "dob": "2010-02-20",
+        "gender": "MALE"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61920aa2b39e8acfb70a761c"
+      },
+      "status": 1,
+      "emailVerified": true,
+      "email": "custom_user@huma.com",
+      "displayName": "Custom Role user",
+      "userAttributes": {
+        "familyName": "Custom",
+        "givenName": "Role"
+      },
+      "updateDateTime": {
+        "$date": "2021-11-15T07:22:43.625Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-15T07:22:09.932Z"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73655513"
+      },
+      "id": "5ed803dd5f2f99da73655513",
+      "status": 1,
+      "emailVerified": true,
+      "email": "support@org.com",
+      "displayName": "Support",
+      "userAttributes": {
+        "familyName": "Org",
+        "givenName": "Support",
+        "dob": "2000-02-20",
+        "gender": "MALE"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73655514"
+      },
+      "id": "5ed803dd5f2f99da73655514",
+      "status": 1,
+      "emailVerified": true,
+      "email": "administrator@org.com",
+      "displayName": "Administrator",
+      "userAttributes": {
+        "familyName": "Org",
+        "givenName": "Administrator",
+        "dob": "2000-04-20",
+        "gender": "MALE"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73655524"
+      },
+      "id": "5ed803dd5f2f99da73655524",
+      "status": 1,
+      "emailVerified": true,
+      "email": "supervisor@org.com",
+      "displayName": "Supervisor",
+      "userAttributes": {
+        "familyName": "Org",
+        "givenName": "Supervisor",
+        "dob": "1998-04-20",
+        "gender": "MALE"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180336"
+      },
+      "id": "5e84b0dab8dfa268b1180336",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testAM@test.com"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73655147"
+      },
+      "id": "5ed803dd5f2f99da73655147",
+      "status": 1,
+      "emailVerified": true,
+      "email": "clinician@org.com",
+      "displayName": "Clinician",
+      "userAttributes": {
+        "familyName": "Org",
+        "givenName": "Clinician",
+        "dob": "1998-04-20",
+        "gender": "MALE"
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654413"
+      },
+      "email": "organization@staff.com",
+      "givenName": "Organization",
+      "familyName": "Staff",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "OrganizationStaff",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "602ce48712b129679a501570"
+      },
+      "givenName": "SuperAdmin",
+      "familyName": "SuperAdmin",
+      "email": "SuperAdmin@manager.com",
+      "phoneNumber": "+380999999544",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654410"
+      },
+      "email": "access@controller.com",
+      "givenName": "Access",
+      "familyName": "Controller",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "AccessController",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654411"
+      },
+      "email": "deployment@staff.com",
+      "givenName": "Deployment",
+      "familyName": "Staff",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "DeploymentStaff",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654422"
+      },
+      "email": "deployment_org@staff.com",
+      "givenName": "Deployment_Org_staff",
+      "familyName": "Staff",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "DeploymentStaff",
+          "resource": "deployment/*",
+          "userType": "Manager"
+        },
+        {
+          "roleId": "OrganizationStaff",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73654412"
+      },
+      "email": "call1@center.com",
+      "givenName": "Call",
+      "familyName": "Center",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "CallCenter",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "6156477be8a969c484d4cbed"
+      },
+      "email": "access+1@controller.com",
+      "givenName": "Access",
+      "familyName": "Controller",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "AccessController",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "61920aa2b39e8acfb70a761c"
+      },
+      "updateDateTime": {
+        "$date": "2021-11-15T09:02:40.540Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-15T07:22:10.270Z"
+      },
+      "givenName": "Custom",
+      "familyName": "User",
+      "email": "custom_user@huma.com",
+      "roles": [
+        {
+          "roleId": "6151051575fee50d15298adb",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "Asia/Calcutta",
+      "language": "en"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73655513"
+      },
+      "email": "support@org.com",
+      "givenName": "Support",
+      "familyName": "Org",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "Support",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73655514"
+      },
+      "email": "administrator@org.com",
+      "givenName": "Administrator",
+      "familyName": "Org",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "Administrator",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73655524"
+      },
+      "email": "supervisor@org.com",
+      "givenName": "Supervisor",
+      "familyName": "Org",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "Supervisor",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180336"
+      },
+      "email": "testAM@test.com",
+      "roles": [
+        {
+          "roleId": "AccountManager",
+          "resource": "deployment/*"
+        },
+        {
+          "roleId": "OrganizationOwner",
+          "resource": "organization/5fde855f12db509a2785da06"
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73655147"
+      },
+      "email": "clinician@org.com",
+      "givenName": "Clinician",
+      "familyName": "Org",
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "Clinician",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

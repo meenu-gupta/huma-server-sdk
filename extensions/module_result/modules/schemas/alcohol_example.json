@@ -1,0 +1,273 @@
+{
+  "questionText": "Do you drink alcohol?",
+  "instruction": "Add the types and amounts of alcohol you have consumed in the past week",
+  "period": "P1W",
+  "sections": [
+    {
+      "id": "78c10616-e668-46c7-80d5-9a31221f9054",
+      "title": "Beer, Lager or Cider",
+      "icon": {
+        "iconType": "BEER_PINT"
+      },
+      "strengthOptions": [
+        {
+          "label": "Light (less than 4%)",
+          "value": 0.02
+        },
+        {
+          "label": "Medium (4% to 6%)",
+          "value": 0.05
+        },
+        {
+          "label": "Strong (more than 6%)",
+          "value": 0.075
+        }
+      ],
+      "items": [
+        {
+          "id": "17ed4d53-37e0-4538-bb7a-6ecb62e6cd55",
+          "icon": {
+            "iconType": "BEER_BOTTLE"
+          },
+          "label": "Bottle",
+          "singular": "Bottle",
+          "plural": "Bottles",
+          "volume": 0.330
+        },
+        {
+          "id": "27ed4d53-37e0-4538-bb7a-6ecb62e6cd55",
+          "icon": {
+            "iconType": "BEER_CAN"
+          },
+          "label": "Can",
+          "singular": "Can",
+          "plural": "Cans",
+          "volume": 0.440
+        },
+        {
+          "id": "37ed4d53-37e0-4538-bb7a-6ecb62e6cd55",
+          "icon": {
+            "iconType": "BEER_PINT"
+          },
+          "label": "Pint",
+          "singular": "Pint",
+          "plural": "Pints",
+          "volume": 0.568
+        },
+        {
+          "id": "47ed4d53-37e0-4538-bb7a-6ecb62e6cd55",
+          "icon": {
+            "iconType": "BEER_LITRE"
+          },
+          "label": "Litre",
+          "singular": "Litre",
+          "plural": "Litres",
+          "volume": 1.0
+        }
+      ]
+    },
+    {
+      "id": "e6437d16-b709-4361-bae2-72795af5bdd2",
+      "title": "Wine or Sparkling Wine",
+      "icon": {
+        "iconType": "GENERIC"
+      },
+      "strengthOptions": [
+        {
+          "label": "Light (less than 12%)",
+          "value": 0.11
+        },
+        {
+          "label": "Normal (12% to 13%)",
+          "value": 0.125
+        },
+        {
+          "label": "Heavy (more than 13%)",
+          "value": 0.14
+        }
+      ],
+      "items": [
+        {
+          "id": "59a96758-d88c-4939-94af-98c41b3718ba",
+          "icon": {
+            "iconType": "WINE"
+          },
+          "label": "Small glass",
+          "singular": "Small glass",
+          "plural": "Small glasses",
+          "volume": 0.125
+        },
+        {
+          "id": "f95828fc-ce86-493c-a340-184967b888c3",
+          "icon": {
+            "iconType": "WINE"
+          },
+          "label": "Standard glass",
+          "singular": "Standard glass",
+          "plural": "Standard glasses",
+          "volume": 0.175
+        },
+        {
+          "id": "284f5608-2081-4c30-84ea-138142485956",
+          "icon": {
+            "iconType": "WINE"
+          },
+          "label": "Large glass",
+          "singular": "Large glass",
+          "plural": "Large glasses",
+          "volume": 0.25
+        },
+        {
+          "id": "17178c1d-12d9-49fe-bc8f-b7dbf01b6734",
+          "icon": {
+            "iconType": "GENERIC"
+          },
+          "label": "Bottle",
+          "singular": "Bottle",
+          "plural": "Bottles",
+          "volume": 0.75
+        }
+      ]
+    },
+    {
+      "id": "97ed4d53-37e0-4538-bb7a-6ecb62e6cd55",
+      "title": "Shots",
+      "icon": {
+        "iconType": "SHOT"
+      },
+      "strengthOptions": [
+        {
+          "label": "Standard",
+          "value": 0.4
+        }
+      ],
+      "items": [
+        {
+          "id": "345d4d53-37e0-4538-bb7a-6ecb62e6cd55",
+          "icon": {
+            "iconType": "SHOT"
+          },
+          "label": "Small shot",
+          "singular": "Small shot",
+          "plural": "Small shots",
+          "volume": 0.025
+        },
+        {
+          "id": "11ed4d53-37e0-4538-bb7a-6ecb62e6cd55",
+          "icon": {
+            "iconType": "SHOT"
+          },
+          "label": "Large shot",
+          "singular": "Large shot",
+          "plural": "Large shots",
+          "volume": 0.035
+        }
+      ]
+    },
+    {
+      "id": "21253ae8-7a2f-41fb-8bd6-d101d1c0b1fa",
+      "title": "Alcopops",
+      "icon": {
+        "iconType": "ALCOPOP"
+      },
+      "strengthOptions": [
+        {
+          "label": "Normal",
+          "value": 0.05
+        }
+      ],
+      "items": [
+        {
+          "id": "8da598ba-e8da-4415-b700-b9acf8099871",
+          "icon": {
+            "iconType": "ALCOPOP"
+          },
+          "label": "Bottle",
+          "singular": "Bottle",
+          "plural": "Bottles",
+          "volume": 0.275
+        }
+      ]
+    },
+    {
+      "id": "58574e22-59f0-406c-a2c3-f92966b9d30f",
+      "title": "Fortified Wine",
+      "icon": {
+        "iconType": "PORT"
+      },
+      "strengthOptions": [
+        {
+          "label": "Standard",
+          "value": 0.19
+        }
+      ],
+      "items": [
+        {
+          "id": "bb40354f-45fe-40b0-81b6-64ceb1d4acbc",
+          "icon": {
+            "iconType": "PORT"
+          },
+          "label": "Glass",
+          "singular": "Glass",
+          "plural": "Glasses",
+          "volume": 0.05
+        }
+      ]
+    },
+    {
+      "id": "3ad7b042-8bf3-4b39-97f3-de8f6f2fded0",
+      "title": "Spirits",
+      "icon": {
+        "iconType": "SPIRIT"
+      },
+      "strengthOptions": [
+        {
+          "label": "Standard",
+          "value": 0.4
+        }
+      ],
+      "items": [
+        {
+          "id": "c61f8be1-29f0-4761-a3f4-bececd447304",
+          "icon": {
+            "iconType": "SPIRIT"
+          },
+          "label": "Single",
+          "singular": "Single",
+          "plural": "Singles",
+          "volume": 0.025
+        },
+        {
+          "id": "3600ee9e-e9a2-4422-a875-10958cd584be",
+          "icon": {
+            "iconType": "SPIRIT"
+          },
+          "label": "Large single",
+          "singular": "Large single",
+          "plural": "Large singles",
+          "volume": 0.035
+        },
+        {
+          "id": "0a1e02be-9b72-4105-994c-4d8378d60f30",
+          "icon": {
+            "iconType": "SPIRIT"
+          },
+          "label": "Double",
+          "singular": "Double",
+          "plural": "Doubles",
+          "volume": 0.05
+        },
+        {
+          "id": "cabad487-3b0e-4fcb-87d0-70e03d924d18",
+          "icon": {
+            "iconType": "SPIRIT"
+          },
+          "label": "Large double",
+          "singular": "Large double",
+          "plural": "Large doubles",
+          "volume": 0.07
+        }
+      ]
+    }
+  ]
+}

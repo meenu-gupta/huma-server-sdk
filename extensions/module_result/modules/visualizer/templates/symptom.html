@@ -1,0 +1,485 @@
+{% if top_reported_symptoms or reported_symptoms or not_reported_symptoms %}
+<div>
+<style>
+  .chart-container {
+    width: 100%;
+  }
+
+  .white-mark {
+    height: 10px;
+    width: 10px;
+    border: 1px solid #6a6d72;
+    border-radius: 20px;
+    margin-right: 4px;
+    transform: rotate(-45deg);
+  }
+
+  .no-rotation {
+    transform: rotate(90deg);
+  }
+
+  .severe-mark {
+    background: #6a6d72;
+  }
+
+  .very-severe-mark {
+    background: #2f3033;
+    border: 1px solid #2f3033;
+  }
+
+  .mark-title {
+    display: flex;
+    padding-bottom: 11px;
+    color: #2f3033;
+    padding-right: 20px;
+  }
+
+  .severe-mark-title {
+    padding-right: 14px;
+  }
+
+  .for-marks {
+    padding-left: 14px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .first-line {
+    width: 100%;
+    height: 1px;
+    background: #6a6d72;
+    border-radius: 20px;
+    margin-top: 3px;
+  }
+
+  .second-line {
+    margin-top: 2px;
+  }
+
+  .symptom-row {
+    column-count: 2;
+    column-gap: 0;
+  }
+
+  .symptom {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    color: #2f3033;
+    break-inside: avoid;
+  }
+
+  .symptom-name {
+    padding-left: 14px;
+    max-width: 140px;
+  }
+
+  .symptom-data-entries {
+    padding-right: 16px;
+  }
+
+  .fixed-height {
+    height: 48px;
+  }
+</style>
+<div class="general general-container charts-container flexible-height">
+  <div class="for-charts" id="symptomsCharts"></div>
+  {% if reported_symptoms %}
+    <div class="for-other-symptoms">
+      <h3 class="title">Other reported symptoms</h3>
+      <div class="symptom-row font-size-12">
+        {% for symptom in reported_symptoms %}
+          <div class="symptom">
+            <div class="symptom-name">{{ symptom.name }}</div>
+            <div class="symptom-data-entries">
+              {{ symptom.count }} data {{ "entries" if symptom.count > 1 else "entry" }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+  {% if not_reported_symptoms %}
+    <div class="not-reported">
+      <h3 class="title">Not reported symptoms</h3>
+      <div class="symptom-row font-size-12">
+        {% for symptom in not_reported_symptoms %}
+          <div class="symptom">
+            <div class="symptom-name">{{ symptom }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+</div>
+<script>
+  am5.addLicense("AM5C332366403");
+
+  var data = {{ top_reported_symptoms }};
+
+  const sumValue = obj => Object.values(obj).reduce((a, b) => a + b);
+
+  function setTitleHeight(titleId0, titleId1) {
+    var title0 = document.getElementById(titleId0);
+    var title1 = document.getElementById(titleId1);
+    let titleTopBottomPadding = 24;
+    if (title0.clientHeight > title1.clientHeight) {
+      title1.style.height = (title0.clientHeight - titleTopBottomPadding) + 'px'
+    } else if (title1.clientHeight > title0.clientHeight) {
+      title0.style.height = (title1.clientHeight - titleTopBottomPadding) + 'px'
+    }
+  }
+
+  function getMaximumSymptomValue(data) {
+    let sumValuesArr = [];
+    let newDataArr = _.cloneDeep(data);
+    newDataArr.forEach(obj => {
+      delete obj.month;
+      if (!_.isEmpty(obj)) {
+        sumValuesArr.push(sumValue(obj));
+      }
+    });
+    return Math.max(...sumValuesArr);
+  }
+
+  function createDateRange(text, yAxis, root) {
+    yAxis.axisHeader.children.push(
+        am5.Label.new(root, {
+          text: text,
+          fontSize: 10,
+          paddingBottom: 4,
+          paddingLeft: 0,
+          fill: am5.color("#6A6D72"),
+        })
+    );
+
+    yAxis.axisHeader.get("background").setAll({
+      fill: am5.color("#FBFBFB"),
+    });
+  }
+
+  function createChart(
+      chartId,
+      data,
+      cellEndLocation,
+      cellStartLocation,
+      labelsLocation,
+      dateRange,
+      severityList
+  ) {
+    let root = am5.Root.new(chartId);
+
+    let chart = root.container.children.push(
+        am5xy.XYChart.new(root, {
+          layout: root.verticalLayout,
+        })
+    );
+    let colors;
+    if (severityList.length > 3) {
+      colors = [
+        am5.color("#fff"),
+        am5.color("#fff"),
+        am5.color("#fff"),
+        am5.color("#6A6D72"),
+        am5.color("#2F3033"),
+      ];
+    } else {
+      colors = [am5.color("#fff"), am5.color("#fff"), am5.color("#6A6D72")];
+    }
+    chart.get("colors").set("colors", colors);
+
+    let xAxis = chart.xAxes.push(
+        am5xy.CategoryAxis.new(root, {
+          categoryField: "month",
+          renderer: am5xy.AxisRendererX.new(root, {
+            minGridDistance: 10,
+            cellStartLocation: cellStartLocation,
+            cellEndLocation: cellEndLocation,
+            strokeOpacity: 1,
+            strokeWidth: 1,
+            stroke: am5.color("#424347"),
+          }),
+          tooltip: am5.Tooltip.new(root, {}),
+        })
+    );
+
+    xAxis.data.setAll(data);
+
+    let max = getMaximumSymptomValue(data);
+    let yAxis = chart.yAxes.push(
+        am5xy.ValueAxis.new(root, {
+          max: max,
+          min: 0,
+          maxPrecision: 0,
+          renderer: am5xy.AxisRendererY.new(root, {
+            strokeOpacity: 1,
+            strokeWidth: 1,
+            stroke: am5.color("#424347"),
+            minGridDistance: 20,
+          }),
+        })
+    );
+
+    createDateRange(dateRange, yAxis, root);
+
+    let labelLeft = am5.Label.new(root, {
+      rotation: -90,
+      text: "DATA ENTRIES",
+      fill: am5.color("#6A6D72"),
+      y: am5.p50,
+      centerX: am5.p50,
+      paddingTop: -7,
+      paddingBottom: 0,
+      fontSize: 9,
+    });
+
+    yAxis.children.unshift(labelLeft);
+
+    let xRenderer = xAxis.get("renderer");
+
+    xRenderer.labels.template.setAll({
+      location: labelsLocation,
+      paddingTop: 10,
+      paddingBottom: -5,
+      fontSize: 9,
+      fill: am5.color("#2F3033"),
+    });
+
+    let yRenderer = yAxis.get("renderer");
+    yRenderer.labels.template.setAll({
+      paddingRight: 10,
+      fontSize: 10,
+      fill: am5.color("#2F3033"),
+    });
+
+    xRenderer.labels.template.adapters.add("text", (text, target) => {
+      if (target.dataItem && target.dataItem.dataContext) {
+        return target.dataItem.dataContext.month.toUpperCase();
+      }
+    });
+
+    function makeSeries(fieldName, severity) {
+      let color = "#6A6D72";
+      let rotation = 0;
+      let isPattern = false;
+      if (severity === 2 && severityList.length > 3) {
+        rotation = -45;
+        isPattern = true;
+      } else if (severity === 3 && severityList.length > 3) {
+        rotation = 90;
+        isPattern = true;
+      } else if (severity === 5 && severityList.length > 3) {
+        color = "#2F3033";
+      } else if (severity === 2 && severityList.length <= 3) {
+        rotation = 90;
+        isPattern = true;
+      }
+
+      let series = chart.series.push(
+          am5xy.ColumnSeries.new(root, {
+            stacked: true,
+            xAxis: xAxis,
+            yAxis: yAxis,
+            valueYField: fieldName,
+            categoryXField: "month",
+            stroke: am5.color(color),
+          })
+      );
+
+      series.columns.template.setAll({
+        strokeWidth: 1,
+      });
+
+      if (isPattern) {
+        series.columns.template.set(
+            "fillPattern",
+            am5.LinePattern.new(root, {
+              fill: am5.color(0xffffff),
+              fillOpacity: 1,
+              rotation: rotation,
+              gap: 3,
+            })
+        );
+      }
+
+      series.data.setAll(data);
+      series.appear();
+    }
+
+    severityList.forEach((elem) => {
+      makeSeries(elem.name, elem.severity);
+    });
+  }
+
+  function createMark(titleClass, markClass, text) {
+    let forMark = document.createElement("div");
+    forMark.className = titleClass;
+    let mark = document.createElement("div");
+    mark.className = markClass;
+    let title = document.createElement("div");
+    title.innerHTML = text;
+    forMark.appendChild(mark);
+    forMark.appendChild(title);
+    return forMark;
+  }
+
+  function createMarkWithLines(titleClass, markClass, text) {
+    let forMark = document.createElement("div");
+    forMark.className = titleClass;
+    let firstLine = document.createElement("div");
+    firstLine.className = "first-line";
+    let secondLine = document.createElement("div");
+    secondLine.className = "first-line second-line";
+    let mark = document.createElement("div");
+    mark.className = markClass;
+    mark.appendChild(firstLine);
+    mark.appendChild(secondLine);
+    let title = document.createElement("div");
+    title.innerHTML = text;
+    forMark.appendChild(mark);
+    forMark.appendChild(title);
+    return forMark;
+  }
+
+  if (data.length > 0) {
+    data.forEach((elem, index) => {
+      let chartDiv = document.createElement("div");
+      chartDiv.id = "chartDiv" + index.toString();
+      chartDiv.className = "chartDiv";
+
+      let h3 = document.createElement("h3");
+      h3.className = "title";
+      h3.id = 'title'+ index.toString();
+      h3.innerHTML = elem.title;
+
+      let marks = document.createElement("div");
+      marks.className = "for-marks";
+      marks.id = "marks" + index.toString();
+
+      let marksFirstLine = document.createElement("div");
+      marksFirstLine.style.display = "flex";
+      marks.appendChild(marksFirstLine);
+
+      let marksSecondLine = document.createElement("div");
+      if (elem.severityList.length > 3) {
+        marksSecondLine.style.display = "flex";
+        marks.appendChild(marksSecondLine);
+      }
+
+      let existingSeverities = [];
+
+      elem.severityList.forEach(item => {
+        if (existingSeverities.includes(item.severity))
+          return;
+        let forNoneMark;
+        let forMildMark;
+        let forModerateMark;
+        let forSevereMark;
+        let forVerySevereMark;
+
+        if (item.severity === 1) {
+          forNoneMark = createMark(
+              "mark-title",
+              "white-mark",
+              item.title
+          );
+          marksFirstLine.appendChild(forNoneMark);
+        } else if (item.severity === 2) {
+          if (elem.severityList.length > 3) {
+            forMildMark = createMarkWithLines(
+                "mark-title",
+                "white-mark",
+                item.title
+            );
+          } else {
+            forMildMark = createMarkWithLines(
+                "mark-title",
+                "white-mark no-rotation",
+                item.title
+            );
+          }
+          marksFirstLine.appendChild(forMildMark);
+        } else if (item.severity === 3) {
+          if (elem.severityList.length > 3) {
+            forModerateMark = createMarkWithLines(
+                "mark-title",
+                "white-mark no-rotation",
+                item.title
+            );
+          } else {
+            forModerateMark = createMark(
+                "mark-title severe-mark-title",
+                "severe-mark white-mark",
+                item.title
+            );
+          }
+
+          marksFirstLine.appendChild(forModerateMark);
+        } else if (item.severity === 4) {
+          forSevereMark = createMark(
+              "mark-title severe-mark-title",
+              "severe-mark white-mark",
+              item.title
+          );
+          marksSecondLine.appendChild(forSevereMark);
+        } else if (item.severity === 5) {
+          forVerySevereMark = createMark(
+              "mark-title",
+              "very-severe-mark white-mark",
+              item.title
+          );
+          marksSecondLine.appendChild(forVerySevereMark);
+        }
+        existingSeverities.push(item.severity);
+      });
+
+      let container = document.createElement("div");
+      container.className = "chart-container";
+      container.appendChild(h3);
+      container.appendChild(marks);
+      container.appendChild(chartDiv);
+
+      let cont = document.getElementById("symptomsCharts");
+      cont.appendChild(container);
+
+      let cellEndLocation;
+      let cellStartLocation;
+      let labelsLocation;
+
+      if (data.length <= 1) {
+        cellEndLocation = 0.35;
+        cellStartLocation = -0.05;
+        labelsLocation = 0.1;
+      } else {
+        cellEndLocation = 0.65;
+        cellStartLocation = -0.1;
+        labelsLocation = 0.2;
+      }
+
+      createChart(
+          chartDiv.id,
+          elem.data,
+          cellEndLocation,
+          cellStartLocation,
+          labelsLocation,
+          elem.dateRange,
+          elem.severityList
+      );
+    });
+
+    if (
+        (data[0]?.severityList?.length > 3) ||
+        (data[1]?.severityList?.length > 3)
+    ) {
+      var marks0 = document.getElementById('marks0');
+      marks0.className = 'for-marks fixed-height';
+      var marks1 = document.getElementById('marks1');
+      marks1.className = 'for-marks fixed-height';
+    }
+    setTitleHeight("title0", "title1")
+  }
+</script>
+</div>
+{% endif %}

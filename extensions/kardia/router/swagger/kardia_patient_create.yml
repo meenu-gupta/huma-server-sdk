@@ -1,0 +1,49 @@
+Create kardia patient and mobile user
+---
+tags:
+  - kardia
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreateKardiaPatientRequestObject'
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user
+responses:
+  200:
+    description: Kardia patient data
+    schema:
+      $ref: '#/definitions/CreateKardiaPatientResponseObject'
+definitions:
+  CreateKardiaPatientResponseObject:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      mrn:
+        type: string
+      email:
+        type: string
+        format: email
+      firstname:
+        type: string
+      lastname:
+        type: string
+      password:
+        type: string
+  CreateKardiaPatientRequestObject:
+    type: object
+    required:
+      - email
+      - dob
+    properties:
+      email:
+        type: string
+      dob:
+        type: string

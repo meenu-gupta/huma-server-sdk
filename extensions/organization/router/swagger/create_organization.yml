@@ -1,0 +1,67 @@
+Create organization
+---
+tags:
+  - organization
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreateOrganizationRequest'
+responses:
+  201:
+    description: created organization response
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  CreateOrganizationRequest:
+    type: object
+    required:
+      - name
+      - privacyPolicyUrl
+      - eulaUrl
+      - termAndConditionUrl
+    properties:
+      name:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      enrollmentTarget:
+        type: integer
+        example: 3000
+      studyCompletionTarget:
+        type: integer
+        example: 3000
+      status:
+        type: string
+        enum:
+          - DEPLOYED
+          - DRAFT
+          - ARCHIVED
+      privacyPolicyUrl:
+        type: string
+      eulaUrl:
+        type: string
+      termAndConditionUrl:
+        type: string
+      viewType:
+        type: string
+        enum:
+          - DCT
+          - RPM
+      targetConsented:
+        type: number
+      dashboardId:
+        type: string
+        enum:
+          - OrganisationOverview
+      privacyPolicyObject:
+        $ref: "#/definitions/S3Object"
+      termAndConditionObject:
+        $ref: "#/definitions/S3Object"
+      eulaObject:
+        $ref: "#/definitions/S3Object"

@@ -1,0 +1,11 @@
+{
+  "complexSymptoms": [
+    {
+      "name": "Pain",
+      "scaleSymptom": {
+        "lowerBound": 5,
+        "upperBound": 10
+      }
+    }
+  ]
+}

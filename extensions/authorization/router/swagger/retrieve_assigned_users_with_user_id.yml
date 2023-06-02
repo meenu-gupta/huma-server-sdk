@@ -1,0 +1,19 @@
+Retrieve User Profiles Assigned to Manager
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: Manager ID to retrieve patients for.
+responses:
+  200:
+    description: List of user profiles
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/UserProfile'

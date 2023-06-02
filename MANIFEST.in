@@ -1,0 +1,2 @@
+recursive-include sdk *.yml *.yaml *.json *.html *.js *.css *.ics
+recursive-include extensions *.yml *.yaml *.json *.html *.js *.css

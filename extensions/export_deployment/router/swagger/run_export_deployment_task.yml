@@ -1,0 +1,34 @@
+Run export deployment task
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: "Json body with options"
+    required: true
+    schema:
+      $ref: "#/definitions/ExportDeploymentRequest"
+  - in: path
+    name: deployment_id
+    description: "ID of the deployment to run export deployment task for."
+    required: true
+    type: string
+
+responses:
+  200:
+    description: OK
+    schema:
+      $ref: '#/definitions/RunExportTaskResponse'
+
+definitions:
+  RunExportTaskResponse:
+    type: object
+    properties:
+      exportProcessId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"

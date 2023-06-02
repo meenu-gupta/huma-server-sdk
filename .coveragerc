@@ -1,0 +1,44 @@
+# .coveragerc to control coverage.py
+[run]
+# Uncomment below to enable branch coverage in test coverage
+    branch = True
+
+omit =
+  */__init__.py
+  *_tests.py
+  */test_*.py
+  */*_test_utils/*
+  */*_fixtures.py
+  */*_test_case.py
+  */component.py
+  */exceptions.py
+  */api_specs.py
+  */components.py
+  */config.py
+  */mongodb_migrations/*
+
+
+[report]
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    # Excluding all abstract methods
+    @(?:abc\.)?abstract(?:method|property|classmethod|staticmethod)
+
+    # Have to re-enable the standard pragma for excluding lines
+    pragma: no cover
+
+    # Don't count import statements
+    import *
+    from *
+
+    # Don't complain if tests don't hit defensive assertion code:
+    raise NotImplementedError
+
+    # Don't complain if non-runnable code isn't run:
+    if 0:
+    if __name__ == .__main__.:
+
+ignore_errors = True
+
+[html]
+directory = coverage_html_report

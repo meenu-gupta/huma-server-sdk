@@ -1,0 +1,27 @@
+summary: Reorder Onboarding Module Configs
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/ReorderOnboardingModuleConfigsRequest'
+responses:
+  200:
+    description: Onboarding module configs have been reordered
+    schema:
+      $ref: '#/definitions/IdsResponse'
+definitions:
+  ReorderOnboardingModuleConfigsRequest:
+    type: array
+    items:
+      $ref: "#/definitions/ReorderObject"

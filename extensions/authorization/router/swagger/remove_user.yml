@@ -1,0 +1,15 @@
+Remove CP Staff
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user to remove.
+responses:
+  204:
+    description: User removed by id

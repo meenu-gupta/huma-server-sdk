@@ -1,0 +1,21 @@
+{{- if .Values.debugDeployment.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "..fullname" . }}
+  labels:
+    app: debug
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: debug
+  template:
+    metadata:
+      labels:
+        app: debug
+    spec:
+      containers:
+      - name: phoenix-debug
+        image: index.docker.io/medopadrtd/phoenix-debug:v0.7
+{{- end}}

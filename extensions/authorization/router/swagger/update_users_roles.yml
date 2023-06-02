@@ -1,0 +1,41 @@
+Update multiple users' roles
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/UpdateUsersRolesRequest"
+responses:
+  200:
+    description: Number of users whose roles are updated
+    schema:
+      $ref: "#/definitions/UpdateUsersRolesResponse"
+definitions:
+  UpdateUsersRolesRequest:
+    type: object
+    properties:
+      roles:
+        type: array
+        items:
+          $ref: "#/definitions/UserRole"
+      userIds:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      allUsers:
+        type: boolean
+        example: false
+
+  UpdateUsersRolesResponse:
+    type: object
+    properties:
+      updatedUsers:
+        type: integer
+        example: 10

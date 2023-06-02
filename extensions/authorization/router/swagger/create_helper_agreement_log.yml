@@ -1,0 +1,33 @@
+Create helper agreement log
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: Deployment ID
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreateHelperAgreementLogRequest'
+responses:
+  201:
+    description: 201 when helper agreement log has been created successfully
+definitions:
+  CreateHelperAgreementLogRequest:
+    type: object
+    properties:
+      status:
+        type: string
+        enum: [DO_NOT_AGREE, AGREE_AND_ACCEPT]

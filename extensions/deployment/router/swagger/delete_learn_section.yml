@@ -1,0 +1,21 @@
+Delete Learn Section
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment learn section belongs to.
+  - in: path
+    name: section_id
+    type: string
+    required: true
+    description: ID of the learn section to delete.
+
+responses:
+  204:
+    description: Learn Section deleted

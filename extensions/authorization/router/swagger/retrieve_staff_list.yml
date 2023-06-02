@@ -1,0 +1,39 @@
+Retrieve Staff List
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: body
+    name: body
+    schema:
+      $ref: "#/definitions/StaffListRequest"
+responses:
+  200:
+    description: List staff members
+    schema:
+      type: array
+      items:
+        $ref: '#/definitions/StaffListResponse'
+definitions:
+  StaffListRequest:
+    type: object
+    required:
+      - organizationId
+    properties:
+      nameContains:
+        type: string
+        example: "test"
+      organizationId:
+        type: string
+
+  StaffListResponse:
+    allOf:
+      - properties:
+          deployments:
+            type: array
+            items:
+              type: string
+              example: "AU1234-AU4321"
+      - $ref: '#/definitions/UserProfile'

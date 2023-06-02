@@ -1,0 +1,33 @@
+name: Trigger CD
+
+on:
+   workflow_dispatch:
+    inputs:
+      container_image_hash:
+        description: 'Container Image Hash'
+        required: true
+      environment:
+        description: 'Helmfile Environment'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup helmfile
+        uses: mamezou-tech/setup-helmfile@v0.7.0
+        with:
+          install-kubectl: no
+          install-helm: no
+
+      - name: Apply to dev
+        if: contains('["milifili", "paresh-huma", "rodelt-medopad"]', github.actor) && ${{ github.event.inputs.environment }} == "gcp-lon-dev"
+        env:
+          HU_IMAGE_TAG: "${{ github.event.inputs.container_image_hash }}"
+        run: |
+          echo "${{ secrets.GCP_LON_DEV_KUBECONFIG }}" | base64 --decode > /tmp/config
+          export KUBECONFIG=/tmp/config
+          cd deploy/ppserver && helmfile -e ${{ github.event.inputs.environment }} -l name=ppserver apply

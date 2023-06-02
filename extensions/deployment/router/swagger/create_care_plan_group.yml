@@ -1,0 +1,90 @@
+Create CarePlanGroup
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment care plan group belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CarePlanGroupCreateRequest'
+responses:
+  201:
+    description: Successfully Created
+definitions:
+  CarePlanGroupCreateRequest:
+    type: object
+    required:
+      - groups
+    properties:
+      groups:
+        type: array
+        items:
+          $ref: "#/definitions/CarePlanEachGroup"
+  CarePlanEachGroup:
+    type: object
+    required:
+      - id
+      - extensionForActivationCode
+      - moduleConfigPatches
+      - default
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      moduleConfigPatches:
+        type: array
+        items:
+          $ref: "#/definitions/ModuleConfigPatch"
+      default:
+        type: boolean
+      extensionForActivationCode:
+        type: string
+  ModuleConfigPatch:
+    type: object
+    required:
+      - moduleConfigId
+      - changeType
+      - patch
+    properties:
+      moduleConfigId:
+        type: string
+      changeType:
+        $ref: "#/definitions/ModuleConfigChangeType"
+      patch:
+        type: array
+        items:
+          $ref: "#/definitions/Patch"
+
+  ModuleConfigChangeType:
+    type: string
+    enum:
+      - REMOVE
+      - PATCH
+  Patch:
+    type: object
+    required:
+      - op
+      - patch
+    properties:
+      op:
+        $ref: "#/definitions/OperationType"
+      path:
+        type: string
+      value:
+        type: string
+  OperationType:
+    type: string
+    enum:
+      - replace
+      - remove
+      - add

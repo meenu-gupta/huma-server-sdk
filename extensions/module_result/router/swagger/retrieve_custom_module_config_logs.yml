@@ -1,0 +1,63 @@
+Retrieve Custom Module Config Logs
+---
+tags:
+  - modules
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user.
+  - in: path
+    name: module_config_id
+    type: string
+    required: true
+    description: ID of the module config.
+  - in: query
+    name: skip
+    type: integer
+    minimum: 0
+    required: false
+  - in: query
+    name: limit
+    type: integer
+    minimum: 1
+    required: false
+  - in: query
+    name: type
+    type: string
+    enum: ["RAG", "SCHEDULE"]
+    required: false
+responses:
+  200:
+    description: list of custom module config logs
+    schema:
+      $ref: '#/definitions/RetrieveCustomModuleConfigLogsResponse'
+definitions:
+  RetrieveCustomModuleConfigLogsResponse:
+    type: object
+    properties:
+      logs:
+        type: array
+        items:
+          $ref: "#/definitions/CustomModuleConfigLog"
+      total:
+        type: integer
+        example: 10
+  CustomModuleConfigLog:
+    allOf:
+      - $ref: "#/definitions/ModuleConfig"
+      - properties:
+        type:
+          type: string
+          enum: ["RAG", "SCHEDULE"]
+        clinicianId:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+        clinicianName:
+          type: string
+        moduleConfigId:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"

@@ -1,0 +1,33 @@
+Withdraw Econsent User
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+  - in: path
+    name: econsent_id
+    type: string
+    required: true
+    description: ID of the econsent to sign.
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/WithdrawEConsentRequest'
+
+responses:
+  200:
+    description: 200 When the user is offboarded successfully
+
+definitions:
+  WithdrawEConsentRequest:
+    type: object
+    properties:
+      logId:
+        type: string

@@ -1,0 +1,50 @@
+Retrieve single ecg pdf
+---
+tags:
+  - kardia
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: Id of Huma app user.
+  - in: path
+    name: record_id
+    type: string
+    required: true
+    description: Id of the record to be retrieved.
+responses:
+  200:
+    description: Kardia patient data
+    schema:
+      $ref: '#/definitions/ECGAliveCor'
+definitions:
+  ECGAliveCor:
+    type: object
+    required:
+      - userId
+      - deviceName
+    properties:
+      deploymentId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      userId:
+        type: string
+      deviceName:
+        type: string
+        example: "iOS"
+      deviceDetails:
+        type: string
+      moduleId:
+        type: string
+      startDateTime:
+        type: string
+      endDateTime:
+        type: string
+      submitterId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      s3object:
+        $ref: "#/definitions/S3Object"
+      kardiaEcgRecordId:
+        type: string

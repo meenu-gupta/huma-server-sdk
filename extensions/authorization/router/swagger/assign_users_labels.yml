@@ -1,0 +1,35 @@
+Assign Labels to user
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/UsersAssignLabelsRequest"
+responses:
+  200:
+    description: Users Object IDs
+    schema:
+      type: array
+      items:
+        type: string
+        example: "5d386cc6ff885918d96edb2c"
+
+definitions:
+  UsersAssignLabelsRequest:
+    properties:
+      labelIds:
+        type: array
+        items:
+          type: string
+          example: "5d386cc6ff885918d96edb2c"
+      userIds:
+        type: array
+        items:
+          type: string
+          example: "5d386cc6ff885918d96edb2c"

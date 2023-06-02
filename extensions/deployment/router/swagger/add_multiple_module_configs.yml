@@ -1,0 +1,32 @@
+summary: Create Multiple Module Configs
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreateMultipleModuleConfigsRequest'
+responses:
+  200:
+    description: Multiple Module Configs have been created
+    schema:
+      $ref: '#/definitions/IdsResponse'
+definitions:
+  CreateMultipleModuleConfigsRequest:
+    type: object
+    required:
+      - moduleConfigs
+    properties:
+      moduleConfigs:
+        type: array
+        items:
+          $ref: "#/definitions/CreateModuleConfigRequest"

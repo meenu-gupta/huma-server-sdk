@@ -1,0 +1,10 @@
+Retrieve Server Version
+---
+tags:
+  - server
+responses:
+  200:
+    description: Server version
+    schema:
+      type: string
+      example: "1.0.0"

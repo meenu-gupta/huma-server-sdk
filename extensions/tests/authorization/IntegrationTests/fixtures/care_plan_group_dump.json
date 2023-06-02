@@ -1,0 +1,299 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "moduleConfigs": [
+        {
+          "about": "here we are",
+          "configBody": {
+            "id": "e932907c-e2c6-4fc7-88a9-72e2bba65431",
+            "questionnaireType": "OBSERVATION_NOTES",
+            "name": "Observation Notes",
+            "pages": [],
+            "isForManager": true
+          },
+          "id": "5f0d64a47fe6637a82dcbea9",
+          "learnArticleIds": [],
+          "moduleId": "Questionnaire",
+          "moduleName": "Observation Notes",
+          "status": "ENABLED"
+        },
+        {
+          "about": "Second Observation Note",
+          "configBody": {
+            "id": "e932907c-e2c6-4fc7-88a9-72e2bba65433",
+            "isForManager": true,
+            "name": "Second Observation Notes",
+            "questionnaireType": "OBSERVATION_NOTES",
+            "pages": []
+          },
+          "id": "5f0d64a47fe6637a82dcbea8",
+          "moduleId": "Questionnaire",
+          "moduleName": "Observation Notes 2",
+          "status": "ENABLED"
+        },
+        {
+          "about": "baseline questionnaire",
+          "configBody": {
+            "id": "e932907c-e2c6-4fc7-88a9-72e2bba65432",
+            "isForManager": false,
+            "pages": []
+          },
+          "id": "5f15aaea6530a4c3c6db4506",
+          "learnArticleIds": [],
+          "moduleId": "Questionnaire",
+          "moduleName": "Baseline Questionnaire",
+          "status": "ENABLED"
+        }
+      ],
+      "localizations": {
+        "en": {
+          "hu_obs_notes": "Observation Notes",
+          "hu_obs_notes_2": "Observation Notes 2",
+          "hu_sample_answer": "aaa"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test1@test1.com",
+      "phoneNumber": "+380999999955"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "id": "5e8f0c74b50aa9656c34789d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999555"
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "test1",
+      "familyName": "test1",
+      "email": "test1@test1.com",
+      "phoneNumber": "+380999999955",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "givenName": "manager",
+      "familyName": "manager",
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999555",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ],
+  "careplangrouplog": [
+    {
+      "_id": {
+        "$oid": "600671fb244f40e88bc94686"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "toCarePlanGroupId": "com.huma.covid19.mild",
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "submitterName": "test1 test1",
+      "note": "Note",
+      "createDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      },
+      "updateDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      }
+    }
+  ],
+  "questionnaire": [
+    {
+      "_id": {
+        "$oid": "60084cec1523b147db7cd3cf"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "moduleId": "Questionnaire",
+      "moduleConfigId": {
+        "$oid": "5f0d64a47fe6637a82dcbea9"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "iOS",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2020-10-12T08:50:28.321Z"
+      },
+      "createDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "answers": [
+        {
+          "question": "hu_obs_notes_2",
+          "answerText": "aaa"
+        },
+        {
+          "question": "Have you reviewed patient vitals?",
+          "answerText": "true"
+        }
+      ],
+      "questionnaireName": "Observation Notes",
+      "questionnaireId": "e932907c-e2c6-4fc7-88a9-72e2bba65431"
+    },
+    {
+      "_id": {
+        "$oid": "60084cec1523b147db7cd3cc"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "moduleId": "Questionnaire",
+      "moduleConfigId": {
+        "$oid": "5f15aaea6530a4c3c6db4506"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "iOS",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2020-10-12T08:50:28.321Z"
+      },
+      "createDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "answers": [
+        {
+          "question": "Baseline Questionnaire",
+          "answerText": "aaa"
+        },
+        {
+          "question": "Have you reviewed patient vitals?",
+          "answerText": "true"
+        }
+      ],
+      "questionnaireName": "Baseline Questionnaire",
+      "questionnaireId": "e932907c-e2c6-4fc7-88a9-72e2bba65432"
+    },
+    {
+      "_id": {
+        "$oid": "60084cec1523b147db7cd3ca"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "moduleId": "Questionnaire",
+      "moduleConfigId": {
+        "$oid": "5f0d64a47fe6637a82dcbea8"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "iOS",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2020-10-12T08:50:28.321Z"
+      },
+      "createDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "answers": [
+        {
+          "question": "hu_obs_notes_2",
+          "answerText": "hu_sample_answer"
+        },
+        {
+          "question": "Have you reviewed patient vitals?",
+          "answerText": "true"
+        }
+      ],
+      "questionnaireName": "Observation Notes 2",
+      "questionnaireId": "e932907c-e2c6-4fc7-88a9-72e2bba65436"
+    },
+    {
+      "_id": {
+        "$oid": "60084cec1523b147db7cd3cd"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "moduleId": "Questionnaire",
+      "moduleConfigId": {
+        "$oid": "5f0d64a47fe6637a82dcbea9"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "iOS",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2020-10-12T08:50:28.321Z"
+      },
+      "createDateTime": {
+        "$date": "2020-10-12T08:50:28.442Z"
+      },
+      "answers": [
+        {
+          "question": "hu_obs_notes_2",
+          "answerText": "aaa"
+        },
+        {
+          "question": "Have you reviewed patient vitals?",
+          "answerText": "true"
+        }
+      ],
+      "questionnaireName": "Observation Notes",
+      "questionnaireId": "e932907c-e2c6-4fc7-88a9-72e2bba65431"
+    }
+  ]
+}

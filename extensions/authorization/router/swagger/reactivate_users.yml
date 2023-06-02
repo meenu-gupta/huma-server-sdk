@@ -1,0 +1,36 @@
+Reactivate users
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: "Json body with userIds"
+    required: true
+    schema:
+      $ref: "#/definitions/ReactivateUsersRequest"
+responses:
+  200:
+    description: When the users are reactivated successfully
+    schema:
+      $ref: "#/definitions/ReactivateUsersResponse"
+
+definitions:
+  ReactivateUsersRequest:
+    type: object
+    required:
+      - userIds
+    properties:
+      userIds:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+  ReactivateUsersResponse:
+    type: object
+    properties:
+      reactivatedUsers:
+        type: integer
+        example: 10

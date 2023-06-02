@@ -1,0 +1,15 @@
+table StepDataTable {
+  version: int;
+  deviceDetails: string;
+  isAggregated: bool;
+  startDateTime: long;
+  endDateTime: long;
+  numberOfStep: int;
+}
+
+table StepsTable {
+  platform:string;
+  stepCounterData:[StepDataTable];
+}
+
+root_type StepsTable;

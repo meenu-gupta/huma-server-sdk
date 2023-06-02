@@ -1,0 +1,48 @@
+Retrieve Unseen Module result
+---
+tags:
+  - modules
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: user_id
+    in: path
+    required: true
+    type: string
+responses:
+  200:
+    description: Returns details of requested primitive
+    schema:
+      $ref: "#/definitions/RetrieveUnseenModulesResponse"
+definitions:
+  UnseenModuleResult:
+    type: object
+    properties:
+      moduleId:
+        type: string
+      moduleConfigId:
+        type: string
+      flags:
+        type: object
+        properties:
+          red:
+            type: integer
+          amber:
+            type: integer
+          green:
+            type: integer
+          gray:
+            type: integer
+
+  RetrieveUnseenModulesResponse:
+    type: object
+    properties:
+      flags:
+        type: array
+        items:
+          $ref: "#/definitions/UnseenModuleResult"
+      lastManagerNote:
+        type: string
+        format: date-time

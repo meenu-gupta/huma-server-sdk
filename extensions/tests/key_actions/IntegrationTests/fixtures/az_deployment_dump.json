@@ -1,0 +1,1989 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "AZ Deployment",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "updateDateTime": {
+        "$date": "2021-04-21T20:23:10.560Z"
+      },
+      "createDateTime": {
+        "$date": "2021-04-21T20:23:08.136Z"
+      },
+      "userActivationCode": "11000175",
+      "managerActivationCode": "WAwVGrTV8fhY",
+      "proxyActivationCode": "75745243",
+      "moduleConfigs": [
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:09.940Z"
+          },
+          "moduleId": "AdditionalQoL",
+          "moduleName": "AdditionalQoL",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089adc97ce231cb445eb4"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:09.969Z"
+          },
+          "moduleId": "AZFurtherPregnancyKeyActionTrigger",
+          "moduleName": "AZFurtherPregnancyKeyActionTrigger",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {
+            "keyActions": {
+              "PREGNANT": [
+                "PregnancyFollowUp",
+                "InfantFollowUp"
+              ],
+              "NOT_PREGNANT": []
+            },
+            "keyActionsToRemove": {
+              "BREAST_FEEDING": {
+                "PREGNANT": [
+                  "PregnancyUpdate",
+                  "BreastFeedingUpdate",
+                  "AZFurtherPregnancyKeyActionTrigger"
+                ],
+                "NOT_PREGNANT": []
+              },
+              "FEMALE_LESS_50_NOT_P_OR_B": {
+                "PREGNANT": [
+                  "PregnancyUpdate",
+                  "AZFurtherPregnancyKeyActionTrigger"
+                ],
+                "NOT_PREGNANT": []
+              }
+            }
+          },
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089adc97ce231cb445eb6"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.001Z"
+          },
+          "moduleId": "AZGroupKeyActionTrigger",
+          "moduleName": "AZGroupKeyActionTrigger",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {
+            "keyActions": {
+              "PREGNANT": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth",
+                "BreastFeedingStatus",
+                "PregnancyStatus",
+                "PregnancyFollowUp",
+                "InfantFollowUp"
+              ],
+              "BREAST_FEEDING": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth",
+                "BreastFeedingStatus",
+                "BreastFeedingUpdate",
+                "PregnancyStatus",
+                "PregnancyUpdate",
+                "AZFurtherPregnancyKeyActionTrigger"
+              ],
+              "BOTH_P_AND_B": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth",
+                "PregnancyStatus",
+                "BreastFeedingStatus",
+                "BreastFeedingUpdate",
+                "PregnancyFollowUp",
+                "InfantFollowUp"
+              ],
+              "FEMALE_LESS_50_NOT_P_OR_B": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth",
+                "BreastFeedingStatus",
+                "PregnancyStatus",
+                "PregnancyUpdate",
+                "AZFurtherPregnancyKeyActionTrigger"
+              ],
+              "MALE_OR_FEMALE_OVER_50": [
+                "VaccinationDetails",
+                "PostVaccination",
+                "BackgroundInformation",
+                "MedicalHistory",
+                "HealthStatus",
+                "OtherVaccine",
+                "FeverAndPainDrugs",
+                "AdditionalQoL",
+                "PROMISGlobalHealth"
+              ]
+            }
+          },
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445eb8"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.032Z"
+          },
+          "moduleId": "AZScreeningQuestionnaire",
+          "moduleName": "AZScreeningQuestionnaire",
+          "status": "ENABLED",
+          "order": 0,
+          "configBody": {},
+          "about": "AZScreeningQuestionnaire",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "timesOfDay": [
+              "BEFORE_DINNER"
+            ]
+          },
+          "ragThresholds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445eba"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.085Z"
+          },
+          "moduleId": "BackgroundInformation",
+          "moduleName": "BackgroundInformation",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ebc"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.117Z"
+          },
+          "moduleId": "BreastFeedingStatus",
+          "moduleName": "BreastFeedingStatus",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ebe"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.152Z"
+          },
+          "moduleId": "BreastFeedingUpdate",
+          "moduleName": "BreastFeedingUpdate",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ec0"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.185Z"
+          },
+          "moduleId": "FeverAndPainDrugs",
+          "moduleName": "FeverAndPainDrugs",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ec2"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.220Z"
+          },
+          "moduleId": "HealthStatus",
+          "moduleName": "HealthStatus",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ec4"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.257Z"
+          },
+          "moduleId": "InfantFollowUp",
+          "moduleName": "InfantFollowUp",
+          "status": "ENABLED",
+          "order": 0,
+          "configBody": {},
+          "schedule": {},
+          "ragThresholds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ec6"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.293Z"
+          },
+          "moduleId": "MedicalHistory",
+          "moduleName": "MedicalHistory",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ec8"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.329Z"
+          },
+          "moduleId": "OtherVaccine",
+          "moduleName": "OtherVaccine",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445eca"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.366Z"
+          },
+          "moduleId": "PostVaccination",
+          "moduleName": "PostVaccination",
+          "status": "ENABLED",
+          "order": 0,
+          "configBody": {},
+          "about": "The Questionnaire feature is an easy way of collecting information about your health. Answering all questions and sharing this information will allow your care team to make better treatment decisions. ",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": 1,
+            "friendlyText": "ONCE A DAY",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ecc"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.403Z"
+          },
+          "moduleId": "PregnancyFollowUp",
+          "moduleName": "PregnancyFollowUp",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ece"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.440Z"
+          },
+          "moduleId": "PregnancyStatus",
+          "moduleName": "PregnancyStatus",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ed0"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.481Z"
+          },
+          "moduleId": "PregnancyUpdate",
+          "moduleName": "PregnancyUpdate",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ed2"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.521Z"
+          },
+          "moduleId": "PROMISGlobalHealth",
+          "moduleName": "",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "The Questionnaire feature is an easy way of collecting information about your health. Answering all questions and sharing this information will allow your care team to make better treatment decisions.",
+          "schedule": {
+            "friendlyText": "AS NEEDED"
+          },
+          "ragThresholds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ed4"
+          }
+        },
+        {
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.560Z"
+          },
+          "moduleId": "VaccinationDetails",
+          "moduleName": "VaccinationDetails",
+          "status": "ENABLED",
+          "order": 4,
+          "configBody": {},
+          "about": "",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": [],
+          "version": 0,
+          "id": {
+            "$oid": "608089aec97ce231cb445ed6"
+          }
+        }
+      ],
+      "onboardingConfigs": [],
+      "learn": {
+        "id": {
+          "$oid": "608089acc97ce231cb445ea9"
+        },
+        "updateDateTime": {
+          "$date": "2021-04-21T20:23:08.136Z"
+        },
+        "createDateTime": {
+          "$date": "2021-04-21T20:23:08.136Z"
+        },
+        "sections": [
+          {
+            "title": "Understanding atrial fibrillation",
+            "order": 1,
+            "updateDateTime": {
+              "$date": "2021-04-21T20:23:08.243Z"
+            },
+            "createDateTime": {
+              "$date": "2021-04-21T20:23:08.243Z"
+            },
+            "id": {
+              "$oid": "608089acc97ce231cb445eac"
+            },
+            "articles": [
+              {
+                "id": {
+                  "$oid": "608089acc97ce231cb445ead"
+                },
+                "title": "Stanford Medicine",
+                "type": "SMALL",
+                "order": 1,
+                "content": {
+                  "type": "LINK",
+                  "url": "https://scopeblog.stanford.edu/tag/understanding-afib/"
+                },
+                "updateDateTime": {
+                  "$date": "2021-04-21T20:23:08.637Z"
+                },
+                "createDateTime": {
+                  "$date": "2021-04-21T20:23:08.384Z"
+                }
+              },
+              {
+                "id": {
+                  "$oid": "608089acc97ce231cb445eae"
+                },
+                "title": "American College of Cardiology+",
+                "type": "SMALL",
+                "order": 2,
+                "content": {
+                  "type": "LINK",
+                  "url": "https://scopeblog.stanford.edu/tag/understanding-afib/"
+                },
+                "updateDateTime": {
+                  "$date": "2021-04-21T20:23:09.012Z"
+                },
+                "createDateTime": {
+                  "$date": "2021-04-21T20:23:08.764Z"
+                }
+              },
+              {
+                "id": {
+                  "$oid": "608089adc97ce231cb445eaf"
+                },
+                "title": "Video Resource",
+                "type": "SMALL",
+                "order": 3,
+                "content": {
+                  "type": "LINK",
+                  "url": "https://www.youtube.com/watch?v=1yk4C8yvJeM&feature=emb_logo"
+                },
+                "updateDateTime": {
+                  "$date": "2021-04-21T20:23:09.388Z"
+                },
+                "createDateTime": {
+                  "$date": "2021-04-21T20:23:09.134Z"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Learn more about living with atrial fibrillation",
+            "order": 2,
+            "updateDateTime": {
+              "$date": "2021-04-21T20:23:09.405Z"
+            },
+            "createDateTime": {
+              "$date": "2021-04-21T20:23:09.405Z"
+            },
+            "id": {
+              "$oid": "608089adc97ce231cb445eb0"
+            },
+            "articles": [
+              {
+                "id": {
+                  "$oid": "608089adc97ce231cb445eb1"
+                },
+                "title": "My AFib Experience",
+                "type": "SMALL",
+                "order": 1,
+                "content": {
+                  "type": "LINK",
+                  "url": "https://myafibexperience.org/"
+                },
+                "updateDateTime": {
+                  "$date": "2021-04-21T20:23:09.817Z"
+                },
+                "createDateTime": {
+                  "$date": "2021-04-21T20:23:09.556Z"
+                }
+              }
+            ]
+          },
+          {
+            "title": "Frequently Asked Questions",
+            "order": 3,
+            "updateDateTime": {
+              "$date": "2021-04-21T20:23:09.833Z"
+            },
+            "createDateTime": {
+              "$date": "2021-04-21T20:23:09.833Z"
+            },
+            "id": {
+              "$oid": "608089adc97ce231cb445eb2"
+            }
+          }
+        ]
+      },
+      "keyActions": [
+        {
+          "title": "Complete your medical history",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P0W",
+          "durationFromTrigger": "P7W",
+          "durationIso": "P7WT8H30M",
+          "instanceExpiresIn": "P7W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 3,
+          "moduleId": "MedicalHistory",
+          "moduleConfigId": "608089aec97ce231cb445ec8",
+          "id": {
+            "$oid": "60808b445ec8e231cb445ed8"
+          },
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.628Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:10.628Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089aec97ce231cb445ed8"
+          },
+          "title": "How is your quality of life?",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P20W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT9H0M",
+          "instanceExpiresIn": "P2W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 3,
+          "moduleId": "AdditionalQoL",
+          "moduleConfigId": "608089adc97ce231cb445eb4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.628Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:10.628Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089aec97ce231cb445ed9"
+          },
+          "title": "How is your quality of life?",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P65W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT9H0M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "AdditionalQoL",
+          "moduleConfigId": "608089adc97ce231cb445eb4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.698Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:10.698Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089aec97ce231cb445eda"
+          },
+          "title": "We need some more information from you",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 1 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P1W",
+          "durationFromTrigger": "P3W",
+          "durationIso": "P3WT9H0M",
+          "instanceExpiresIn": "P3W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P1W4D",
+          "numberOfNotifications": 2,
+          "moduleId": "AZFurtherPregnancyKeyActionTrigger",
+          "moduleConfigId": "608089adc97ce231cb445eb6",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.770Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:10.770Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089aec97ce231cb445edb"
+          },
+          "title": "We need some more information from you",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 4 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P4W",
+          "durationFromTrigger": "P4W",
+          "durationIso": "P4WT9H0M",
+          "instanceExpiresIn": "P4W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 1,
+          "moduleId": "AZFurtherPregnancyKeyActionTrigger",
+          "moduleConfigId": "608089adc97ce231cb445eb6",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.842Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:10.842Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089aec97ce231cb445edc"
+          },
+          "title": "We need some more information from you",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 8 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P8W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT9H0M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "AZFurtherPregnancyKeyActionTrigger",
+          "moduleConfigId": "608089adc97ce231cb445eb6",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.921Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:10.921Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089aec97ce231cb445edd"
+          },
+          "title": "We need some more information from you",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 14 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P14W",
+          "durationFromTrigger": "P12W",
+          "durationIso": "P12WT9H0M",
+          "instanceExpiresIn": "P12W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 3,
+          "moduleId": "AZFurtherPregnancyKeyActionTrigger",
+          "moduleConfigId": "608089adc97ce231cb445eb6",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:10.995Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:10.995Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ede"
+          },
+          "title": "We need some more information from you",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 6 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P26W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT9H0M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "AZFurtherPregnancyKeyActionTrigger",
+          "moduleConfigId": "608089adc97ce231cb445eb6",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.076Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.076Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445edf"
+          },
+          "title": "We need some more information from you",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 9 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P39W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT9H0M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "AZFurtherPregnancyKeyActionTrigger",
+          "moduleConfigId": "608089adc97ce231cb445eb6",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.155Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.155Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ee0"
+          },
+          "title": "We need some more information from you",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 12 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P52W",
+          "durationFromTrigger": "P26W",
+          "durationIso": "P26WT9H0M",
+          "instanceExpiresIn": "P26W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 6,
+          "moduleId": "AZFurtherPregnancyKeyActionTrigger",
+          "moduleConfigId": "608089adc97ce231cb445eb6",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.231Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.231Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ee1"
+          },
+          "title": "We need some more information from you",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P0W",
+          "durationFromTrigger": "P78W",
+          "durationIso": "P78WT8H30M",
+          "instanceExpiresIn": "P78W",
+          "type": "MODULE",
+          "trigger": "SIGN_UP",
+          "notifyEvery": "P1W",
+          "numberOfNotifications": 77,
+          "moduleId": "AZGroupKeyActionTrigger",
+          "moduleConfigId": "608089aec97ce231cb445eb8",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.311Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.311Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ee2"
+          },
+          "title": "Complete your background information",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P0W",
+          "durationFromTrigger": "P7W",
+          "durationIso": "P7WT8H30M",
+          "instanceExpiresIn": "P7W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 3,
+          "moduleId": "BackgroundInformation",
+          "moduleConfigId": "608089aec97ce231cb445ebc",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.394Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.394Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ee3"
+          },
+          "title": "Share your breastfeeding status",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P0W",
+          "durationFromTrigger": "P7W",
+          "durationIso": "P7WT8H45M",
+          "instanceExpiresIn": "P7W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 3,
+          "moduleId": "BreastFeedingStatus",
+          "moduleConfigId": "608089aec97ce231cb445ebe",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.479Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.479Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ee4"
+          },
+          "title": "Are you still breastfeeding?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 1 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P1W",
+          "durationFromTrigger": "P3W",
+          "durationIso": "P3WT8H45M",
+          "instanceExpiresIn": "P3W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P1W4D",
+          "numberOfNotifications": 2,
+          "moduleId": "BreastFeedingUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ec0",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.567Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.567Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ee5"
+          },
+          "title": "Are you still breastfeeding?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 4 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P4W",
+          "durationFromTrigger": "P4W",
+          "durationIso": "P4WT8H45M",
+          "instanceExpiresIn": "P4W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 1,
+          "moduleId": "BreastFeedingUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ec0",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.651Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.651Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ee6"
+          },
+          "title": "Are you still breastfeeding?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 8 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P8W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT8H45M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "BreastFeedingUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ec0",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.793Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.793Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ee7"
+          },
+          "title": "Are you still breastfeeding?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 14 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P14W",
+          "durationFromTrigger": "P12W",
+          "durationIso": "P12WT8H45M",
+          "instanceExpiresIn": "P12W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 3,
+          "moduleId": "BreastFeedingUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ec0",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.880Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.880Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089afc97ce231cb445ee8"
+          },
+          "title": "Are you still breastfeeding?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 6 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P26W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT8H45M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "BreastFeedingUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ec0",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:11.969Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:11.969Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445ee9"
+          },
+          "title": "Are you still breastfeeding?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 9 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P39W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT8H45M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "BreastFeedingUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ec0",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.065Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.065Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445eea"
+          },
+          "title": "Are you still breastfeeding?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 12 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P52W",
+          "durationFromTrigger": "P26W",
+          "durationIso": "P26WT8H45M",
+          "instanceExpiresIn": "P26W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P4W",
+          "numberOfNotifications": 6,
+          "moduleId": "BreastFeedingUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ec0",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.165Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.165Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445eeb"
+          },
+          "title": "Are you still breastfeeding?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 18 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P78W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT8H45M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "BreastFeedingUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ec0",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.264Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.264Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445eec"
+          },
+          "title": "Record fever or pain medication (1st dose)",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete about 1 week after your first dose.",
+          "deltaFromTriggerTime": "P1W",
+          "durationFromTrigger": "P4W",
+          "durationIso": "P4WT8H30M",
+          "instanceExpiresIn": "P4W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P1W4D",
+          "numberOfNotifications": 2,
+          "moduleId": "FeverAndPainDrugs",
+          "moduleConfigId": "608089aec97ce231cb445ec2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.359Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.359Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445eed"
+          },
+          "title": "Record fever or pain medication (2nd dose)",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete about 1 week after your second dose.",
+          "deltaFromTriggerTime": "P6W",
+          "durationFromTrigger": "P78W",
+          "durationIso": "P78WT8H30M",
+          "instanceExpiresIn": "P78W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P4W",
+          "numberOfNotifications": 19,
+          "moduleId": "FeverAndPainDrugs",
+          "moduleConfigId": "608089aec97ce231cb445ec2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.456Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.456Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445eee"
+          },
+          "title": "Update to your health status",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 1 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P1W",
+          "durationFromTrigger": "P3W",
+          "durationIso": "P3WT8H30M",
+          "instanceExpiresIn": "P3W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P1W4D",
+          "numberOfNotifications": 2,
+          "moduleId": "HealthStatus",
+          "moduleConfigId": "608089aec97ce231cb445ec4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.554Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.554Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445eef"
+          },
+          "title": "Update to your health status",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 4 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P4W",
+          "durationFromTrigger": "P4W",
+          "durationIso": "P4WT8H30M",
+          "instanceExpiresIn": "P4W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 1,
+          "moduleId": "HealthStatus",
+          "moduleConfigId": "608089aec97ce231cb445ec4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.650Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.650Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445ef0"
+          },
+          "title": "Update to your health status",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 8 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P8W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P8WT8H30M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "HealthStatus",
+          "moduleConfigId": "608089aec97ce231cb445ec4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.748Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.748Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445ef1"
+          },
+          "title": "Update to your health status",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 14 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P14W",
+          "durationFromTrigger": "P12W",
+          "durationIso": "P12WT8H30M",
+          "instanceExpiresIn": "P12W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 3,
+          "moduleId": "HealthStatus",
+          "moduleConfigId": "608089aec97ce231cb445ec4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.847Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.847Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b0c97ce231cb445ef2"
+          },
+          "title": "Update to your health status",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 6 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P26W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT8H30M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "HealthStatus",
+          "moduleConfigId": "608089aec97ce231cb445ec4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:12.946Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:12.946Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b1c97ce231cb445ef3"
+          },
+          "title": "Update to your health status",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 9 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P39W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT8H30M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "HealthStatus",
+          "moduleConfigId": "608089aec97ce231cb445ec4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:13.048Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:13.048Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b1c97ce231cb445ef4"
+          },
+          "title": "Update to your health status",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 12 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P52W",
+          "durationFromTrigger": "P26W",
+          "durationIso": "P26WT8H30M",
+          "instanceExpiresIn": "P26W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P4W",
+          "numberOfNotifications": 6,
+          "moduleId": "HealthStatus",
+          "moduleConfigId": "608089aec97ce231cb445ec4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:13.154Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:13.154Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b1c97ce231cb445ef5"
+          },
+          "title": "Update to your health status",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 18 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P78W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT8H30M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "HealthStatus",
+          "moduleConfigId": "608089aec97ce231cb445ec4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:13.271Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:13.271Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b1c97ce231cb445ef6"
+          },
+          "title": "How is your baby doing?",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete this 12 months after you gave birth.",
+          "deltaFromTriggerTime": "P52W",
+          "durationFromTrigger": "P53W",
+          "durationIso": "P53WT9H0M",
+          "instanceExpiresIn": "P53W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P6W",
+          "numberOfNotifications": 8,
+          "moduleId": "InfantFollowUp",
+          "moduleConfigId": "608089aec97ce231cb445ec6",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:13.397Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:13.397Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b1c97ce231cb445ef7"
+          },
+          "title": "Have you received other vaccines?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 1 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P1W",
+          "durationFromTrigger": "P3W",
+          "durationIso": "P3WT8H30M",
+          "instanceExpiresIn": "P3W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P1W4D",
+          "numberOfNotifications": 2,
+          "moduleId": "OtherVaccine",
+          "moduleConfigId": "608089aec97ce231cb445eca",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:13.505Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:13.505Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b1c97ce231cb445ef8"
+          },
+          "title": "Have you received other vaccines?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 4 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P4W",
+          "durationFromTrigger": "P4W",
+          "durationIso": "P4WT8H30M",
+          "instanceExpiresIn": "P4W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 1,
+          "moduleId": "OtherVaccine",
+          "moduleConfigId": "608089aec97ce231cb445eca",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:13.614Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:13.614Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b1c97ce231cb445ef9"
+          },
+          "title": "Have you received other vaccines?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 8 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P8W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT8H30M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "OtherVaccine",
+          "moduleConfigId": "608089aec97ce231cb445eca",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:13.731Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:13.731Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b1c97ce231cb445efa"
+          },
+          "title": "Have you received other vaccines?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 14 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P14W",
+          "durationFromTrigger": "P12W",
+          "durationIso": "P12WT8H30M",
+          "instanceExpiresIn": "P12W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 3,
+          "moduleId": "OtherVaccine",
+          "moduleConfigId": "608089aec97ce231cb445eca",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:13.854Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:13.854Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b1c97ce231cb445efb"
+          },
+          "title": "Have you received other vaccines?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 6 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P26W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT8H30M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "OtherVaccine",
+          "moduleConfigId": "608089aec97ce231cb445eca",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:13.968Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:13.968Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b2c97ce231cb445efc"
+          },
+          "title": "Have you received other vaccines?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 9 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P39W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT8H30M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "OtherVaccine",
+          "moduleConfigId": "608089aec97ce231cb445eca",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:14.093Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:14.093Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b2c97ce231cb445efd"
+          },
+          "title": "Have you received other vaccines?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 12 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P52W",
+          "durationFromTrigger": "P26W",
+          "durationIso": "P26WT8H30M",
+          "instanceExpiresIn": "P26W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P4W",
+          "numberOfNotifications": 6,
+          "moduleId": "OtherVaccine",
+          "moduleConfigId": "608089aec97ce231cb445eca",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:14.210Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:14.210Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b2c97ce231cb445efe"
+          },
+          "title": "Have you received other vaccines?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 18 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P78W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT8H30M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "OtherVaccine",
+          "moduleConfigId": "608089aec97ce231cb445eca",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:14.324Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:14.324Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b2c97ce231cb445eff"
+          },
+          "title": "Got your 2nd COVID vaccination?",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete after you have received your second COVID vaccination.",
+          "deltaFromTriggerTime": "P4W",
+          "durationFromTrigger": "P80W",
+          "durationIso": "P80WT9H0M",
+          "instanceExpiresIn": "P80W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P4W",
+          "numberOfNotifications": 19,
+          "moduleId": "PostVaccination",
+          "moduleConfigId": "608089aec97ce231cb445ecc",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:14.441Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:14.441Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b2c97ce231cb445f00"
+          },
+          "title": "Complete your pregnancy follow-up",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete this 12 months after you became pregnant.",
+          "deltaFromTriggerTime": "P12W",
+          "durationFromTrigger": "P72W",
+          "durationIso": "P72WT9H0M",
+          "instanceExpiresIn": "P72W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P6W",
+          "numberOfNotifications": 11,
+          "moduleId": "PregnancyFollowUp",
+          "moduleConfigId": "608089aec97ce231cb445ece",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:14.563Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:14.563Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b2c97ce231cb445f01"
+          },
+          "title": "Share your pregnancy status",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P0W",
+          "durationFromTrigger": "P7W",
+          "durationIso": "P7WT8H45M",
+          "instanceExpiresIn": "P7W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 3,
+          "moduleId": "PregnancyStatus",
+          "moduleConfigId": "608089aec97ce231cb445ed0",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:14.683Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:14.683Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b2c97ce231cbce5fb5"
+          },
+          "title": "Any update to your pregnancy status?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 1 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P1W",
+          "durationFromTrigger": "P3W",
+          "durationIso": "P3WT8H45M",
+          "instanceExpiresIn": "P3W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P1W4D",
+          "numberOfNotifications": 2,
+          "moduleId": "PregnancyUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ed2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:14.922Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:14.922Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b2c97ce231cb445f03"
+          },
+          "title": "Any update to your pregnancy status?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 4 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P4W",
+          "durationFromTrigger": "P4W",
+          "durationIso": "P4WT8H45M",
+          "instanceExpiresIn": "P4W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 1,
+          "moduleId": "PregnancyUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ed2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:14.922Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:14.922Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b3c97ce231cb445f04"
+          },
+          "title": "Any update to your pregnancy status?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 8 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P8W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT8H45M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "PregnancyUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ed2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:15.042Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:15.042Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b3c97ce231cb445f05"
+          },
+          "title": "Any update to your pregnancy status?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 14 week visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P14W",
+          "durationFromTrigger": "P12W",
+          "durationIso": "P12WT8H45M",
+          "instanceExpiresIn": "P12W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 3,
+          "moduleId": "PregnancyUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ed2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:15.172Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:15.172Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b3c97ce231cb445f06"
+          },
+          "title": "Any update to your pregnancy status?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 6 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P26W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT8H45M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "PregnancyUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ed2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:15.294Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:15.294Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b3c97ce231cb445f07"
+          },
+          "title": "Any update to your pregnancy status?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 9 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P39W",
+          "durationFromTrigger": "P13W",
+          "durationIso": "P13WT8H45M",
+          "instanceExpiresIn": "P13W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P3W",
+          "numberOfNotifications": 4,
+          "moduleId": "PregnancyUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ed2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:15.424Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:15.424Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b3c97ce231cb445f08"
+          },
+          "title": "Any update to your pregnancy status?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 12 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P52W",
+          "durationFromTrigger": "P26W",
+          "durationIso": "P26WT8H45M",
+          "instanceExpiresIn": "P26W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P4W",
+          "numberOfNotifications": 6,
+          "moduleId": "PregnancyUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ed2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:15.551Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:15.551Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b3c97ce231cb445f09"
+          },
+          "title": "Any update to your pregnancy status?",
+          "description": "You have a new task for the AZ:CONNECT EU study as a follow-up to your response at your 18 month visit. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P78W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT8H45M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "PregnancyUpdate",
+          "moduleConfigId": "608089aec97ce231cb445ed2",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:15.682Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:15.682Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b3c97ce231cb445f0a"
+          },
+          "title": "Complete global health questionnaire",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P0W",
+          "durationFromTrigger": "P7W",
+          "durationIso": "P7WT9H0M",
+          "instanceExpiresIn": "P7W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 3,
+          "moduleId": "PROMISGlobalHealth",
+          "moduleConfigId": "608089aec97ce231cb445ed4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:15.812Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:15.812Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b3c97ce231cb445f0b"
+          },
+          "title": "Complete global health questionnaire",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P20W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT9H0M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "PROMISGlobalHealth",
+          "moduleConfigId": "608089aec97ce231cb445ed4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:15.939Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:15.939Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b4c97ce231cb445f0c"
+          },
+          "title": "Complete global health questionnaire",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P65W",
+          "durationFromTrigger": "P6W",
+          "durationIso": "P6WT9H0M",
+          "instanceExpiresIn": "P6W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 2,
+          "moduleId": "PROMISGlobalHealth",
+          "moduleConfigId": "608089aec97ce231cb445ed4",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:16.072Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:16.072Z"
+          }
+        },
+        {
+          "id": {
+            "$oid": "608089b4c97ce231cb445f0d"
+          },
+          "title": "Log your first vaccination details",
+          "description": "You have a new task for the AZ:CONNECT EU study. Please complete as soon as you can.",
+          "deltaFromTriggerTime": "P0W",
+          "durationFromTrigger": "P7W",
+          "durationIso": "P7WT8H30M",
+          "instanceExpiresIn": "P7W",
+          "type": "MODULE",
+          "trigger": "MANUAL",
+          "notifyEvery": "P2W",
+          "numberOfNotifications": 3,
+          "moduleId": "VaccinationDetails",
+          "moduleConfigId": "608089aec97ce231cb445ed6",
+          "updateDateTime": {
+            "$date": "2021-04-21T20:23:16.208Z"
+          },
+          "createDateTime": {
+            "$date": "2021-04-21T20:23:16.208Z"
+          }
+        }
+      ],
+      "features": {
+        "appMenu": [
+          "CARE_PLAN",
+          "KEY_ACTIONS",
+          "LEARN",
+          "PROFILE"
+        ],
+        "appointment": true,
+        "carePlanDailyAdherence": false,
+        "healthDeviceIntegration": false,
+        "offBoarding": false,
+        "personalDocuments": false,
+        "proxy": false
+      },
+      "language": "en"
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "testUser",
+      "familyName": "testUser",
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "dateOfBirth": {
+        "$date": {
+          "$numberLong": "572392800000"
+        }
+      },
+      "gender": "MALE",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "height": 175
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "displayName": "testUser",
+      "userAttributes": {
+        "familyName": "testUser",
+        "givenName": "testUser",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ]
+}

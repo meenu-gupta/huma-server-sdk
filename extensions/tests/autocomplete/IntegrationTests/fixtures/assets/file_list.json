@@ -1,0 +1,72 @@
+[
+    {
+        "filename": "medications-ca.json",
+        "language": "ca",
+        "moduleId": "Medications"
+    },
+    {
+        "filename": "medications-en.json",
+        "language": "en",
+        "moduleId": "Medications"
+    },
+    {
+        "filename": "medications-fr.json",
+        "language": "fr",
+        "moduleId": "Medications"
+    },
+    {
+        "filename": "symptoms-ca.json",
+        "language": "ca",
+        "moduleId": "Symptoms"
+    },
+    {
+        "filename": "symptoms-en.json",
+        "language": "en",
+        "moduleId": "Symptoms"
+    },
+    {
+        "filename": "symptoms-fr.json",
+        "language": "fr",
+        "moduleId": "Symptoms"
+    },
+    {
+        "filename": "symptoms-fr.json",
+        "language": "fr",
+        "moduleId": "Symptoms"
+    },
+    {
+        "filename": "vaccine.json",
+        "language": "en",
+        "moduleId": "AZVaccineBatchNumber"
+    },
+    {
+        "filename": "medications-de.json",
+        "language": "de",
+        "moduleId": "Medications"
+    },
+    {
+        "filename": "medications-es.json",
+        "language": "es",
+        "moduleId": "Medications"
+    },
+    {
+        "filename": "medications-sv.json",
+        "language": "sv",
+        "moduleId": "Medications"
+    },
+    {
+        "filename": "symptoms-de.json",
+        "language": "de",
+        "moduleId": "Symptoms"
+    },
+    {
+        "filename": "symptoms-es.json",
+        "language": "es",
+        "moduleId": "Symptoms"
+    },
+    {
+        "filename": "symptoms-sv.json",
+        "language": "sv",
+        "moduleId": "Symptoms"
+    }
+]

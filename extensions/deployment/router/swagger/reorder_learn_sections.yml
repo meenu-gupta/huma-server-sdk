@@ -1,0 +1,39 @@
+summary: Reorder Learn Section
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/ReorderLearnSectionsRequest'
+responses:
+  200:
+    description: Learn sections have been reordered
+    schema:
+      $ref: '#/definitions/IdsResponse'
+definitions:
+  ReorderObject:
+    type: object
+    required:
+      - id
+      - order
+    properties:
+      id:
+        type: string
+        example: "5fe4bf81f856a54b824cf04f"
+      order:
+        type: integer
+        example: 1
+  ReorderLearnSectionsRequest:
+    type: array
+    items:
+      $ref: "#/definitions/ReorderObject"

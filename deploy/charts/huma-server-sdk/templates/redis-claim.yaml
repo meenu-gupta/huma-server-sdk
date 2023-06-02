@@ -1,0 +1,10 @@
+{{- with .Values.redis }}
+apiVersion: redis.operator.huma.com/v1alpha1
+kind: RedisClaim
+metadata:
+  labels: {{ include "ppserver.labels" $ | nindent 4 }}
+  name: ppserver-rc
+  namespace: {{ $.Release.Namespace }}
+spec:
+  storage: {{ .storage }}
+{{- end }}

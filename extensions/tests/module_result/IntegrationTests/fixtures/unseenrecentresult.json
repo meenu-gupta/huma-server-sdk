@@ -1,0 +1,696 @@
+{
+  "unseenrecentresult": [
+    {
+      "_id": {
+        "$oid": "6195d9a04280f2e953b5fa2a"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "RestingHeartRate",
+      "moduleConfigId": {
+        "$oid": "5f86d0f4dd28f8686d75c5d4"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:39:42Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:42:08.807Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "RestingHeartRate": {
+          "value": {
+            "color": "#FBCCD7",
+            "severity": 3
+          }
+        }
+      },
+      "flags": {
+        "gray": 0,
+        "green": 0,
+        "amber": 0,
+        "red": 1
+      },
+      "value": 39,
+      "source": "Manual",
+      "valueUnit": "bpm"
+    },
+    {
+      "_id": {
+        "$oid": "6195d9a841ed7dcd3e1f51bd"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "RestingHeartRate",
+      "moduleConfigId": {
+        "$oid": "5f86d0f4dd28f8686d75c5d4"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:39:50Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:42:16.867Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "RestingHeartRate": {
+          "value": {
+            "color": "#FBCCD7",
+            "severity": 3
+          }
+        }
+      },
+      "flags": {
+        "gray": 0,
+        "green": 0,
+        "amber": 0,
+        "red": 1
+      },
+      "value": 38,
+      "source": "Manual",
+      "valueUnit": "bpm"
+    },
+    {
+      "_id": {
+        "$oid": "6195d9b24280f2e953b5fa2c"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "RestingHeartRate",
+      "moduleConfigId": {
+        "$oid": "5f86d0f4dd28f8686d75c5d4"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:39:59Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:42:26.070Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "RestingHeartRate": {
+          "value": {
+            "color": "#FBCCD7",
+            "severity": 3
+          }
+        }
+      },
+      "flags": {
+        "gray": 0,
+        "green": 0,
+        "amber": 0,
+        "red": 1
+      },
+      "value": 37,
+      "source": "Manual",
+      "valueUnit": "bpm"
+    },
+    {
+      "_id": {
+        "$oid": "6195d9ba41ed7dcd3e1f51bf"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "RestingHeartRate",
+      "moduleConfigId": {
+        "$oid": "5f86d0f4dd28f8686d75c5d4"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:40:08Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:42:34.373Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "RestingHeartRate": {
+          "value": {
+            "color": "#FBCCD7",
+            "severity": 3
+          }
+        }
+      },
+      "flags": {
+        "gray": 0,
+        "green": 0,
+        "amber": 0,
+        "red": 1
+      },
+      "value": 36,
+      "source": "Manual",
+      "valueUnit": "bpm"
+    },
+    {
+      "_id": {
+        "$oid": "6195da214280f2e953b5fa31"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "PulseOximetry",
+      "moduleConfigId": {"$oid": "5e94b2007773091c9a592650"},
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:41:50Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:44:17.062Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "PulseOximetry": {
+          "value": {
+            "color": "#FFDA9F",
+            "severity": 2
+          }
+        }
+      },
+      "flags": {
+        "gray": 0,
+        "green": 0,
+        "amber": 1,
+        "red": 0
+      },
+      "value": 0.92
+    },
+    {
+      "_id": {
+        "$oid": "6195da2a41ed7dcd3e1f51c8"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "PulseOximetry",
+      "moduleConfigId": {"$oid": "5e94b2007773091c9a592650"},
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:41:00Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:44:26.395Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "PulseOximetry": {
+          "value": {
+            "color": "#FFDA9F",
+            "severity": 2
+          }
+        }
+      },
+      "flags": {
+        "gray": 0,
+        "green": 0,
+        "amber": 1,
+        "red": 0
+      },
+      "value": 0.93
+    },
+    {
+      "_id": {
+        "$oid": "6195da32774f5dfafdd1a029"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "PulseOximetry",
+      "moduleConfigId": {"$oid": "5e94b2007773091c9a592650"},
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:42:07Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:44:34.200Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "PulseOximetry": {
+          "value": {
+            "color": "#FFDA9F",
+            "severity": 2
+          }
+        }
+      },
+      "flags": {
+        "gray": 0,
+        "green": 0,
+        "amber": 1,
+        "red": 0
+      },
+      "value": 0.94
+    },
+    {
+      "_id": {
+        "$oid": "6195da3a41ed7dcd3e1f51ca"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "PulseOximetry",
+      "moduleConfigId": {"$oid": "5e94b2007773091c9a592650"},
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:42:15Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:44:42.329Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "PulseOximetry": {
+          "value": {
+            "color": "#FFDA9F",
+            "severity": 2
+          }
+        }
+      },
+      "flags": {
+        "gray": 0,
+        "green": 0,
+        "amber": 1,
+        "red": 0
+      },
+      "value": 0.92
+    },
+    {
+      "_id": {
+        "$oid": "6195da4f4280f2e953b5fa33"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "Photo",
+      "moduleConfigId": {
+        "$oid": "611cf7585b09ef8f119be015"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:42:37.523Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:45:03.993Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "Photo": {}
+      },
+      "flags": {
+        "gray": 1,
+        "green": 0,
+        "amber": 0,
+        "red": 0
+      },
+      "s3Object": {
+        "bucket": "hu-pp-dev-app-bucket",
+        "key": "user/5e8f0c74b50aa9656c34789d/Photo/e5db9408-0c29-4a65-89a3-f945f0c94309.jpg",
+        "region": "eu"
+      },
+      "s3Thumbnail": {
+        "bucket": "hu-pp-dev-app-bucket",
+        "key": "user/5e8f0c74b50aa9656c34789d/Photo/38856a0f-1f9d-45ee-93d8-582fd4cb7d2d.jpg",
+        "region": "eu"
+      },
+      "note": ""
+    },
+    {
+      "_id": {
+        "$oid": "6195da5c41ed7dcd3e1f51cc"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "Photo",
+      "moduleConfigId": {
+        "$oid": "611cf7585b09ef8f119be015"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:42:50.170Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:45:16.533Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "Photo": {}
+      },
+      "flags": {
+        "gray": 1,
+        "green": 0,
+        "amber": 0,
+        "red": 0
+      },
+      "s3Object": {
+        "bucket": "hu-pp-dev-app-bucket",
+        "key": "user/5e8f0c74b50aa9656c34789d/Photo/8cfc970f-999a-4ffc-af19-96c40e2ea1c8.jpg",
+        "region": "eu"
+      },
+      "s3Thumbnail": {
+        "bucket": "hu-pp-dev-app-bucket",
+        "key": "user/5e8f0c74b50aa9656c34789d/Photo/dde63b42-a1dd-4108-99c2-2d760e1f7777.jpg",
+        "region": "eu"
+      },
+      "note": ""
+    },
+    {
+      "_id": {
+        "$oid": "6195da684280f2e953b5fa35"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "Photo",
+      "moduleConfigId": {
+        "$oid": "611cf7585b09ef8f119be015"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:43:02.416Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:45:28.734Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "Photo": {}
+      },
+      "flags": {
+        "gray": 1,
+        "green": 0,
+        "amber": 0,
+        "red": 0
+      },
+      "s3Object": {
+        "bucket": "hu-pp-dev-app-bucket",
+        "key": "user/5e8f0c74b50aa9656c34789d/Photo/7b8bb72b-b8b6-481d-8d6b-1a4735a9bb00.jpg",
+        "region": "eu"
+      },
+      "s3Thumbnail": {
+        "bucket": "hu-pp-dev-app-bucket",
+        "key": "user/5e8f0c74b50aa9656c34789d/Photo/bdac1528-a52d-43e1-bee3-4db7f40911cd.jpg",
+        "region": "eu"
+      },
+      "note": ""
+    },
+    {
+      "_id": {
+        "$oid": "6195da684280f2e953f5fa35"
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "moduleId": "DisabledModule",
+      "moduleConfigId": {
+        "$oid": "611cf7585b09ef8f119be111"
+      },
+      "deploymentId": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "version": 0,
+      "deviceName": "Android",
+      "isAggregated": false,
+      "startDateTime": {
+        "$date": "2021-11-18T04:43:02.416Z"
+      },
+      "createDateTime": {
+        "$date": "2021-11-18T04:45:28.734Z"
+      },
+      "submitterId": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "client": {
+        "product": "Huma-Dev",
+        "version": "1.17.0",
+        "software_name": "Android",
+        "software_version": "29 (10)",
+        "bundle_id": "com.huma.humaapp.dev",
+        "build": "361",
+        "hardware": "Xiaomi M2010J19CI"
+      },
+      "server": {
+        "hostUrl": "devapi.humaapp.io",
+        "server": "1.17.0",
+        "api": "V1"
+      },
+      "ragThreshold": {
+        "Photo": {}
+      },
+      "flags": {
+        "gray": 1,
+        "green": 0,
+        "amber": 0,
+        "red": 0
+      },
+      "s3Object": {
+        "bucket": "hu-pp-dev-app-bucket",
+        "key": "user/5e8f0c74b50aa9656c34789d/Photo/7b8bb72b-b8b6-481d-8d6b-1a4735a9bb00.jpg",
+        "region": "eu"
+      },
+      "s3Thumbnail": {
+        "bucket": "hu-pp-dev-app-bucket",
+        "key": "user/6e8f0c74b50aa9656c34789d/Photo/bdac1528-a52d-43e1-bee3-4db7f40911cd.jpg",
+        "region": "uk"
+      },
+      "note": ""
+    }
+  ]
+}

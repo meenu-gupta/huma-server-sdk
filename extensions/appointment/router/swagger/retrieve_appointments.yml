@@ -1,0 +1,39 @@
+Retrieve appointment
+---
+tags:
+  - appointment
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/RetrieveAppointmentsRequest"
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  200:
+    description: list of appointments
+    schema:
+      $ref: "#/definitions/RetrieveAppointmentsResponse"
+definitions:
+  RetrieveAppointmentsRequest:
+    type: object
+    properties:
+      fromDateTime:
+        type: string
+        format: date-time
+      endDateTime:
+        type: string
+        format: date-time
+
+  RetrieveAppointmentsResponse:
+    type: array
+    items:
+      $ref: "#/definitions/Appointment"

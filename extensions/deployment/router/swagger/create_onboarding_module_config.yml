@@ -1,0 +1,41 @@
+Create Onboarding Module Config
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment onboarding module config belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateOnboardingModuleConfigRequest"
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+
+definitions:
+  CreateOnboardingModuleConfigRequest:
+    type: object
+    required:
+      - onboardingId
+      - order
+    properties:
+      onboardingId:
+        type: string
+        example: LegitimateInterest
+      status:
+        $ref: "#/definitions/EnableStatus"
+      configBody:
+        type: object
+        description: could be any dictionary
+      order:
+        type: integer

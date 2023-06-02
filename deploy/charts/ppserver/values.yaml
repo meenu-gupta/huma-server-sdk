@@ -1,0 +1,141 @@
+# Default values for ..
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: index.docker.io/medopadrtd/ppserver
+  tag: v1.0.0-beta
+  pullPolicy: Always
+
+imagePullSecrets:
+  - name: regcred
+nameOverride: ""
+fullnameOverride: ""
+
+metrics:
+  datadog:
+    enabled: false
+
+podAnnotations: {}
+  #linkerd.io/inject: enabled
+
+beat:
+  enabled: true
+  replicaCount: 1
+
+worker:
+  enabled: true
+  replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: auth-example.local
+      paths: []
+
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+sealedSecretEnabled: false
+
+secretEnv:
+  MP_JWT_SECRET: test
+
+env:
+  PYTHONUNBUFFERED: "0"
+
+secretFiles:
+  enabled: false
+  secrets:
+    - name: srv-pem
+      path: /app/apps/ppserver/srv.pem
+      content: |
+        here is the content
+    - name: service-account-firebase
+      path: /app/apps/ppserver/srv1.pem
+      content: |
+        here is something else
+
+config: |
+  server:
+    host: 0.0.0.0
+    port: 80
+
+  project:
+    id: phoenix-born
+    name: Phoenix Born
+    database:
+      name: phoenix_born
+    email:
+      domainUrl: medopad.us
+      sender: phoenix@medopad.com
+      subject: Verify your email for {{ name }}
+    sms:
+      providerAccountSid: ACdbdc2e94f87b9df4ca97dd1f2aa57fd4
+      providerVerificationSid: VAe3a98f5c21ddd6850dd864beb6980248
+    region: us-aws-1
+    clients:
+      - id: 118329009274-isvfcokla6t9vl8t8otpfp0g5r88f40u.apps.googleusercontent.com
+        name: ios-client
+        clientId: AIzaSyAIgyeRrUJv23ZaxGYSwlUsUdzdnia0pSs
+        secretKey: AIzaSyAIgyeRrUJv23ZaxGYSwlUsUdzdnia0pSs
+        clientType: ios
+        emailTemplates:
+        - locale: en
+          htmlTemplate:
+            <p>Hello {{ name }},</p>
+            <p>Follow this link to verify your email address.</p>
+            <p><a href="https://medopad.com/__/auth/action?mode={{ action }}&oobCode={{ vcode }}">Click here</a></p>
+            <p>If you didn’t ask to verify this address, you can ignore this email.</p>
+            <p>Thanks,</p>
+            <p>Medopad team</p>
+        - locale: cn
+          htmlTemplate:
+            <p>Hello {{ name }},</p>
+            <p>Follow this link to verify your email address.</p>
+            <p><a href='patientapp://medopad.com/__/auth/action?mode={{ action }}&oobCode={{ vcode }}'>Click here</a></p>
+            <p>If you didn’t ask to verify this address, you can ignore this email.</p>
+            <p>Thanks,</p>
+            <p>Medopad team</p>
+
+      - id: 128329009274-isvfcokla6t9vl8t8otpfp0g5r88f40u.apps.googleusercontent.com
+        name: android-client
+        clientId: AIzaSyAIgyeRrUJv23ZaxGYSwlUsUdzdnia0pSS
+        secretKey: AIzaSyAIgyeRrUJv23ZaxGYSwlUsUdzdnia0pSs
+        clientType: android
+      - id: 128329009274-isvfcokla6t9vl8t8otpfp0g5r88f40u.apps.googleusercontetn.com
+        name: web-client
+        clientId: AizaSyAIgyeRrUJv23ZaxGYSwlUsUdzdnia0pSS
+        secretKey: AIzaSyAIgyeRrUJv23ZaxGYSwlUsUdzdnia0pSs
+        clientType: web
+
+

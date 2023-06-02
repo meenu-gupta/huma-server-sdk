@@ -1,0 +1,24 @@
+Get temporary signed URL for downloading a file
+---
+tags:
+  - storage
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: file_id
+    required: true
+    type: string
+responses:
+  200:
+    description: Temporary URL for downloading the file
+    schema:
+      $ref: "#/definitions/GetSignedUrlResponse"
+
+definitions:
+  GetSignedUrlResponse:
+    type: object
+    properties:
+      url:
+        type: string
+        example: "https://devapp.humaapp.io/files/a7fdc38f-15d1-4b3d-933d-fddfec24ec3e.jpg"

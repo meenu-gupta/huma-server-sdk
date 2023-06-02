@@ -1,0 +1,5 @@
+keyword,moduleId,text
+FSQ_moduleID,,Food Security Questionnaire
+some_times_translated,FSQ_moduleID,Sometimes true
+often_translated_value,__all__,Often true
+test_answer_translated,"['FSQ_moduleID', 'Weight']",Test answer

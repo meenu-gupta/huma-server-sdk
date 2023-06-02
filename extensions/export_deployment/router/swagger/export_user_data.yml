@@ -1,0 +1,25 @@
+Export user data
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: user_id
+    in: path
+    description: "User ID to export data for"
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: "Json body with options"
+    schema:
+      $ref: "#/definitions/ExportParams"
+
+responses:
+  200:
+    description: Zip archive with export data. Optionally single file without binaries.
+    schema:
+      $ref: '#/definitions/ExportDeploymentResponse'

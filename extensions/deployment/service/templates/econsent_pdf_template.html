@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>EConsent PDF</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif !important;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        .title {
+            display: table;
+            margin: 0 auto 24px auto;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: bold;
+            line-height: 28px;
+            color: #2F3033;
+        }
+
+        ul li {
+            font-family: 'Noto Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 32px;
+            color: #2F3033;
+        }
+        .normal-txt {
+            font-family: 'Noto Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 32px;
+            color: #2F3033;
+        }
+
+        p {
+            font-family: 'Noto Sans', sans-serif;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 32px;
+            color: #2F3033;
+        }
+
+        .sm-title {
+            font-style: normal;
+            font-size: 30px;
+            line-height: 36px;
+        }
+
+        .additional-questions-div {
+            margin-bottom: 48px;
+        }
+
+        .each-answer {
+            display: flex;
+            width: 100%;
+            font-size: 14px;
+            line-height: 16px;
+            margin: 20px 0;
+        }
+
+        .each-answer .question {
+            display: inline-block;
+            width: 600px;
+            margin-right: 40px;
+        }
+
+        .each-answer .answer-div {
+            display: inline-block;
+        }
+
+        .each-checkbox {
+            margin: 0 20px;
+            float: left;
+        }
+
+        .each-checkbox .check-div {
+            width: 18px;
+            height: 18px;
+            border: 1px solid #2F3033;
+            box-sizing: border-box;
+            border-radius: 4px;
+            margin-right: 18px;
+            padding: 1px;
+            background: white;
+            float: left;
+        }
+        .each-checkbox >span {
+            float: left;
+            font-size: 14px;
+            line-height: 16px;
+        }
+
+        .check-div.checked {
+            background: #2F3033;
+        }
+
+        .check-div.checked .check {
+            display: block;
+        }
+
+        .check {
+            display: none;
+            transform: rotate(45deg);
+            height: 8px;
+            width: 4px;
+            border-bottom: 1px solid white;
+            border-right: 1px solid white;
+            margin-left: 5px;
+            margin-top: 1px;
+        }
+
+        .div-border {
+            border: 1px solid #EBEBEB;
+            width: 100%;
+            margin-top: 48px;
+        }
+
+        .signature-section {
+            margin-top: 48px;
+        }
+
+        .signature-div {
+            background-color: #EBEBEB;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .signature-span {
+            font-size: 14px;
+            color: #000000;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+	<body>
+		<div id="root">
+		    <p class="title">{{ title | safe }}</p>
+
+		    {% for item in items %}
+
+		    	<p class="sm-title">{{ item.title | safe }}</p>
+
+                {% set lines = item.reviewDetails.split('\n') %}
+                {% for line in lines %}
+                    <p class="normal-txt">
+                        {{ line | safe }}
+                    </p>
+                {% endfor %}
+
+		    {% endfor %}
+
+            <div style="page-break-before: always;width: 100%;" class="additional-questions-div">
+                {% for answer in answers %}
+                    <div class="each-answer">
+                        <span class="question">{{ answer["question"] | safe }}</span>
+                        <div class="answer-div">
+                            {% if answer["format"] == "BOOLEAN" %}
+                                <div class="each-checkbox">
+                                    <div class="{{ "check-div checked" if answer["answer"] else "check-div" }}">
+                                        <div class="check"></div>
+                                    </div>
+                                    <span>{{ other_strings["yes"] }}</span>
+                                </div>
+                                <div class="each-checkbox">
+                                    <div class="{{ "check-div" if answer["answer"] else "check-div checked" }}">
+                                        <div class="check"></div>
+                                    </div>
+                                    <span>{{ other_strings["no"] }}</span>
+                                </div>
+                            {% else %}
+                                <span>{{ answer["answer"]}}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if answers %}
+                <div class="div-border"></div>
+            {% endif %}
+
+		    <p class="signature-section">{{ other_strings["signature"] }}</p>
+            <div class="signature-div">
+		        <img src="{{ signature_url }}" alt="signature"/>
+            </div>
+            <p>{{ other_strings["participant_name"] }}<span class="signature-span">     {{ full_name }}     </span></p>
+            <p>{{ other_strings["date_signature"] }}<span class="signature-span">{{ date }}</span></p>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,34 @@
+Retrieve single ECG record
+---
+tags:
+  - kardia
+parameters:
+  - in: path
+    name: record_id
+    type: string
+    required: true
+    description: Record ID of the ecg record to be retrieved
+responses:
+  200:
+    description: Single ECG Record
+    schema:
+      $ref: '#/definitions/ECGObject'
+definitions:
+  ECGObject:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      patientID:
+        type: string
+      duration:
+        type: integer
+      heartRate:
+        type: integer
+      note:
+        type: string
+      algorithmDetermination:
+        type: string
+      recordedAt:
+        type: string

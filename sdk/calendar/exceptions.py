@@ -1,0 +1,2 @@
+class NoValidCalendarEventException(Exception):
+    pass

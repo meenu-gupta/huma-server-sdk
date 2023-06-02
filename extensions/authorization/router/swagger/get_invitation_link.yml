@@ -1,0 +1,55 @@
+Get Invitation Link
+---
+tags:
+  - invitation
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: "Json body with options"
+    required: true
+    schema:
+      $ref: "#/definitions/GetInvitationLinkRequest"
+
+responses:
+  200:
+    description: Ok
+    schema:
+      $ref: '#/definitions/GetInvitationLinkResponse'
+definitions:
+  GetInvitationLinkRequest:
+    type: object
+    required:
+      - deploymentId
+      - roleId
+      - clientId
+      - projectId
+      - retrieveShortened
+    properties:
+      deploymentId:
+        type: string
+        example: "602f641b90517902d644eff2"
+      roleId:
+        type: string
+      expiresIn:
+        type: string
+        example: "P1Y"
+      clientId:
+        type: string
+        example: c1
+      language:
+        type: string
+      projectId:
+        type: string
+        example: p1
+      retrieveShortened:
+        type: boolean
+        example: true
+  GetInvitationLinkResponse:
+    type: object
+    properties:
+      link:
+        type: string

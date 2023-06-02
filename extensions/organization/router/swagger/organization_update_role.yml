@@ -1,0 +1,30 @@
+summary: Update Role
+tags:
+  - organization
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: organization_id
+    type: string
+    required: true
+    description: ID of the organization the role belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/OrganizationRoleUpdateRequest'
+responses:
+  200:
+    description: Created ObjectIDs
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  OrganizationRoleUpdateRequest:
+    type: object
+    required:
+      - roles
+    properties:
+      roles:
+        $ref: "#/definitions/roles"

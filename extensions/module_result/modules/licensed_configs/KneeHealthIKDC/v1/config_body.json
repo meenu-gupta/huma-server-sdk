@@ -1,0 +1,775 @@
+{
+  "configBody": {
+    "pages": [
+      {
+        "type": "INFO",
+        "id": "ikdc_info",
+        "order": 1,
+        "displayInCP": false,
+        "text": "hu_ikdc_title",
+        "description": "hu_ikdc_body"
+      },
+      {
+        "type": "INFO",
+        "id": "ikdc_symptoms_info",
+        "order": 2,
+        "displayInCP": true,
+        "text": "hu_ikdc_symptoms_info_text",
+        "description": "hu_ikdc_symptoms_info_description"
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "text": "hu_ikdc_symptoms_pain_q1_text",
+            "description": "",
+            "id": "ikdc_symptoms_pain_q1",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "options": [
+              {
+                "label": "hu_ikdc_symptoms_pain_q1_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_symptoms_pain_q1_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_symptoms_pain_q1_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_symptoms_pain_q1_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_symptoms_pain_q1_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 3
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "text": "hu_ikdc_symptoms_pain_q2_text",
+            "description": "hu_ikdc_symptoms_pain_q2_description",
+            "id": "ikdc_symptoms_pain_q2",
+            "required": false,
+            "format": "SCALE",
+            "order": 1,
+            "lowerBound": 0,
+            "upperBound": 10
+          }
+        ],
+        "order": 4
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "text": "hu_ikdc_symptoms_pain_q3_text",
+            "description": "hu_ikdc_symptoms_pain_q3_description",
+            "id": "ikdc_symptoms_pain_q3",
+            "required": false,
+            "format": "SCALE",
+            "order": 1,
+            "lowerBound": 0,
+            "upperBound": 10
+          }
+        ],
+        "order": 5
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_symptoms_stifness_q1",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_symptoms_stifness_q1_text",
+            "options": [
+              {
+                "label": "hu_ikdc_symptoms_stifness_q1_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_symptoms_stifness_q1_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_symptoms_stifness_q1_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_symptoms_stifness_q1_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_symptoms_stifness_q1_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 6
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_symptoms_swelling_q1",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_symptoms_swelling_q1_text",
+            "options": [
+              {
+                "label": "hu_ikdc_symptoms_swelling_q1_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_symptoms_swelling_q1_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_symptoms_swelling_q1_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_symptoms_swelling_q1_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_symptoms_swelling_q1_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 7
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_symptoms_giveway_q1",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_symptoms_giveway_q1_text",
+            "options": [
+              {
+                "label": "hu_ikdc_symptoms_giveway_q1_a1",
+                "value": "0",
+                "weight": 0
+              },
+              {
+                "label": "hu_ikdc_symptoms_giveway_q1_a2",
+                "value": "1",
+                "weight": 1
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 8
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_symptoms_giveway_q2",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_symptoms_giveway_q2_text",
+            "options": [
+              {
+                "label": "hu_ikdc_symptoms_giveway_q2_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_symptoms_giveway_q2_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_symptoms_giveway_q2_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_symptoms_giveway_q2_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_symptoms_giveway_q2_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 9
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "hu_ikdc_sports_q1_description",
+            "id": "ikdc_sports_q1",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q1_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q1_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q1_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q1_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q1_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q1_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 10
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_sports_q2",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q2_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q2_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q2_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q2_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q2_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q2_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 11
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_sports_q3",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q3_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q3_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q3_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q3_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q3_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q3_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 12
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_sports_q4",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q4_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q4_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q4_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q4_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q4_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q4_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 13
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_sports_q5",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q5_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q5_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q5_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q5_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q5_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q5_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 14
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_sports_q6",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q6_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q6_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q6_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q6_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q6_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q6_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 15
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_sports_q7",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q7_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q7_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q7_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q7_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q7_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q7_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 16
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_sports_q8",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q8_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q8_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q8_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q8_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q8_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q8_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 17
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_sports_q9",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q9_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q9_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q9_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q9_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q9_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q9_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 18
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "description": "",
+            "id": "ikdc_sports_q10",
+            "required": false,
+            "format": "TEXTCHOICE",
+            "order": 1,
+            "text": "hu_ikdc_sports_q10_text",
+            "options": [
+              {
+                "label": "hu_ikdc_sports_q10_a1",
+                "value": "4",
+                "weight": 4
+              },
+              {
+                "label": "hu_ikdc_sports_q10_a2",
+                "value": "3",
+                "weight": 3
+              },
+              {
+                "label": "hu_ikdc_sports_q10_a3",
+                "value": "2",
+                "weight": 2
+              },
+              {
+                "label": "hu_ikdc_sports_q10_a4",
+                "value": "1",
+                "weight": 1
+              },
+              {
+                "label": "hu_ikdc_sports_q10_a5",
+                "value": "0",
+                "weight": 0
+              }
+            ],
+            "selectionCriteria": "SINGLE"
+          }
+        ],
+        "order": 19
+      },
+      {
+        "type": "INFO",
+        "id": "ikdc_function_info",
+        "order": 20,
+        "displayInCP": true,
+        "text": "hu_ikdc_function_info_text",
+        "description": "hu_ikdc_function_info_description"
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "id": "ikdc_function_q1",
+            "text": "hu_ikdc_function_q1_text",
+            "description": "hu_ikdc_function_q1_description",
+            "required": false,
+            "format": "SCALE",
+            "order": 1,
+            "lowerBound": 0,
+            "upperBound": 10,
+            "skipCalculation": true
+          }
+        ],
+        "order": 21
+      },
+      {
+        "type": "QUESTION",
+        "items": [
+          {
+            "logic": {
+              "isEnabled": false
+            },
+            "id": "ikdc_function_q2",
+            "text": "hu_ikdc_function_q2_text",
+            "description": "hu_ikdc_function_q2_description",
+            "required": false,
+            "format": "SCALE",
+            "order": 1,
+            "lowerBound": 0,
+            "upperBound": 10
+          }
+        ],
+        "order": 22
+      }
+    ],
+    "submissionPage": {
+      "type": "SUBMISSION",
+      "id": "ikdc_submission",
+      "order": 51,
+      "text": "hu_ikdc_submission_text",
+      "buttonText": "hu_ikdc_submission_button",
+      "description": "hu_ikdc_submission_description"
+    }
+  }
+}

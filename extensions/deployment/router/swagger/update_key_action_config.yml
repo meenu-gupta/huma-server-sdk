@@ -1,0 +1,28 @@
+Update Key Action Config
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment key action config belongs to.
+  - in: path
+    name: key_action_id
+    type: string
+    required: true
+    description: ID of the key action config to update.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/KeyActionConfig'
+responses:
+  200:
+    description: Updated object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'

@@ -1,0 +1,45 @@
+Retrieve User Device Sessions
+---
+tags:
+  - auth
+parameters:
+  - name: user_id
+    in: path
+    required: true
+    type: string
+responses:
+  200:
+    description: Array of all device sessions user had or has
+    schema:
+      $ref: '#/definitions/RetrieveSessionResponse'
+definitions:
+  RetrieveSessionResponse:
+    type: array
+    items:
+      $ref: "#/definitions/DeviceSession"
+  DeviceSession:
+    type: object
+    required:
+      - id
+      - userId
+      - deviceAgent
+      - updateDateTime
+      - createDateTime
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      userId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      refreshToken:
+        type: string
+      deviceAgent:
+        type: string
+        example: "insomnia 7.0/7.1"
+      updateDateTime:
+        type: string
+        format: date-time
+      createDateTime:
+        type: string
+        format: date-time

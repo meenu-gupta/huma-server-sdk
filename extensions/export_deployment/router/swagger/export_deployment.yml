@@ -1,0 +1,256 @@
+Export deployment
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: "Json body with options"
+    required: true
+    schema:
+      $ref: "#/definitions/ExportDeploymentRequest"
+  - in: path
+    name: deployment_id
+    description: "ID of the deployment to export."
+    required: true
+    type: string
+
+responses:
+  200:
+    description: Export data based on request. Optionally zip archive if binaries included.
+    schema:
+      $ref: '#/definitions/ExportDeploymentResponse'
+
+definitions:
+  ExportDeploymentRequest:
+    allOf:
+      - $ref: "#/definitions/ExportParams"
+      - properties:
+          baseProfile:
+            type: string
+
+  ExportParams:
+    type: object
+    properties:
+      view:
+        type: string
+        enum: ["USER", "DAY", "MODULE_CONFIG"]
+      fromDate:
+        type: string
+      toDate:
+        type: string
+      moduleNames:
+        type: array
+        items:
+          type: string
+      excludedModuleNames:
+        type: array
+        items:
+          type: string
+      includeNullFields:
+        type: boolean
+      includeUserMetaData:
+        type: boolean
+      userIds:
+        type: array
+        items:
+          type: string
+      deIdentified:
+        type: boolean
+      format:
+        type: string
+        enum: ["JSON", "CSV", "JSON_CSV"]
+      binaryOption:
+        type: string
+        enum: ["NONE", "SIGNED_URL", "BINARY_INCLUDE"]
+      layer:
+        type: string
+        enum: ["FLAT", "NESTED"]
+      quantity:
+        type: string
+        enum: ["SINGLE", "MULTIPLE"]
+      questionnairePerName:
+        type: boolean
+      splitMultipleChoice:
+        type: boolean
+      splitSymptoms:
+        type: boolean
+      translatePrimitives:
+        type: boolean
+      exportBucket:
+        type: string
+      excludeFields:
+        type: array
+        items:
+          type: string
+      deIdentifyHashFields:
+        type: array
+        items:
+          type: string
+      deIdentifyRemoveFields:
+        type: array
+        items:
+          type: string
+      translationShortCodesObject:
+        $ref: "#/definitions/S3Object"
+      translationShortCodesObjectFormat:
+        type: string
+        enum: ["JSON", "CSV"]
+      singleFileResponse:
+        type: boolean
+      useFlatStructure:
+        type: boolean
+      onboardingModuleNames:
+        type: array
+        items:
+          type: string
+      preferShortCode:
+        type: boolean
+      useCreationTime:
+        type: boolean
+
+  ExportDeploymentResponse:
+    type: object
+    properties:
+      modules:
+        type: object
+        additionalProperties:
+          type: array
+          items:
+            $ref: '#/definitions/ExportPrimitiveObject'
+      users:
+        type: object
+        additionalProperties:
+          type: array
+          items:
+            $ref: '#/definitions/ExportPrimitiveObject'
+      dates:
+        type: object
+        additionalProperties:
+          type: array
+          items:
+            $ref: '#/definitions/ExportPrimitiveObject'
+
+  ExportPrimitiveObject:
+    type: object
+    properties:
+      _cls:
+        type: string
+        example: BloodPressure
+      moduleConfigId:
+        type: string
+      deploymentId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      version:
+        type: integer
+        example: 2
+      deviceName:
+        type: string
+        example: "iOS"
+      deviceDetails:
+        type: string
+      isAggregated:
+        type: boolean
+      aggregationPrecision:
+        type: string
+      startDateTime:
+        type: string
+      endDateTime:
+        type: string
+      submitterId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      correlationStartDateTime:
+        type: string
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      createDateTime:
+        type: string
+        format: date-time
+      userId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      moduleId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      moduleResultId:
+        type: string
+        example: "31f79109948c469bba0b3e202960d961"
+      userMetadata:
+        $ref: "#/definitions/UserMetaDataObject"
+
+  UserMetaDataObject:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      createDateTime:
+        type: string
+        format: date-time
+      updateDateTime:
+        type: string
+        format: date-time
+      givenName:
+        type: string
+      familyName:
+        type: string
+      email:
+        type: string
+        format: email
+      phoneNumber:
+        type: string
+        example: "+780888888888"
+      primaryAddress:
+        type: string
+      timezone:
+        type: string
+        example: "Europe/London"
+      gender:
+        $ref: "#/definitions/Gender"
+      dateOfBirth:
+        type: string
+        format: date
+      age:
+        type: integer
+      race:
+        type: string
+      bloodGroup:
+        type: string
+      emergencyPhoneNumber:
+        type: string
+        example: "+780888888889"
+      familyMedicalHistory:
+        type: string
+      pastHistory:
+        type: string
+      presentSymptoms:
+        type: string
+      operationHistory:
+        type: string
+      chronicIllness:
+        type: string
+      allergyHistory:
+        type: string
+      pregnancy:
+        type: string
+      dateOfLastPhysicalExam:
+        type: string
+        format: date
+      fenlandCohortId:
+        type: string
+      nhsId:
+        type: string
+      insuranceNumber:
+        type: string
+      wechatId:
+        type: string
+      surgeryDateTime:
+        type: string
+        format: date-time

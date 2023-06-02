@@ -1,0 +1,416 @@
+Calculate Covid Score
+---
+tags:
+  - modules
+security:
+  - Bearer: []
+
+parameters:
+  - in: body
+    name: body
+    description: list of Primitives to create Covid Risk Score
+    required: true
+    schema:
+      $ref: "#/definitions/CreateCovidScoreRequest"
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - in: path
+    name: module_id
+    required: true
+    type: string
+
+responses:
+  201:
+    description: Ids of created objects and errors if present
+    schema:
+      $ref: "#/definitions/CreateCovidScoreResponse"
+definitions:
+  CreateCovidScoreResponse:
+    type: object
+    properties:
+      ids:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      errors:
+        type: array
+        items:
+          type: string
+          example: "Something went wrong"
+
+  CreateCovidScoreRequest:
+    type: object
+    properties:
+      Covid19RiskScoreCoreQuestions:
+        $ref: "#/definitions/Covid19RiskScoreCoreQuestionsInternalBlock"
+      Weight:
+        $ref: "#/definitions/WeightInternalBlock"
+      Temperature:
+        $ref: "#/definitions/TemperatureInternalBlock"
+      SmokeQuestions:
+        $ref: "#/definitions/SmokeQuestionsInternalBlock"
+      HeartRate:
+        $ref: "#/definitions/RestingHeartRateInternalBlock"
+      RestingBreathingRate:
+        $ref: "#/definitions/RestingBreathingRateInternalBlock"
+      OxygenSaturation:
+        $ref: "#/definitions/OxygenSaturationInternalBlock"
+
+    example: [
+    {
+      "type": "Covid19RiskScoreCoreQuestions",
+      "deploymentId": "5f3fab67f09c2079a6b2201b",
+      "deviceName": "iOS",
+      "startDateTime": "2020-09-01T09:39:40.437Z",
+      "ethnicity": "ASIAN_OR_ASIAN_BRITISH",
+      "bloodType": "B_NEGATIVE",
+      "preExistingConditions": ["OTHER"],
+      "currentSymptoms": ["DIFFICULT_BREATHING"]
+    },
+    {
+      "type": "Weight",
+      "deploymentId": "5f3fab67f09c2079a6b2201b",
+      "deviceName": "iOS",
+      "startDateTime": "2020-09-01T09:39:40.437Z",
+      "value": 59
+    },
+    {
+      "type": "Temperature",
+      "deploymentId": "5f3fab67f09c2079a6b2201b",
+      "deviceName": "iOS",
+      "startDateTime": "2020-09-01T09:39:40.437Z",
+      "value": 39
+    },
+    {
+      "type": "SmokeQuestions",
+      "deploymentId": "5f3fab67f09c2079a6b2201b",
+      "deviceName": "iOS",
+      "startDateTime": "2020-09-01T09:39:40.437Z",
+      "smokeStatus": "YES_AND_I_STILL_DO",
+      "vapeStatus": "NO"
+    },
+    {
+      "type": "HeartRate",
+      "deploymentId": "5f3fab67f09c2079a6b2201b",
+      "deviceName": "iOS",
+      "startDateTime": "2020-09-01T09:39:40.437Z",
+      "value": 90
+    },
+    {
+      "type": "RestingBreathingRate",
+      "deploymentId": "5f3fab67f09c2079a6b2201b",
+      "deviceName": "iOS",
+      "startDateTime": "2020-09-01T09:39:40.437Z",
+      "value":20
+    },
+    {
+      "type": "OxygenSaturation",
+      "deploymentId": "5f3fab67f09c2079a6b2201b",
+      "deviceName": "iOS",
+      "startDateTime": "2020-09-01T09:39:40.437Z",
+      "value":0.74
+    }
+    ]
+
+  SmokeQuestionsInternalBlock:
+    type: object
+    required:
+      - userId
+      - deviceName
+      - deploymentId
+      - type
+    properties:
+      type:
+        type: string
+        example: "SmokeQuestions"
+      deploymentId:
+        type: string
+        example: "5f3fab67f09c2079a6b2201b"
+      deviceName:
+        type: string
+        example: "iOS"
+      startDateTime:
+        type: string
+        example: "2020-09-01T09:39:40.437Z"
+      smokeStatus:
+        type: string
+        example: "YES_AND_I_STILL_DO"
+        enum: [
+          YES_AND_I_STILL_DO,
+          YES_BUT_I_QUIT, NO
+        ]
+      smokerType:
+        type: string
+        example: "REGULAR_SMOKER"
+        enum: [
+          REGULAR_SMOKER,
+          SOCIAL_SMOKER
+        ]
+      smokingPeriod:
+        type: string
+        exmaple: "LESSCreateReminderRequest_THAN_A_YEAR"
+        enum: [
+          LESS_THAN_A_YEAR,
+          FROM_1_to_5_YEARS,
+          FROM_6_to_10_YEARS,
+          FROM_11_to_15_YEARS,
+          MORE_THAN_15_YEARS
+        ]
+      numberOfCigarettesPerDay:
+        type: integer
+        example: 10
+      numberOfCigarettesPerMonth:
+        type: integer
+        example: 300
+      vapeStatus:
+        type: string
+        example: "YES_AND_I_STILL_DO"
+        enum: [
+          YES_AND_I_STILL_DO,
+          YES_BUT_I_QUIT,
+          NO
+        ]
+      vapePeriodic:
+        type: string
+        example: "OCCASIONALLY"
+        enum: [
+          OCCASIONALLY,
+          RARELY,
+          OFTEN,
+          EVERY_DAY
+        ]
+
+  RestingHeartRateInternalBlock:
+    type: object
+    required:
+      - userId
+      - deviceName
+      - deploymentId
+      - heartRateType
+      - value
+      - type
+    properties:
+      type:
+        type: string
+        example: "HeartRate"
+      deploymentId:
+        type: string
+        example: "5f3fab67f09c2079a6b2201b"
+      deviceName:
+        type: string
+        example: "iOS"
+      startDateTime:
+        type: string
+        example: "2020-09-01T09:39:40.437Z"
+      value:
+        example: 59
+        format: integer
+        type: number
+      heartRateType:
+        type: string
+        example: "RESTING"
+        enum: [
+          RESTING,
+          UNSPECIFIED
+        ]
+
+  RestingBreathingRateInternalBlock:
+    type: object
+    required:
+      - userId
+      - deviceName
+      - deploymentId
+      - value
+      - type
+    properties:
+      type:
+        type: string
+        example: "RestingBreathingRate"
+      deploymentId:
+        type: string
+        example: "5f3fab67f09c2079a6b2201b"
+      deviceName:
+        type: string
+        example: "iOS"
+      startDateTime:
+        type: string
+        example: "2020-09-01T09:39:40.437Z"
+      value:
+        example: 59
+        format: integer
+        type: number
+
+  OxygenSaturationInternalBlock:
+    type: object
+    required:
+      - userId
+      - deviceName
+      - deploymentId
+      - value
+      - type
+    properties:
+      type:
+        type: string
+        example: "OxygenSaturation"
+      deploymentId:
+        type: string
+        example: "5f3fab67f09c2079a6b2201b"
+      deviceName:
+        type: string
+        example: "iOS"
+      startDateTime:
+        type: string
+        example: "2020-09-01T09:39:40.437Z"
+      value:
+        example: 70.6
+        format: float
+        minimum: 0.7
+        maximum: 1
+        type: number
+      valueUnit:
+        type: string
+        default: "%"
+
+  TemperatureInternalBlock:
+    type: object
+    required:
+      - userId
+      - deviceName
+      - deploymentId
+      - value
+      - type
+    properties:
+      type:
+        type: string
+        example: "Temperature"
+      deploymentId:
+        type: string
+        example: "5f3fab67f09c2079a6b2201b"
+      deviceName:
+        type: string
+        example: "iOS"
+      startDateTime:
+        type: string
+        example: "2020-09-01T09:39:40.437Z"
+      value:
+        example: 36.6
+        format: float
+        minimum: 33
+        maximum: 42
+        type: number
+      valueUnit:
+        type: string
+        default: "oC"
+
+  WeightInternalBlock:
+    type: object
+    required:
+      - userId
+      - deviceName
+      - deploymentId
+      - value
+      - type
+    properties:
+      type:
+        type: string
+        example: "Weight"
+      deploymentId:
+        type: string
+        example: "5f3fab67f09c2079a6b2201b"
+      deviceName:
+        type: string
+        example: "iOS"
+      startDateTime:
+        type: string
+        example: "2020-09-01T09:39:40.437Z"
+      value:
+        example: 59.0
+        format: float
+        minimum: 20
+        maximum: 300
+        type: number
+
+  Covid19RiskScoreCoreQuestionsInternalBlock:
+    type: object
+    required:
+      - userId
+      - deviceName
+      - deploymentId
+      - ethnicity
+      - bloodType
+      - preExistingConditions
+      - currentSymptoms
+      - type
+    properties:
+      type:
+        type: string
+        example: "Covid19RiskScoreCoreQuestions"
+      deploymentId:
+        type: string
+        example: "5f3fab67f09c2079a6b2201b"
+      deviceName:
+        type: string
+        example: "iOS"
+      startDateTime:
+        type: string
+        example: "2020-09-01T09:39:40.437Z"
+      ethnicity:
+        type: string
+        example: "ASIAN_OR_ASIAN_BRITISH"
+        enum: [
+          ASIAN_OR_ASIAN_BRITISH,
+          WHITE,
+          MIXED_OR_MULTI_ETHNIC_GROUPS,
+          BLACK_OR_AFRICAN_OR_CARIBBEAN_OR_BLACK_BRITISH,
+          OTHER_ETHNIC_GROUPS
+        ]
+      bloodType:
+        type: string
+        example: "B_NEGATIVE"
+        enum: [
+          O_POSITIVE,
+          O_NEGATIVE,
+          A_POSITIVE,
+          A_NEGATIVE,
+          B_POSITIVE,
+          B_NEGATIVE,
+          AB_POSITIVE,
+          AB_NEGATIVE,
+          UNKNOWN
+        ]
+      preExistingConditions:
+        type: array
+        items:
+          type: string
+          enum: [
+            CURRENT_CANCER,
+            DIABETES,
+            HEALTH_FAILURE,
+            CHRONIC_KIDNEY_DISEASE,
+            CHRONIC_LUNG_DISEASE,
+            CHRONIC_LIVER_DISEASE,
+            CARDIOVASCULAR_DISEASE,
+            STROKE,
+            HYPERTENSION,
+            OTHER
+          ]
+      currentSymptoms:
+        type: array
+        items:
+          type: string
+          enum: [
+            DIFFICULT_BREATHING,
+            CHEST_TIGHTNESS,
+            PERSISTENT_NEW_COUGH,
+            COUGHING_UP_PHLEGM,
+            HEADACHE,
+            MYALGIA,
+            FATIGUE,
+            NAUSEA,
+            DIARRHOEA,
+            GI_SYMPTOMS,
+            HEMOPTYSIS
+          ]

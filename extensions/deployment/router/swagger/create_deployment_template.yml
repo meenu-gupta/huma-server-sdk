@@ -1,0 +1,47 @@
+summary: Create Deployment Template
+tags:
+  - deployment
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateDeploymentTemplateRequest"
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: "#/definitions/ObjIdResponse"
+
+definitions:
+  CreateDeploymentTemplateRequest:
+    type: object
+    required:
+      - name
+      - description
+      - category
+    properties:
+      name:
+        type: string
+        maxLength: 80
+      description:
+        type: string
+        maxLength: 163
+      organizationIds:
+        type: array
+        description: List of organization Id
+        items:
+          type: string
+      category:
+        type: string
+        enum: ["CARDIOVASCULAR", "METABOLIC", "RESPIRATORY", "NEUROLOGY", "MUSCULOSKELETAL",
+               "INFECTIOUS_DISEASES", "SELF_SERVICE"]
+      template:
+        $ref: "#/definitions/CreateDeploymentRequest"
+      status:
+        $ref: "#/definitions/EnableStatus"

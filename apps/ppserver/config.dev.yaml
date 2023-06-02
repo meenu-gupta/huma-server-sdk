@@ -1,0 +1,259 @@
+server:
+  host: 0.0.0.0
+  port: 3901
+  hostUrl: vb-ppserver.ngrok.io
+  webAppUrl: devapp.humaapp.io
+  debug: true
+  debugLog: true
+  debugRouter: true
+  testEnvironment: !ENVBOOL ${MP_TEST_ENVIRONMENT}
+  maxContentSize: 104857600
+  iosAppUrl: !ENV ${MP_IOS_APP_URL}
+  androidAppUrl: !ENV ${MP_ANDROID_APP_URL}
+  countryName: !ENV ${MP_COUNTRY_NAME}
+  countryCode: !ENV ${MP_COUNTRY_CODE}
+
+  auditLogger:
+    enable: true
+
+  publisher:
+    enable: false
+
+  swagger:
+    enable: true
+    template:
+      swagger: "2.0"
+      info:
+        description: |
+          Huma Platform Play APIs.
+        title: Huma Platform Play APIs
+      securityDefinitions:
+        Bearer:
+          type: apiKey
+          name: Authorization
+          in: header
+      tags:
+        - name: deployment
+          description: |
+            This is for deployment a.k.a configuration
+        - name: modules
+          description: |
+            This is for modules a.k.a configuration
+
+  deployment:
+    enable: true
+    encryptionSecret: !ENV ${MP_ENCRYPTION_SECRET}
+    flagsEnabled: true
+
+  celery:
+    enable: true
+    brokerUrl: !ENV ${MP_REDIS_URL}
+
+  rateLimit:
+    enable: true
+    default: "50 per minute"
+    storageUri: !ENV ${MP_REDIS_URL}
+    strategy: "fixed-window"
+
+  project:
+    id: p1
+    notFoundLink: https://huma.com/404
+    clients:
+      - name: USER_IOS-client
+        clientId: c1
+        clientType: USER_IOS
+        roleIds: ["User", "SuperAdmin", "Proxy"]
+        accessTokenExpiresAfterMinutes: 15
+        refreshTokenExpiresAfterMinutes: 64800
+        deepLinkBaseUrl: http://userioshost:3901
+        appIds: ["MMNBVS2YRP.com.huma.HumaApp.dev"]
+        minimumVersion: 1.17.1
+      - name: patient-MANAGER_WEB-client
+        clientId: c4
+        clientType: USER_WEB
+        roleIds: ["User", "SuperAdmin"]
+        accessTokenExpiresAfterMinutes: 15
+        refreshTokenExpiresAfterMinutes: 64800
+        deepLinkBaseUrl: http://userwebhost:3901
+      - name: USER_ANDROID-client
+        clientId: c2
+        clientType: USER_ANDROID
+        roleIds: ["User", "SuperAdmin", "Proxy"]
+        accessTokenExpiresAfterMinutes: 15
+        refreshTokenExpiresAfterMinutes: 64800
+        deepLinkBaseUrl: http://userAndroidhost:3901
+        appIds: ["com.huma.humaapp.dev"]
+        fingerprints: ["1E:8F:48:37:51:56:EF:64:08"]
+        minimumVersion: 1.17.1
+        smsRetrieverCode: "tZ/eRROS83W"
+      - name: MANAGER_WEB-client
+        clientId: c3
+        clientType: MANAGER_WEB
+        authType: SFA
+        roleIds: ["Manager", "SuperAdmin"]
+        accessTokenExpiresAfterMinutes: 15
+        refreshTokenExpiresAfterMinutes: 20160  # 14 days
+        deepLinkBaseUrl: http://webapp.com
+      - name: SERVICE_ACCOUNT-client
+        clientId: c7
+        clientType: SERVICE_ACCOUNT
+        authType: SFA
+        roleIds: ["ServiceAccount"]
+        deepLinkBaseUrl: http://webapp.com
+      - name: super-admin
+        clientId: c5
+        clientType: ADMIN_WEB
+        authType: SFA
+        roleIds: ["SuperAdmin"]
+        accessTokenExpiresAfterMinutes: 60
+        refreshTokenExpiresAfterMinutes: 20160  # 14 days
+        deepLinkBaseUrl: http://adminportal.com
+        passwordExpiresIn: 1000
+    masterKey: !ENV ${MP_MASTER_KEY}
+
+  auth:
+    enable: true
+    database: pp_local_dev
+    rateLimit:
+      signup: "10/minute"
+      checkAuthAttributes: "10/minute"
+      default: "50 per minute"
+    signedUrlSecret: !ENV ${MP_SIGNED_URL_SECRET}
+
+  storage:
+    enable: true
+    enableAuth: true
+    # storageAdapter: GCS
+    allowedBuckets: ["ppdeveufrankfurt"]
+    defaultBucket: "ppdeveufrankfurt"
+    rateLimit:
+      write: "20/minute"
+      read: "60 per minute"
+
+  revereTest:
+    clientId: !ENV ${HOUNDIFY_CLIENT_ID}
+    clientKey: !ENV ${HOUNDIFY_CLIENT_KEY}
+
+  twilioVideo:
+    enable: true
+  authorization:
+    checkAdminIpAddress: false
+
+  invitation:
+    invitationExpiresAfterMinutes: 1440
+    shortenedCodeLength: 16
+
+  adapters:
+    fluentd:
+      tag: huma
+      host: localhost
+      port: 8887
+    tencentCloudCos:
+      region: eu-frankfurt
+      schema: https
+      bucket: mp-eu-dev-bucket-1300146971
+      secretId: !ENV ${MP_COS_SECRET_ID}
+      secretKey: !ENV ${MP_COS_SECRET_KEY}
+    twilioSms:
+      accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+      authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+    twilioPush:
+      accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+      serviceSid: !ENV ${MP_TWILIO_SERVICE_SID}
+      authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+    twilioVideo:
+      accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+      authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+      apiKey: !ENV ${MP_TWILIO_API_KEY}
+      apiSecret: !ENV ${MP_TWILIO_API_SECRET}
+      mediaRegion: !ENV ${MP_TWILIO_MEDIA_REGION}
+    gcs:
+      serviceAccountKeyFilePath: !ENV ${MP_GCS_SA_FILE_PATH}
+    azureBlobStorage:
+      connectionString: !ENV ${MP_AZURE_BLOB_STORAGE_CONN_STR}
+    fcmPush:
+      serviceAccountKeyFilePath: !ENV ${MP_FCM_SA_FILE_PATH}
+    apnsPush:
+      useSandbox: true
+      teamId: !ENV ${MP_APNS_TEAM_ID}
+      bundleId: "com.huma.HumaApp.qa"
+      authKeyFilePath: !ENV ${MP_APNS_AUTH_KEY_FILE_PATH}
+      authKeyId: !ENV ${MP_APNS_AUTH_KEY_ID}
+    twilioSmsVerification:
+      sourcePhoneNumber: "+447401263344"
+      templateKey: "SMSVerificationTemplate"
+      templateAndroidKey: "SMSAndroidVerificationTemplate"
+      serviceName: "Huma"
+      useTwilioVerify: false
+      twilioVerifyServiceSid: !ENV ${MP_TWILIO_VERIFY_SERVICE_SID}
+    mailgunEmail:
+      domainUrl: preprodemail.humatherapeutics.cn
+      mailgunApiUrlTemplate: https://api.mailgun.net/v3/{0}/messages
+      apiKey: !ENV ${MP_MAILGUN_API_KEY}
+      defaultFromEmail: !ENV ${MP_FROM_EMAIL}
+    minio:
+      url: !ENV ${MP_MINIO_URL}
+      accessKey: !ENV ${MP_MINIO_ACCESS_KEY}
+      secretKey: !ENV ${MP_MINIO_SECRET_KEY}
+      secure: false
+      baseUrl: !ENV ${MP_MINIO_BASE_URL}
+    aliCloudSms:
+      accessKeyId: !ENV ${MP_ALI_CLOUD_ACCESS_KEY_ID}
+      accessKeySecret: !ENV ${MP_ALI_CLOUD_ACCESS_KEY_SECRET}
+      params:
+        region: cn-beijing
+        domain: sms-intl.ap-southeast-1.aliyuncs.com
+        fromId: 迈达普
+        templateCode: SMS_10585524
+    mongodbDatabase:
+      name: pp_local_dev
+      url: !ENV ${MP_MONGODB_URL}
+    redisDatabase:
+      url: !ENV ${MP_REDIS_URL}
+    oneTimePasswordRepo:
+      rateLimit: 10
+    jwtToken:
+      secret: !ENV ${MP_JWT_SECRET}
+      audience: "urn:mp"
+      algorithm: "HS256"
+    oss:
+      accessKeyId: !ENV ${MP_ALI_CLOUD_ACCESS_KEY_ID}
+      accessKeySecret: !ENV ${MP_ALI_CLOUD_ACCESS_KEY_SECRET}
+      url: https://oss-eu-central-1.aliyuncs.com
+    aliCloudPush:
+      accessKeyId: !ENV ${MP_ALI_CLOUD_PUSH_ACCESS_KEY}
+      accessKeySecret: !ENV ${MP_ALI_CLOUD_PUSH_ACCESS_KEY_SECRET}
+      region: cn-beijing
+      appKey: !ENV ${MP_ALI_CLOUD_APP_KEY}
+    onfido:
+      apiToken: !ENV ${ONFIDO_API_TOKEN}
+      region: !ENV ${ONFIDO_REGION}
+      tokenExpiresAfterMinutes: 90
+      webhookToken: !ENV ${ONFIDO_WEBHOOK_TOKEN}
+    hawk:
+      hashingAlgorithm: sha256
+      localTimeOffset: 0
+      timeStampSkew: 60
+
+  moduleResult:
+    applyDefaultDisclaimerConfig: true
+    pamIntegration:
+      submitSurveyURI: !ENV ${MP_PAM_INTEGRATION_SUBMIT_SURVEY_URI}
+      enrollUserURI: !ENV ${MP_PAM_INTEGRATION_ENROLL_USER_URI}
+      clientExtID: !ENV ${MP_PAM_INTEGRATION_CLIENT_EXT_ID}
+      clientPassKey: !ENV ${MP_PAM_INTEGRATION_CLIENT_PASS_KEY}
+      subgroupExtID: !ENV ${MP_PAM_INTEGRATION_SUB_GROUP_EXT_ID}
+      timeout: 30000
+    kardia:
+      apiKey: !ENV ${MP_KARDIA_API_KEY}
+      baseUrl: !ENV ${MP_KARDIA_BASE_URL}
+    cvd:
+      url: !ENV ${MP_CVD_API_URL}
+      username: !ENV ${MP_CVD_API_USERNAME}
+      password: !ENV ${MP_CVD_API_PASSWORD}
+
+  exportDeployment:
+    sourceMongodbDatabase:
+      name: pp_local_dev
+      url: !ENV ${MP_SOURCE_MONGODB_URL}
+    enableAuth: true

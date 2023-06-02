@@ -1,0 +1,211 @@
+{
+  "$id": "com.medopad.platformplay.alcohol.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "definitions": {
+    "icon": {
+      "type": "object",
+      "description": "Initially choose an icon from the enumerated list (but not UPLOADED_S3).  Later it could be desirable to upload icon artwork to S3",
+      "properties": {
+          "iconType": {
+            "$ref": "#/definitions/iconType"
+          },
+          "s3icon": {
+            "$ref": "#/definitions/s3Object"
+          }
+      },
+      "required": [
+        "iconType"
+      ],
+      "additionalProperties": false
+    },
+    "uuid": {
+      "type": "string",
+      "format": "uuid",
+      "examples": [
+        "67ed4d53-37e0-4538-bb7a-6ecb62e6cd55"
+      ]
+    },
+    "s3Object": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "bucket": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "region",
+        "bucket"
+      ]
+    },
+    "section": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "icon": {
+          "$ref": "#/definitions/icon"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256,
+          "examples": [
+            "Beer & Cider",
+            "Spirits"
+          ]
+        },
+        "strengthOptions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/strengthOption"
+          },
+          "minLength": 1
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/alcoholItem",
+            "minLength": 1
+          },
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "strengthOptions",
+        "items"
+      ]
+    },
+    "strengthOption": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50
+        },
+        "value": {
+          "type": "number",
+          "minimum": 0.005,
+          "maximum": 1.0,
+          "description": "Alcohol percentage by volume (ABV) to use for this strength option, e.g. 0.04 is 4%.  Range 0.5% - 100%",
+          "examples": [
+            0.04,
+            0.125
+          ]
+        }
+      },
+      "required": [
+        "label",
+        "value"
+      ],
+      "additionalProperties": false
+    },
+    "alcoholItem": {
+      "type": "object",
+      "description": "A row for a particular type of drink, e.g. bottle of beer, large shot",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "icon": {
+          "$ref": "#/definitions/icon"
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 25
+        },
+        "plural": {
+          "type": "string",
+          "description": "Word for apps to use when there are more than one items",
+          "examples": ["cans", "bottles"],
+          "minLength": 1,
+          "maxLength": 25
+        },
+        "singular": {
+          "type": "string",
+          "description": "Word for apps to use when there is one item",
+          "examples": ["can", "bottle"],
+          "minLength": 1,
+          "maxLength": 25
+        },
+        "volume": {
+          "type": "number",
+          "minimum": 0,
+          "description": "How much liquid is in a single one of this item, in litres.",
+          "examples": [0.568, 0.25]
+        }
+      },
+      "required": [
+        "icon",
+        "label",
+        "plural",
+        "singular",
+        "volume"
+      ],
+      "additionalProperties": false
+    },
+    "iconType": {
+      "enum": [
+        "ALCOPOP",
+        "BEER_BOTTLE",
+        "BEER_CAN",
+        "BEER_LITRE",
+        "BEER_PINT",
+        "CHAMPAGNE",
+        "GENERIC",
+        "PORT",
+        "SHOT",
+        "SPARKLING_WINE",
+        "SPIRIT",
+        "UPLOADED_S3",
+        "WINE"
+      ]
+    }
+  },
+  "properties": {
+    "instruction": {
+      "type": "string",
+      "description": "Text to go above the list of sections on the main module screen.  Remember to keep this consistent with the period.",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "period": {
+      "type": "string",
+      "description": "ISO duration for period surveyed",
+      "examples": ["P1W", "P1M"],
+      "minLength": 3,
+      "maxLength": 5
+    },
+    "questionText": {
+      "type": "string",
+      "description": "Text for the yes/no question at the start of the module",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/section",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "instruction",
+    "questionText",
+    "sections"
+  ],
+  "additionalProperties": false
+}

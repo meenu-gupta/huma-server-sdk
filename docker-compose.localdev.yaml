@@ -1,0 +1,92 @@
+version: "3.4"
+
+services:
+
+  pp-server:
+    container_name: ppserver
+    build:
+      context: .
+      dockerfile: docker/ppserver/Dockerfile
+    restart: on-failure
+    command: python /app/apps/ppserver/ppserver.py --prod false --run server
+    depends_on:
+      - pymongodb-primary
+    ports:
+      - "3911:3901"
+    links:
+      - pymongodb-primary
+      - py-minio
+      - py-redis
+    env_file:
+      - ./apps/ppserver/dev.env
+    environment:
+      MP_MONGODB_URL: mongodb://root:password123@pymongodb-primary:27017
+      MP_SOURCE_MONGODB_URL: mongodb://root:password123@pymongodb-primary:27017
+      MP_REDIS_URL: redis://default:redispassword@py-redis:6379
+    healthcheck:
+      test: "echo '1';"
+      start_period: 2s
+    volumes:
+      - ./sdk:/app/sdk
+      - ./extensions:/app/extensions
+      - ./apps:/app/apps
+
+  pp-server-beat:
+    container_name: ppserver-beat
+    build:
+      context: .
+      dockerfile: docker/ppserver/Dockerfile
+    command: python /app/apps/ppserver/ppserver.py --prod false --run worker
+    restart: on-failure
+    depends_on:
+      - pymongodb-primary
+    links:
+      - pymongodb-primary
+      - py-minio
+      - py-redis
+    env_file:
+      - ./apps/ppserver/dev.env
+    environment:
+      MP_MONGODB_URL: mongodb://root:password123@pymongodb-primary:27017
+      MP_SOURCE_MONGODB_URL: mongodb://root:password123@pymongodb-primary:27017
+      MP_REDIS_URL: redis://default:redispassword@py-redis:6379
+    healthcheck:
+      test: "echo '1';"
+      start_period: 2s
+    volumes:
+      - ./sdk:/app/sdk
+      - ./extensions:/app/extensions
+      - ./apps:/app/apps
+
+  pp-server-worker:
+    container_name: ppserver-worker
+    build:
+      context: .
+      dockerfile: docker/ppserver/Dockerfile
+    command: python /app/apps/ppserver/ppserver.py --prod false --run worker
+    restart: on-failure
+    depends_on:
+      - pymongodb-primary
+    links:
+      - pymongodb-primary
+      - py-minio
+      - py-redis
+    env_file:
+      - ./apps/ppserver/dev.env
+    environment:
+      MP_MONGODB_URL: mongodb://root:password123@pymongodb-primary:27017
+      MP_SOURCE_MONGODB_URL: mongodb://root:password123@pymongodb-primary:27017
+      MP_REDIS_URL: redis://default:redispassword@py-redis:6379
+    healthcheck:
+      test: "echo '1';"
+      start_period: 2s
+    volumes:
+      - ./sdk:/app/sdk
+      - ./extensions:/app/extensions
+      - ./apps:/app/apps
+
+volumes:
+  py_redisdata:
+  py_miniodata:
+  pymongodb_master_data:
+    driver: local

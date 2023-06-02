@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Huma</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com"/>
+  <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Source+Serif+Pro:wght@200&display=swap"
+      rel="stylesheet"
+  />
+  <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+  <script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+  <style>
+    @font-face {
+      font-family: "VictorSerifSmooth-Regular";
+      src: url("../pdf_report/static/fonts/VictorSerifSmooth-Regular.otf");
+    }
+
+    .for-body {
+      margin: 0;
+    }
+
+    .for-subtitle {
+      font-weight: 400;
+    }
+
+    .container {
+      width: 816px;
+    }
+
+    .general {
+      width: 776px;
+      margin: 20px 20px 0;
+      border: 1px solid #ebebeb;
+    }
+
+    .general-container {
+      font-family: 'Noto Sans';
+      border-bottom: 1px solid #ebebeb;
+      box-sizing: border-box;
+      border-radius: 8px;
+    }
+
+    .charts-container {
+      background: #fbfbfb;
+    }
+
+    .for-charts {
+      display: flex;
+    }
+
+    .font-size-12 {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .chartDiv {
+      width: 100%;
+      height: 180px;
+      margin-top: 5px;
+    }
+
+    .containers-align {
+      display: flex;
+      align-items: center;
+    }
+
+    .for-bottom-markers {
+      display: flex;
+      align-items: center;
+      margin-right: 20px;
+    }
+
+    .title {
+      padding: 14px 14px 10px;
+      margin: 0;
+      font-size: 14px;
+      line-height: 16px;
+      color: #2f3033;
+      align-items: center;
+      display: flex;
+    }
+
+    .title span {
+      color: #6a6d72;
+      font-weight: normal;
+      padding-left: 4px;
+    }
+
+    .superscripts {
+      position: relative;
+      bottom: 0.3ex;
+      font-size: 11px;
+    }
+
+    .superscripts span {
+      position: relative;
+      bottom: 1.2ex;
+      font-size: 7px;
+    }
+
+    .bottom-markers {
+      width: 32px;
+      height: 20px;
+      border: 1px solid #ebebeb;
+      box-sizing: border-box;
+      border-radius: 4px;
+      margin-right: 8px;
+    }
+
+    .dark-dot {
+      width: 5px;
+      height: 5px;
+      background: #424347;
+      border-radius: 50px;
+    }
+
+    .white-dot {
+      width: 2px;
+      height: 2px;
+      border-radius: 50px;
+      border: 1px solid #424347;
+    }
+
+    .margin-7-13 {
+      margin: 7px 13px;
+    }
+
+    .column {
+      max-width: 794px;
+      column-count: 2;
+    }
+
+    .page {
+      height: 1054px;
+      position: relative;
+    }
+
+    .page + .page {
+      margin-top: 3px;
+    }
+
+    .display-none {
+      display: none;
+    }
+
+    .generic-data {
+      display: flex;
+      padding: 3px 14px 5px;
+    }
+
+    .generic-row {
+      display: flex;
+      flex-direction: row;
+      padding-bottom: 2px;
+      padding-right: 70px;
+    }
+
+    .generic-values {
+      padding-left: 6px;
+      color: #2f3033;
+    }
+
+    .generic-titles {
+      color: #6a6d72;
+    }
+
+    .generic-footer {
+      padding: 8px 10px 8px;
+      font-size: 8px;
+      line-height: 16px;
+      color: #2f3033;
+      display: flex;
+    }
+
+    .generic-column-padding {
+      padding-right: 70px;
+    }
+
+    .generic-6month-chart {
+      display: block;
+      width: 70%;
+    }
+
+    .generic-week-chart {
+      display: block;
+      width: 40%;
+      margin-left: -25px;
+      margin-right: -10px;
+    }
+
+    .monthly-mean-value {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .line {
+      margin: 0 -1px;
+      height: 1px;
+      width: 16px;
+      background: #424347;
+    }
+
+    .standard-deviation-line {
+      height: 100%;
+      width: 5px;
+      background: #909499;
+      opacity: 0.3;
+    }
+
+    .standard-deviation {
+      display: inline-flex;
+      justify-content: space-around;
+    }
+
+    .superscripts-footer {
+      position: relative;
+      font-size: 9px;
+    }
+
+    .superscripts-footer span {
+      position: relative;
+      bottom: 1.1ex;
+      font-size: 6px;
+    }
+
+    .for-body-measurements {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .dot-margin {
+      margin: 2px 8px 0;
+    }
+
+    .title-dot-margin {
+      margin: 7px 13px;
+    }
+
+    .margin-20 {
+      margin-top: 20px;
+    }
+
+    .page-logo {
+      height: 34px;
+      width: 100%;
+      border-bottom: 1px solid #ebebeb;
+    }
+
+    .page-logo img {
+      float: right;
+      padding: 8px 20px 7px;
+      height: 19px;
+      object-fit: cover;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 0;
+      border-top: 1px solid #ebebeb;
+      display: flex;
+      justify-content: space-between;
+      color: #6a6d72;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 10px;
+      height: 34px;
+      width: 100%;
+      align-items: center;
+      font-family: "Noto Sans";
+    }
+
+    .footer-img {
+      display: flex;
+      align-items: center;
+      padding-left: 20px;
+    }
+
+    .footer-img img {
+      height: 11px;
+      width: 11px;
+      margin-right: 10px;
+    }
+
+    .for-page {
+      padding-right: 20px;
+    }
+
+    .for-page span {
+      font-weight: 600;
+    }
+
+    .footnote {
+      font-family: "Noto Sans";
+      color: #424347;
+      font-size: 10px;
+      line-height: 150%;
+      font-weight: 400;
+      padding: 0 20px;
+      position: absolute;
+      bottom: 34px;
+    }
+
+    .footnote-item {
+      display: flex;
+      align-items: baseline;
+    }
+
+    .footnote-item span {
+      padding-right: 6px;
+      font-size: 8px;
+      line-height: 16px;
+    }
+
+  </style>
+</head>
+<body class="for-body" id="main_body">
+<div class="page containers-align">
+  {{ pages[0].render_html() | safe }}
+</div>
+<div id="pages-list">
+  {% for page in pages[1:] %}
+    {% set result = page.render_html() %}
+    {% if result %}
+      {{ result | safe }}
+    {% endif %}
+  {% endfor %}
+</div>
+<script>
+  const PDF_PAGE_SIZE = 1054 - 34 - 34 - 40; // page_height - header - footer - margins
+  // main
+  var iconUrl = "{{ icon | safe }}";
+
+  let allChartsNodes = document.getElementById('pages-list');
+  let allCharts = [];
+  allChartsNodes.childNodes.forEach((container) => {
+    if (container.tagName === "DIV") {
+      container.childNodes.forEach((child) => {
+        if ((child.className || "").includes("flexible-height")) {
+          container.className = "flexible-height";
+        }
+      })
+      allCharts.push(container);
+    }
+  });
+
+  let pageItems = [];
+  let pageIndex = 0
+  allCharts.forEach(chart => {
+    let isFlexibleContainer = chart.className.includes("flexible-height");
+    if (isFlexibleContainer) {
+      let pageContentSize = 0;
+      for (let el of pageItems) {
+        pageContentSize += el.clientHeight;
+      }
+      let newHeight = pageContentSize + chart.clientHeight;
+      if (pageItems.length > 0 && newHeight >= PDF_PAGE_SIZE) {
+        // post current page
+        pageIndex++;
+        postPage(pageItems, pageIndex);
+        pageItems = [chart];
+        // post new full size page
+        pageIndex++;
+        postPage(pageItems, pageIndex);
+        pageItems = [];
+        return;
+      }
+    }
+    if (pageItems.length >= 2) {
+      pageIndex++;
+      postPage(pageItems, pageIndex);
+      pageItems = [];
+    }
+    pageItems.push(chart);
+  });
+
+  if (pageItems.length > 0) {
+    pageIndex++;
+    postPage(pageItems, pageIndex);
+    pageItems = [];
+  }
+
+  window.onload = () => {
+    createFootNote();
+    let pageNumbers = document.getElementsByClassName("for-page");
+    let pages = document.getElementsByClassName("page");
+    for (let el of pageNumbers) {
+      const pageCountWithoutCoverPage = pages.length - 1;
+      el.innerHTML = el.innerHTML + pageCountWithoutCoverPage.toString();
+    }
+    allChartsNodes.remove();
+  }
+
+  // end main
+
+  // utils
+  function createPageFooter(number) {
+    const footer = document.createElement("div");
+    footer.className = "footer"
+
+    const footerImage = document.createElement("div");
+    footerImage.className = "footer-img"
+
+    const footerPageNumber = document.createElement("div");
+    footerPageNumber.className = "for-page"
+    footerPageNumber.innerHTML = "Page " + "<span>" + number.toString() + "</span>" + " / ";
+
+    const img = document.createElement("img");
+    img.src = "https://huma-static-assets.netlify.app/Fill_8.png";
+    let text = document.createElement("div")
+    text.innerHTML = "Summary Health Report";
+    footerImage.appendChild(img);
+    footerImage.appendChild(text);
+    footer.appendChild(footerImage);
+    footer.appendChild(footerPageNumber);
+    return footer;
+  }
+
+  function createFootNote() {
+    let pages = document.getElementsByClassName("page");
+    if (pages.length <= 1) return;
+    let lastPage = pages[pages.length - 1];
+    let lastPageContentSize = 0;
+    let showAtTheTopOfThePage = false;
+    for (let el of lastPage.childNodes) {
+      lastPageContentSize += el.clientHeight;
+    }
+    if (lastPageContentSize + 34 > PDF_PAGE_SIZE) {
+      showAtTheTopOfThePage = true;
+      postPage([document.createElement("dev")], pageIndex + 1)
+      let pages = document.getElementsByClassName("page");
+      lastPage = pages[pages.length - 1];
+    }
+    let footNote = document.createElement("div");
+    footNote.className = "footnote"
+    if (showAtTheTopOfThePage)
+      footNote.style.top = "54px";
+
+    const footNotes = [
+      "<span>*1</span><p>A standard deviation is a number used to tell how measurements for a group are spread out from the average (mean or expected value). A low standard deviation means that most of the numbers are close to the average, while a high standard deviation means that the numbers are more spread out.</p>",
+      "<span>*2</span><p>The median is the central number of a data set.</p>"
+    ];
+    for (let text of footNotes) {
+      let footNoteItem = document.createElement("div");
+      footNoteItem.className = "footnote-item";
+      footNoteItem.innerHTML = text;
+      footNote.appendChild(footNoteItem);
+    }
+    lastPage.appendChild(footNote);
+  }
+
+  function postPage(pageItems, pageNumber) {
+    let page = document.createElement("div");
+    page.className = "page";
+
+    let imgContainer = document.createElement("div")
+    imgContainer.className = "page-logo"
+    if (iconUrl !== "None") {
+      let image = document.createElement("img")
+      image.src = iconUrl;
+      imgContainer.appendChild(image)
+    }
+    page.appendChild(imgContainer)
+
+    for (let item of pageItems) {
+      page.appendChild(item);
+    }
+
+    const footer = createPageFooter(pageNumber);
+    page.appendChild(footer)
+    document.body.appendChild(page);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+Retrieve EConsent Signed Pdf
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID to retrieve EConsent Signed Pdf for.
+  - in: path
+    name: econsent_id
+    type: string
+    required: true
+    description: EConsent ID.
+responses:
+  200:
+    description: Return Signed EConsent Pdfs by version for a user and by user and version for a manager
+    schema:
+      $ref: '#/definitions/EConsentSignedResponse'
+definitions:
+  EConsentSignedResponse:
+    type: object
+    example:
+      5ff80bb2f2ce6d20a001947d:
+        1:
+          createDateTime: 2021-01-14T18:55:35.929000Z
+          id: 60008ed030bf7b328d110913
+          econsentId: 60008ed030bf6b328d110712
+          familyName: familyName
+          givenName: givenName
+          middleName: middleName
+          pdfLocation:
+            bucket: ppdeveufrankfurt
+            key: user/5ffca6d91882ddc1cd8ab94f/deployment/5ffea8e41d3eaea109cd0773/econsent/econsent_revision_1.pdf
+            region: eu
+          revision: 1
+          sharingOption: 1
+          signature:
+            bucket: ppdeveufrankfurt
+            key: signature.png
+            region: eu
+          userId: 5ffca6d91882ddc1cd8ab94f

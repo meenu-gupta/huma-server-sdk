@@ -1,0 +1,436 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "moduleConfigs": [],
+      "roles": [
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4202"
+          },
+          "name": "Nurse",
+          "userType": "Manager",
+          "permissions": [
+            "VIEW_PATIENT_IDENTIFIER",
+            "VIEW_PATIENT_DATA",
+            "MANAGE_PATIENT_DATA"
+          ]
+        },
+        {
+          "id": {
+            "$oid": "6009a5b9db3a49f8b0293061"
+          },
+          "name": "Head Nurse",
+          "userType": "Manager",
+          "permissions": [
+            "VIEW_PATIENT_IDENTIFIER",
+            "VIEW_PATIENT_DATA",
+            "CONTACT_PATIENT"
+          ]
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2d"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924416",
+      "managerActivationCode": "17781958",
+      "moduleConfigs": [],
+      "roles": [
+        {
+          "id": {
+            "$oid": "6009a5b9db3a49f8b0293065"
+          },
+          "name": "Head Nurse",
+          "userType": "Manager",
+          "permissions": [
+            "VIEW_PATIENT_IDENTIFIER",
+            "VIEW_PATIENT_DATA",
+            "CONTACT_PATIENT"
+          ]
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "appointment": [
+    {
+      "_id": {
+        "$oid": "5eee34de4acf740d885767a8"
+      },
+      "_cls": "MongoAppointment",
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "title": "Video appointment",
+      "description": "You have a scheduled video appointment with your care team.",
+      "managerId": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "status": "PENDING_CONFIRMATION",
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1595027760000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1595027770000"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1592669406609"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1592669406609"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eee34de4acf740d885767b8"
+      },
+      "_cls": "MongoAppointment",
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "title": "Video appointment",
+      "description": "You have a scheduled video appointment with your care team.",
+      "managerId": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "status": "PENDING_CONFIRMATION",
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1595027760000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1595027770000"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1592669406609"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1592669406609"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "id": "5e8f0c74b50aa9656c34789a",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999977",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "id": "5e84b0dab8dfa268b1180536",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "displayName": "testUser",
+      "userAttributes": {
+        "familyName": "testUser",
+        "givenName": "testUser",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6009a56a783a980cdcaa2b1c"
+      },
+      "id": "6009a56a783a980cdcaa2b1c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testCustomRoleWithOutContactPatient@test.com",
+      "phoneNumber": "+380999229998",
+      "displayName": "testCustomRoleWithOutContactPatient",
+      "userAttributes": {
+        "familyName": "testCustomRoleWithOutContactPatient",
+        "givenName": "testCustomRoleWithOutContactPatient",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6009a6072496f83856f06235"
+      },
+      "id": "6009a6072496f83856f06235",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testCustomRoleWithContactPatient@test.com",
+      "phoneNumber": "+380999339998",
+      "displayName": "testCustomRoleWithContactPatient",
+      "userAttributes": {
+        "familyName": "testCustomRoleWithContactPatient",
+        "givenName": "testCustomRoleWithContactPatient",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6009a6072496f83856f06236"
+      },
+      "id": "6009a6072496f83856f06236",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testCustomRoleWithContactPatient1@test.com",
+      "phoneNumber": "+380999339999",
+      "displayName": "testCustomRoleWithContactPatient1",
+      "userAttributes": {
+        "familyName": "testCustomRoleWithContactPatient1",
+        "givenName": "testCustomRoleWithContactPatient1",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999977",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "verificationStatus": 1,
+      "givenName": "testUser",
+      "familyName": "testUser",
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "6009a56a783a980cdcaa2b1c"
+      },
+      "givenName": "testCustomRoleWithOutContactPatient",
+      "familyName": "testCustomRoleWithOutContactPatient",
+      "email": "testCustomRoleWithOutContactPatient@test.com",
+      "phoneNumber": "+380999229998",
+      "roles": [
+        {
+          "roleId": "5e8eeae1b707216625ca4202",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "6009a6072496f83856f06235"
+      },
+      "givenName": "testCustomRoleWithContactPatient",
+      "familyName": "testCustomRoleWithContactPatient",
+      "email": "testCustomRoleWithContactPatient@test.com",
+      "phoneNumber": "+380999339998",
+      "roles": [
+        {
+          "roleId": "6009a5b9db3a49f8b0293061",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "6009a6072496f83856f06236"
+      },
+      "givenName": "testCustomRoleWithContactPatient1",
+      "familyName": "testCustomRoleWithContactPatient1",
+      "email": "testCustomRoleWithContactPatient1@test.com",
+      "phoneNumber": "+380999339999",
+      "roles": [
+        {
+          "roleId": "6009a5b9db3a49f8b0293065",
+          "resource": "deployment/5d386cc6ff885918d96edb2d"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

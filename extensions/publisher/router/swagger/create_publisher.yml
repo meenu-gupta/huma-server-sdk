@@ -1,0 +1,178 @@
+Create publisher
+---
+tags:
+  - publisher
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreatePublisherRequest"
+
+responses:
+  201:
+    description: Publisher created
+    schema:
+      $ref: '#/definitions/CreatePublisherResponse'
+
+definitions:
+  CreatePublisherRequest:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        type: string
+        minLength: 1
+        description: The name of the publisher profile
+      filter:
+        type: object
+        properties:
+          eventType:
+            type: string
+            enum: [PING, MODULE_RESULT]
+            description: Event to trigger this publisher profile
+          listenerType:
+            type: string
+            enum: [DEPLOYMENT_IDS, ORGANISATION_IDS, GLOBAL]
+            description: Which parameter to match with the event
+          organizationIds:
+            type: array
+            description: List of publisher profile organization Id
+            items:
+              type: string
+              minLength: 1
+          deploymentIds:
+            type: array
+            description: List of publisher profile deployment Id
+            items:
+              type: string
+              minLength: 1
+          moduleNames:
+            type: array
+            items:
+              type: string
+            description: List of modules to include (empty == ALL)
+          excludedModuleNames:
+            type: array
+            items:
+              type: string
+            description: List of module to excluded
+      transform:
+        type: object
+        properties:
+          deIdentified:
+            type: boolean
+            default: false
+            description: Deidentify the user data from the response
+          includeNullFields:
+            type: boolean
+            default: true
+            description: Respond with field even if they are null
+          includeUserMetaData:
+            type: boolean
+            default: true
+            description: Add user metadata to the event data
+          includeFields:
+            type: array
+            items:
+              type: string
+            description: List of fields to include (empty == ALL)
+          excludeFields:
+            type: array
+            items:
+              type: string
+            description: List of fields to execlude (empty == None)
+          deIdentifyHashFields:
+            type: array
+            items:
+              type: string
+            description: List of fields to be hashed for deIdentifying
+          deIdentifyRemoveFields:
+            type: array
+            items:
+              type: string
+            description: List of fields to be removed for deIdentifying
+      target:
+        type: object
+        properties:
+          retry:
+            type: number
+            default: 3
+            minimum: 1
+            maximum: 10
+            description: Should be Exponential Backoff Retry
+          publisherType:
+            type: string
+            enum: [WEBHOOK, KAFKA]
+            description: The publisher output type
+          webhook:
+            type: object
+            properties:
+              endpoint:
+                type: string
+                description: The Webhook Endpoint URL
+              authType:
+                type: string
+                enum: [NONE, BASIC, BEARER]
+                description: The authentication type for the webhook
+              username:
+                type: string
+                minLength: 1
+                description: Endpoint username
+              password:
+                type: string
+                minLength: 1
+                description: Endpoint password
+              token:
+                type: string
+                minLength: 1
+                description: Endpoint token
+            required: [endpoint, authType]
+          kafka:
+            type: object
+            properties:
+              url:
+                type: string
+                description: The Kafka Server URL
+              authType:
+                type: string
+                enum: [SSL, PLAIN]
+                description: The authentication type for the Kafka
+              topic:
+                type: string
+                minLength: 1
+                description: Kafka publisher topic to listen to
+              sasl_username:
+                type: string
+                minLength: 1
+                description: Kafka server username
+              sasl_password:
+                type: string
+                minLength: 1
+                description: Kafka server password
+
+  Publisher:
+    allOf:
+      - $ref: "#/definitions/CreatePublisherRequest"
+      - properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          createDateTime:
+            type: string
+            format: date-time
+          updateDateTime:
+            type: string
+            format: date-time
+
+  CreatePublisherResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"

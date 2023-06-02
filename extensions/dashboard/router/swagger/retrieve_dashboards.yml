@@ -1,0 +1,30 @@
+Retrieve dashboards
+---
+tags:
+  - dashboard
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: resource_type
+    type: string
+    required: true
+    description: Type of the resource to return.
+  - in: path
+    name: resource_id
+    type: string
+    required: true
+    description: ID of the resource to return.
+responses:
+  200:
+    description: List of Dashboards
+    schema:
+      $ref: '#/definitions/DashboardsResponse'
+
+definitions:
+  DashboardsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/Dashboard'

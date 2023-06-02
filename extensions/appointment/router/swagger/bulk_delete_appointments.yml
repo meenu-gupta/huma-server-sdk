@@ -1,0 +1,41 @@
+Bulk delete appointments
+---
+tags:
+  - appointment
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - name: body
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/DeleteAppointmentsRequest"
+responses:
+  200:
+    description: Number of deleted appointments
+    schema:
+      $ref: "#/definitions/DeleteAppointmentsResponse"
+
+definitions:
+  DeleteAppointmentsRequest:
+    type: object
+    required:
+      - appointmentIds
+    properties:
+      appointmentIds:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+  DeleteAppointmentsResponse:
+    type: object
+    properties:
+      deletedAppointments:
+        type: integer
+        example: 10

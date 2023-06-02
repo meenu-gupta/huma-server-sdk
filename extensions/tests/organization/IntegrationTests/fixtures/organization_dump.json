@@ -1,0 +1,401 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "moduleConfigs": [],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5eff2fd31afbc05f76099f06"
+      },
+      "name": "Deployment to unlink",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "53924414",
+      "managerActivationCode": "17781956",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "dashboardConfiguration": {
+        "targetConsented": 3000
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5fde855f12db509a2785d899"
+      },
+      "name": "Deployment X",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "code": "AU-2568",
+      "userActivationCode": "53924414",
+      "managerActivationCode": "17781956",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5fde8bbf12db509a2785dbb6"
+      },
+      "name": "Deployment Y",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "code": "AU-2568",
+      "userActivationCode": "53924414",
+      "managerActivationCode": "17781956",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61b4b195ff99e4b450077995"
+      },
+      "name": "Deployment Z",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "code": "AU-2599",
+      "userActivationCode": "53924414",
+      "managerActivationCode": "17781956",
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "dashboardConfiguration": {
+        "targetConsented": 1000
+      }
+    }
+  ],
+  "organization": [
+    {
+      "_id": {
+        "$oid": "5fde855f12db509a2785da06"
+      },
+      "name": "ABC Pharmaceuticals EU Trials 123",
+      "enrollmentTarget": 3000,
+      "studyCompletionTarget": 2800,
+      "status": "DEPLOYED",
+      "deploymentIds": ["5fde855f12db509a2785d899"],
+      "roles": [
+        {
+          "id": {
+            "$oid": "6151051575fee50d15298adb"
+          },
+          "name": "Custom org role",
+          "permissions": ["VIEW_PATIENT_IDENTIFIER", "VIEW_PATIENT_DATA", "MANAGE_PATIENT_DATA", "EXPORT_PATIENT_DATA", "CONTACT_PATIENT"]
+        }
+      ],
+      "targetConsented": 0
+    },
+    {
+      "_id": {
+        "$oid": "61c05d43eb23e52e2c0c2f56"
+      },
+      "name": "Test org",
+      "enrollmentTarget": 3000,
+      "studyCompletionTarget": 2800,
+      "status": "ARCHIVED",
+      "deploymentIds": [""],
+      "roles": [
+        {
+          "id": {
+            "$oid": "6151051575fee50d15298adb"
+          },
+          "name": "Custom org role",
+          "permissions": ["VIEW_PATIENT_IDENTIFIER", "VIEW_PATIENT_DATA", "MANAGE_PATIENT_DATA", "EXPORT_PATIENT_DATA", "CONTACT_PATIENT"]
+        }
+      ]
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "61ddb98052da30cca00d5829"
+      },
+      "id": "61ddb98052da30cca00d5829",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test27@test.com",
+      "phoneNumber": "+380999997777",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "id": "5e8f0c74b50aa9656c34789a",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999977",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "id": "5e84b0dab8dfa268b1180536",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "displayName": "testUser",
+      "userAttributes": {
+        "familyName": "testUser",
+        "givenName": "testUser",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180336"
+      },
+      "id": "5e84b0dab8dfa268b1180336",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testAM@test.com"
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "61ddb98052da30cca00d5829"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test27@test.com",
+      "phoneNumber": "+380999997777",
+      "roles": [
+        {
+          "roleId": "AccountManager",
+          "resource": "deployment/*",
+          "userType": "SuperAdmin"
+        },
+        {
+          "roleId": "OrganizationOwner",
+          "resource": "organization/5fde855f12db509a2785da06",
+          "userType": "SuperAdmin"
+        },
+        {
+          "roleId": "OrganizationOwner",
+          "resource": "organization/61dc0fa3092a27666a5e13ef",
+          "userType": "SuperAdmin"
+        },
+        {
+          "roleId": "OrganizationOwner",
+          "resource": "organization/61dc1984092a27666a5e1412",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999977",
+      "roles": [
+        {
+          "roleId": "Manager",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        },
+        {
+          "roleId": "6151051575fee50d15298adb",
+          "resource": "organization/5fde855f12db509a2785da06"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "givenName": "testUser",
+      "familyName": "testUser",
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5eff2fd31afbc05f76099f06"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180336"
+      },
+      "email": "testAM@test.com",
+      "roles": [
+        {
+          "roleId": "AccountManager",
+          "resource": "deployment/*"
+        },
+        {
+          "roleId": "OrganizationOwner",
+          "resource": "organization/5fde855f12db509a2785da06"
+        }
+      ]
+    }
+  ]
+}

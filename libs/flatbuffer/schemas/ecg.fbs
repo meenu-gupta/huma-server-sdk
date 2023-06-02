@@ -1,0 +1,18 @@
+table AdditionalDeviceInfo {
+  osVersion:string;
+  deviceName:string;
+  deviceDetails:string;
+}
+table ECGWatchVoltagesTable {
+  mcV:float;
+}
+table ECGWatchSamplesTable {
+  platform:string;
+  version:int;
+  timestamp:long;
+  additionalDeviceInfo:AdditionalDeviceInfo;
+  classification:int;
+  averageHeartRate:double;
+  voltages:[ECGWatchVoltagesTable];
+}
+root_type ECGWatchSamplesTable;

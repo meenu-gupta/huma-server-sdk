@@ -1,0 +1,34 @@
+Create Deployment Labels
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment label would belong to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/LabelTexts"
+responses:
+  201:
+    description: Successfully Created
+    schema:
+      type: array
+      items:
+        type: string
+        example: "5d386cc6ff885918d96edb2c"
+definitions:
+  LabelTexts:
+    properties:
+      texts:
+        type: array
+        items:
+          type: string
+          example: "Recovered"

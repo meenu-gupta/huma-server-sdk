@@ -1,0 +1,66 @@
+name: Uninstall the Huma Server SDK Helm chart
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  uninstall:
+    name: Uninstall a Helm chart
+    if: contains(github.event.pull_request.labels.*.name, 'deployed')
+    runs-on: ubuntu-latest
+    steps:
+      - id: helm
+        name: Uninstall a Helm chart
+        uses: huma-engineering/huma-github-actions/uninstall-helm-chart@v0.5.0
+        with:
+          project_id: hu-global-sandbox
+          cluster_name: hu-uk-sandbox-pr-preview-gke
+          location: europe-west2
+          app_name: ppserver-${{ github.event.pull_request.number }}
+          app_namespace: pr-preview-${{ github.event.pull_request.number }}
+          delete_namespace: "true"
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+
+      - name: put a comment on success
+        if: steps.helm.outputs.result == 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |-
+            Uninstalled the SDK server application's Helm chart.👌
+            Removed the connected storage bucket, database and cache.
+
+      - name: put a comment on failure
+        if: steps.helm.outputs.result != 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: |-
+            Failed to uninstall the SDK server application's Helm chart.❌
+
+      - uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          labels: deployed
+
+      - name: remove Grafana logs dashboard
+        id: dashboard
+        uses: huma-engineering/huma-github-actions/remove-grafana-dashboard@v0.7.0
+        with:
+          title: ppserver-${{ github.event.pull_request.number }}-logs
+          grafana_api_key: ${{ secrets.PR_PREVIEW_GRAFANA_API_KEY }}
+          grafana_host: https://humasandbox.grafana.net
+
+      - name: comment on remove dashboard success
+        if: ${{ steps.dashboard.outputs.error == 0 }}
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: ${{ steps.dashboard.outputs.response }}👌
+
+      - name: comment on remove dashboard failure
+        if: ${{ steps.dashboard.outputs.error != 0 }}
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          body: Dashboard not found❌

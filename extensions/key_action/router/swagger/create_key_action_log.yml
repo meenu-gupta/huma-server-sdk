@@ -1,0 +1,46 @@
+Create Key Action Log
+---
+tags:
+  - key-action
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user to create key action log for.
+  - in: path
+    name: key_action_id
+    type: string
+    required: true
+    description: ID of the parent event to create log for.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreateKeyActionLogRequest'
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  CreateKeyActionLogRequest:
+    type: object
+    required:
+      - model
+      - startDateTime
+      - endDateTime
+    properties:
+      model:
+        type: string
+      startDateTime:
+        type: string
+        format: date-time
+        description: Exact start datetime of the parent event.
+      endDateTime:
+        type: string
+        format: date-time
+        description: Exact end datetime of the parent event.

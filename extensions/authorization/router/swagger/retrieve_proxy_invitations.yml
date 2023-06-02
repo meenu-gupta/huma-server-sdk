@@ -1,0 +1,40 @@
+Retrieve proxy invitations
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: User ID
+responses:
+  200:
+    description: 200 when the response is returned successfully
+    schema:
+      $ref: '#/definitions/RetrieveProxyInvitationsResponseObject'
+definitions:
+  RetrieveProxyInvitationsResponseObject:
+    type: object
+    required:
+      - status
+    properties:
+      invitationId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      status:
+        type: integer
+        enum: [1, 2, 3]
+      proxy:
+        type: object
+        properties:
+          givenName:
+            type: string
+          familyName:
+            type: string
+          phoneNumber:
+            type: string
+          email:
+            type: string

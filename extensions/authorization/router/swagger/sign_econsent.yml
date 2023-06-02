@@ -1,0 +1,44 @@
+Sign EConsent
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+  - in: path
+    name: econsent_id
+    type: string
+    required: true
+    description: ID of the econsent to sign.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/SignEConsentRequest'
+responses:
+  200:
+    description: Created object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  SignEConsentRequest:
+    type: object
+    properties:
+      givenName:
+        type: string
+      familyName:
+        type: string
+      signature:
+        $ref: "#/definitions/S3Object"
+      sharingOption:
+        type: integer
+      additionalConsentAnswers:
+        type: object
+      consentOption:
+        type: integer
+        enum: [0, 1]

@@ -1,0 +1,31 @@
+Assign Managers to User
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/AssignManagerRequest'
+responses:
+  200:
+    description: Created object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  AssignManagerRequest:
+    type: object
+    properties:
+      managerIds:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"

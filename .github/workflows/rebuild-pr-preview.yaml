@@ -1,0 +1,210 @@
+name: Commands to rebuild the Huma Server SDK and destroy Helm chart
+
+on:
+  # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#issue_comment
+  issue_comment:
+    types: [created]
+
+env:
+  project_id: hu-global-sandbox
+  cluster_name: hu-uk-sandbox-pr-preview-gke
+  location: europe-west2
+  app_name: ppserver-${{ github.event.issue.number }}
+  app_namespace: pr-preview-${{ github.event.issue.number }}
+
+jobs:
+  rebuild:
+    name: Put a reaction to show user that GHA acknowledge a command
+    if: ${{ github.event.issue.pull_request
+      && github.event.issue.state == 'open'
+      && startsWith(github.event.comment.body, '/rebuild') }}
+    runs-on: ubuntu-latest
+    outputs:
+      head_ref: ${{ steps.comment-branch.outputs.head_ref }}
+      head_sha: ${{ steps.comment-branch.outputs.head_sha }}
+      short_sha: ${{ steps.sha.outputs.short_sha }}
+    steps:
+      - uses: xt0rted/pull-request-comment-branch@v1
+        id: comment-branch
+
+      - id: sha
+        name: Get the short of Github commit SHA
+        run: |-
+          SHORT_SHA=$(echo ${{ steps.comment-branch.outputs.head_sha }} | cut -c1-7)
+          echo "::set-output name=short_sha::$SHORT_SHA"
+
+      - name: Put reaction on the command message
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ github.event.comment.id }}
+          reactions: eyes
+
+      - name: create a comment before exit
+        if: ${{ !contains(github.event.issue.labels.*.name, 'deployed') }}
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            This PR don't have a preview deployment yet.❌
+            Please use a `/deploy` command first to create one.💡
+
+  build:
+    if: ${{ contains(github.event.issue.labels.*.name, 'deployed') }}
+    needs: rebuild
+    name: Build and Push Container
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build and Push Container
+        id: build
+        uses: huma-engineering/huma-github-actions/build-server-sdk-container@v0.7.1
+        with:
+          tag: ${{ env.app_namespace }}-${{ needs.rebuild.outputs.short_sha }}
+          github_ref: ${{ needs.rebuild.outputs.head_sha }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_user: ${{ github.actor }}
+          registry: ghcr.io
+          repository: ghcr.io/huma-engineering/py-ppserver
+
+      - name: Report on build success
+        if: steps.build.outputs.error == 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Built a new version of the container from the branch `${{needs.rebuild.outputs.head_ref}}`,
+            commit ${{needs.rebuild.outputs.head_sha}}, and pushed it to GHCR.👌
+
+      - name: Report on build failure
+        if: steps.build.outputs.error != 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Failed to build and push container from the branch `${{needs.rebuild.outputs.head_ref}}`,
+            commit ${{needs.rebuild.outputs.head_sha}}.❌
+          reactions: "-1"
+
+  deploy:
+    if: ${{ contains(github.event.issue.labels.*.name, 'deployed') }}
+    name: Deploy the Helm chart to GKE
+    needs: rebuild
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy the Helm chart to GKE
+        id: helm
+        uses: huma-engineering/huma-github-actions/deploy-helm-chart-to-gke@v0.6.0
+        with:
+          project_id: ${{ env.project_id }}
+          cluster_name: ${{ env.cluster_name }}
+          location: ${{ env.location }}
+          app_name: ${{ env.app_name }}
+          app_namespace: ${{ env.app_namespace }}
+          db_namespace: kubedb
+          db_provider: kubedb
+          db_service: pr-preview-mongodb-cluster-2
+          chart_url: oci://ghcr.io/huma-engineering/helm-charts/huma-server-sdk
+          version: 0.9.0
+          image_repository: ghcr.io/huma-engineering/py-ppserver
+          image_tag: ${{ env.app_namespace }}-${{ needs.rebuild.outputs.short_sha }}
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Report on deploy success
+        if: steps.helm.outputs.error == 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          # yamllint disable rule:line-length
+          body: Deployed a new version of the huma-server-sdk container built from the commit ${{ needs.rebuild.outputs.head_sha }}.✅
+          # yamllint enable
+
+      - name: Report on deploy failure
+        if: steps.helm.outputs.error != 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          # yamllint disable rule:line-length
+          body: Failed to deploy a new version of the huma-server-sdk container built from the commit ${{ needs.rebuild.outputs.head_sha }}.❌
+          # yamllint enable
+
+  destroy:
+    name: Undeploy command received
+    if: ${{ github.event.issue.pull_request
+      && startsWith(github.event.comment.body, '/destroy') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Put reaction on the command message
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          comment-id: ${{ github.event.comment.id }}
+          reactions: eyes
+
+      - name: create a comment before exit
+        if: ${{ !contains(github.event.issue.labels.*.name, 'deployed') }}
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            This PR don't have a preview deployment yet.❌
+            Nothing to do.👋
+
+  uninstall:
+    name: Uninstall a Helm chart
+    needs: destroy
+    if: contains(github.event.issue.labels.*.name, 'deployed')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Uninstall a Helm chart
+        id: helm
+        uses: huma-engineering/huma-github-actions/uninstall-helm-chart@v0.5.0
+        with:
+          project_id: ${{ env.project_id }}
+          cluster_name: ${{ env.cluster_name }}
+          location: ${{ env.location }}
+          app_name: ${{ env.app_name }}
+          app_namespace: ${{ env.app_namespace }}
+          delete_namespace: "true"
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+
+      - name: put a comment on success
+        if: steps.helm.outputs.result == 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Uninstalled the SDK server application's Helm chart.👌
+            Removed the connected storage bucket, database and cache.
+
+      - name: put a comment on failure
+        if: steps.helm.outputs.result != 0
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |-
+            Failed to uninstall the SDK server application's Helm chart.❌
+
+      - uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          labels: deployed
+
+      - name: remove Grafana logs dashboard
+        id: dashboard
+        uses: huma-engineering/huma-github-actions/remove-grafana-dashboard@v0.7.0
+        with:
+          title: ${{ env.app_name }}-logs
+          grafana_api_key: ${{ secrets.PR_PREVIEW_GRAFANA_API_KEY }}
+          grafana_host: https://humasandbox.grafana.net
+
+      - name: comment on remove dashboard success
+        if: ${{ steps.dashboard.outputs.error == 0 }}
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: ${{ steps.dashboard.outputs.response }}👌
+
+      - name: comment on remove dashboard failure
+        if: ${{ steps.dashboard.outputs.error != 0 }}
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: Dashboard not found❌

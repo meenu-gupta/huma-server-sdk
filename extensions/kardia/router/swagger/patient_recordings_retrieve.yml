@@ -1,0 +1,54 @@
+Retrieve paginated patient recordings
+---
+tags:
+  - kardia
+parameters:
+  - in: path
+    name: patient_id
+    type: string
+    required: true
+    description: ID of patient
+responses:
+  200:
+    description: Kardia patient data
+    schema:
+      $ref: '#/definitions/RetrievePatientRecordingsResponse'
+definitions:
+  PatientRecording:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      patientID:
+        type: string
+      duration:
+        type: integer
+      heartRate:
+        type: integer
+      note:
+        type: string
+      recordedAt:
+        type: string
+        format: date-time
+  PageInfo:
+    type: object
+    properties:
+      startCursor:
+        type: string
+      endCursor:
+        type: string
+      hasNextPage:
+        type: boolean
+  RetrievePatientRecordingsResponse:
+    type: object
+    properties:
+      totalCount:
+        type: integer
+        example: 200
+      recordings:
+        type: array
+        items:
+          $ref: "#/definitions/PatientRecording"
+      pageInfo:
+        $ref: "#/definitions/PageInfo"

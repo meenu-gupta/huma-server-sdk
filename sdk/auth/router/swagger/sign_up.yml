@@ -1,0 +1,56 @@
+Sign Up
+Sign up an new user to with email (passwordless), phone number or email + password
+---
+tags:
+  - auth
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/SignUpRequest'
+responses:
+  200:
+    description: Sign Up Response
+    schema:
+      $ref: '#/definitions/SignUpResponse'
+definitions:
+  SignUpRequest:
+    type: object
+    required:
+      - method
+      - clientId
+      - projectId
+    properties:
+      method:
+        type: integer
+        enum: [0, 1, 2, 3]
+      email:
+        type: string
+      phoneNumber:
+        type: string
+      displayName:
+        type: string
+      validationData:
+        type: object
+        additionalProperties:
+          type: string
+      userAttributes:
+        type: object
+        additionalProperties:
+          type: string
+      clientId:
+        type: string
+      projectId:
+        type: string
+      password:
+        type: string
+      timezone:
+        type: string
+        example: "Europe/London"
+  SignUpResponse:
+    type: object
+    properties:
+      uid:
+        type: string

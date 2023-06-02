@@ -1,0 +1,154 @@
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user profile belongs to.
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UserProfileUpdate'
+responses:
+  200:
+    description: Data of user's profile
+    schema:
+      $ref: '#/definitions/UserProfileResponse'
+definitions:
+  UserProfileUpdate:
+    type: object
+    properties:
+      givenName:
+        type: string
+      deviceName:
+        type: string
+        example: "iOS"
+      biologicalSex:
+        type: string
+        enum: [MALE, FEMALE, OTHER, NOT_SPECIFIED]
+      ethnicity:
+        type: string
+        enum: [WHITE, MIXED_OR_MULTI_ETHNIC_GROUPS,
+               ASIAN_OR_ASIAN_BRITISH,
+               BLACK_OR_AFRICAN_OR_CARIBBEAN_OR_BLACK_BRITISH
+               OTHER_ETHNIC_GROUPS]
+      height:
+        type: number
+        format: float
+        example: "168.2"
+      familyName:
+        type: string
+      primaryAddress:
+        type: string
+      timezone:
+        type: string
+      gender:
+        $ref: "#/definitions/Gender"
+      dateOfBirth:
+        type: string
+        format: date
+      race:
+        type: string
+      bloodGroup:
+        type: string
+      emergencyPhoneNumber:
+        type: string
+        example: "+780888888889"
+      familyMedicalHistory:
+        type: string
+      pastHistory:
+        type: string
+      presentSymptoms:
+        type: string
+      operationHistory:
+        type: string
+      chronicIllness:
+        type: string
+      allergyHistory:
+        type: string
+      pregnancy:
+        type: string
+      dateOfLastPhysicalExam:
+        type: string
+        format: date
+      fenlandCohortId:
+        type: string
+      nhsId:
+        type: string
+      insuranceNumber:
+        type: string
+      wechatId:
+        type: string
+      extraCustomFields:
+        type: object
+        properties:
+          someCustomField:
+            type: string
+            example: "654212"
+      surgeryDetails:
+        type: object
+        properties:
+          operationType:
+            type: string
+          implantType:
+            type: string
+          roboticAssistance:
+            type: string
+      preferredUnits:
+        type: object
+        description: a dictionary that contains module config id as a key and custom unit as a value
+      additionalContactDetails:
+        type: object
+        properties:
+          altContactNumber:
+            type: string
+          regularContactName:
+            type: string
+          regularContactNumber:
+            type: string
+          emergencyContactName:
+            type: string
+          emergencyContactNumber:
+            type: string
+      addressComponent:
+        $ref: "#/definitions/AddressObject"
+      language:
+        type: string
+  UserProfileResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+  AddressObject:
+    type: object
+    properties:
+      fiat_number:
+        type: string
+      building_number:
+        type: string
+      building_name:
+        type: string
+      street:
+        type: string
+      sub_street:
+        type: string
+      town:
+        type: string
+      state:
+        type: string
+      postcode:
+        type: string
+      country:
+        type: string
+      line1:
+        type: string
+      line2:
+        type: string
+      line3:
+        type: string

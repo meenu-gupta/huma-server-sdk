@@ -1,0 +1,57 @@
+Create Learn Section
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment learn section belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/LearnSectionCreateRequest'
+responses:
+  201:
+    description: Created object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  LearnSection:
+    allOf:
+      - $ref: "#/definitions/LearnSectionCreateRequest"
+      - required:
+          - id
+          - updateDateTime
+          - createDateTime
+      - properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          updateDateTime:
+            type: string
+            format: date-time
+          createDateTime:
+            type: string
+            format: date-time
+          articles:
+            type: array
+            items:
+              $ref: "#/definitions/LearnArticle"
+  LearnSectionCreateRequest:
+    type: object
+    required:
+      - title
+      - order
+    properties:
+      title:
+        type: string
+        example: "Some title"
+      order:
+        type: integer
+        example: 1

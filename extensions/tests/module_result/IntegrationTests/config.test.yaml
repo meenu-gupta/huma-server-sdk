@@ -1,0 +1,106 @@
+server:
+  host: 0.0.0.0
+  port: 3901
+  debug: true
+  debugLog: true
+  debugRouter: true
+  hostUrl: localhost
+
+  auditLogger:
+    enable: true
+
+  project:
+    id: ptest1
+    clients:
+      - name: USER_IOS-client
+        clientId: ctest1
+        clientType: USER_IOS
+      - name: USER_ANDROID-client
+        clientId: c2
+        clientType: USER_ANDROID
+      - name: MANAGER_WEB-client
+        clientId: c3
+        clientType: MANAGER_WEB
+    masterKey: !ENV ${MP_MASTER_KEY}
+
+  auth:
+    database: pp_integration_tests
+
+  authorization:
+    enableAuthz: false
+
+  deployment:
+    enableAuth: false
+    enable: true
+    encryptionSecret: !ENV ${MP_ENCRYPTION_SECRET}
+    onBoarding: false
+    offBoarding: false
+
+  authz:
+    enabled: false
+
+  medication:
+    enableAuth: false
+
+  storage:
+    enable: true
+    allowedBuckets: ["integrationtests"]
+    defaultBucket: "integrationtests"
+
+  adapters:
+    fluentd:
+      tag: huma
+      host: localhost
+      port: 8887
+    mongodbDatabase:
+      name: pp_integration_tests
+      url: !ENV ${MP_MONGODB_URL}
+    oneTimePasswordRepo:
+      rateLimit: 10
+    jwtToken:
+      secret: !ENV ${MP_JWT_SECRET}
+      audience: "urn:mp"
+      algorithm: "HS256"
+    minio:
+      url: !ENV ${MP_MINIO_URL}
+      accessKey: !ENV ${MP_MINIO_ACCESS_KEY}
+      secretKey: !ENV ${MP_MINIO_SECRET_KEY}
+      secure: false
+      baseUrl: !ENV ${MP_MINIO_BASE_URL}
+    redisDatabase:
+      url: !ENV ${MP_REDIS_URL}
+    twilioPush:
+      accountSid: !ENV ${MP_TWILIO_ACCOUNT_SID}
+      serviceSid: !ENV ${MP_TWILIO_SERVICE_SID}
+      authToken: !ENV ${MP_TWILIO_AUTH_TOKEN}
+    hawk:
+      hashingAlgorithm: sha256
+      localTimeOffset: 0
+      timeStampSkew: 60
+
+  notification:
+    enable: true
+
+  reminder:
+    enable: true
+
+  video:
+    enable: true
+
+  moduleResult:
+    applyDefaultDisclaimerConfig: true
+    enableAuthz: false
+    pamIntegration:
+      submitSurveyURI: !ENV ${MP_PAM_INTEGRATION_SUBMIT_SURVEY_URI}
+      enrollUserURI: !ENV ${MP_PAM_INTEGRATION_ENROLL_USER_URI}
+      clientExtID: !ENV ${MP_PAM_INTEGRATION_CLIENT_EXT_ID}
+      clientPassKey: !ENV ${MP_PAM_INTEGRATION_CLIENT_PASS_KEY}
+      subgroupExtID: !ENV ${MP_PAM_INTEGRATION_SUB_GROUP_EXT_ID}
+      timeout: 30000
+    kardia:
+      apiKey: !ENV ${MP_KARDIA_API_KEY}
+      baseUrl: !ENV ${MP_KARDIA_BASE_URL}
+    cvd:
+      url: "http://test.test"
+      username: "test"
+      password: "test"

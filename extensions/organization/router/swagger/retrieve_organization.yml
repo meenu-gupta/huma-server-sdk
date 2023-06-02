@@ -1,0 +1,40 @@
+Retrieve organization
+---
+tags:
+  - organization
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: organization_id
+    type: string
+    required: true
+    description: ID of the organization to return.
+responses:
+  200:
+    description: Organization retrieved by ID
+    schema:
+      $ref: '#/definitions/OrganizationWithDeploymentInfo'
+
+definitions:
+  OrganizationWithDeploymentInfo:
+    allOf:
+      - $ref: "#/definitions/Organization"
+      - properties:
+          deployments:
+            type: array
+            items:
+              $ref: "#/definitions/DeploymentInfo"
+
+  DeploymentInfo:
+    type: object
+    required:
+      - id
+      - name
+    properties:
+      id:
+        type: string
+      name:
+        type: string

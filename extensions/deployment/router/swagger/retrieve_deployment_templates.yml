@@ -1,0 +1,19 @@
+Get Deployment Templates
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+responses:
+  200:
+    description: Deployment Templates Data
+    schema:
+      $ref: "#/definitions/DeploymentTemplatesResponse"
+definitions:
+  DeploymentTemplatesResponse:
+    type: object
+    properties:
+      templates:
+        type: array
+        items:
+          $ref: "#/definitions/DeploymentTemplate"

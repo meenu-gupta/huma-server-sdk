@@ -1,0 +1,30 @@
+Get CarePlanGroup with ModuleConfigs
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user.
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment to return.
+responses:
+  200:
+    description: CarePlanGroup requested by Deployment ID
+    schema:
+      $ref: '#/definitions/PatchedCarePlanGroupResponse'
+definitions:
+  PatchedCarePlanGroupResponse:
+    type: object
+    required:
+      - groups
+    properties:
+      groups:
+        type: object

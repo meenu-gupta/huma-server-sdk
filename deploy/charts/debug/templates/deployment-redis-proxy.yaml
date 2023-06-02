@@ -1,0 +1,25 @@
+{{- if .Values.redisProxy.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "..fullname" . }}-redis-proxy
+  labels:
+    app: redis-proxy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-proxy
+  template:
+    metadata:
+      labels:
+        app: redis-proxy
+    spec:
+      containers:
+      - name: phoenix-debug
+        image: index.docker.io/medopadrtd/phoenix-debug:v0.7
+        command: ["simpleproxy"]
+        args: ["-L", "6379", "-R", {{ .Values.redisProxy.target | quote }}]
+        ports:
+        - containerPort: 6379
+{{- end}}

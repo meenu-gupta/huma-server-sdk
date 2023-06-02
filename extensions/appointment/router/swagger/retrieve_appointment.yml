@@ -1,0 +1,23 @@
+Retrieve appointment
+---
+tags:
+  - appointment
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - in: path
+    name: appointment_id
+    type: string
+    required: true
+    description: ID of the appointment to return.
+responses:
+  200:
+    description: Appointment requested by ID
+    schema:
+      $ref: "#/definitions/Appointment"

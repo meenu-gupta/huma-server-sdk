@@ -1,0 +1,17 @@
+Get latest Consent
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment consent belongs to.
+responses:
+  200:
+    description: Get latest Consent
+    schema:
+      $ref: '#/definitions/Consent'

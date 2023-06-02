@@ -1,0 +1,28 @@
+{
+    "deployment": [
+        {
+            "_id": {
+                "$oid": "5d386cc6ff885918d96edb2c"
+            },
+            "name": "Unnamed care plan",
+            "status": "DRAFT",
+            "color": "0x007AFF",
+            "userActivationCode": "53924415",
+            "managerActivationCode": "ad4317781957",
+            "updateDateTime": "2019-07-24T14:35:50.889Z",
+            "createDateTime": "2019-07-24T14:35:50.889Z"
+        },
+        {
+            "_id": {
+                "$oid": "5d38bee8ff8859347fbc23b4"
+            },
+            "name": "Unnamed care plan",
+            "status": "DRAFT",
+            "color": "0x007AFF",
+            "userActivationCode": "05677151",
+            "managerActivationCode": "opre84839398",
+            "updateDateTime": "2019-07-24T20:26:16.821Z",
+            "createDateTime": "2019-07-24T20:26:16.821Z"
+        }
+    ]
+}

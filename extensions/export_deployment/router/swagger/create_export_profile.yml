@@ -1,0 +1,58 @@
+Create export profile
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateExportProfileRequest"
+
+responses:
+  201:
+    description: Profile created
+    schema:
+      $ref: '#/definitions/CreateExportProfileResponse'
+
+definitions:
+  CreateExportProfileRequest:
+    required:
+      - name
+    type: object
+    properties:
+      name:
+        type: string
+      content:
+        $ref: '#/definitions/ExportParams'
+      organizationId:
+        type: string
+      deploymentId:
+        type: string
+      default:
+        type: boolean
+
+  ExportProfile:
+    allOf:
+      - $ref: "#/definitions/CreateExportProfileRequest"
+      - properties:
+          id:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          createDateTime:
+            type: string
+            format: date-time
+          updateDateTime:
+            type: string
+            format: date-time
+
+  CreateExportProfileResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"

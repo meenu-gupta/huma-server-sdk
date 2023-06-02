@@ -1,0 +1,120 @@
+Create module reminder for authorized user
+---
+tags:
+  - reminder
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreateModuleUserReminderRequest'
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  201:
+    description: created reminder response
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  CreateModuleUserReminderRequest:
+    allOf:
+      - $ref: "#/definitions/CreateReminderRequest"
+      - properties:
+          userId:
+            type: string
+            example: "5e84b0dab8dfa268b1180536"
+          moduleId:
+            type: string
+            description: id of module that reminder belongs to.
+            example: BloodGlocuse
+          moduleConfigId:
+            type: string
+            description: module config id that reminder belongs to in case if it's questionnaire
+            example: BloodGlocuse
+
+  ModuleUserReminder:
+    allOf:
+      - $ref: "#/definitions/CreateModuleUserReminderRequest"
+      - type: object
+        properties:
+          id:
+            type: string
+          createDateTime:
+            type: string
+            format: date-time
+          updateDateTime:
+            type: string
+            format: date-time
+
+  WeekDay:
+    type: string
+    enum:
+      - MON
+      - TUE
+      - WED
+      - THU
+      - FRI
+      - SAT
+      - SUN
+
+  MonthDay:
+    type: integer
+    minimum: 1
+    maximum: 31
+
+  CreateReminderRequest:
+    type: object
+    properties:
+      enabled:
+        type: boolean
+        description: Reminder enabled or disabled.
+      durationIso:
+        type: string
+        format: iso8601
+        description: Time to launch the reminder in ISO 8601 format.
+        example: PT10H20M
+      specificWeekDays:
+        type: array
+        items:
+          $ref: "#/definitions/WeekDay"
+        description: Specific days of week for reminder.
+      specificMonthDays:
+        type: array
+        items:
+          $ref: "#/definitions/MonthDay"
+        example: [3, 10]
+        description: Sepcific days of month for reminder.
+      snoozing:
+        type: array
+        items:
+          type: string
+          example: "PT10M"
+      startDateTime:
+        type: string
+        format: date-time
+        description: Date and time since which reminder will start working.
+      endDateTime:
+        type: string
+        format: date-time
+        description: Date and time since which reminder will stop working.
+
+  Reminder:
+    allOf:
+      - $ref: "#/definitions/CreateReminderRequest"
+      - type: object
+        properties:
+          id:
+            type: string
+          createDateTime:
+            type: string
+            format: date-time
+          updateDateTime:
+            type: string
+            format: date-time

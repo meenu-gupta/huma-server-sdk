@@ -1,0 +1,15 @@
+{{- $name := include "ppserver.fullname" $ -}}
+{{- with .Values.cp }}
+apiVersion: operator.huma.com/v1alpha1
+kind: Application
+metadata:
+  labels: {{ include "ppserver.labels" $ | nindent 4 }}
+  name: cp
+  namespace: {{ $.Release.Namespace }}
+spec:
+  image: {{ .image }}:{{ .tag | default "latest" }}
+  cpu: 100m
+  memory: 64Mi
+  ports:
+    - 80:80
+{{- end }}

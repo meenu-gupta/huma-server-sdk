@@ -1,0 +1,18 @@
+Complete Video Call by Manager
+---
+tags:
+  - video call
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: manager_id
+    required: true
+    type: string
+  - in: path
+    name: video_call_id
+    required: true
+    type: string
+responses:
+  200:
+    description: OK

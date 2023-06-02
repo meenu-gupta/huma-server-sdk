@@ -1,0 +1,1055 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "enforceIdentityVerification": true,
+      "name": "X",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "code": "AU15",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "privacyPolicyUrl": "https://storage.googleapis.com/hu-deployment-static-content/discovernow/Huma%20App%20Privacy%20Notice%20-%20Discover%20Now.pdf",
+      "eulaUrl": "https://medopad.com/medopad_Ltd/EULA.pdf",
+      "termAndConditionUrl": "https://medopad.com/medopad_Ltd/EULA.pdf",
+      "profile": {
+        "fields": {
+          "dateOfBirth": true,
+          "gender": false,
+          "race": false,
+          "height": true,
+          "additionalContactDetails": {
+            "altContactNumber": true,
+            "regularContactName": true,
+            "regularContactNumber": true,
+            "emergencyContactName": true,
+            "emergencyContactNumber": true
+          }
+        }
+      },
+      "extraCustomFields": {
+        "phoneNumber": {
+          "clinicianUpdate": true,
+          "errorMessage": "hu_test_phone_number_error",
+          "isPrimary": false,
+          "onboardingCollectionText": "Please enter your phone number",
+          "order": 2,
+          "profileCollectionText": "Patient phone number",
+          "required": true,
+          "showClinicianHeader": true,
+          "type": "TEXT",
+          "validation": ""
+        },
+        "mediclinicNumber": {
+          "errorMessage": "Insurance Number is incorrect",
+          "validation": "",
+          "onboardingCollectionText": "Please enter mediclinic number",
+          "profileCollectionText": "Patient Unique ID",
+          "required": true,
+          "clinicianUpdate": true,
+          "showClinicianHeader": true,
+          "type": "TEXT",
+          "order": 2
+        }
+      },
+      "language": "en",
+      "contactUsURL": "https://huma.com/contact",
+      "onboardingConfigs": [
+        {
+          "onboardingId": "EConsent",
+          "status": "ENABLED",
+          "order": 1,
+          "id": "604c89573a295dad259abb03",
+          "version": 3,
+          "configBody": {}
+        },
+        {
+          "onboardingId": "IdentityVerification",
+          "status": "ENABLED",
+          "id": "604c895da1adf357ed1fe15f",
+          "order": 2,
+          "version": 1,
+          "configBody": {}
+        },
+        {
+          "onboardingId": "Consent",
+          "status": "ENABLED",
+          "id": "6061cbc41f37f7405c6bb923",
+          "order": 1,
+          "version": 1,
+          "configBody": {}
+        },
+        {
+          "onboardingId": "AZScreeningOnboarding",
+          "status": "DISABLED",
+          "id": "606705adc7558713d7d398e8",
+          "order": 4,
+          "version": 1,
+          "configBody": {}
+        }
+      ],
+      "roles": [
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4202"
+          },
+          "name": "User",
+          "permissions": [
+            "VIEW_PATIENT_IDENTIFIER",
+            "VIEW_PATIENT_DATA",
+            "MANAGE_PATIENT_DATA",
+            "EXPORT_PATIENT_DATA",
+            "CONTACT_PATIENT"
+          ],
+          "userType": "Manager"
+        },
+        {
+          "id": {
+            "$oid": "6009d18864a6786c2a2be181"
+          },
+          "name": "Manager",
+          "permissions": ["VIEW_PATIENT_IDENTIFIER"]
+        },
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4203"
+          },
+          "name": "Custom Role",
+          "userType": "Manager",
+          "permissions": [
+            "MANAGE_PATIENT_DATA",
+            "VIEW_PATIENT_DATA",
+            "CONTACT_PATIENT"
+          ]
+        }
+      ],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "sections": [
+          {
+            "id": {
+              "$oid": "5e946c69e8002eac4a107f56"
+            },
+            "title": "Test section",
+            "order": 10,
+            "articles": [
+              {
+                "id": {
+                  "$oid": "5e8c58176207e5f78023e655"
+                },
+                "title": "article_ss three",
+                "order": 10,
+                "type": "SMALL",
+                "thumbnailUrl": {
+                  "region": "us-west-1",
+                  "key": "my.png",
+                  "bucket": "admin_bucket"
+                },
+                "content": {
+                  "type": "VIDEO",
+                  "timeToRead": "20m",
+                  "textDetails": "Here what you read",
+                  "videoUrl": {
+                    "bucket": "integrationtests",
+                    "key": "shared/5ded7cfa844317000162d5e7/logo/Screenshot_1572653613.png",
+                    "region": "cn"
+                  }
+                }
+              },
+              {
+                "id": {
+                  "$oid": "61dec75c76fa0352ff8edf0b"
+                },
+                "title": "article_ss three",
+                "order": 10,
+                "type": "SMALL",
+                "thumbnailUrl": {
+                  "region": "us-west-1",
+                  "key": "my.png",
+                  "bucket": "admin_bucket"
+                },
+                "content": {
+                  "type": "VIDEO",
+                  "timeToRead": "20m",
+                  "textDetails": "Here what you read",
+                  "contentObject": {
+                    "bucket": "integrationtests",
+                    "key": "shared/5ded7cfa844317000162d5e7/logo/Screenshot_1572653613.png",
+                    "region": "cn"
+                  }
+                }
+              }
+            ],
+            "updateDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            },
+            "createDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            }
+          }
+        ],
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "moduleConfigs": [
+        {
+          "about": "here we are",
+          "configBody": {
+            "id": "e932907c-e2c6-4fc7-88a9-72e2bba65431",
+            "isForManager": true,
+            "name": "Observation Notes",
+            "questionnaireType": "OBSERVATION_NOTES",
+            "pages": [
+              {
+                "items": [
+                  {
+                    "description": "hu_test_observation_note_description",
+                    "format": "TEXT",
+                    "id": "574f462e-31d5-42ac-8987-83d4dad0ce3f",
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "order": 1,
+                    "required": false,
+                    "text": "Observation Notes"
+                  }
+                ],
+                "order": 1,
+                "type": "QUESTION"
+              }
+            ],
+            "publisherName": "NX"
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "id": "5f15aaea6530a4c3c6db4506",
+          "learnArticleIds": [],
+          "moduleId": "Questionnaire",
+          "moduleName": "Observation Notes",
+          "order": 10,
+          "schedule": {
+            "friendlyText": "friendlyText",
+            "timesOfDay": [],
+            "timesPerDuration": 0
+          },
+          "status": "ENABLED",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          }
+        },
+        {
+          "about": "",
+          "configBody": {
+            "id": "m0327a25-52af-4ec6-8bc9-6732baebba0c",
+            "isForManager": false,
+            "name": "Surgery Details",
+            "pages": [
+              {
+                "items": [
+                  {
+                    "description": "",
+                    "format": "DATE",
+                    "id": "d4df7037-f909-4567-b344-3b9a2442f83c",
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "order": 1,
+                    "placeholder": "Enter discharge date",
+                    "required": false,
+                    "text": "Hospital discharge date"
+                  }
+                ],
+                "order": 1,
+                "type": "QUESTION"
+              },
+              {
+                "items": [
+                  {
+                    "description": "",
+                    "format": "TEXTCHOICE",
+                    "id": "851e7e66-ak95-4f67-9aa8-befeb70379b5",
+                    "logic": {
+                      "isEnabled": false
+                    },
+                    "options": [
+                      {
+                        "label": "Total hip replacement",
+                        "value": "0"
+                      },
+                      {
+                        "label": "Partial hip replacement",
+                        "value": "1"
+                      },
+                      {
+                        "label": "Birmingham Hip Resurfacing",
+                        "value": "2"
+                      }
+                    ],
+                    "order": 1,
+                    "placeholder": "Enter operation type",
+                    "required": false,
+                    "selectionCriteria": "SINGLE",
+                    "text": "Operation type"
+                  }
+                ],
+                "order": 2,
+                "type": "QUESTION"
+              }
+            ],
+            "publisherName": "PM"
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "id": "61a8dc52f8170a8a48b8866e",
+          "learnArticleIds": [],
+          "moduleId": "SurgeryDetails",
+          "moduleName": "Surgery Details",
+          "order": 4,
+          "ragThresholds": [],
+          "schedule": {
+            "friendlyText": "friendlyText",
+            "timesOfDay": [],
+            "timesPerDuration": 0
+          },
+          "status": "ENABLED",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "version": 0
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebeca"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Weight",
+          "moduleName": "Weight",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89eb78d"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "BMI",
+          "moduleName": "",
+          "about": "BMI module",
+          "configBody": {},
+          "ragThresholds": [],
+          "order": 3,
+          "schedule": {
+            "friendlyText": "string",
+            "isoDuration": "P1D",
+            "timesOfDay": ["UPON_WAKING"],
+            "timesPerDuration": 0
+          },
+          "status": "DISABLED"
+        },
+        {
+          "id": {
+            "$oid": "6012a1ecce15b9e7d5ab7c71"
+          },
+          "moduleId": "ECGHealthKit",
+          "about": "string",
+          "moduleName": "ECGHealthKit",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "timesOfDay": ["BEFORE_DINNER"]
+          },
+          "ragThresholds": [
+            {
+              "color": "#FBCCD7",
+              "enabled": true,
+              "fieldName": "value",
+              "severity": 3,
+              "thresholdRange": [
+                {
+                  "minValue": 2,
+                  "maxValue": 4
+                }
+              ],
+              "type": "VALUE"
+            },
+            {
+              "color": "#FFDA9F",
+              "enabled": true,
+              "fieldName": "value",
+              "severity": 2,
+              "thresholdRange": [
+                {
+                  "minValue": 6,
+                  "maxValue": 6
+                }
+              ],
+              "type": "VALUE"
+            },
+            {
+              "color": "#FFDA9F",
+              "enabled": true,
+              "fieldName": "value",
+              "severity": 2,
+              "thresholdRange": [
+                {
+                  "minValue": 8,
+                  "maxValue": 8
+                }
+              ],
+              "type": "VALUE"
+            },
+            {
+              "color": "#CBEBF0",
+              "enabled": true,
+              "fieldName": "value",
+              "severity": 1,
+              "thresholdRange": [
+                {
+                  "minValue": 1,
+                  "maxValue": 1
+                }
+              ],
+              "type": "VALUE"
+            }
+          ],
+          "status": "ENABLED"
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebecb"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "moduleId": "Height",
+          "moduleName": "Height",
+          "status": "ENABLED",
+          "order": {
+            "$numberInt": "6"
+          },
+          "configBody": {},
+          "about": "test",
+          "schedule": {
+            "friendlyText": "string",
+            "isoDuration": "P1W",
+            "timesOfDay": ["BEFORE_BREAKFAST"],
+            "timesPerDuration": 0
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f1824ba504787d8d89ebe4a"
+          },
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1595428586272"
+            }
+          },
+          "order": {
+            "$numberInt": "7"
+          },
+          "about": "string",
+          "configBody": {},
+          "moduleId": "Journal",
+          "moduleName": "string",
+          "schedule": {
+            "isoDuration": "P1D",
+            "timesPerDuration": {
+              "$numberInt": "0"
+            },
+            "friendlyText": "string",
+            "timesOfDay": []
+          },
+          "status": "ENABLED"
+        },
+        {
+          "id": {
+            "$oid": "61701ca06b257efe2a53f4a5"
+          },
+          "updateDateTime": {
+            "$date": "2021-10-28T18:00:38.234Z"
+          },
+          "createDateTime": {
+            "$date": "2021-10-20T13:41:52.481Z"
+          },
+          "moduleId": "BodyMeasurement",
+          "moduleName": "Body Measurements",
+          "status": "ENABLED",
+          "order": 3,
+          "configBody": {},
+          "about": "Waist circumference<br><br>Waist circumference is a good measurement to estimate the body fat content in your midsection. It is a useful and simple screening tool for weight-related and metabolic health problems.<br><br>Total body fat<br><br>Total body fat is a measure of how much of your body mass is made up of essential body fat and storage body fat. These are essential for body function and too much or too little can cause health problems. A balanced diet and regular exercise can help maintain the optimum level.<br><br>Visceral fat<br><br>Visceral fat measures the fat in and around your midsection, which plays an important part in protecting vital organs. Too much or too little visceral fat can cause long-term health problems. A balanced diet and regular exercise can help maintain the optimum level.<br><br>Hip circumference<br><br>Hip circumference is a useful measurement to help calculate the body fat content in your midsection. When combined with other measurements, it is a useful screening tool to help calculate your risk of weight-related and metabolic health problems.<br><br>Waist-to-hip ratio<br><br>Waist-to-hip ratio (WHR) compares the measurements of your hip and waist to estimate the body fat content in your midsection. It is a useful screening tool which can help estimate your risk of diseases such as heart disease and diabetes. By using a ratio, WHR adjusts for different body shapes.",
+          "schedule": {
+            "timesPerDuration": 0,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "version": 3,
+          "notificationData": {
+            "title": "Time to take your body measurements",
+            "body": "Body Measurements"
+          }
+        },
+        {
+          "id": {
+            "$oid": "61701ca0ad074d9322baa08e"
+          },
+          "updateDateTime": {
+            "$date": "2021-10-28T18:00:38.551Z"
+          },
+          "createDateTime": {
+            "$date": "2021-10-20T13:41:52.585Z"
+          },
+          "moduleId": "CVDRiskScore",
+          "moduleName": "Heart Health Risk",
+          "status": "ENABLED",
+          "order": 1,
+          "configBody": {},
+          "about": "Individuals with this risk score have this percentage (%) of developing cardiovascular disease (CVD)* over the next 10 years. Several factors affect the risk prediction which are outlined in the contributors below. The algorithm is based on the data from 0.5M individuals in the UK Biobank.<br><br>*Cardiovascular disease (CVD) is defined as any of the following conditions: Coronary heart disease (including angina or heart attack), heart failure, stroke and mini-strokes.<br><br><b>This tool is intended for informational purposes only. It is not intended to provide a medical diagnosis, medical advice, or medical treatment. Contact your healthcare provider after using the tool to discuss your heart health or if you have any health concerns.</b>",
+          "schedule": {
+            "timesPerDuration": 0,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": [],
+          "learnArticleIds": ["61701c8dd2fff2e51d482e36"],
+          "version": 3,
+          "notificationData": {
+            "title": "Tell us about your cardiovascular health",
+            "body": "Time to complete your CVD risk score questionnaire"
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f108cb1243046d018bf3ec6"
+          },
+          "updateDateTime": {
+            "$date": "2020-12-01T11:00:29.852Z"
+          },
+          "createDateTime": {
+            "$date": "2020-07-16T17:21:53.273Z"
+          },
+          "moduleId": "HighFrequencyStep",
+          "moduleName": "",
+          "status": "ENABLED",
+          "order": 7,
+          "configBody": {},
+          "about": "From walking the dog to moving around the house – it all counts. If you keep your mobile in your pocket the Huma app will create a picture of your general activity based on your step-count. Information about how many steps you take and your general activity over time gives researchers extra insight into your activity",
+          "schedule": {
+            "timesPerDuration": 0,
+            "friendlyText": "friendlyText",
+            "timesOfDay": []
+          },
+          "ragThresholds": []
+        }
+      ],
+      "keyActionsEnabled": true,
+      "keyActions": [
+        {
+          "id": {
+            "$oid": "5f078582c565202bd6cb03af"
+          },
+          "title": "Observation Notes",
+          "description": "Test",
+          "deltaFromTriggerTime": "PT0M",
+          "durationFromTrigger": "P6M",
+          "type": "MODULE",
+          "trigger": "SIGN_UP",
+          "durationIso": "P1WT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "0"
+          },
+          "moduleId": "Questionnaire",
+          "moduleConfigId": "5f1824ba504787d8d89ebecb",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f078582c565202bd6cb03ac"
+          },
+          "title": "Learn Key Action",
+          "description": "",
+          "deltaFromTriggerTime": "PT0M",
+          "durationFromTrigger": "P6M",
+          "type": "LEARN",
+          "trigger": "SIGN_UP",
+          "durationIso": "P1WT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "0"
+          },
+          "learnArticleId": "5e8c58176207e5f78023e655",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        },
+        {
+          "id": {
+            "$oid": "5f078582c565202bd6cb03aa"
+          },
+          "title": "Removed Module Key Action",
+          "description": "",
+          "deltaFromTriggerTime": "PT0M",
+          "durationFromTrigger": "P6M",
+          "type": "MODULE",
+          "trigger": "SIGN_UP",
+          "durationIso": "P1WT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "0"
+          },
+          "moduleId": "",
+          "moduleConfigId": "5f15aaea6530a4c3c6db4506",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        }
+      ],
+      "carePlanGroup": {
+        "groups": [
+          {
+            "id": "com.huma.covid19.mild",
+            "name": "Mild cases",
+            "default": true,
+            "extensionForActivationCode": "01",
+            "moduleConfigPatches": [
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebecb",
+                "changeType": "REMOVE",
+                "patch": []
+              }
+            ]
+          },
+          {
+            "id": "com.huma.covid19.severe",
+            "name": "Severe cases",
+            "extensionForActivationCode": "02",
+            "moduleConfigPatches": [
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebeca",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/schedule/timesPerDuration",
+                    "value": 3
+                  }
+                ]
+              },
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebe4a",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/status",
+                    "value": "DISABLED"
+                  }
+                ]
+              },
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebecb",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/schedule/timesOfDay/0",
+                    "value": "UPON_WAKING"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "include_invalid_module_config_id",
+            "name": "Test Patch",
+            "extensionForActivationCode": "03",
+            "moduleConfigPatches": [
+              {
+                "moduleConfigId": "5f1824ba504787d8d89eaaaa",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/schedule/isoDuration",
+                    "value": "P4D"
+                  }
+                ]
+              },
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebe4a",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/status",
+                    "value": "DISABLED"
+                  }
+                ]
+              },
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebecb",
+                "changeType": "PATCH",
+                "patch": [
+                  {
+                    "op": "replace",
+                    "path": "/schedule/timesOfDay/0",
+                    "value": "UPON_WAKING"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "surgeryDetails": {
+        "operationType": {
+          "displayString": "Test1",
+          "placeHolder": "Test1",
+          "order": 1,
+          "items": [
+            {
+              "key": "testKey",
+              "value": "testValue"
+            }
+          ]
+        }
+      },
+      "localizations": {
+        "en": {
+          "hu_test_observation_note_description": "Default localization"
+        },
+        "nl": {
+          "hu_test_observation_note_description": "NL localization",
+          "hu_test_phone_number_error": "NL Error localization"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "id": "5e8f0c74b50aa9656c34789a",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999977",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "id": "5e84b0dab8dfa268b1180536",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "displayName": "testUser",
+      "userAttributes": {
+        "familyName": "testUser",
+        "givenName": "testUser",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c31b50aa9656c34789a"
+      },
+      "id": "5e8f0c31b50aa9656c34789a",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test4@test.com",
+      "phoneNumber": "+380994999977",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c44789d"
+      },
+      "id": "5e8f0c74b50aa9656c44789d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test41@test.com",
+      "phoneNumber": "+380994699977",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999977",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c31b50aa9656c34789a"
+      },
+      "givenName": "bruce",
+      "familyName": "smith",
+      "email": "test5@test.com",
+      "phoneNumber": "+380999959977",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "givenName": "testUser",
+      "familyName": "testUser",
+      "email": "testUser@test.com",
+      "phoneNumber": "+380999999998",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c44789d"
+      },
+      "givenName": "testManagerUser",
+      "familyName": "testUser",
+      "email": "testManUser@test.com",
+      "phoneNumber": "+380998999998",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    }
+
+  ],
+  "device": [
+    {
+      "_id": {
+        "$oid": "5f437b275858ea448033b84a"
+      },
+      "_cls": "MongoDeviceDocument",
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "devicePushId": "cMsfaQHaRpu2NDsnn9xbFo:APA91bFjzRE-sZtMZ5pQxZKwaop6KxJc28dCXcGbi_BbdglMYdWE7QDLqFKBRoEuvgOl1i5boiQjVbpiaj3IiAjfMh9ZUqC4pbmXEaSmsCt-4O6DnJikLbvM1JOr3DyCSGCb_y8ojaTw",
+      "devicePushIdType": "ALI_CLOUD",
+      "updateDateTime": {
+        "$date": "2020-08-24T08:32:38.980Z"
+      },
+      "createDateTime": {
+        "$date": "2020-08-24T08:32:38.980Z"
+      }
+    }
+  ],
+  "inbox": [
+    {
+      "_id": {
+          "$oid": "629df2f7b0cb1780065e9f3d"
+      },
+      "_cls": "MongoMessageDocument",
+      "userId": {
+          "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "submitterId": {
+          "$oid": "5e8f0c31b50aa9656c34789a"
+      },
+      "submitterName": "test",
+      "text": "test body message 2",
+      "status": "DELIVERED",
+      "updateDateTime": {
+          "$date": "2022-06-06T12:28:39.068Z"
+      },
+      "createDateTime": {
+          "$date": "2022-06-06T12:28:39.068Z"
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+name: Trigger uninstall-helm-chart
+on:
+  workflow_dispatch:
+    inputs:
+      project_id:
+        description: GCP project ID
+        default: hu-global-sandbox
+        required: true
+        type: string
+      cluster_name:
+        description: GKE cluster name
+        default: hu-uk-sandbox-pr-preview-gke
+        required: true
+        type: string
+      location:
+        description: GKE zone
+        default: europe-west2
+        required: true
+        type: string
+      app_name:
+        description: Application Deployment name
+        default: ppserver-77
+        required: false
+        type: string
+      app_namespace:
+        description: Namespace
+        default: pr-preview-77
+        required: false
+        type: string
+      delete_namespace:
+        description: Delete namespace
+        required: false
+        default: 'true'
+        type: string
+jobs:
+  uninstall-helm-chart:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Uninstall a Helm chart
+        id: helm
+        uses: huma-engineering/huma-github-actions/uninstall-helm-chart@v0.5.0
+        with:
+          project_id: ${{ github.event.inputs.project_id }}
+          cluster_name: ${{ github.event.inputs.cluster_name }}
+          location: ${{ github.event.inputs.location }}
+          app_name: ${{ github.event.inputs.app_name }}
+          app_namespace: ${{ github.event.inputs.app_namespace }}
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+          delete_namespace: ${{ github.event.inputs.delete_namespace }}
+
+      - name: print
+        run: echo "error=${{ steps.helm.outputs.error }}"

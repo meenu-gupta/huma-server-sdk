@@ -1,0 +1,17 @@
+Delete user tag
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user profile belongs to.
+responses:
+  200:
+    description: User object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'

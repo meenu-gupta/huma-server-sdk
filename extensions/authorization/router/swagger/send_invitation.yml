@@ -1,0 +1,83 @@
+Send Invitation
+---
+tags:
+  - invitation
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    description: "Json body with options"
+    required: true
+    schema:
+      $ref: "#/definitions/SendInvitationRequest"
+
+responses:
+  200:
+    description: Ok
+    schema:
+      $ref: '#/definitions/SendInvitationResponse'
+definitions:
+  SendInvitationRequest:
+    type: object
+    required:
+      - emails
+      - roleId
+      - clientId
+      - projectId
+    properties:
+      emails:
+        type: array
+        items:
+          type: string
+          example: "test@huma.com"
+      deploymentIds:
+        type: array
+        items:
+          type: string
+          example: "602f641b90517902d644eff2"
+      organizationId:
+        type: string
+        example: "602f641b90517902d644eff2"
+      roleId:
+        type: string
+      expiresIn:
+        type: string
+        example: "P1Y"
+      clientId:
+        type: string
+        example: c1
+      language:
+        type: string
+      projectId:
+        type: string
+        example: p1
+      patientId:
+        type: string
+        example: "616d4dbdfed6cee4c2736661"
+  SendInvitationResponse:
+    type: object
+    properties:
+      ok:
+        type: boolean
+      alreadySignedUpEmails:
+        type: array
+        items:
+          type: string
+          example: "signedup@huma.com"
+      ids:
+        type: array
+        items:
+          type: string
+          example: "616d4df1fed6cee4c2736662"
+  PermissionDenied:
+    type: object
+    properties:
+      code:
+        type: number
+        example: 100004
+      message:
+        type: string
+        example: "Action is not allowed for current user"

@@ -1,0 +1,63 @@
+Create custom module config for user
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user.
+  - in: path
+    name: module_config_id
+    type: string
+    required: true
+    description: ID of the module config.
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CustomModuleConfigRequest'
+responses:
+  201:
+    description: Ok
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  CustomModuleConfigRequest:
+    type: object
+    required:
+      - moduleId
+      - reason
+    properties:
+      moduleId:
+        type: string
+        example: "BMI"
+      ragThresholds:
+        type: array
+        items:
+          $ref: "#/definitions/RagThreshold"
+      reason:
+        type: string
+        example: "Some meaningful description"
+      schedule:
+        $ref: "#/definitions/CustomModuleSchedule"
+  CustomModuleSchedule:
+    type: object
+    properties:
+      isoDuration:
+        type: string
+        example: P10W
+      timesOfReadings:
+        type: array
+        items:
+          type: string
+          format: iso8601
+          example: PT10H20M
+      specificWeekDays:
+        type: array
+        items:
+          $ref: "#/definitions/WeekDay"

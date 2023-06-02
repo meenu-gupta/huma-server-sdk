@@ -1,0 +1,30 @@
+{
+  "medication": [
+    {
+      "_id": {
+        "$oid": "5eafd121b2d79d48ce4cd9e8"
+      },
+      "userId": {
+        "$oid": "5e84b0dab8dfa268b1180536"
+      },
+      "name": "Medicine",
+      "doseQuantity": {
+        "$numberDouble": "250"
+      },
+      "doseUnits": "mg",
+      "prn": true,
+      "enabled": true,
+      "extraProperties": {},
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1588591441841"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1588591441841"
+        }
+      }
+    }
+  ]
+}

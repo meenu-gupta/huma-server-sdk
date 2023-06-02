@@ -1,0 +1,21 @@
+Retrieve Device
+Returning Devices
+---
+tags:
+  - notification
+responses:
+  200:
+    description: List of devices for a user
+    schema:
+      $ref: '#/definitions/RetrieveDevicesResponse'
+definitions:
+  RetrieveDevicesResponse:
+    type: object
+    properties:
+      total:
+        type: integer
+      items:
+        type: array
+        items:
+          $ref: "#/definitions/Device"
+

@@ -1,0 +1,186 @@
+{% if current_data %}
+  <div>
+    <style>
+      .medication-table-title {
+        padding: 0 14px 8px;
+        color: #424347;
+      }
+      table.medication {
+        border-collapse: collapse;
+        width: 100%;
+        color: #424347;
+      }
+
+      table.medication td,
+      table.medication th {
+        text-align: left;
+        padding: 7px 7px 7px 14px;
+        font-weight: 400;
+      }
+      table.medication th {
+        background-color: #ebebeb;
+        text-transform: uppercase;
+        font-size: 10px;
+        line-height: 16px;
+      }
+      table.medication td {
+        font-size: 12px;
+        line-height: 16px;
+        word-break: normal;
+      }
+      table.medication tr {
+        border-bottom: 0.5px solid #ebebeb;
+      }
+      table.medication tbody tr:first-child {
+        border-bottom: none;
+      }
+
+      table.medication .year-row {
+        background-color: #ebebeb;
+        border-top: 1px solid #fbfbfb;
+      }
+      table.medication .year-row td {
+        text-align: center;
+      }
+    </style>
+    <div class="charts-container general-container general flexible-height">
+      <h3 class="title">{{ medication_title }}</h3>
+      {% if current_data %}
+        <div class="medication-table-title font-size-12">Currently taking</div>
+
+        <table class="medication">
+          <tr>
+            <th>PERIOD</th>
+            <th>NAME</th>
+            <th>DOSAGE</th>
+            <th>FREQUENCY</th>
+          </tr>
+          {% for key, value in current_data.items() %}
+            {% if value %}
+              <tr class="year-row">
+                <td colspan="4">{{ key }}</td>
+              </tr>
+              {% for k, val in value.items() %}
+                {% if val %}
+                  {% for item in val %}
+                    {% if loop.index0 == 0 %}
+                      <tr>
+                        <td>{{ k }}</td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.dosage }} {{ item.unit }}</td>
+                        <td>{{ item.frequency }}</td>
+                      </tr>
+                    {% else %}
+                      <tr>
+                        <td></td>
+                        <td>{{ item.name }}</td>
+                        <td>{{ item.dosage }} {{ item.unit }}</td>
+                        <td>{{ item.frequency }}</td>
+                      </tr>
+                    {% endif %}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </table>
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+{% if old_data %}
+  <div>
+  <style>
+      .medication-table-title {
+        padding: 0 14px 8px;
+        color: #424347;
+      }
+
+      table.medication {
+        border-collapse: collapse;
+        width: 100%;
+        color: #424347;
+      }
+
+      table.medication td,
+      table.medication th {
+        text-align: left;
+        padding: 7px 7px 7px 14px;
+        font-weight: 400;
+      }
+
+      table.medication th {
+        background-color: #ebebeb;
+        text-transform: uppercase;
+        font-size: 10px;
+        line-height: 16px;
+      }
+
+      table.medication td {
+        font-size: 12px;
+        line-height: 16px;
+        word-break: normal;
+      }
+
+      table.medication tr {
+        border-bottom: 0.5px solid #ebebeb;
+      }
+
+      table.medication tbody tr:first-child {
+        border-bottom: none;
+      }
+
+      table.medication .year-row {
+        background-color: #ebebeb;
+        border-top: 1px solid #fbfbfb;
+      }
+
+      table.medication .year-row td {
+        text-align: center;
+      }
+    </style>
+  <div class="charts-container general-container general flexible-height">
+    <h3 class="title">{{ medication_title }}</h3>
+    <div class="medication-table-title font-size-12">
+      Used to take
+    </div>
+
+    <table class="medication">
+      <tr>
+        <th>PERIOD</th>
+        <th>NAME</th>
+        <th>DOSAGE</th>
+        <th>FREQUENCY</th>
+      </tr>
+      {% for key, value in old_data.items() %}
+        {% if value %}
+          <tr class="year-row">
+            <td colspan="4">{{ key }}</td>
+          </tr>
+          {% for k, val in value.items() %}
+            {% if val %}
+              {% for item in val %}
+                {% if loop.index0 == 0 %}
+                  <tr>
+                    <td>{{ k }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.dosage }} {{ item.unit }}</td>
+                    <td>{{ item.frequency }}</td>
+                  </tr>
+                {% else %}
+                  <tr>
+                    <td></td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.dosage }} {{ item.unit }}</td>
+                    <td>{{ item.frequency }}</td>
+                  </tr>
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+  </div>
+{% endif %}

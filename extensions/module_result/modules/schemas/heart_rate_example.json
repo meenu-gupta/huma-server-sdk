@@ -1,0 +1,8 @@
+{
+  "isHRVEnabled": true,
+  "dataSource": {
+    "cameraCollection": true,
+    "manualCollection": false,
+    "healthAppCollection": false
+  }
+}

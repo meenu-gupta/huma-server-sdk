@@ -1,0 +1,20 @@
+Sync data on Kardia platform
+---
+tags:
+  - kardia
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: Id of Huma app user.
+responses:
+  200:
+    description: Kardia patient data
+    schema:
+      $ref: '#/definitions/SyncKardiaDataResponseObject'
+definitions:
+  SyncKardiaDataResponseObject:
+    type: array
+    items:
+      $ref: "#/definitions/ECGAliveCor"

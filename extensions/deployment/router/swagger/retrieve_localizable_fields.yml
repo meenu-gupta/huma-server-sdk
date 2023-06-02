@@ -1,0 +1,24 @@
+Retrieve deployment's localizable fields
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment
+responses:
+  200:
+    description: Retrieve deployment's localizable fields
+    schema:
+      $ref: '#/definitions/RetrieveDeploymentLocalizableFieldsResponse'
+
+definitions:
+  RetrieveDeploymentLocalizableFieldsResponse:
+    type: array
+    items:
+      type: string
+      example: "deployment.consent.signature.nameTitle"

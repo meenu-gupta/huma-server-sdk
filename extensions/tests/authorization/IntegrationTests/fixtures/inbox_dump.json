@@ -1,0 +1,49 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "Inbox Deployment",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "features": {
+        "messaging": {
+          "enabled": true,
+          "messages": [
+            "first message",
+            "second message",
+            "test message"
+          ]
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684413"
+      },
+      "id": "5ed803dd5f2f99da73684413",
+      "status": 1,
+      "emailVerified": false,
+      "email": "user@example.com"
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684413"
+      },
+      "email": "admin@example.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+Register a device
+Returning Huma ID of a registered device
+---
+tags:
+  - notification
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/Device'
+responses:
+  201:
+    description: Registered Device Huma Id
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  RegisterDeviceRequestObject:
+    allOf:
+      - $ref: "#/definitions/Device"
+
+  Device:
+    type: object
+    properties:
+      id:
+        type: string
+      devicePushId:
+        type: string
+      devicePushIdType:
+        type: string
+        enum: ["TWILIO", "ANDROID_FCM", "IOS_APNS", "IOS_VOIP", "ALI_CLOUD"]
+      deviceDetails:
+        type: string

@@ -1,0 +1,35 @@
+Start Revere test and retrieve word-lists
+---
+tags:
+  - revere
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  201:
+    description: test id and list of word-lists for the test
+    schema:
+      $ref: '#/definitions/StartRevereTestResponse'
+definitions:
+  StartRevereTestResponse:
+    type: object
+    properties:
+      id:
+        type: string
+      wordLists:
+        type: array
+        items:
+          $ref: "#/definitions/RevereTestWordList"
+  RevereTestWordList:
+    type: object
+    properties:
+      id:
+        type: string
+      initialWords:
+        type: array
+        items:
+          type: string

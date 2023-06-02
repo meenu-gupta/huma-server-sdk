@@ -1,0 +1,20 @@
+server:
+  project:
+    id: ptest1
+    clients:
+      - name: USER_IOS-client
+        clientId: ctest1
+        clientType: USER_IOS
+      - name: USER_ANDROID-client
+        clientId: c2
+        clientType: USER_ANDROID
+      - name: MANAGER_WEB-client
+        clientId: c3
+        clientType: MANAGER_WEB
+    masterKey: "12345678"
+  adapters:
+    onfido:
+      apiToken: "api_sandbox.Ddbo0qQ-Drv.J-0WHniqH6R_VIxaFTjYyVRPzWcjudFi"
+      region: "EU"
+      tokenExpiresAfterMinutes: 90
+      webhookToken: "onfido_token"

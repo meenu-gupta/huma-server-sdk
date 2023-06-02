@@ -1,0 +1,30 @@
+Async summary report
+---
+tags:
+  - report
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: user_id
+    in: path
+    description: "User ID to export data for"
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: "Json body with options"
+    schema:
+      $ref: "#/definitions/GenerateSummaryReportRequest"
+
+responses:
+  201:
+    description: Task id.
+    schema:
+      $ref: '#/definitions/RunExportTaskResponse'
+  404:
+    description: Feature is not enabled in deployment
+    schema:
+      type: string
+      example: "<h1>Feature is not enabled</h1>"

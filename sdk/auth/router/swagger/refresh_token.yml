@@ -1,0 +1,44 @@
+Refresh token
+Refreshing the auth token with refresh token
+---
+tags:
+  - auth
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/RefreshTokenRequest'
+responses:
+  200:
+    description: Refreshed the auth token
+    schema:
+      $ref: '#/definitions/RefreshTokenResponse'
+definitions:
+  RefreshTokenRequest:
+    type: object
+    required:
+      - refreshToken
+    properties:
+      refreshToken:
+        type: string
+      password:
+        type: string
+      email:
+        type: string
+  RefreshTokenResponse:
+    type: object
+    properties:
+      authToken:
+        type: string
+      expiresIn:
+        type: integer
+        description: life-time of token in seconds
+        example: 86400
+      refreshToken:
+        type: string
+      refreshTokenExpiresIn:
+        type: integer
+        description: life-time of token in seconds
+        example: 86400

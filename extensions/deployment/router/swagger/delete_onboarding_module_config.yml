@@ -1,0 +1,21 @@
+Delete Onboarding Module Config
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment onboarding module config belongs to.
+  - in: path
+    name: onboarding_id
+    type: string
+    required: true
+    description: ID of onboarding module config.
+
+responses:
+  204:
+    description: Onboarding Module has been deleted

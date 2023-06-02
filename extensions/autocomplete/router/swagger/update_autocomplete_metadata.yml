@@ -1,0 +1,38 @@
+summary: Update Autocomplete metadata
+tags:
+  - autocomplete
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UpdateAutoCompleteMetadataRequest'
+responses:
+  201:
+    description: ids of created or updated autocomplete metadata objects
+    schema:
+      $ref: '#/definitions/UpdateAutoCompleteMetadataResponse'
+
+definitions:
+  UpdateAutoCompleteMetadataResponse:
+    type: object
+    properties:
+      ids:
+        type: array
+        items:
+          type: string
+          example: "602f641b90517902d644eff2"
+  UpdateAutoCompleteMetadataRequest:
+    type: object
+    properties:
+      moduleId:
+        type: string
+        example: "AZVaccineBatchNumber"
+      s3Object:
+        $ref: "#/definitions/S3Object"
+      language:
+        type: string
+        example: "en"

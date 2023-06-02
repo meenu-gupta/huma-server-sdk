@@ -1,0 +1,731 @@
+{
+  "$id": "com.medopad.platformplay.questionnaire.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "definitions": {
+    "uuid": {
+      "type": "string",
+      "format": "uuid",
+      "examples": ["67ed4d53-37e0-4538-bb7a-6ecb62e6cd55"]
+    },
+    "datetime": {
+      "type": "string",
+      "format": "date-time",
+      "examples": ["2008-09-15T15:53:00+05:00"]
+    },
+    "s3Object": {
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        },
+        "bucket": {
+          "type": "string"
+        }
+      },
+      "required": ["key", "region", "bucket"]
+    },
+    "condition": {
+      "type": "object",
+      "properties": {
+        "questionId": {
+          "$ref": "#/definitions/uuid"
+        },
+        "eq": {
+          "type": ["string", "number"]
+        },
+        "neq": {
+          "type": ["string", "number"]
+        }
+      }
+    },
+    "rule": {
+      "type": "object",
+      "properties": {
+        "allOf": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/condition"
+          }
+        },
+        "anyOf": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/condition"
+          }
+        },
+        "jumpToId": {
+          "$ref": "#/definitions/uuid"
+        }
+      },
+      "required": ["jumpToId"]
+    },
+    "logic": {
+      "type": "object",
+      "properties": {
+        "rules": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/rule"
+          }
+        },
+        "reuse": {
+          "$ref": "#/definitions/reuse"
+        },
+        "isEnabled": {
+          "type": "boolean"
+        }
+      },
+      "required": ["rules", "isEnabled"]
+    },
+    "reuse": {
+      "type": "object",
+      "properties": {
+        "questionId": {
+          "$ref": "#/definitions/uuid"
+        },
+        "loop": {
+          "type": "object",
+          "properties": {
+            "isEnabled": {
+              "type": "boolean"
+            },
+            "choices": {
+              "enum": ["selected", "unselected", "all"]
+            }
+          }
+        },
+        "recall": {
+          "type": "object",
+          "properties": {
+            "isEnabled": {
+              "type": "boolean"
+            }
+          },
+          "required": ["isEnabled"]
+        }
+      }
+    },
+    "pageType": {
+      "enum": ["INFO", "QUESTION", "SUBMISSION"]
+    },
+    "page": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "order": {
+          "type": "number"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 1024
+        }
+      },
+      "required": ["type", "order"]
+    },
+    "infoPage": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/page"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "INFO"
+            },
+            "image": {
+              "$ref": "#/definitions/s3Object"
+            }
+          },
+          "required": ["type"]
+        }
+      ]
+    },
+    "submissionPage": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/page"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "SUBMISSION"
+            },
+            "buttonText": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 70
+            }
+          },
+          "required": ["type"]
+        }
+      ]
+    },
+    "questionPage": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/page"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "QUESTION"
+            },
+            "items": {
+              "type": "array",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/definitions/infoItem"
+                  },
+                  {
+                    "$ref": "#/definitions/textQuestionItem"
+                  },
+                  {
+                    "$ref": "#/definitions/textChoiceQuestionItem"
+                  },
+                  {
+                    "$ref": "#/definitions/scaleQuestionItem"
+                  },
+                  {
+                    "$ref": "#/definitions/booleanQuestionItem"
+                  },
+                  {
+                    "$ref": "#/definitions/dateQuestionItem"
+                  },
+                  {
+                    "$ref": "#/definitions/numberQuestionItem"
+                  },
+                  {
+                    "$ref": "#/definitions/durationSecondsQuestionItem"
+                  },
+                  {
+                    "$ref": "#/definitions/autocompleteQuestionItem"
+                  },
+                  {
+                    "$ref": "#/definitions/mediaQuestionItem"
+                  }
+                ]
+              }
+            }
+          },
+          "required": ["items"]
+        }
+      ]
+    },
+    "pageItemFormat": {
+      "enum": [
+        "TEXT",
+        "TEXTCHOICE",
+        "SCALE",
+        "BOOLEAN",
+        "DATE",
+        "NUMERIC",
+        "DURATION",
+        "DURATION_SECONDS",
+        "COMPOSITE",
+        "MEDIA",
+        "AUTOCOMPLETE_TEXT"
+      ]
+    },
+    "pageItemSelectionCriteria": {
+      "enum": ["SINGLE", "MULTIPLE"]
+    },
+    "stringOption": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "weight": {
+          "type": "integer"
+        }
+      },
+      "required": ["label", "value"]
+    },
+    "stringOrIntegerOption": {
+      "type": "object",
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "integer"
+            }
+          ]
+        },
+        "weight": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "label",
+        "value"
+      ]
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "expression": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      }
+    },
+    "field": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "format": {
+          "enum": [
+            "TEXT_CHOICE",
+            "NUMERIC"
+          ]
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "validation": {
+          "$ref": "#/definitions/validation"
+        }
+      }
+    },
+    "pageItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "format": {
+          "$ref": "#/definitions/pageItemFormat"
+        },
+        "order": {
+          "type": "number"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 1024
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/field"
+          }
+        }
+      },
+      "required": ["order", "text", "format"]
+    },
+    "autocompletePageItem": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/uuid"
+        },
+        "format": {
+          "const": "AUTOCOMPLETE_TEXT"
+        },
+        "order": {
+          "type": "number"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 256
+        },
+        "description": {
+          "type": "string",
+          "minLength": 0,
+          "maxLength": 1024
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "logic": {
+          "$ref": "#/definitions/logic"
+        },
+        "multipleAnswers": {
+          "$ref": "#/definitions/multipleAnswersType"
+        }
+      },
+      "required": ["order", "text", "format", "required"]
+    },
+    "infoItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/pageItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "image": {
+              "$ref": "#/definitions/s3Object"
+            }
+          }
+        }
+      ]
+    },
+    "questionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/pageItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "required": {
+              "type": "boolean"
+            },
+            "logic": {
+              "$ref": "#/definitions/logic"
+            }
+          },
+          "required": ["required"]
+        }
+      ]
+    },
+    "textQuestionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/questionItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "regex": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
+            },
+            "defaultValue": {
+              "type": "string"
+            },
+            "placeholder": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 1024
+            }
+          }
+        }
+      ]
+    },
+    "textChoiceQuestionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/questionItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "options": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/stringOption"
+              }
+            },
+            "selectionCriteria": {
+              "$ref": "#/definitions/pageItemSelectionCriteria"
+            },
+            "defaultOptions": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": ["options", "selectionCriteria"]
+        }
+      ]
+    },
+    "scaleQuestionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/questionItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "options": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/stringOrIntegerOption"
+              }
+            },
+            "lowerBound": {
+              "type": "integer"
+            },
+            "upperBound": {
+              "type": "integer"
+            },
+            "defaultValue": {
+              "oneOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "isVisualAnalogueScale": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "booleanQuestionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/questionItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "defaultValue": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "dateQuestionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/questionItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "includeTime": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "numberQuestionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/questionItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "unit": {
+              "type": "string"
+            },
+            "lowerBound": {
+              "type": "integer"
+            },
+            "upperBound": {
+              "type": "integer"
+            },
+            "normalRange": {
+              "type": "object",
+              "properties": {
+                "lowerBound": {
+                  "type": "integer"
+                },
+                "upperBound": {
+                  "type": "integer"
+                },
+                "warningMessage" : {
+                  "type": "string"
+                }
+              }
+            },
+            "allowsIntegersOnly": {
+              "type": "boolean"
+            },
+            "skipByWeight": {
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    },
+    "mediaQuestionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/questionItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "mediaType": {
+              "type": "array",
+              "items": [
+                {
+                  "$ref": "#/definitions/questionnaireAnswerMediaType"
+                }
+              ]
+            },
+            "multipleAnswers": {
+              "$ref": "#/definitions/multipleAnswersType"
+            }
+          },
+          "required": ["mediaType"]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "format": {
+              "const": "MEDIA"
+            }
+          }
+        }
+      ]
+    },
+    "multipleAnswersType": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "maxAnswers": {
+          "type": "number"
+        }
+      },
+      "required": ["enabled"]
+    },
+    "questionnaireAnswerMediaType": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/questionnaireAnswerMediaItemType"
+      }
+    },
+    "questionnaireAnswerMediaItemType": {
+      "type": "string",
+      "enum" : ["FILE", "PHOTO", "VIDEO"]
+    },
+    "durationSecondsQuestionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/questionItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "increment": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "lowerBound": {
+              "type": "integer"
+            },
+            "upperBound": {
+              "type": "integer"
+            }
+          }
+        }
+      ]
+    },
+    "autocompleteQuestionItem": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/autocompletePageItem"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "autocomplete": {
+              "type": "object",
+              "properties": {
+                "placeholder": {
+                  "type": "string"
+                },
+                "listEndpointId": {
+                  "type": "string"
+                },
+                "allowFreeText": {
+                  "type": "boolean"
+                }
+              },
+              "required": ["listEndpointId"]
+            }
+          },
+          "required": ["autocomplete"]
+        }
+      ]
+    }
+  },
+  "properties": {
+    "pages": {
+      "type": "array",
+      "items": {
+        "anyOf": [
+          {
+            "$ref": "#/definitions/infoPage"
+          },
+          {
+            "$ref": "#/definitions/questionPage"
+          }
+        ]
+      }
+    },
+    "region": {
+      "enum": ["Denmark", "Germany", "Japan", "Netherlands", "Spain", "Thailand", "UK", "US", "Zimbabwe"]
+    },
+    "isForManager": {
+      "type": "boolean"
+    },
+    "isHorizonalFlow": {
+      "type": "boolean"
+    },
+    "trademarkText": {
+      "type": "string"
+    },
+    "publisherName": {
+      "type": "string"
+    },
+    "submissionPage": {
+      "type": "object",
+      "$ref": "#/definitions/submissionPage"
+    },
+    "isPAM": {
+      "type": "boolean"
+    },
+    "isOnboarding": {
+      "type": "boolean"
+    },
+    "questionnaireType": {
+      "enum": ["EQ5D_5L", "PAM", "PROMIS_PAIN", "PROMIS_PHYSICAL", "PROMIS_PHYSICAL_DE", "PROMIS_PAIN_DE", "OBSERVATION_NOTES", "PROMIS_PHYSICAL_ES", "PROMIS_PAIN_ES"]
+    }
+  },
+  "required": ["isForManager", "pages"]
+}

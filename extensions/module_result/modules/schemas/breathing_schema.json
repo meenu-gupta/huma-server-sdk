@@ -1,0 +1,43 @@
+{
+  "$id": "com.medopad.platformplay.symptom.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "Breathing",
+  "description": "Breathing Module Config Schema",
+  "definitions": {
+    "s3Object": {
+      "type": "object",
+      "properties": {
+        "bucket": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "region": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "properties": {
+    "instructionThumbnail": {
+      "type": "object",
+      "$ref": "#/definitions/s3Object"
+    },
+    "instructionVideo": {
+      "type": "object",
+      "$ref": "#/definitions/s3Object"
+    },
+    "audioRecordingWillStart": {
+      "type": "object",
+      "$ref": "#/definitions/s3Object"
+    },
+    "audioRecordingWillEnd": {
+      "type": "object",
+      "$ref": "#/definitions/s3Object"
+    }
+  },
+  "additionalProperties": false
+}

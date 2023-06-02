@@ -1,0 +1,41 @@
+name: Trigger Dump MongoDB database to a GCS bucket
+on:
+  workflow_dispatch:
+    inputs:
+      bucket_name:
+        description: Bucket name
+        default: hu-europe2-github-action-pr-preview-bucket
+        required: false
+        type: string
+      db_name:
+        description: Database name
+        default: pp_dev
+        required: false
+        type: string
+      project_id:
+        description: GCP project ID
+        default: hu-global-sandbox
+        required: true
+        type: string
+
+jobs:
+  dump-mongodb-db-to-bucket:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump MongoDB database to a GCS bucket
+        uses: huma-engineering/huma-github-actions/dump-mongodb-db-to-bucket@v0.3.0
+        with:
+          project_id: ${{ github.event.inputs.project_id }}
+          bucket_name: ${{ github.event.inputs.bucket_name }}
+          archive_name: ${{ format('dump_hs_sandbox_{0}.gz', github.event.inputs.db_name) }}
+          db_uri: ${{ format('mongodb+srv://{0}:{1}@{2}/{3}',
+            secrets.MONGO_PRE_PROD_USER_NAME,
+            secrets.MONGO_PRE_PROD_USER_PWD,
+            secrets.MONGO_PRE_PROD_HOST,
+            github.event.inputs.db_name
+            ) }}
+          gcp_credentials: ${{ secrets.GKE_SA_KEY }}
+          vpn_username: ${{ secrets.VPN_USERNAME }}
+          vpn_password: ${{ secrets.VPN_PASSWORD }}
+          vpn_config_url: https://api.perimeter81.com/api/networks/XkBbhFGBtm/tunnels/B0XEq9DgZn/openvpn-config/download
+          vpn_check_internal_domain: hu-pre-prod-london.wjabo.gcp.mongodb.net

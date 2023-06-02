@@ -1,0 +1,62 @@
+Create appointment
+---
+tags:
+  - appointment
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: user_id
+    required: true
+    type: string
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateAppointmentRequest"
+responses:
+  201:
+    description: created appointment response
+    schema:
+      $ref: "#/definitions/ObjIdResponse"
+
+definitions:
+  BaseAppointmentRequest:
+    type: object
+    properties:
+      userId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      startDateTime:
+        type: string
+        format: date-time
+      endDateTime:
+        type: string
+        format: date-time
+      noteId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+  CreateAppointmentRequest:
+    allOf:
+      - $ref: "#/definitions/BaseAppointmentRequest"
+      - required:
+          - userId
+          - startDateTime
+  Appointment:
+    allOf:
+      - $ref: "#/definitions/CreateAppointmentRequest"
+      - properties:
+          id:
+            type: string
+          createDateTime:
+            type: string
+            format: date-time
+          updateDateTime:
+            type: string
+            format: date-time
+          keyActionId:
+            type: string
+            example: "5e84b0dab8dfa268b1180666"

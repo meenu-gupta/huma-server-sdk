@@ -1,0 +1,14 @@
+name: HUMA Changelog Update
+description: Auto update changelog based on GH merged PRs
+runs:
+  using: docker
+  image: Dockerfile
+inputs:
+  version:
+    description: "Package version"
+    default: ""
+    required: true
+  release:
+    description: "Release JSON"
+    default: ""
+    required: true

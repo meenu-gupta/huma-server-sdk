@@ -1,0 +1,24 @@
+### Ticket(s)
+- https://medopadteam.atlassian.net/browse/xxx
+
+### Summary
+This PR ...
+
+### Checklist
+- [ ] I have unit tests
+- [ ] I have integration test
+- [ ] I have api docs and checked `0.0.0.0:3901/apidocs` works fine
+- [ ] I have api docs and verified that no errors in [Swagger Editor](https://editor.swagger.io)
+- [ ] I run *black* linter for the edited files
+- [ ] I have new error and added it to [documentation](https://humatherapeutics.atlassian.net/wiki/spaces/HUM/pages/3415932995/Backend+Error+Codes)
+
+### If you have a new module
+- [ ] I have updated the `default_modules` in `extensions/deployment/models/modules/__init__.py`
+- [ ] I have added basic test to `ModuleResultBasicsTest` in `extensions/tests/module_results/IntegrationTests/module_result_tests.py`
+- [ ] I have added API document in `extensions/module_results/router/swagger/create_module_results.yml` and `extensions/module_results/router/swagger/retrieve_module_results.yml`
+- [ ] I have imported new primitives to `extensions/module_result/models/primitives/__init__.py`
+- [ ] I have added information to [documentation](https://medopadteam.atlassian.net/wiki/spaces/HUM/pages/2151022684/Modules)
+
+### If you have a new blueprint
+- [ ] I have used `IAMBlueprint` and provided default policy for all routes.
+- [ ] I have used `@blueprint.require_policy(policy)` wherever these were needed.

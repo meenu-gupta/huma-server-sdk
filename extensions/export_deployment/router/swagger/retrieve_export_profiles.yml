@@ -1,0 +1,41 @@
+Retrieve export profile
+---
+tags:
+  - export
+
+security:
+  - Bearer: []
+
+parameters:
+  - name: body
+    in: body
+    required: true
+    schema:
+      $ref: "#/definitions/RetrieveExportProfilesRequest"
+
+responses:
+  200:
+    description: List of found profiles
+    schema:
+      $ref: '#/definitions/RetrieveExportProfilesResponse'
+
+definitions:
+  RetrieveExportProfilesRequest:
+    type: object
+    properties:
+      nameContains:
+        type: string
+      deploymentId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+      organizationId:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"
+
+  RetrieveExportProfilesResponse:
+    type: object
+    properties:
+      exportProfiles:
+        type: array
+        items:
+          $ref: "#/definitions/ExportProfile"

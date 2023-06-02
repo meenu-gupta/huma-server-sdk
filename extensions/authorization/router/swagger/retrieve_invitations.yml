@@ -1,0 +1,84 @@
+Retrieve Invitations
+---
+tags:
+  - invitation
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/RetrieveInvitationsRequest'
+responses:
+  200:
+    description: list of invitations
+    schema:
+      $ref: '#/definitions/RetrieveInvitationsResponse'
+definitions:
+  RetrieveInvitationsRequest:
+    type: object
+    required:
+      - limit
+      - skip
+      - roleType
+      - clientId
+      - projectId
+    properties:
+      email:
+        type: string
+      skip:
+        type: integer
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+      roleType:
+        type: string
+        enum: ["User", "Manager"]
+      clientId:
+        type: string
+      projectId:
+        type: string
+
+  RetrieveInvitationsResponse:
+    type: object
+    properties:
+      invitations:
+        type: array
+        items:
+          $ref: "#/definitions/Invitation"
+      skip:
+        type: integer
+      limit:
+        type: integer
+        minimum: 1
+        example: 10
+      total:
+        type: integer
+  Invitation:
+    type: object
+    properties:
+      id:
+        type: string
+      email:
+        type: string
+      organizationId:
+        type: string
+      deploymentIds:
+        type: string
+      roleId:
+        type: string
+      roleName:
+        type: string
+      expiresAt:
+        type: string
+        format: date-time
+      createDateTime:
+        type: string
+        format: date-time
+      code:
+        type: string
+      shortenedCode:
+        type: string

@@ -1,0 +1,36 @@
+{
+  "steps": [
+    {
+      "instruction": {
+        "title": "Instruction 1",
+        "description": "Description 1",
+        "image": {
+          "key": "info.png",
+          "region": "us-west-2",
+          "bucket": "bucket"
+        }
+      },
+      "recording": {
+        "maxDuration": 60
+      },
+      "note": {
+        "enabled": true
+      },
+      "tags": [
+        "t1",
+        "t2"
+      ]
+    },
+    {
+      "instruction": {
+        "title": "Instruction 2",
+        "description": "Description 2",
+        "image": {
+          "key": "info2.png",
+          "region": "us-west-2",
+          "bucket": "bucket"
+        }
+      }
+    }
+  ]
+}

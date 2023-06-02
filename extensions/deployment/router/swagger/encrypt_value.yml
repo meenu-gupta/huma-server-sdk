@@ -1,0 +1,38 @@
+Encrypting value for a specific deployment
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment to do encryption.
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/EncryptionValueRequest"
+
+responses:
+  200:
+    description: Encrypted value
+    schema:
+      $ref: '#/definitions/EncryptionValueResponse'
+
+definitions:
+  EncryptionValueRequest:
+    type: object
+    required:
+      - value
+    properties:
+      value:
+        type: string
+  EncryptionValueResponse:
+    type: object
+    properties:
+      encryptedValue:
+        type: string

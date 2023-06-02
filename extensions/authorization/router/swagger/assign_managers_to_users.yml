@@ -1,0 +1,41 @@
+Assign Managers to Users
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - name: body
+    in: body
+    description: If allUsers is set to true, userIds will be ignored and managersIds will be assigned for all of the users
+    required: true
+    schema:
+      $ref: "#/definitions/AssignManagersToUsersRequest"
+responses:
+  201:
+    description: number of updated users
+    schema:
+      $ref: "#/definitions/AssignManagersToUsersResponse"
+definitions:
+  AssignManagersToUsersRequest:
+    type: object
+    properties:
+      managerIds:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      userIds:
+        type: array
+        items:
+          type: string
+          example: "5e84b0dab8dfa268b1180536"
+      allUsers:
+        type: boolean
+        example: false
+  AssignManagersToUsersResponse:
+    type: object
+    properties:
+      assignedUsers:
+        type: integer
+        example: 10

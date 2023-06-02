@@ -1,0 +1,16 @@
+Download a file
+---
+tags:
+  - storage
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: file_id
+    required: true
+    type: string
+responses:
+  200:
+    description: File
+    schema:
+      type: file

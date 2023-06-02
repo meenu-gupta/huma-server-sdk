@@ -1,0 +1,303 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "612f153c1a297695e4506d53"
+      },
+      "roles": [
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4203"
+          },
+          "name": "Custom Role",
+          "permissions": [
+            "MANAGE_PATIENT_DATA",
+            "VIEW_PATIENT_IDENTIFIER",
+            "VIEW_PATIENT_DATA",
+            "CONTACT_PATIENT"
+          ]
+        },
+        {
+          "id": {
+            "$oid": "6009d18864a6786c2a2be181"
+          },
+          "name": "ReadOnly",
+          "permissions": ["VIEW_PATIENT_DATA"]
+        }
+      ],
+      "name": "hu_deployment_name_no_security",
+      "description": "deployment description",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781955",
+      "proxyActivationCode": "96557443",
+      "country": "United Kingdom",
+      "onboardingConfigs": [],
+      "learn": {},
+      "moduleConfigs": [],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "keyActionsEnabled": true,
+      "keyActions": [],
+      "extraCustomFields": {
+        "mediclinicNumber": {
+          "errorMessage": "Insurance Number is incorrect",
+          "validation": "\\d{7}",
+          "onboardingCollectionText": "Please enter mediclinic number",
+          "profileCollectionText": "Patient Unique ID",
+          "required": true,
+          "clinicianUpdate": true,
+          "showClinicianHeader": true,
+          "type": "TEXT",
+          "order": 2
+        }
+      },
+      "icon": {
+        "key": "deployment/612f153c1a297695e4506d53/sample.png",
+        "region": "eu",
+        "bucket": "integrationtests"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "profile": {
+        "fields": {
+          "height": true,
+          "validators": {
+            "dateOfBirth": {
+              "minISODuration": "-P100Y",
+              "maxISODuration": "-P18Y"
+            }
+          }
+        }
+      },
+      "roles": [
+        {
+          "id": {
+            "$oid": "5e8eeae1b707216625ca4203"
+          },
+          "name": "Custom Role",
+          "permissions": [
+            "MANAGE_PATIENT_DATA",
+            "VIEW_PATIENT_IDENTIFIER",
+            "VIEW_PATIENT_DATA",
+            "CONTACT_PATIENT"
+          ]
+        },
+        {
+          "id": {
+            "$oid": "6009d18864a6786c2a2be181"
+          },
+          "name": "ReadOnly",
+          "permissions": ["VIEW_PATIENT_DATA"]
+        }
+      ],
+      "name": "hu_deployment_name_with_security",
+      "description": "deployment description",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "53924416",
+      "managerActivationCode": "17781956",
+      "proxyActivationCode": "96557444",
+      "country": "United Kingdom",
+      "security": {
+        "mfaRequired": true,
+        "appLockRequired": false
+      },
+      "onboardingConfigs": [
+        {
+          "onboardingId": "IdentityVerification",
+          "status": "ENABLED",
+          "id": {
+            "$oid": "604c895da1adf357ed1fe15f"
+          },
+          "order": 3,
+          "version": 1,
+          "configBody": {}
+        },
+        {
+          "onboardingId": "Consent",
+          "status": "ENABLED",
+          "id": {
+            "$oid": "6061cbc41f37f7405c6bb923"
+          },
+          "order": 2,
+          "version": 1,
+          "userTypes": ["User", "Proxy"],
+          "configBody": {}
+        },
+        {
+          "onboardingId": "HelperAgreement",
+          "status": "ENABLED",
+          "id": {
+            "$oid": "606ea61c5d52b6ec29d02dac"
+          },
+          "order": 1,
+          "version": 1,
+          "userTypes": ["Proxy"],
+          "configBody": {}
+        },
+        {
+          "onboardingId": "PreferredUnits",
+          "status": "ENABLED",
+          "id": {
+            "$oid": "809efe5df8e24b9f63431811"
+          },
+          "order": 6,
+          "version": 1,
+          "userTypes": ["User"],
+          "configBody": {}
+        }
+      ],
+      "learn": {},
+      "moduleConfigs": [],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "consent": {
+        "id": {
+          "$oid": "5e9443789911c97c0b639374"
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586785704470"
+          }
+        },
+        "instituteName": "string",
+        "instituteFullName": "string",
+        "instituteTextDetails": "string",
+        "enabled": "ENABLED",
+        "revision": 1,
+        "review": {
+          "title": "review",
+          "details": "please review the form below, and tap agree if you are ready to continue. if you have any questions or queries, please contact us at support@medopad.com"
+        },
+        "signature": {
+          "signatureTitle": "signature",
+          "signatureDetails": "please sign using your finger in the box below",
+          "nameTitle": "medopad consent",
+          "nameDetails": "type your full name in text fields below",
+          "hasMiddleName": true
+        },
+        "sections": [
+          {
+            "type": "OVERVIEW",
+            "details": "hu_consent_sections_0_details",
+            "reviewDetails": "hu_consent_sections_0_reviewDetails"
+          },
+          {
+            "type": "DATA_PROCESSING",
+            "details": "string",
+            "reviewDetails": "string"
+          }
+        ]
+      },
+      "icon": {
+        "key": "deployment/5d386cc6ff885918d96edb2c/sample.png",
+        "region": "eu",
+        "bucket": "integrationtests"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb4a"
+      },
+      "name": "hu_deployment_name_deprecated_mfa",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "userActivationCode": "53924417",
+      "managerActivationCode": "17781957",
+      "proxyActivationCode": "96557445",
+      "moduleConfigs": [],
+      "mfaRequired": false,
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ]
+}

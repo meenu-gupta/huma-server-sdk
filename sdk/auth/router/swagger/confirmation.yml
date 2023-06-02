@@ -1,0 +1,54 @@
+Confirm email address / phone number
+---
+tags:
+  - auth
+parameters:
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/ConfirmationRequest'
+responses:
+  200:
+    description: ok
+    schema:
+      $ref: '#/definitions/ConfirmationResponse'
+definitions:
+  ConfirmationResponse:
+    type: object
+    properties:
+      ok:
+        type: boolean
+      refreshToken:
+        type: string
+      expiresIn:
+        type: integer
+        description: life-time of token in seconds
+        example: 86400
+      authToken:
+        type: string
+      authTokenExpiresIn:
+        type: integer
+        description: life-time of token in seconds
+        example: 86400
+
+  ConfirmationRequest:
+    type: object
+    required:
+      - confirmationCode
+      - clientId
+      - projectId
+    properties:
+      email:
+        type: string
+      confirmationCode:
+        type: string
+      phoneNumber:
+        type: string
+      clientId:
+        type: string
+        example: c1
+      projectId:
+        type: string
+        example: p1

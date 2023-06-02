@@ -1,0 +1,44 @@
+Update User CarePlanGroup
+---
+tags:
+  - user
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: user_id
+    type: string
+    required: true
+    description: ID of the user to be moved.
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment user belongs to.
+  - in: body
+    name: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/UpdateUserCarePlanGroupRequest'
+responses:
+  200:
+    description: Updated User ID
+    schema:
+      $ref: '#/definitions/UpdateUserCarePlanGroupResponse'
+definitions:
+  UpdateUserCarePlanGroupRequest:
+    type: object
+    required:
+      - carePlanGroupId
+    properties:
+      carePlanGroupId:
+        type: string
+      note:
+        type: string
+  UpdateUserCarePlanGroupResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        example: "5e84b0dab8dfa268b1180536"

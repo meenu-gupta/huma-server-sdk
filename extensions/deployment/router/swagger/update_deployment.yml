@@ -1,0 +1,23 @@
+Update deployment
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment to update.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/CreateDeploymentRequest'
+responses:
+  200:
+    description: Updated object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'

@@ -1,0 +1,7 @@
+{
+    "Appointment.title": "Test appointment",
+    "Appointment.body": "Test appointment body",
+    "Reminder.BloodPressure.title": "Test Blood Pressure",
+    "Reminder.BloodPressure.body": "Test BP body",
+    "SMSVerificationTemplate": "Test verification template"
+}

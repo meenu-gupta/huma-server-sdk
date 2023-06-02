@@ -1,0 +1,38 @@
+name: Nightly buckets snapshots of PPserver dev and QA
+on:
+  schedule:
+    # every weekday morning at 3:00 am
+    - cron: "0 3 * * 1-5"
+  workflow_dispatch:
+# These permissions are needed to interact with GitHub's OIDC Token endpoint.
+# permissions:
+#   id-token: write
+#   contents: read
+jobs:
+  dev_snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy hu-pp-dev-app-bucket GCS bucket contents to an existing S3 bucket
+        uses: huma-engineering/huma-github-actions/copy-gcs-bucket-contents-to-existing-s3@v0.4.0
+        with:
+          project_id: hu-pp-pre-prod
+          gcs_bucket: hu-pp-dev-app-bucket
+          gcp_credentials: ${{ secrets.PRE_PROD_SA }}
+          s3_bucket: hu-uk-sandbox-github-pr-preview-pp-dev-bucket
+          aws_access_key_id: ${{ secrets.PR_PREVIEW_AWS_HUMA_SANDBOX_IAM_USER_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.PR_PREVIEW_AWS_HUMA_SANDBOX_IAM_USER_SECRET_KEY }}
+          aws_region: eu-west-2
+
+  qa_snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Copy hu-pp-qa-app-bucket GCS bucket contents to an existing S3 bucket
+        uses: huma-engineering/huma-github-actions/copy-gcs-bucket-contents-to-existing-s3@v0.4.0
+        with:
+          project_id: hu-pp-pre-prod
+          gcs_bucket: hu-pp-qa-app-bucket
+          gcp_credentials: ${{ secrets.PRE_PROD_SA }}
+          s3_bucket: hu-uk-sandbox-github-pr-preview-pp-qa-bucket
+          aws_access_key_id: ${{ secrets.PR_PREVIEW_AWS_HUMA_SANDBOX_IAM_USER_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.PR_PREVIEW_AWS_HUMA_SANDBOX_IAM_USER_SECRET_KEY }}
+          aws_region: eu-west-2

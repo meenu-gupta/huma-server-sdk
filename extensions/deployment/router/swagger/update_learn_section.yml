@@ -1,0 +1,28 @@
+Update Learn Section
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment learn section belongs to.
+  - in: path
+    name: section_id
+    type: string
+    required: true
+    description: ID of the learn section to update.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: '#/definitions/LearnSectionCreateRequest'
+responses:
+  200:
+    description: Updated object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'

@@ -1,0 +1,24 @@
+summary: Update Deployment Template
+tags:
+  - deployment
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: template_id
+    type: string
+    required: true
+    description: ID of the template to update.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      $ref: "#/definitions/CreateDeploymentTemplateRequest"
+responses:
+  200:
+    description: Updated object ID
+    schema:
+      $ref: "#/definitions/ObjIdResponse"

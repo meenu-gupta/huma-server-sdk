@@ -1,0 +1,20 @@
+summary: Generate Master Translation
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment where multi language state should be applied.
+responses:
+  200:
+    description: Deployment's en localization data
+    schema:
+      $ref: '#/definitions/LocalizationData'
+definitions:
+  LocalizationData:
+    type: object
+    description: could be any dictionary

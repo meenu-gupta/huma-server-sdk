@@ -1,0 +1,28 @@
+summary: Update Localizations
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment localizations belongs to.
+  - name: body
+    in: body
+    description: body
+    required: true
+    schema:
+      type: object
+      additionalProperties:
+        type: object
+responses:
+  201:
+    description: Deployment object ID
+    schema:
+      $ref: '#/definitions/ObjIdResponse'
+definitions:
+  UpdateLocalizationsRequest:
+    type: object
+    description: could be any dictionary

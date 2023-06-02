@@ -1,0 +1,27 @@
+name: Pull request Ops commands help
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  help:
+    runs-on: ubuntu-latest
+    steps:
+      - name: help
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          # yamllint disable rule:line-length
+          body: |-
+            Hey!👋 It's *github-actions[bot]* speaking!
+            I can build and deploy your application, connect it to a database and object storage, and give you a preview URL.💡
+            Send me `/deploy` to deploy a preview with the "dev" environment.
+            `/deploy --force` if you want to overwrite the attached DB and storage contents
+            `/deploy pp_qa` will use the QA database backup and object storage
+            `/rebuild` command rebuilds and deploys a container only, reusing the attached DB and storage.
+              Use it to deploy your recently committed code.
+            `/run-migration` command will find migrations in the “migrations” folder and apply them if needed.
+            `/destroy` command removes a deployment and the attached DB and storage
+            You can find the documentation on [Pull request preview CI for huma-server-sdk](https://humatherapeutics.atlassian.net/l/c/6fowL0Xo) in Confluence.
+          # yamllint enable

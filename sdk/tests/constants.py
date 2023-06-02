@@ -1,0 +1,6 @@
+METHOD = 0
+PHONE_NUMBER = "+18334120079"
+EMAIL = "test@huma.com"
+CLIENT_ID = "c1"
+PROJECT_ID = "p1"
+HOST = "http://0.0.0.0:3901"

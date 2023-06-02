@@ -1,0 +1,23 @@
+Retrieve module user reminder
+---
+tags:
+  - reminder
+
+security:
+  - Bearer: []
+
+parameters:
+  - in: path
+    name: reminder_id
+    type: string
+    required: true
+    description: ID of the reminder to return.
+  - in: path
+    name: user_id
+    required: true
+    type: string
+responses:
+  200:
+    description: Reminder requested by ID
+    schema:
+      $ref: '#/definitions/ModuleUserReminder'

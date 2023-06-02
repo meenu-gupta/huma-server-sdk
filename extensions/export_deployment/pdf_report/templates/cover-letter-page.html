@@ -1,0 +1,91 @@
+<style>
+  .for-title {
+    overflow: hidden;
+    text-align: center;
+    color: #2f3033;
+    padding-bottom: 28px;
+  }
+
+  .for-title span {
+    font-family: 'VictorSerifSmooth-Regular';
+    width: 290px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 28px;
+  }
+
+  .for-title:before,
+  .for-title:after {
+    background-color: #909499;
+    content: '';
+    display: inline-block;
+    height: 1px;
+    position: relative;
+    vertical-align: text-top;
+    margin-top: 0.2em;
+  }
+
+  .for-title:before {
+    right: 10px;
+    width: 33px;
+    margin-left: -50%;
+  }
+
+  .for-title:after {
+    left: 10px;
+    width: calc(100% - 33px - 290px);
+    margin-right: -50%;
+  }
+
+  .general-section {
+    font-family: 'Noto Sans';
+    display: flex;
+    padding: 0 38px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 28px;
+    padding-bottom: 8px;
+  }
+
+  .left-section {
+    color: #6a6d72;
+    margin-right: 14px;
+    width: 95px;
+    text-align: end;
+  }
+
+  .right-section {
+    color: #2f3033;
+  }
+
+  .for-img {
+    padding: 20px 40px;
+  }
+
+  .for-img img {
+    height: 19px;
+    width: 19px;
+  }
+</style>
+<div class="container">
+  <div class="for-img">
+    <img
+        align="center"
+        class="icon"
+        height="32"
+        src="https://huma-static-assets.netlify.app/Fill_8.png"
+        style="border: 0"
+    />
+  </div>
+  <div class="for-title"><span>{{ title }}</span></div>
+
+  {% for field in fields %}
+    {% if field.value %}
+      <div class="general-section">
+        <div class="left-section">{{ field.title }}</div>
+        <div class="right-section">{{ field.value }}</div>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>

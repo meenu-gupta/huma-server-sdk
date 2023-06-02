@@ -1,0 +1,747 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "sections": [
+          {
+            "id": {
+              "$oid": "5e946c69e8002eac4a107f56"
+            },
+            "title": "Test section",
+            "order": 10,
+            "articles": [
+              {
+                "id": {
+                  "$oid": "5e8c58176207e5f78023e655"
+                },
+                "title": "article_ss three",
+                "order": 10,
+                "type": "SMALL",
+                "thumbnailUrl": {
+                  "region": "us-west-1",
+                  "key": "my.png",
+                  "bucket": "admin_bucket"
+                },
+                "content": {
+                  "type": "VIDEO",
+                  "timeToRead": "20m",
+                  "textDetails": "Here what you read",
+                  "videoUrl": {
+                    "bucket": "integrationtests",
+                    "key": "shared/5ded7cfa844317000162d5e7/logo/Screenshot_1572653613.png",
+                    "region": "cn"
+                  }
+                }
+              }
+            ],
+            "updateDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            },
+            "createDateTime": {
+              "$date": {
+                "$numberLong": "1586796185235"
+              }
+            }
+          }
+        ],
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "5e94b2007773091c9a592650"
+          },
+          "about": "string",
+          "configBody": {},
+          "moduleId": "BloodPressure",
+          "moduleName": "string",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "timesOfDay": [
+              "BEFORE_DINNER"
+            ]
+          },
+          "status": "ENABLED"
+        },
+        {
+          "id": {
+            "$oid": "5e94b2007773091c9a592650"
+          },
+          "about": "test",
+          "configBody": {
+            "pages": [],
+            "isForManager": false
+          },
+          "moduleId": "Questionnaire",
+          "moduleName": "Questionnaire",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "timesOfDay": [
+              "BEFORE_DINNER"
+            ]
+          },
+          "status": "ENABLED"
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "keyActionsEnabled": true,
+      "keyActions": [
+        {
+          "id": {
+            "$oid": "5f078582c565202bd6cb03af"
+          },
+          "title": "PAM Questionnaire",
+          "description": "You have a new activity for the DeTAP study. Please complete as soon as you are able to.",
+          "deltaFromTriggerTime": "PT0M",
+          "durationFromTrigger": "P6M",
+          "type": "MODULE",
+          "trigger": "SIGN_UP",
+          "durationIso": "P1DT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "3"
+          },
+          "moduleId": "BloodPressure",
+          "moduleConfigId": "5e94b2007773091c9a592650",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "60cf1b36a57e9f8104655274"
+      },
+      "name": "Deployment with surgery rules",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "sections": [],
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "moduleConfigs": [],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "keyActionsEnabled": true,
+      "keyActions": [],
+      "features": {
+        "surgeryDateRule": {
+          "maxPastRange": "P1W",
+          "maxFutureRange": "P1W"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "f34e74653d4e4acaf57751ec"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "moduleConfigs": [
+        {
+          "id": {
+            "$oid": "5e94b2007773091c9a592650"
+          },
+          "about": "string",
+          "configBody": {},
+          "moduleId": "BloodPressure",
+          "moduleName": "string",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "timesOfDay": [
+              "BEFORE_DINNER"
+            ]
+          },
+          "status": "ENABLED"
+        },
+        {
+          "id": {
+            "$oid": "5e94b2007773091c9a592652"
+          },
+          "about": "test",
+          "configBody": {
+            "pages": [],
+            "isForManager": false
+          },
+          "moduleId": "Questionnaire",
+          "moduleName": "Questionnaire",
+          "schedule": {
+            "isoDuration": "P1W",
+            "timesPerDuration": 1,
+            "timesOfDay": [
+              "BEFORE_DINNER"
+            ]
+          },
+          "status": "ENABLED"
+        }
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "keyActionsEnabled": true,
+      "keyActions": [
+        {
+          "id": {
+            "$oid": "47ddf098ca91f189e4c88459"
+          },
+          "title": "SURGERY negative deltaFromTriggerTime",
+          "description": "SURGERY negative deltaFromTriggerTime test description",
+          "deltaFromTriggerTime": "-P5W",
+          "durationFromTrigger": "P6M",
+          "type": "MODULE",
+          "trigger": "SURGERY",
+          "durationIso": "P1DT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "3"
+          },
+          "moduleId": "BloodPressure",
+          "moduleConfigId": "5e94b2007773091c9a592650",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        },
+        {
+          "id": {
+            "$oid": "47ddf098ca91f189e4c88457"
+          },
+          "title": "SURGERY positive deltaFromTriggerTime",
+          "description": "SURGERY positive deltaFromTriggerTime test description",
+          "deltaFromTriggerTime": "P5W",
+          "durationFromTrigger": "P6M",
+          "type": "MODULE",
+          "trigger": "SURGERY",
+          "durationIso": "P1DT9H2M",
+          "numberOfNotifications": {
+            "$numberInt": "3"
+          },
+          "moduleId": "BloodPressure",
+          "moduleConfigId": "5e94b2007773091c9a592650",
+          "updateDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          },
+          "createDateTime": {
+            "$date": {
+              "$numberLong": "1594328450732"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb1a"
+      },
+      "name": "Test care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "moduleConfigs": [],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "calendar": [
+    {
+      "_id": {
+        "$oid": "5f1ae2acdd5b79d19dce1623"
+      },
+      "_cls": "MongoCalendarEvent",
+      "model": "KeyAction",
+      "title": "PAM Questionnaire",
+      "description": "You have a new activity for the DeTAP study. Please complete as soon as you are able to.",
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "enabled": true,
+      "isRecurring": true,
+      "recurrencePattern": "DTSTART:20200625T090200\nRRULE:FREQ=DAILY;BYHOUR=9;BYMINUTE=2",
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1595597460000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1910631060000"
+        }
+      },
+      "extraFields": {
+        "moduleId": "Questionnaire",
+        "moduleConfigId": "5f1acf888f76dbfa8b03a1a3",
+        "keyActionConfigId": "5f078582c565202bd6cb03af"
+      },
+      "snoozing": [
+        "P3D",
+        "P6D"
+      ],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586422340"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586422340"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test1@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60cf1beae10b81d781bac6ab"
+      },
+      "id": "60cf1beae10b81d781bac6ab",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test33@test.com",
+      "phoneNumber": "+380999999933",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "id": "5e8f0c74b50aa9656c34789a",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999998",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test3222@test.com",
+      "phoneNumber": "+380999999997",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "28d381b2d6b432c95036fc06"
+      },
+      "id": "28d381b2d6b432c95036fc06",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test1.com",
+      "phoneNumber": "+380999999996",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test1@test.com",
+      "phoneNumber": "+380999999999",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/f34e74653d4e4acaf57751ec"
+        },
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60cf1beae10b81d781bac6ab"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test3@test.com",
+      "phoneNumber": "+380999999933",
+      "masterKey": "88888888",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/60cf1b36a57e9f8104655274"
+        },
+        {
+          "roleId": "Admin",
+          "resource": "deployment/60cf1b36a57e9f8104655274"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test2@test.com",
+      "phoneNumber": "+380999999998",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1624187422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1624187422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test3222@test.com",
+      "phoneNumber": "+380999999997",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb1a"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "28d381b2d6b432c95036fc06"
+      },
+      "givenName": "test1",
+      "familyName": "test1",
+      "email": "test@test1.com",
+      "phoneNumber": "+380999999996",
+      "masterKey": "888888881",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/f34e74653d4e4acaf57751ec"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "28d381b2d6b432c95036fc03"
+      },
+      "givenName": "test1",
+      "familyName": "test1",
+      "email": "test@test2.com",
+      "phoneNumber": "+380999999995",
+      "masterKey": "888888881",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/f34e74653d4e4acaf57751ec"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "calendarlog":[
+    {
+      "_id": {
+        "$oid": "5f50b56e7691b4367c89c948"
+      },
+      "_cls": "MongoCalendarEventLog",
+      "model": "KeyAction",
+      "parentId": {
+        "$oid": "5f1ae2acdd5b79d19dce1623"
+      },
+      "startDateTime": {
+        "$date": {
+          "$numberLong": "1597226459000"
+        }
+      },
+      "endDateTime": {
+        "$date": {
+          "$numberLong": "1597831199000"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1599124846660"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1599124846660"
+        }
+      },
+      "userId": {
+        "$oid": "5e8f0c74b50aa9656c34789a"
+      }
+    }
+  ]
+}

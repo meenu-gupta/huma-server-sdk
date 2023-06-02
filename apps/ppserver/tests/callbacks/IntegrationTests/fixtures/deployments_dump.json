@@ -1,0 +1,940 @@
+{
+  "deployment": [
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96edb2c"
+      },
+      "enforceIdentityVerification": true,
+      "name": "X",
+      "status": "DEPLOYED",
+      "color": "0x007AFF",
+      "code": "AU15",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "privacyPolicyUrl": "https://storage.googleapis.com/hu-deployment-static-content/discovernow/Huma%20App%20Privacy%20Notice%20-%20Discover%20Now.pdf",
+      "eulaUrl": "https://medopad.com/medopad_Ltd/EULA.pdf",
+      "termAndConditionUrl": "https://medopad.com/medopad_Ltd/EULA.pdf",
+      "profile": {},
+      "contactUsURL" : "https://huma.com/contact",
+      "onboardingConfigs" : [],
+      "roles": [],
+      "learn": {},
+      "moduleConfigs": [],
+      "keyActionsEnabled": true,
+      "keyActions": [],
+      "carePlanGroup": {
+        "groups": [
+          {
+            "id": "com.huma.covid19.mild",
+            "name": "Mild cases",
+            "default": true,
+            "extensionForActivationCode": "01",
+            "moduleConfigPatches": [
+              {
+                "moduleConfigId": "5f1824ba504787d8d89ebecb",
+                "changeType": "REMOVE",
+                "patch": []
+              }
+            ]
+          }
+        ]
+      },
+      "surgeryDetails": {},
+      "features": {
+        "messaging": {
+          "enabled": true,
+          "messages": ["text_message", "hu_sample_message"]
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "localizations": {
+        "en": {
+          "hu_sample_message": "Some EN translated message"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5ed8ae76cf99540b259a7315"
+      },
+      "name": "Y",
+      "status": "DEPLOYED",
+      "code": "AZ17",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "localizations": {
+        "en": {
+          "hu_obs_notes": "Observation Notes"
+        }
+      },
+      "language": "en",
+      "moduleConfigs": [],
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5d386cc6ff885918d96eab2c"
+      },
+      "name": "Unnamed care plan",
+      "status": "DRAFT",
+      "color": "0x007AFF",
+      "userActivationCode": "53924415",
+      "managerActivationCode": "17781957",
+      "moduleConfigs": [],
+      "learn": {
+        "id": {
+          "$oid": "5e8eeae1b707216625ca4202"
+        },
+        "updateDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        },
+        "createDateTime": {
+          "$date": {
+            "$numberLong": "1586433217042"
+          }
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberLong": "1586433217042"
+        }
+      }
+    }
+  ],
+  "authuser": [
+    {
+      "_id": {
+        "$oid": "5eda5e367adadfb46f7ff71f"
+      },
+      "id": "5eda5e367adadfb46f7ff71f",
+      "status": 1,
+      "emailVerified": false,
+      "email": "daksh.bhatt+13@gmail.com",
+      "displayName": "Daksh",
+      "userAttributes": {
+        "familyName": "Bhatt",
+        "givenName": "Daksh"
+      },
+      "updateDateTime": {
+        "$date": 1591369270798
+      },
+      "createDateTime": {
+        "$date": 1591369270798
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60f4d43cbfedd39143165859"
+      },
+      "id": "60f4d43cbfedd39143165859",
+      "status": 1,
+      "emailVerified": true,
+      "email": "service.account@serviceaccount.huma.com",
+      "mfaEnabled": false,
+      "authKeys": [
+        {
+          "authKey": "8699dae334453b9f13bba7be2445c54848a18f0e04f7fdce7e9abb0e00ac88e5",
+          "authIdentifier": "2c153da944cd873b0a74121a",
+          "active": true,
+          "authType": 0
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684412"
+      },
+      "id": "5ed803dd5f2f99da73684412",
+      "status": 1,
+      "phoneNumber": "+441347722095",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "hey",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "MALE"
+      },
+      "updateDateTime": {
+        "$date": 1591215069319
+      },
+      "createDateTime": {
+        "$date": 1591215069319
+      }
+    },
+    {
+      "_id": {
+        "$oid": "601919b5c03550c421c075eb"
+      },
+      "id": "601919b5c03550c421c075eb",
+      "status": 1,
+      "emailVerified": false,
+      "email": "thomas.moussajee543+testdev4@huma.com",
+      "userAttributes": {
+        "familyName": "M",
+        "givenName": "T"
+      },
+      "updateDateTime": {
+        "$date": 1591369393218
+      },
+      "createDateTime": {
+        "$date": 1591369393218
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "id": "5e8f0c74b50aa9656c34789b",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "displayName": "test",
+      "password": "$2b$12$hsS8Gi113IXUxe2Cw2Yc4.mFNcGaFeZJSWjP2IKAIxeFQwkYngDsu",
+      "previousPasswords": ["$2b$12$JoyWB6XiHG4KC6ZWyy6JcZ38x06lKQX9OpxySn/plLLtsudAJcO"],
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "id": "5e8f0c74b50aa9656c34789d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999555",
+      "displayName": "manager",
+      "userAttributes": {
+        "familyName": "manager",
+        "givenName": "manager",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602ce48712b129679a501570"
+      },
+      "id": "602ce48712b129679a501570",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "SuperAdmin@manager.com",
+      "phoneNumber": "+380999999544",
+      "displayName": "SuperAdmin",
+      "userAttributes": {
+        "familyName": "SuperAdmin",
+        "givenName": "SuperAdmin",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "id": "5e8f0c74b50aa9656c34789c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "user@user.com",
+      "phoneNumber": "+380999999955",
+      "displayName": "user",
+      "userAttributes": {
+        "familyName": "user",
+        "givenName": "user",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34788d"
+      },
+      "id": "5e8f0c74b50aa9656c34788d",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "manager2",
+      "userAttributes": {
+        "familyName": "manager2",
+        "givenName": "manager2",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "manager2@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999995555",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "60071f359e7e44330f732037"
+      },
+      "id": "60071f359e7e44330f732037",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "contributor",
+      "userAttributes": {
+        "familyName": "contributor",
+        "givenName": "contributor",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "contributor@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999993452",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "600720843111683010a73b4e"
+      },
+      "id": "600720843111683010a73b4e",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "custom",
+      "userAttributes": {
+        "familyName": "custom",
+        "givenName": "custom",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "custom@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999923452",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6009d2409b0e1f2eab20bbb3"
+      },
+      "id": "6009d2409b0e1f2eab20bbb3",
+      "status": {
+        "$numberInt": "1"
+      },
+      "displayName": "custom2",
+      "userAttributes": {
+        "familyName": "custom2",
+        "givenName": "custom2",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "email": "custom2@manager.com",
+      "emailVerified": true,
+      "phoneNumber": "+380999920452",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789e"
+      },
+      "id": "5e8f0c74b50aa9656c34789e",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test2@test2.com",
+      "phoneNumber": "+380999999944",
+      "displayName": "test2",
+      "userAttributes": {
+        "familyName": "test2",
+        "givenName": "test2",
+        "dob": "1988-02-22",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556171c"
+      },
+      "id": "602fa576c06fe59e3556171c",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "custom3@manager.com",
+      "phoneNumber": "+380999920421",
+      "displayName": "custom3",
+      "userAttributes": {
+        "familyName": "custom3",
+        "givenName": "custom3",
+        "dob": "1988-02-22",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556142a"
+      },
+      "id": "602fa576c06fe59e3556142a",
+      "email": "call@center.com",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "displayName": "call",
+      "userAttributes": {
+        "familyName": "Center",
+        "givenName": "Call",
+        "dob": "1988-02-22",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "606eba3a2c94383d620b52ad"
+      },
+      "id": "606eba3a2c94383d620b52ad",
+      "status": {
+        "$numberInt": "1"
+      },
+      "emailVerified": true,
+      "email": "test+user+proxy@test.com",
+      "displayName": "test",
+      "userAttributes": {
+        "familyName": "test",
+        "givenName": "test",
+        "dob": "1988-02-20",
+        "gender": "Male"
+      },
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ],
+  "user": [
+    {
+      "_id": {
+        "$oid": "5eda5e367adadfb46f7ff71f"
+      },
+      "enrollmentId": 2,
+      "updateDateTime": {
+        "$date": 1591369270804
+      },
+      "createDateTime": {
+        "$date": 1591369270804
+      },
+      "givenName": "Daksh",
+      "familyName": "Bhatt",
+      "email": "daksh.bhatt+13@gmail.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "60f4d43cbfedd39143165859"
+      },
+      "updateDateTime": {
+        "$date": "2021-07-19T01:24:12.430Z"
+      },
+      "createDateTime": {
+        "$date": "2021-07-19T01:24:12.430Z"
+      },
+      "email": "service.account@serviceaccount.huma.com",
+      "timezone": "UTC",
+      "roles": [
+        {
+          "roleId": "Exporter",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "ServiceAccount"
+        }
+      ]
+    },
+    {
+      "_id": {
+        "$oid": "5ed803dd5f2f99da73684412"
+      },
+      "updateDateTime": {
+        "$date": 1591215069321
+      },
+      "createDateTime": {
+        "$date": 1591215069321
+      },
+      "givenName": "test",
+      "familyName": "hey",
+      "gender": "MALE",
+      "phoneNumber": "+441347722095",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/*",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "601919b5c03550c421c075eb"
+      },
+      "enrollmentId": 1,
+      "updateDateTime": {
+        "$date": 1591396854605
+      },
+      "createDateTime": {
+        "$date": 1591369393225
+      },
+      "givenName": "Thomas",
+      "familyName": "M",
+      "email": "thomas.moussajee543+testdev4@huma.com",
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5ed8ae76cf99540b259a7315",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC",
+      "height": 20,
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "verificationStatus": 1
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test@test.com",
+      "phoneNumber": "+380999999999",
+      "nhsId": "nhs_id",
+      "dateOfBirth": "1988-02-20",
+      "verificationStatus": 1,
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC",
+      "carePlanGroupId": "com.huma.covid19.mild",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "recentModuleResults": {
+        "5f1824ba504787d8d89ebeca": [
+          {
+            "Weight": {
+              "id": "5ff4b14e0b3791bf7278d9c6",
+              "userId": {
+                "$oid": "5e8f0c74b50aa9656c34789b"
+              },
+              "moduleId": "Weight",
+              "moduleConfigId": "5f1824ba504787d8d89ebeca",
+              "deploymentId": {
+                "$oid": "5d386cc6ff885918d96edb2c"
+              },
+              "version": 0,
+              "deviceName": "iOS",
+              "isAggregated": false,
+              "startDateTime": {
+                "$date": "2021-01-05T18:34:54.000Z"
+              },
+              "createDateTime": {
+                "$date": "2021-01-05T18:34:54.658Z"
+              },
+              "submitterId": {
+                "$oid": "5f914cb28ee0158d37d2cf9c"
+              },
+              "value": 1000
+            }
+          }
+        ]
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789c"
+      },
+      "givenName": "user",
+      "familyName": "user",
+      "email": "user@user.com",
+      "phoneNumber": "+380999999955",
+      "nhsId": "nhs_id",
+      "dateOfBirth": "1988-02-20",
+      "verificationStatus": 1,
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "tagsAuthorId": {
+        "$oid": "5e8f0c74b50aa9656c34789b"
+      },
+      "timezone": "UTC",
+      "carePlanGroupId": "include_invalid_module_config_id",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "surgeryDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789e"
+      },
+      "givenName": "test2",
+      "familyName": "test2",
+      "email": "test2@test2.com",
+      "phoneNumber": "+380999999944",
+      "nhsId": "nhs_id",
+      "dateOfBirth": "1988-02-20",
+      "verificationStatus": 1,
+      "roles": [
+        {
+          "roleId": "User",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "User"
+        }
+      ],
+      "timezone": "UTC",
+      "carePlanGroupId": "invalid_care_plan_group_id"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34789d"
+      },
+      "givenName": "manager",
+      "familyName": "manager",
+      "email": "manager@manager.com",
+      "phoneNumber": "+380999999555",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "602ce48712b129679a501570"
+      },
+      "givenName": "SuperAdmin",
+      "familyName": "SuperAdmin",
+      "email": "SuperAdmin@manager.com",
+      "phoneNumber": "+380999999544",
+      "roles": [
+        {
+          "roleId": "SuperAdmin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "SuperAdmin"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "5e8f0c74b50aa9656c34788d"
+      },
+      "givenName": "manager2",
+      "familyName": "manager2",
+      "email": "manager2@manager.com",
+      "phoneNumber": "+380999995555",
+      "roles": [
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        },
+        {
+          "roleId": "Admin",
+          "resource": "deployment/5d386cc6ff885918d96eab2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "60071f359e7e44330f732037"
+      },
+      "givenName": "contributor",
+      "familyName": "contributor",
+      "email": "contributor@manager.com",
+      "phoneNumber": "+380999993452",
+      "roles": [
+        {
+          "roleId": "Contributor",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "600720843111683010a73b4e"
+      },
+      "givenName": "custom",
+      "familyName": "custom",
+      "email": "custom@manager.com",
+      "phoneNumber": "+380999923452",
+      "roles": [
+        {
+          "roleId": "5e8eeae1b707216625ca4202",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "6009d2409b0e1f2eab20bbb3"
+      },
+      "givenName": "custom2",
+      "familyName": "custom2",
+      "email": "custom2@manager.com",
+      "phoneNumber": "+380999920452",
+      "roles": [
+        {
+          "roleId": "6009d18864a6786c2a2be181",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556171c"
+      },
+      "givenName": "custom3",
+      "familyName": "custom3",
+      "email": "custom3@manager.com",
+      "phoneNumber": "+380999920421",
+      "roles": [
+        {
+          "roleId": "5e8eeae1b707216625ca4203",
+          "resource": "deployment/5d386cc6ff885918d96edb2c"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "602fa576c06fe59e3556142a"
+      },
+      "givenName": "Call",
+      "familyName": "Center",
+      "email": "call@center.com",
+      "roles": [
+        {
+          "roleId": "CallCenter",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Manager"
+        }
+      ],
+      "timezone": "UTC"
+    },
+    {
+      "_id": {
+        "$oid": "606eba3a2c94383d620b52ad"
+      },
+      "givenName": "test",
+      "familyName": "test",
+      "email": "test+user+proxy@test.com",
+      "roles": [
+        {
+          "roleId": "Proxy",
+          "resource": "deployment/5d386cc6ff885918d96edb2c",
+          "userType": "Proxy"
+        },
+        {
+          "roleId": "Proxy",
+          "resource": "user/5e8f0c74b50aa9656c34789b",
+          "userType": "Proxy"
+        }
+      ],
+      "timezone": "UTC",
+      "createDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      },
+      "updateDateTime": {
+        "$date": {
+          "$numberInt": "1586422340"
+        }
+      }
+    }
+  ]
+}

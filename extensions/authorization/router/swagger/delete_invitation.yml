@@ -1,0 +1,15 @@
+Delete Invitation
+---
+tags:
+  - invitation
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: invitation_id
+    type: string
+    required: true
+    description: ID of the invitation to delete.
+responses:
+  204:
+    description: Deleted

@@ -1,0 +1,22 @@
+Delete Module Config
+---
+tags:
+  - deployment
+security:
+  - Bearer: []
+parameters:
+  - in: path
+    name: deployment_id
+    type: string
+    required: true
+    description: ID of the deployment module config belongs to.
+  - in: path
+    name: key_action_id
+    type: string
+    required: true
+    description: ID of key action config to delete.
+
+responses:
+  204:
+    description: Article deleted
+
